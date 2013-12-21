@@ -5,6 +5,7 @@
 Board::Board(int width, int height):width(width), height(height){
 	CCLayer::init();
 	autorelease();
+	setTouchEnabled(true);
 
 	initBoard();
 }
