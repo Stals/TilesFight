@@ -50,7 +50,7 @@ bool GameLayer::init()
 	getHex()->setPosition(ccp(visibleSize.width/2 + 32, visibleSize.height/2 - 48));*/
 
 	Board* board = new Board(15, 15);
-	board->setPosition(ccp(32+16, 32+16));
+	board->setPosition(ccp(32+16+16, 32+16));
 	addChild(board);
 
 	return true;
