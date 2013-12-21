@@ -26,7 +26,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     pDirector->setOpenGLView(pEGLView);
 
     // Set the design resolution
-    pEGLView->setDesignResolutionSize(640, 960, kResolutionNoBorder);
+    pEGLView->setDesignResolutionSize(1024, 768, kResolutionNoBorder);
 
     CCSize frameSize = pEGLView->getFrameSize();
     
@@ -45,11 +45,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     pDirector->runWithScene(pScene);
-
-	/*preloadSounds();
-	CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("background.mp3", true);
-	CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(0.3f);
-	CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.2f);*/
     return true;
 }
 

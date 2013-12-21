@@ -16,4 +16,6 @@ public:
 private:
 	// implement the "static node()" method manually
     CREATE_FUNC(GameLayer);
+
+	CCSprite* getHex();
 };

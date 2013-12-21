@@ -22,5 +22,5 @@ MemSize=20485760
 
 {OS=WINDOWS} 
 [S3E]
-WinWidth=480
-WinHeight=800 
+WinWidth=1024
+WinHeight=768 

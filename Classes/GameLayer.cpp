@@ -36,9 +36,16 @@ bool GameLayer::init()
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
-	
 	setTouchEnabled(true);
-    //scheduleUpdate();
+
+	getHex()->setPosition(ccp(visibleSize.width/2, visibleSize.height/2));
+	getHex()->setPosition(ccp(visibleSize.width/2 + 64, visibleSize.height/2));
+	getHex()->setPosition(ccp(visibleSize.width/2 - 64, visibleSize.height/2));
+
+	getHex()->setPosition(ccp(visibleSize.width/2 - 32, visibleSize.height/2 + 48));
+	getHex()->setPosition(ccp(visibleSize.width/2 + 32, visibleSize.height/2 + 48));
+	getHex()->setPosition(ccp(visibleSize.width/2 - 32, visibleSize.height/2 - 48));
+	getHex()->setPosition(ccp(visibleSize.width/2 + 32, visibleSize.height/2 - 48));
 
 	return true;
 }
@@ -47,3 +54,12 @@ bool GameLayer::init()
 void GameLayer::update(float delta )
 {
 }*/
+
+CCSprite* GameLayer::getHex()
+{
+	CCSprite* hex = CCSprite::create("image/hex.png");
+	hex->setColor(ccc3(25, 25, 127));
+	hex->setScale(0.25f);
+	this->addChild(hex);
+	return hex;
+}
