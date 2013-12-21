@@ -1,5 +1,6 @@
 #include "GameLayer.h"
 #include "Hexagon.h"
+#include "Board.h"
 
 USING_NS_CC;
 
@@ -38,7 +39,7 @@ bool GameLayer::init()
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
 	setTouchEnabled(true);
-
+/*
 	getHex()->setPosition(ccp(visibleSize.width/2, visibleSize.height/2));
 	getHex()->setPosition(ccp(visibleSize.width/2 + 64, visibleSize.height/2));
 	getHex()->setPosition(ccp(visibleSize.width/2 - 64, visibleSize.height/2));
@@ -46,7 +47,11 @@ bool GameLayer::init()
 	getHex()->setPosition(ccp(visibleSize.width/2 - 32, visibleSize.height/2 + 48));
 	getHex()->setPosition(ccp(visibleSize.width/2 + 32, visibleSize.height/2 + 48));
 	getHex()->setPosition(ccp(visibleSize.width/2 - 32, visibleSize.height/2 - 48));
-	getHex()->setPosition(ccp(visibleSize.width/2 + 32, visibleSize.height/2 - 48));
+	getHex()->setPosition(ccp(visibleSize.width/2 + 32, visibleSize.height/2 - 48));*/
+
+	Board* board = new Board(15, 15);
+	board->setPosition(ccp(32+16, 32+16));
+	addChild(board);
 
 	return true;
 }

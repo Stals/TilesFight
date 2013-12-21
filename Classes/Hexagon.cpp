@@ -2,7 +2,7 @@
 
 Hexagon::Hexagon(){
 	initWithFile("image/hex.png");
-	setColor(hexGreen);
+	setColor(hexGray);
 	
 	autorelease();
 }
