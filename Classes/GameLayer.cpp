@@ -1,4 +1,5 @@
 #include "GameLayer.h"
+#include "Hexagon.h"
 
 USING_NS_CC;
 
@@ -57,8 +58,7 @@ void GameLayer::update(float delta )
 
 CCSprite* GameLayer::getHex()
 {
-	CCSprite* hex = CCSprite::create("image/hex.png");
-	hex->setColor(ccc3(25, 127, 25));
+	Hexagon* hex = new Hexagon;
 	hex->setScale(0.25f);
 	this->addChild(hex);
 	return hex;
