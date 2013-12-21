@@ -39,18 +39,9 @@ bool GameLayer::init()
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
 	setTouchEnabled(true);
-/*
-	getHex()->setPosition(ccp(visibleSize.width/2, visibleSize.height/2));
-	getHex()->setPosition(ccp(visibleSize.width/2 + 64, visibleSize.height/2));
-	getHex()->setPosition(ccp(visibleSize.width/2 - 64, visibleSize.height/2));
-
-	getHex()->setPosition(ccp(visibleSize.width/2 - 32, visibleSize.height/2 + 48));
-	getHex()->setPosition(ccp(visibleSize.width/2 + 32, visibleSize.height/2 + 48));
-	getHex()->setPosition(ccp(visibleSize.width/2 - 32, visibleSize.height/2 - 48));
-	getHex()->setPosition(ccp(visibleSize.width/2 + 32, visibleSize.height/2 - 48));*/
 
 	Board* board = new Board(15, 15);
-	board->setPosition(ccp(32+16+16, 32+16));
+	board->setPosition(ccp(64, 48));
 	addChild(board);
 
 	return true;
@@ -61,10 +52,3 @@ void GameLayer::update(float delta )
 {
 }*/
 
-CCSprite* GameLayer::getHex()
-{
-	Hexagon* hex = new Hexagon;
-	hex->setScale(0.25f);
-	this->addChild(hex);
-	return hex;
-}
