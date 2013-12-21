@@ -58,7 +58,7 @@ void GameLayer::update(float delta )
 CCSprite* GameLayer::getHex()
 {
 	CCSprite* hex = CCSprite::create("image/hex.png");
-	hex->setColor(ccc3(25, 25, 127));
+	hex->setColor(ccc3(25, 127, 25));
 	hex->setScale(0.25f);
 	this->addChild(hex);
 	return hex;
