@@ -12,7 +12,8 @@ Board::Board(int width, int height):width(width), height(height){
 void Board::initBoard()
 {
 	for(int y = 0; y < height; ++y){
-		for(int x = 0; x < width; ++x){
+		const int w = (y%2) == 0 ? width :width - 1; 
+		for(int x = 0; x < w; ++x){
 			Hexagon* hex = new Hexagon;
 			hex->setScale(0.25f);
 			this->addChild(hex);
