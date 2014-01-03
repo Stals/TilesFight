@@ -34,12 +34,9 @@ void Hexagon::ccTouchEnded(CCTouch* touch, CCEvent* event){
 	//}
 }
 
+
 bool Hexagon::containsTouchLocation(cocos2d::CCTouch *touch) {
-	CCPoint point = touch->getLocation();
-	point.x -= 64;
-	point.y -= 48;
-	//touch->
-	return rect().containsPoint(point/*this->convertTouchToNodeSpaceAR(touch)*/);
+	return rect().containsPoint(getParent()->convertTouchToNodeSpace(touch));
 }
 
 CCRect Hexagon::rect() {
