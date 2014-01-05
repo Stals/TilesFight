@@ -47,7 +47,7 @@ HexArray* HexArray2D::row(size_t index)
 }
 
 
-Hexagon* HexArray2D::at(int x, int y)
+Hexagon* HexArray2D::at(size_t x, size_t y)
 {
 	HexArray* arr = row(y);
 	if(!arr) return NULL;

@@ -57,7 +57,7 @@ public:
 
 	void addRow();
 	HexArray* row(size_t index);
-	Hexagon* at(int x, int y);
+	Hexagon* at(size_t x, size_t y);
 	// ¬озвращает hexagon в сторону от переданных координат
 	// Note: ћожно проитерировать по Hex со всех сторон [for(HexSide side = 0; side < HexSidesCount; ++side)]
 	Hexagon* sideHexAt(HexSide side, size_t x, size_t y);
