@@ -1,6 +1,6 @@
 #include "Board.h"
 
-//#define HEX_SIZE 64.f
+#define HEX_SIZE 64.f
 
 Board::Board(int width, int height):width(width), height(height){
 	CCLayer::init();
@@ -16,7 +16,7 @@ void Board::initBoard()
 		const int w = (y%2) == 0 ? width :width - 1; 
 		for(int x = 0; x < w; ++x){
 			Hexagon* hex = new Hexagon;
-			hex->setScale(0.25f);
+			hex->setScale(HEX_SIZE / hex->getContentSize().width);
 			this->addChild(hex);
 		
 			if((y % 2) == 0){
