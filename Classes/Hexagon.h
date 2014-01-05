@@ -2,6 +2,16 @@
 
 #include "Constants.h"
 
+enum HexSide{
+	HexTopLeft,
+	HexTopRight,
+	HexLeft,
+	HexRight,
+	HexBottomLeft,
+	HexBottomRight,
+	HexSidesCount
+};
+
 class Hexagon : public CCSprite, public cocos2d::CCTargetedTouchDelegate{
 public:
 	Hexagon();

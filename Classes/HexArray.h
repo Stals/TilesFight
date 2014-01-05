@@ -3,16 +3,8 @@
 
 #include "Hexagon.h"
 
-enum HexSide{
-	HexTopLeft,
-	HexTopRight,
-	HexLeft,
-	HexRight,
-	HexBottomLeft,
-	HexBottomRight,
-	HexSidesCount
-};
 
+// Note: at функции будут возвращать NULL если по этим индексам ничего нет
 class HexArray{
 public:
 	Hexagon* at(size_t index);
