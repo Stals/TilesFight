@@ -1,6 +1,11 @@
 #include "HexArray.h"
 
 
+size_t HexArray::size()
+{
+	return row.size();
+}
+
 Hexagon* HexArray::at(size_t index)
 {
 	if(index < row.size()){
@@ -10,13 +15,27 @@ Hexagon* HexArray::at(size_t index)
 	}
 }
 
-
 void HexArray::push_back(Hexagon* hex)
 {
 	row.push_back(hex);
 }
 
 // -----------------------------------------------------------------
+
+HexArray2D::~HexArray2D()
+{
+	while(!hexagons.empty()) delete hexagons.back(), hexagons.pop_back();
+}
+
+size_t HexArray2D::size()
+{
+	return hexagons.size();
+}
+
+void HexArray2D::addRow()
+{
+	hexagons.push_back(new  HexArray);
+}
 
 HexArray* HexArray2D::row(size_t index)
 {
