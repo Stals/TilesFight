@@ -2,6 +2,7 @@
 
 #include "Constants.h"
 #include "Hexagon.h"
+#include "HexArray.h"
 
 
 class Board : public CCLayer{
@@ -10,8 +11,22 @@ public:
 
 private:
 	int width, height;
-	std::vector<std::vector< Hexagon* > > hexagons;
+	HexArray2D hexArray2D;
 
 	void initBoard();
 };
 
+// TODO
+/*
+	Может хранение и доступ вынести еще?
+	я думаю да, тогда при добавлении будет изи. но внутри там будет замес происходить =)
+	Как назвать, как хранить?
+
+	Создать я думаю создавать сразу через N типо сколько в строке?
+	Хотя нет.
+	Просто смотря на количество строк он будет с правильным смещением уже добавлять?
+	тогда мне нужно зарание знать?
+	Либо там было как зранить без смещений? я не уверен
+
+	HexArray
+*/
