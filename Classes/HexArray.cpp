@@ -58,13 +58,31 @@ Hexagon* HexArray2D::at(size_t x, size_t y)
 
 Hexagon* HexArray2D::sideHexAt(HexSide side, size_t x, size_t y)
 {
+	bool even = (y % 2) == 0;
+
 	switch(side){
-		case HexTopLeft: y-=1; break;
-		case HexTopRight: x+=1; y-=1; break;
-		case HexLeft: x-=1; break;
-		case HexRight: x+=1; break;
-		case HexBottomLeft: y+=1; break;
-		case HexBottomRight: x+=1; y+=1; break;
+		case HexTopLeft:
+			if(even){x-=1;} 
+			y-=1;
+			break;
+		case HexTopRight: 
+			if(!even){x+=1;} 
+			y-=1;
+			break;
+		case HexLeft: 
+			x-=1; 
+			break;
+		case HexRight: 
+			x+=1; 
+			break;
+		case HexBottomLeft: 
+			if(even){x-=1;}
+			y+=1; 
+			break;
+		case HexBottomRight:
+			if(!even){x+=1;} 
+			y+=1; 
+			break;
 	}
 
 	return at(x, y);
