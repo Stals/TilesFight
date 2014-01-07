@@ -22,4 +22,7 @@ public:
 
 private:
 	int troopsCount;
+	CCLabelTTF* troopsLabel;
+
+	void setupTroopsLabel();
 };

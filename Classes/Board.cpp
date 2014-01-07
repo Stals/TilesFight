@@ -59,6 +59,7 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 				Hexagon* hex = row->at(x);
 				if(hex->containsTouchLocation((CCTouch*)*it)){
 					hex->setColor(hexRed);
+					hex->addTroops(rand() % 100);
 					break;
 					// TODO нужно найти способ выходит и из цикла y - т.к. это лишнее
 				}			

@@ -1,8 +1,12 @@
 #include "Hexagon.h"
+#include "StringExtension.h"
 
-Hexagon::Hexagon(){
+Hexagon::Hexagon(): troopsCount(0)
+{
 	initWithFile("image/hex.png");
 	setColor(hexGray);
+
+	setupTroopsLabel();
 	
 	autorelease();
 }
@@ -16,7 +20,17 @@ void Hexagon::addTroops(int troops)
 {
 	// TODO вызуально показать что добавилось и зафейдить
 	troopsCount += troops;
+	troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
 }
+
+void Hexagon::setupTroopsLabel()
+{
+	troopsLabel = CCLabelTTF::create("", "fonts/GAMECUBEN.ttf", 64);
+	troopsLabel->setPosition(ccp((getTextureRect().size.width) * getScaleX() / 2, (getTextureRect().size.height) * getScaleY() / 2));
+
+	this->addChild(troopsLabel);
+}
+
 
 bool Hexagon::containsTouchLocation(cocos2d::CCTouch *touch) {
 	CCPoint pos = getParent()->convertTouchToNodeSpace(touch);
