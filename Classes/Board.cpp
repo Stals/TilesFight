@@ -68,19 +68,30 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 	}
 }
 
+/*
+	TODO тутже нужно будет делать хитрые штуки с touch moved с понимаением что он уже выделил - либо тупо делать им setSelected()
+	а потом делать getSelectedHexagons() который вернет hexArray с которым € могу уже что угодно делать
+*/
+
 void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 {
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 {
+	/*for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
+		for(size_t y = 0; y < hexArray2D.size(); ++y){
+			HexArray *row = hexArray2D.row(y);
+			
+			for(size_t x = 0; x < row->size(); ++x){
+				Hexagon* hex = row->at(x);				
+				hex->setColor(hexGray);						
+			}		
+		}
+	
+	}*/
 }
 
 void Board::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 {
 }
-
-/*
-	TODO тутже нужно будет делать хитрые штуки с touch moved с понимаением что он уже выделил - либо тупо делать им setSelected()
-	а потом делать getSelectedHexagons() который вернет hexArray с которым € могу уже что угодно делать
-*/
