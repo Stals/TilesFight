@@ -12,7 +12,7 @@ enum HexSide{
 	HexSidesCount
 };
 
-class Hexagon : public CCSprite/*, public cocos2d::CCTargetedTouchDelegate*/{
+class Hexagon : public CCSprite{
 public:
 	Hexagon();
 	int getTroopsCount();
