@@ -15,9 +15,11 @@ enum HexSide{
 class Hexagon : public CCSprite/*, public cocos2d::CCTargetedTouchDelegate*/{
 public:
 	Hexagon();
-
+	int getTroopsCount();
 	bool containsTouchLocation(cocos2d::CCTouch *touch);
 
+	void addTroops(int troops);
+
 private:
-    cocos2d::CCRect rect();
+	int troopsCount;
 };
