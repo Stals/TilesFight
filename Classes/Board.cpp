@@ -31,9 +31,9 @@ void Board::initBoard()
 			this->addChild(hex);
 		}	
 	}
-
-	int x = 2;
-	int y = 1;
+	
+	/*int x = 1;
+	int y = 7;
 
 	hexArray2D.at(x,y)->setColor(hexGreen);
 
@@ -41,8 +41,46 @@ void Board::initBoard()
 	{
 		Hexagon* hex = hexArray2D.sideHexAt((HexSide)side, x, y);
 		if(hex){
-			hex->setColor(hexRed);	
+			hex->setColor(hexGreen);	
 		}
-	}
+	}*/
 
 }
+
+
+
+void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
+{
+	for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
+		for(size_t y = 0; y < hexArray2D.size(); ++y){
+			HexArray *row = hexArray2D.row(y);
+			
+			for(size_t x = 0; x < row->size(); ++x){
+				Hexagon* hex = row->at(x);
+				if(hex->containsTouchLocation((CCTouch*)*it)){
+					hex->setColor(hexRed);
+					break;
+					// TODO нужно найти способ выходит и из цикла y - т.к. это лишнее
+				}			
+			}		
+		}
+	
+	}
+}
+
+void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
+{
+}
+
+void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
+{
+}
+
+void Board::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
+{
+}
+
+/*
+	TODO тутже нужно будет делать хитрые штуки с touch moved с понимаением что он уже выделил - либо тупо делать им setSelected()
+	а потом делать getSelectedHexagons() который вернет hexArray с которым я могу уже что угодно делать
+*/
