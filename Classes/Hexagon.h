@@ -24,10 +24,14 @@ public:
 	Player* getOwner();
 	void setOwner(Player* owner);
 
+	void setSelected(bool selected);
+	void toggleSelected();
+
 private:
 	Player* owner;
-
 	int troopsCount;
+	bool isSelected;
+
 	CCLabelTTF* troopsLabel;
 
 	void setupTroopsLabel();

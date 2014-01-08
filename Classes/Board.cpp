@@ -68,8 +68,9 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 			for(size_t x = 0; x < row->size(); ++x){
 				Hexagon* hex = row->at(x);
 				if(hex->containsTouchLocation((CCTouch*)*it)){
-					hex->setColor(hexRed);
-					hex->addTroops(rand() % 100);
+					hex->toggleSelected();
+					/*hex->setColor(hexRed);
+					hex->addTroops(rand() % 100);*/
 					break;
 					// TODO нужно найти способ выходит и из цикла y - т.к. это лишнее
 				}			
@@ -86,6 +87,9 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 
 void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 {
+	/*
+		TODO из пердведущей точки получить owner'a и его какраз и замутить
+	*/
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)

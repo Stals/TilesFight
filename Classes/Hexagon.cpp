@@ -1,10 +1,10 @@
 #include "Hexagon.h"
 #include "StringExtension.h"
 
-Hexagon::Hexagon(): owner(0), troopsCount(0)
+Hexagon::Hexagon(): owner(0), troopsCount(0), isSelected(false)
 {
 	initWithFile("image/hex.png");
-	setColor(hexGray);
+	setColor(hexDefault);
 
 	setupTroopsLabel();
 	
@@ -32,6 +32,26 @@ void Hexagon::setOwner(Player* owner)
 {
 	this->owner = owner;
 	setColor(owner->getColor());
+}
+
+void Hexagon::setSelected(bool selected)
+{
+	this->isSelected = selected;
+
+	if(selected){
+		setColor(hexWhite);
+	}else{
+		if(owner){
+			setColor(owner->getColor());
+		}else{
+			setColor(hexDefault);
+		}
+	}
+}
+
+void Hexagon::toggleSelected()
+{
+	setSelected(!isSelected);
 }
 
 void Hexagon::setupTroopsLabel()
