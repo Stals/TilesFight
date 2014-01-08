@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Constants.h"
+#include "Player.h"
 
 enum HexSide{
 	HexTopLeft,
@@ -20,7 +21,12 @@ public:
 
 	void addTroops(int troops);
 
+	Player* getOwner();
+	void setOwner(Player* owner);
+
 private:
+	Player* owner;
+
 	int troopsCount;
 	CCLabelTTF* troopsLabel;
 

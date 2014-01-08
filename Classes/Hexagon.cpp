@@ -1,7 +1,7 @@
 #include "Hexagon.h"
 #include "StringExtension.h"
 
-Hexagon::Hexagon(): troopsCount(0)
+Hexagon::Hexagon(): owner(0), troopsCount(0)
 {
 	initWithFile("image/hex.png");
 	setColor(hexGray);
@@ -21,6 +21,16 @@ void Hexagon::addTroops(int troops)
 	// TODO вызуально показать что добавилось и зафейдить
 	troopsCount += troops;
 	troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
+}
+
+Player* Hexagon::getOwner()
+{
+	return owner;
+}
+
+void Hexagon::setOwner(Player* owner)
+{
+	this->owner = owner;
 }
 
 void Hexagon::setupTroopsLabel()
