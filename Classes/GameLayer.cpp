@@ -1,6 +1,6 @@
 #include "GameLayer.h"
 #include "Hexagon.h"
-#include "Board.h"
+
 
 USING_NS_CC;
 
@@ -39,16 +39,52 @@ bool GameLayer::init()
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
 	setTouchEnabled(true);
+	
 
-	Board* board = new Board(15, 15);
-	board->setPosition(ccp(64, 48));
-	addChild(board);
+	setupBoard();
+	setupWalls();
+	setupPlayers();
+	setupNeutrals();
 
 	return true;
 }
 
-/*
-void GameLayer::update(float delta )
+void GameLayer::setupBoard()
 {
-}*/
+	board = new Board(15, 15);
+	board->setPosition(ccp(64, 48));
+	addChild(board);
+}
 
+void GameLayer::setupWalls()
+{
+}
+
+void GameLayer::setupPlayers()
+{
+	player = new Player("Player", hexRed, false);
+	computer = new Player("AI", hexGreen, true);
+
+	createStartingArmy(player, 1, 7);
+	createStartingArmy(computer, 12, 7);
+}
+void GameLayer::createStartingArmy(Player* player, int x, int y)
+{
+	const ccColor3B playerColor = player->getColor();
+	Hexagon* centerHex = board->at(x, y);
+	centerHex->setOwner(player);
+	centerHex->addTroops(50);
+
+	for(int side = 0; side < HexSidesCount; ++side)
+	{
+		Hexagon* hex = board->sideHexAt((HexSide)side, x, y);
+		if(hex){
+			hex->setOwner(player);
+			hex->addTroops(10);
+		}
+	}
+}
+
+void GameLayer::setupNeutrals()
+{
+}

@@ -10,6 +10,16 @@ Board::Board(int width, int height):width(width), height(height){
 	initBoard();
 }
 
+Hexagon* Board::at(size_t x, size_t y)
+{
+	return hexArray2D.at(x, y);
+}
+
+Hexagon* Board::sideHexAt(HexSide side, size_t x, size_t y)
+{
+	return hexArray2D.sideHexAt(side, x, y);
+}
+
 void Board::initBoard()
 {
 	for(int y = 0; y < height; ++y){

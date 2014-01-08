@@ -9,6 +9,9 @@ class Board : public CCLayer{
 public:
 	Board(int width, int height);
 
+	Hexagon* at(size_t x, size_t y);
+	Hexagon* sideHexAt(HexSide side, size_t x, size_t y);
+
     virtual void ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);

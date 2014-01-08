@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Constants.h"
+#include "Board.h"
 
 class GameLayer : public cocos2d::CCLayer
 {
@@ -16,4 +17,16 @@ public:
 private:
 	// implement the "static node()" method manually
     CREATE_FUNC(GameLayer);
+
+	Board* board;
+	Player* player;
+	Player* computer;
+	Player* neutral;
+
+	void setupBoard();
+	void setupWalls();
+	void setupPlayers();
+	void setupNeutrals();
+
+	void createStartingArmy(Player* player, int x, int y);
 };

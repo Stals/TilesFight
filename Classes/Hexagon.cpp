@@ -31,6 +31,7 @@ Player* Hexagon::getOwner()
 void Hexagon::setOwner(Player* owner)
 {
 	this->owner = owner;
+	setColor(owner->getColor());
 }
 
 void Hexagon::setupTroopsLabel()
@@ -47,7 +48,7 @@ bool Hexagon::containsTouchLocation(cocos2d::CCTouch *touch) {
 
 	// http://www.playchilla.com/how-to-check-if-a-point-is-inside-a-hexagon
 	// там в комментариях есть пример для перевернутого тоже
-	//const double offset = 3;
+	//const double offset = 3; // - TODO им нужно менять vert и hori
 
 	const double _vert = ((getTextureRect().size.width) * getScaleX()) / 4;
 	const double _hori = ((getTextureRect().size.width) * getScaleX()) / 2;
