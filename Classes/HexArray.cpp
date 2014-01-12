@@ -87,3 +87,19 @@ Hexagon* HexArray2D::sideHexAt(HexSide side, size_t x, size_t y)
 
 	return at(x, y);
 }
+
+
+bool HexArray2D::areConnected(Hexagon* first, Hexagon* second)
+{
+	const size_t x = first->getXCoord();
+	const size_t y = first->getYCoord();
+
+	for(int side = 0; side < HexSidesCount; ++side)	{
+		Hexagon* hex = sideHexAt((HexSide)side, x, y);
+		if(hex && (second == hex)){
+			return true;
+		}
+	}
+
+	return false;
+}

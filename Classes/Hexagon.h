@@ -15,7 +15,10 @@ enum HexSide{
 
 class Hexagon : public CCSprite{
 public:
-	Hexagon();
+	Hexagon(size_t x_coord, size_t y_coord);
+	size_t getXCoord();
+	size_t getYCoord();
+
 	int getTroopsCount();
 	bool containsTouchLocation(cocos2d::CCTouch *touch);
 	bool containsTouchLocation(cocos2d::CCPoint point);
@@ -34,6 +37,10 @@ private:
 		zSelectionGlow,
 		zTroopsCount
 	};
+
+	// положение hexagon'a на board
+	size_t x_coord;
+	size_t y_coord;
 
 	Player* owner;
 	int troopsCount;

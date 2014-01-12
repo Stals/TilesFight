@@ -20,6 +20,7 @@ Hexagon* Board::sideHexAt(HexSide side, size_t x, size_t y)
 	return hexArray2D.sideHexAt(side, x, y);
 }
 
+
 void Board::initBoard()
 {
 	for(int y = 0; y < height; ++y){
@@ -27,7 +28,7 @@ void Board::initBoard()
 
 		const int w = (y%2) == 0 ? width :width - 1; 
 		for(int x = 0; x < w; ++x){
-			Hexagon* hex = new Hexagon;
+			Hexagon* hex = new Hexagon(x, y);
 			hex->setScale(HEX_SIZE / hex->getContentSize().width);
 			
 			if((y % 2) == 0){
@@ -111,6 +112,7 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 {
 	startHex->toggleSelected();
 
+	if(!hexArray2D.areConnected(startHex, endHex)) return;
 	if(startHex->getTroopsCount() <= 1) return;
 
 	// TODO добавить атаку

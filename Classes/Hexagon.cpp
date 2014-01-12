@@ -1,7 +1,7 @@
 #include "Hexagon.h"
 #include "StringExtension.h"
 
-Hexagon::Hexagon(): owner(0), troopsCount(0), isSelected(false), selection(0)
+Hexagon::Hexagon(size_t x_coord, size_t y_coord): x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), isSelected(false), selection(0)
 {
 	initWithFile("image/hex.png");
 	setColor(hexDefault);
@@ -9,6 +9,16 @@ Hexagon::Hexagon(): owner(0), troopsCount(0), isSelected(false), selection(0)
 	setupTroopsLabel();
 	
 	autorelease();
+}
+
+size_t Hexagon::getXCoord()
+{
+	return x_coord;
+}
+
+size_t Hexagon::getYCoord()
+{
+	return y_coord;
 }
 
 int Hexagon::getTroopsCount()

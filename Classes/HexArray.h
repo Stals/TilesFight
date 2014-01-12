@@ -53,8 +53,11 @@ public:
 	// ¬озвращает hexagon в сторону от переданных координат
 	// Note: ћожно проитерировать по Hex со всех сторон [for(HexSide side = 0; side < HexSidesCount; ++side)]
 	Hexagon* sideHexAt(HexSide side, size_t x, size_t y);
-
+	
 	size_t size();
+
+	// return true if second is at the side of first
+	bool areConnected(Hexagon* first, Hexagon* second);
 
 private:
 	std::vector<HexArray* > hexagons;
