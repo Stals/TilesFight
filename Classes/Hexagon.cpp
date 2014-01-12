@@ -1,7 +1,7 @@
 #include "Hexagon.h"
 #include "StringExtension.h"
 
-Hexagon::Hexagon(): owner(0), troopsCount(0), isSelected(false)
+Hexagon::Hexagon(): owner(0), troopsCount(0), isSelected(false), selection(0)
 {
 	initWithFile("image/hex.png");
 	setColor(hexDefault);
@@ -42,24 +42,16 @@ void Hexagon::setOwner(Player* owner)
 
 void Hexagon::setSelected(bool selected)
 {
-	CCSprite *selection = CCSprite::create("image/hex_glow3.png");
+	if(!getOwner()) return;
 
-	selection->setPosition(ccp((getTextureRect().size.width / 2)  , (getTextureRect().size.height / 2)  ));
-	this->addChild(selection, zSelectionGlow);
-
-	/*
+	if(!selection){
+		selection = CCSprite::create("image/hex_glow3.png");
+		selection->setPosition(ccp((getTextureRect().size.width / 2)  , (getTextureRect().size.height / 2)  ));
+		this->addChild(selection, zSelectionGlow);
+	}
 
 	this->isSelected = selected;
-
-	if(selected){
-		setColor(hexWhite);
-	}else{
-		if(owner){
-			setColor(owner->getColor());
-		}else{
-			setColor(hexDefault);
-		}
-	}*/
+	selection->setVisible(isSelected);
 }
 
 void Hexagon::toggleSelected()

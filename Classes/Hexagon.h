@@ -39,6 +39,8 @@ private:
 	int troopsCount;
 	bool isSelected;
 
+	CCSprite *selection;
+
 	CCLabelTTF* troopsLabel;
 
 	void setupTroopsLabel();

@@ -109,6 +109,8 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
 void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 {
+	startHex->toggleSelected();
+
 	if(startHex->getTroopsCount() <= 1) return;
 
 	// TODO добавить атаку
@@ -117,7 +119,6 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 		startHex->removeTroops(troops);
 		endHex->addTroops(troops);
 		endHex->setOwner(startHex->getOwner());
-		startHex->toggleSelected();
 	}
 }
 
