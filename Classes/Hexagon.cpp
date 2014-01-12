@@ -36,6 +36,13 @@ void Hexagon::setOwner(Player* owner)
 
 void Hexagon::setSelected(bool selected)
 {
+	CCSprite *selection = CCSprite::create("image/hex_glow3.png");
+
+	selection->setPosition(ccp((getTextureRect().size.width / 2)  , (getTextureRect().size.height / 2)  ));
+	this->addChild(selection, zSelectionGlow);
+
+	/*
+
 	this->isSelected = selected;
 
 	if(selected){
@@ -46,7 +53,7 @@ void Hexagon::setSelected(bool selected)
 		}else{
 			setColor(hexDefault);
 		}
-	}
+	}*/
 }
 
 void Hexagon::toggleSelected()
@@ -59,13 +66,21 @@ void Hexagon::setupTroopsLabel()
 	troopsLabel = CCLabelTTF::create("", "fonts/GAMECUBEN.ttf", 64);
 	troopsLabel->setPosition(ccp((getTextureRect().size.width) * getScaleX() / 2, (getTextureRect().size.height) * getScaleY() / 2));
 
-	this->addChild(troopsLabel);
+	this->addChild(troopsLabel, zTroopsCount);
 }
 
 
 bool Hexagon::containsTouchLocation(cocos2d::CCTouch *touch) {
-	CCPoint pos = getParent()->convertTouchToNodeSpace(touch);
+	return containsPoint(getParent()->convertTouchToNodeSpace(touch));
+}
 
+bool Hexagon::containsTouchLocation(cocos2d::CCPoint point)
+{
+	return containsPoint(getParent()->convertToNodeSpace(point));
+}
+
+bool Hexagon::containsPoint(cocos2d::CCPoint pos)
+{
 	// http://www.playchilla.com/how-to-check-if-a-point-is-inside-a-hexagon
 	// там в комментариях есть пример для перевернутого тоже
 	//const double offset = 3; // - TODO им нужно менять vert и hori

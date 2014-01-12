@@ -18,6 +18,7 @@ public:
 	Hexagon();
 	int getTroopsCount();
 	bool containsTouchLocation(cocos2d::CCTouch *touch);
+	bool containsTouchLocation(cocos2d::CCPoint point);
 
 	void addTroops(int troops);
 
@@ -28,6 +29,11 @@ public:
 	void toggleSelected();
 
 private:
+	enum zOrder{
+		zSelectionGlow,
+		zTroopsCount
+	};
+
 	Player* owner;
 	int troopsCount;
 	bool isSelected;
@@ -35,4 +41,6 @@ private:
 	CCLabelTTF* troopsLabel;
 
 	void setupTroopsLabel();
+
+	bool containsPoint(cocos2d::CCPoint point);
 };

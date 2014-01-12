@@ -62,15 +62,18 @@ void Board::initBoard()
 void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 {
 	for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
+		CCTouch* touch = ((CCTouch*)*it);
+
 		for(size_t y = 0; y < hexArray2D.size(); ++y){
 			HexArray *row = hexArray2D.row(y);
 			
-			for(size_t x = 0; x < row->size(); ++x){
+			for(size_t x = 0; x < row->size(); ++x){				
 				Hexagon* hex = row->at(x);
-				if(hex->containsTouchLocation((CCTouch*)*it)){
+
+				if(hex->containsTouchLocation(touch)){
 					hex->toggleSelected();
-					/*hex->setColor(hexRed);
-					hex->addTroops(rand() % 100);*/
+					hex->setColor(hexRed);
+					hex->addTroops(rand() % 100);
 					break;
 					// TODO нужно найти способ выходит и из цикла y - т.к. это лишнее
 				}			
@@ -94,17 +97,38 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 {
-	/*for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
-		for(size_t y = 0; y < hexArray2D.size(); ++y){
-			HexArray *row = hexArray2D.row(y);
-			
-			for(size_t x = 0; x < row->size(); ++x){
-				Hexagon* hex = row->at(x);				
-				hex->setColor(hexGray);						
-			}		
-		}
+	for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
+		CCTouch* touch = ((CCTouch*)*it);
+		Hexagon* startHex = 0;
+		Hexagon* endHex = 0;
+
+		getStartEndHex(touch, startHex, endHex);
 	
-	}*/
+		//if(startHex != endHex){
+			startHex->setColor(hexWhite);
+			endHex->setColor(hexBlue);
+		//}
+	}
+}
+
+void Board::getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex)
+{
+	for(size_t y = 0; y < hexArray2D.size(); ++y){
+		HexArray *row = hexArray2D.row(y);
+			
+		for(size_t x = 0; x < row->size(); ++x){
+			Hexagon* hex = row->at(x);	
+			if(hex->containsTouchLocation(touch->getStartLocation())){
+				startHex = hex;
+				if(startHex && endHex) return;
+			}
+			// Note: не else if - так как он может быть и стартом и концом
+			if(hex->containsTouchLocation(touch->getLocation())){
+				endHex = hex;
+				if(startHex && endHex) return;
+			}				
+		}			
+	}
 }
 
 void Board::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)

@@ -21,6 +21,8 @@ private:
 	HexArray2D hexArray2D;
 
 	void initBoard();
+
+	void getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex);
 };
 
 // TODO
