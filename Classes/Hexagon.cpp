@@ -29,7 +29,11 @@ int Hexagon::getTroopsCount()
 void Hexagon::removeTroops(int troops)
 {
 	troopsCount -= troops;
-	troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
+	if(troopsCount > 0){
+		troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
+	}else{
+		troopsLabel->setString("");
+	}
 }
 
 void Hexagon::addTroops(int troops)
@@ -47,7 +51,13 @@ Player* Hexagon::getOwner()
 void Hexagon::setOwner(Player* owner)
 {
 	this->owner = owner;
-	setColor(owner->getColor());
+
+	// Note: это нужно если игроки ровно убились, и клетка осталась без хозяина
+	if(owner){
+		setColor(owner->getColor());
+	}else{
+		setColor(hexDefault);
+	}
 }
 
 void Hexagon::setSelected(bool selected)

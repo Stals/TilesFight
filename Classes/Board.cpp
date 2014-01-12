@@ -119,8 +119,22 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 	if(startHex != endHex){
 		const int troops = startHex->getTroopsCount() - 1;
 		startHex->removeTroops(troops);
-		endHex->addTroops(troops);
-		endHex->setOwner(startHex->getOwner());
+
+		if(endHex->getOwner() == startHex->getOwner()){
+			endHex->addTroops(troops);
+		}else{
+			if(troops == endHex->getTroopsCount()){
+				endHex->removeTroops(troops);
+				endHex->setOwner(0); // TODO NoPlayer который уже = 0?
+			}else if(troops < endHex->getTroopsCount()){
+				endHex->removeTroops(troops);			
+			}else{ // troops > endHex->getTroopsCount()
+				const int firstPlayerTroopsLeft = troops - endHex->getTroopsCount();
+				endHex->removeTroops(endHex->getTroopsCount());
+				endHex->addTroops(firstPlayerTroopsLeft);
+				endHex->setOwner(startHex->getOwner());
+			}
+		}
 	}
 }
 
