@@ -16,6 +16,12 @@ int Hexagon::getTroopsCount()
 	return troopsCount;
 }
 
+void Hexagon::removeTroops(int troops)
+{
+	troopsCount -= troops;
+	troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
+}
+
 void Hexagon::addTroops(int troops)
 {
 	// TODO вызуально показать что добавилось и зафейдить

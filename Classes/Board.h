@@ -23,6 +23,7 @@ private:
 	void initBoard();
 
 	void getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex);
+	void moveTroops(Hexagon * startHex, Hexagon* endHex);
 };
 
 // TODO

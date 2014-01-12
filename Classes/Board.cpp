@@ -72,8 +72,8 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 
 				if(hex->containsTouchLocation(touch)){
 					hex->toggleSelected();
-					hex->setColor(hexRed);
-					hex->addTroops(rand() % 100);
+					//hex->setColor(hexRed);
+					//hex->addTroops(rand() % 100);
 					break;
 					// TODO нужно найти способ выходит и из цикла y - т.к. это лишнее
 				}			
@@ -103,11 +103,21 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		Hexagon* endHex = 0;
 
 		getStartEndHex(touch, startHex, endHex);
-	
-		//if(startHex != endHex){
-			startHex->setColor(hexWhite);
-			endHex->setColor(hexBlue);
-		//}
+		moveTroops(startHex, endHex);
+	}
+}
+
+void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
+{
+	if(startHex->getTroopsCount() <= 1) return;
+
+	// TODO добавить атаку
+	if(startHex != endHex){
+		const int troops = startHex->getTroopsCount() - 1;
+		startHex->removeTroops(troops);
+		endHex->addTroops(troops);
+		endHex->setOwner(startHex->getOwner());
+		startHex->toggleSelected();
 	}
 }
 

@@ -20,6 +20,7 @@ public:
 	bool containsTouchLocation(cocos2d::CCTouch *touch);
 	bool containsTouchLocation(cocos2d::CCPoint point);
 
+	void removeTroops(int troops);
 	void addTroops(int troops);
 
 	Player* getOwner();
