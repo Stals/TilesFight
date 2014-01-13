@@ -1,7 +1,10 @@
 #include "Hexagon.h"
 #include "StringExtension.h"
+#include "TroopsGenerator.h"
 
-Hexagon::Hexagon(size_t x_coord, size_t y_coord): x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), isSelected(false), selection(0)
+Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
+	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
+	isSelected(false), selection(0), generator(0)
 {
 	initWithFile("image/hex.png");
 	setColor(hexDefault);
@@ -9,6 +12,11 @@ Hexagon::Hexagon(size_t x_coord, size_t y_coord): x_coord(x_coord), y_coord(y_co
 	setupTroopsLabel();
 	
 	autorelease();
+}
+
+Hexagon::~Hexagon()
+{
+	if(generator) delete generator;
 }
 
 size_t Hexagon::getXCoord()
@@ -77,6 +85,17 @@ void Hexagon::setSelected(bool selected)
 void Hexagon::toggleSelected()
 {
 	setSelected(!isSelected);
+}
+
+void Hexagon::setGenerator(TroopsGenerator* generator)
+{
+	this->generator = generator;
+
+	CCSprite* genIcon = generator->getIcon();
+	genIcon->setScale(0.6f);
+	genIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.4f));
+	this->addChild(genIcon, zGenIcon);
+	this->addChild(generator);
 }
 
 void Hexagon::setupTroopsLabel()

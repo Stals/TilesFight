@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "TroopsGenerator.h"
 
 #define HEX_SIZE 64.f
 
@@ -40,22 +41,13 @@ void Board::initBoard()
 
 			hexArray2D.row(y)->push_back(hex);
 			this->addChild(hex);
+
+			///
+			if(x == 5 && y == 5){
+				hex->setGenerator(new TroopsGenerator(hex, MediumGen));
+			}
 		}	
 	}
-	
-	/*int x = 1;
-	int y = 7;
-
-	hexArray2D.at(x,y)->setColor(hexGreen);
-
-	for(int side = 0; side < HexSidesCount; ++side)
-	{
-		Hexagon* hex = hexArray2D.sideHexAt((HexSide)side, x, y);
-		if(hex){
-			hex->setColor(hexGreen);	
-		}
-	}*/
-
 }
 
 

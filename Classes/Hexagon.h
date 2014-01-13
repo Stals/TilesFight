@@ -3,6 +3,8 @@
 #include "Constants.h"
 #include "Player.h"
 
+class TroopsGenerator;
+
 enum HexSide{
 	HexTopLeft,
 	HexTopRight,
@@ -16,6 +18,7 @@ enum HexSide{
 class Hexagon : public CCSprite{
 public:
 	Hexagon(size_t x_coord, size_t y_coord);
+	~Hexagon();
 	size_t getXCoord();
 	size_t getYCoord();
 
@@ -32,9 +35,12 @@ public:
 	void setSelected(bool selected);
 	void toggleSelected();
 
+	void setGenerator(TroopsGenerator* generator);
+
 private:
 	enum zOrder{
 		zSelectionGlow,
+		zGenIcon,
 		zTroopsCount
 	};
 
@@ -49,6 +55,7 @@ private:
 	CCSprite *selection;
 
 	CCLabelTTF* troopsLabel;
+	TroopsGenerator* generator;
 
 	void setupTroopsLabel();
 
