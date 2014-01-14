@@ -17,6 +17,8 @@ public:
 	
 	CCSprite* getIcon();
 
+	int getTroopsPerTick();
+
 private:
 	Hexagon* hex;
 

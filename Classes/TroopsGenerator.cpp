@@ -20,7 +20,6 @@ TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type): hex(hex), ge
 		generatorIcon = CCSprite::create("image/largeGen.png");
 		break;
 	}
-
 	this->schedule( schedule_selector(TroopsGenerator::tick), TICK_DELAY );
 }
 
@@ -32,6 +31,11 @@ TroopsGenerator::~TroopsGenerator(void)
 CCSprite* TroopsGenerator::getIcon()
 {
 	return generatorIcon;
+}
+
+int TroopsGenerator::getTroopsPerTick()
+{
+	return troopsPerTick;
 }
 
 
