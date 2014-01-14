@@ -42,10 +42,6 @@ void Board::initBoard()
 			hexArray2D.row(y)->push_back(hex);
 			this->addChild(hex);
 
-			///
-			if(x == 5 && y == 5){
-				hex->setGenerator(new TroopsGenerator(hex, MediumGen));
-			}
 		}	
 	}
 }

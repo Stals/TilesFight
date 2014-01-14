@@ -1,5 +1,6 @@
 #include "GameLayer.h"
 #include "Hexagon.h"
+#include "TroopsGenerator.h"
 
 
 USING_NS_CC;
@@ -75,12 +76,15 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 	centerHex->setOwner(player);
 	centerHex->addTroops(50);
 
+	centerHex->setGenerator(new TroopsGenerator(centerHex, LargeGen));
+
 	for(int side = 0; side < HexSidesCount; ++side)
 	{
 		Hexagon* hex = board->sideHexAt((HexSide)side, x, y);
 		if(hex){
 			hex->setOwner(player);
 			hex->addTroops(10);
+			hex->setGenerator(new TroopsGenerator(hex, SmallGen));
 		}
 	}
 }
