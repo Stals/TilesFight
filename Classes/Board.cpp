@@ -58,6 +58,7 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 			
 			for(size_t x = 0; x < row->size(); ++x){				
 				Hexagon* hex = row->at(x);
+				if(hex->getOwner() && hex->getOwner()->isAI()) continue;
 
 				if(hex->containsTouchLocation(touch)){
 					hex->toggleSelected();
@@ -92,6 +93,8 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		Hexagon* endHex = 0;
 
 		getStartEndHex(touch, startHex, endHex);
+		if(startHex->getOwner() && startHex->getOwner()->isAI()) continue;
+
 		moveTroops(startHex, endHex);
 	}
 }

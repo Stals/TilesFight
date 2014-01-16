@@ -7,7 +7,7 @@ Player::Player(const std::string &name, const ccColor3B& color, bool ai):
 
 Player* Player::createNeutral()
 {
-	Player* player = new Player("neutral", hexDefault, false);
+	Player* player = new Player("neutral", hexDefault, true);
 	player->neutral = true;
 	return player;
 }
