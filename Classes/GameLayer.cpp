@@ -7,6 +7,10 @@ USING_NS_CC;
 
 
 GameLayer::~GameLayer(){
+	while(!neutrals.empty()) {
+		delete neutrals.back();
+		neutrals.pop_back();
+	}
 }
 
 
@@ -91,4 +95,9 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 
 void GameLayer::setupNeutrals()
 {
+	Player* neutral = Player::createNeutral();
+	neutrals.push_back(neutral);
+
+	createStartingArmy(neutral, 6, 4);
+	createStartingArmy(neutral, 7, 10);
 }

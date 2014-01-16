@@ -41,7 +41,7 @@ int TroopsGenerator::getTroopsPerTick()
 
 void TroopsGenerator::tick(float dt)
 {
-	if(hex->getOwner()){
+	if(hex->getOwner() && (!hex->getOwner()->isNeutral())){
 		hex->addTroops(troopsPerTick);
 	}
 }

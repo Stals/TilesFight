@@ -1,8 +1,15 @@
 #include "Player.h"
 
 Player::Player(const std::string &name, const ccColor3B& color, bool ai): 
-	name(name), color(color), ai(ai)
+	name(name), color(color), ai(ai), neutral(false)
 {
+}
+
+Player* Player::createNeutral()
+{
+	Player* player = new Player("neutral", hexDefault, false);
+	player->neutral = true;
+	return player;
 }
 
 std::string Player::getName()
@@ -18,4 +25,9 @@ bool Player::isAI()
 ccColor3B Player::getColor()
 {
 	return color;
+}
+
+bool Player::isNeutral()
+{
+	return neutral;
 }

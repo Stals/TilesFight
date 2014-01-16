@@ -21,7 +21,7 @@ private:
 	Board* board;
 	Player* player;
 	Player* computer;
-	Player* neutral;
+	std::vector<Player*> neutrals;
 
 	void setupBoard();
 	void setupWalls();
