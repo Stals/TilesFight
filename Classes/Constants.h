@@ -13,6 +13,7 @@ const ccColor3B hexWhite(ccc3(245, 245, 245));
 
 const ccColor3B hexDefault(hexGray);
 // yellow
+// orrange
 
 
 const std::string default_font = "arial";
