@@ -2,6 +2,14 @@
 //#include "SimpleAudioEngine.h"
 #include "cocos2d.h"
 
+
+#ifdef __APPLE__
+#define FONT(var) var
+#else
+#define FONT(var) std::string("fonts/").append(var).append(".ttf")
+#endif
+
+
 using namespace cocos2d;
 
 const ccColor3B hexBlue(ccc3(25, 25, 150));
@@ -15,7 +23,7 @@ const ccColor3B hexDefault(hexGray);
 // yellow
 
 // вокруг поставить дефайн который будет добавлять вначало папки и в конец ттф если это иос
-const std::string default_font = "GAMECUBEN";//"fonsts/GAMECUBEN.ttf";
+const std::string default_font = FONT("GAMECUBEN");
 
 inline float scaledWidth(CCSprite* sprite)
 {
