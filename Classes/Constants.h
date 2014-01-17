@@ -14,8 +14,8 @@ const ccColor3B hexWhite(ccc3(245, 245, 245));
 const ccColor3B hexDefault(hexGray);
 // yellow
 
-
-const std::string default_font = "arial";
+// вокруг поставить дефайн который будет добавлять вначало папки и в конец ттф если это иос
+const std::string default_font = "GAMECUBEN";//"fonsts/GAMECUBEN.ttf";
 
 inline float scaledWidth(CCSprite* sprite)
 {

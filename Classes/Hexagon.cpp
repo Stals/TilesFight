@@ -107,7 +107,7 @@ void Hexagon::setGenerator(TroopsGenerator* generator)
 
 void Hexagon::setupTroopsLabel()
 {
-	troopsLabel = CCLabelTTF::create("", "fonts/GAMECUBEN.ttf", 64);
+	troopsLabel = CCLabelTTF::create("", default_font.c_str(), 64);
 	troopsLabel->setPosition(ccp((getTextureRect().size.width) * getScaleX() / 2, (getTextureRect().size.height) * getScaleY() / 2));
 
 	this->addChild(troopsLabel, zTroopsCount);
