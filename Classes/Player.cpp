@@ -43,7 +43,7 @@ void Player::addControlledHexagon(Hexagon* hex)
 	controlledHexagons.insert(hex);
 }
 
-std::set<Hexagon*> Player::getControlledHexagons()
+std::set<Hexagon*>& Player::getControlledHexagons()
 {
 	return controlledHexagons;
 }

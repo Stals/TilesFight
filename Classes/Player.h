@@ -21,7 +21,7 @@ public:
 	void removeControlledHexagon(Hexagon* hex);
 	void addControlledHexagon(Hexagon* hex);
 
-	std::set<Hexagon*> getControlledHexagons();
+	std::set<Hexagon*>& getControlledHexagons();
 
 private:
 	std::string name;
