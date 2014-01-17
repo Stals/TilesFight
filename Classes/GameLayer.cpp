@@ -2,6 +2,7 @@
 #include "Hexagon.h"
 #include "TroopsGenerator.h"
 
+#include "Game.h"
 
 USING_NS_CC;
 
@@ -59,6 +60,8 @@ void GameLayer::setupBoard()
 	board = new Board(15, 15);
 	board->setPosition(ccp(64, 48));
 	addChild(board);
+
+	Game::current().setCurrentBoard(board);
 }
 
 void GameLayer::setupWalls()
