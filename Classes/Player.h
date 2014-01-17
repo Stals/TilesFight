@@ -21,6 +21,8 @@ public:
 	void removeControlledHexagon(Hexagon* hex);
 	void addControlledHexagon(Hexagon* hex);
 
+	std::set<Hexagon*> getControlledHexagons();
+
 private:
 	std::string name;
 	ccColor3B color;
