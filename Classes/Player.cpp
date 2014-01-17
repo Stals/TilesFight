@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Hexagon.h"
 
 Player::Player(const std::string &name, const ccColor3B& color, bool ai): 
 	name(name), color(color), ai(ai), neutral(false)
@@ -31,3 +32,14 @@ bool Player::isNeutral()
 {
 	return neutral;
 }
+
+void Player::removeControlledHexagon(Hexagon* hex)
+{
+	controlledHexagons.erase(hex);
+}
+
+void Player::addControlledHexagon(Hexagon* hex)
+{
+	controlledHexagons.insert(hex);
+}
+

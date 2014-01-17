@@ -1,8 +1,11 @@
 #pragma once
 
 #include <string>
+#include <set>
 
 #include "Constants.h"
+
+class Hexagon;
 
 class Player{
 public:
@@ -14,11 +17,16 @@ public:
 	ccColor3B getColor();
 
 	bool isNeutral();
+
+	void removeControlledHexagon(Hexagon* hex);
+	void addControlledHexagon(Hexagon* hex);
+
 private:
 	std::string name;
 	ccColor3B color;
 	bool ai;
-
 	bool neutral;
+
+	std::set<Hexagon*> controlledHexagons;
 };
 

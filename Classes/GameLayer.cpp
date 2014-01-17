@@ -77,7 +77,7 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 {
 	const ccColor3B playerColor = player->getColor();
 	Hexagon* centerHex = board->at(x, y);
-	centerHex->setOwner(player);
+	centerHex->changeOwner(player);
 	centerHex->addTroops(25);
 
 	centerHex->setGenerator(new TroopsGenerator(centerHex, LargeGen));
@@ -86,7 +86,7 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 	{
 		Hexagon* hex = board->sideHexAt((HexSide)side, x, y);
 		if(hex){
-			hex->setOwner(player);
+			hex->changeOwner(player);
 			hex->addTroops(5);
 			hex->setGenerator(new TroopsGenerator(hex, SmallGen));
 		}

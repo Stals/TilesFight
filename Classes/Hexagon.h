@@ -30,7 +30,8 @@ public:
 	void addTroops(int troops);
 
 	Player* getOwner();
-	void setOwner(Player* owner);
+	
+	void changeOwner(Player* player);
 
 	void setSelected(bool selected);
 	void toggleSelected();
@@ -60,4 +61,6 @@ private:
 	void setupTroopsLabel();
 
 	bool containsPoint(cocos2d::CCPoint point);
+
+	void setOwner(Player* owner);
 };
