@@ -1,6 +1,8 @@
 #include "GameLayer.h"
 #include "Hexagon.h"
 #include "TroopsGenerator.h"
+#include "utils/RandomGenerator.h"
+#include "utils/StringExtension.h"
 
 #include "Game.h"
 #include "ai/RandomAI.h"
@@ -61,7 +63,11 @@ void GameLayer::setupBackgroud()
 {
 	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
 
-	CCSprite* bg = CCSprite::create("image/background.png");
+	std::string file = (std::string("image/bg") +
+		StringExtension::toString(RandomGenerator::getRandom(1, 5)) + ".jpg");
+	CCLog("%s", file.c_str());
+
+	CCSprite* bg = CCSprite::create(file.c_str());
 	bg->setPosition(ccp(visibleSize.width/2, visibleSize.height/2));
 	addChild(bg, zBackground); 
 }

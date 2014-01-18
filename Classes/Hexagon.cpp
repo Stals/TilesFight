@@ -71,7 +71,7 @@ void Hexagon::setOwner(Player* owner)
 	// Note: это нужно если игроки ровно убились, и клетка осталась без хозяина
 	if(owner){
 		setColor(owner->getColor());
-		setOpacity(175);
+		setOpacity(220);
 	}else{
 		setColor(hexDefault);
 		setOpacity(50);
