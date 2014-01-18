@@ -20,9 +20,14 @@ void RandomAI::doTurn(float dt)
 		startHex = getRandomControlledHexagon();
 		endHex = getRandomSideHexagon(startHex);
 	}
+	
+	
 
-	if(startHex->getTroopsCount() > 1)
+	if(startHex->getTroopsCount() > 1){
+		startHex->setSelected(true);
+		// todo wait a bit
 		Game::current().getBoard()->moveTroops(startHex, endHex);
+	}
 }
 
 Hexagon* RandomAI::getRandomControlledHexagon()

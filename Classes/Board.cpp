@@ -101,7 +101,7 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
 void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 {
-	startHex->toggleSelected();
+	startHex->setSelected(false);
 
 	if(!hexArray2D.areConnected(startHex, endHex)) return;
 	if(startHex->getTroopsCount() <= 1) return;
