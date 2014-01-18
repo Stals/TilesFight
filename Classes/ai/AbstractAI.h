@@ -9,10 +9,10 @@ public:
 	AbstractAI(Player* player);
 
 protected:
+	Player* player;
+
 	virtual void doTurn(float dt) = 0;
 
 private:
 	float turnDelay;
-
-	Player* player;
 };
