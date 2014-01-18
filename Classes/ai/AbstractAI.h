@@ -12,6 +12,7 @@ protected:
 	Player* player;
 
 	virtual void doTurn(float dt) = 0;
+	void unscheduleSelector();
 
 private:
 	float turnDelay;

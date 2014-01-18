@@ -4,6 +4,7 @@
 
 #include "Game.h"
 #include "ai/RandomAI.h"
+#include "ai/NoAI.h"
 
 USING_NS_CC;
 
@@ -100,6 +101,7 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 void GameLayer::setupNeutrals()
 {
 	Player* neutral = Player::createNeutral();
+	neutral->setAI(new NoAI(neutral));
 	neutrals.push_back(neutral);
 
 	createStartingArmy(neutral, 6, 4);

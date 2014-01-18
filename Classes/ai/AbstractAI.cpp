@@ -11,3 +11,8 @@ AbstractAI::AbstractAI(Player* player): turnDelay(defaultDelay), player(player)
 	// Note: позволяет сделать schedule даже если нод не добавлен как чилд
 	CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(AbstractAI::doTurn),this,defaultDelay,false);
 }
+
+void AbstractAI::unscheduleSelector()
+{
+	CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(AbstractAI::doTurn),this);
+}
