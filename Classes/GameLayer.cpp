@@ -31,7 +31,6 @@ CCScene* GameLayer::scene()
     return scene;
 }
 
-
 // on "init" you need to initialize your instance
 bool GameLayer::init()
 {

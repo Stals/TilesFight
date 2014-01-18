@@ -1,5 +1,5 @@
 #include "Hexagon.h"
-#include "StringExtension.h"
+#include "utils/StringExtension.h"
 #include "TroopsGenerator.h"
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
