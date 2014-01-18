@@ -47,6 +47,7 @@ bool GameLayer::init()
 
 	setTouchEnabled(true);
 	
+	setupBackgroud();
 
 	setupBoard();
 	setupWalls();
@@ -56,11 +57,20 @@ bool GameLayer::init()
 	return true;
 }
 
+void GameLayer::setupBackgroud()
+{
+	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+
+	CCSprite* bg = CCSprite::create("image/background.png");
+	bg->setPosition(ccp(visibleSize.width/2, visibleSize.height/2));
+	addChild(bg, zBackground); 
+}
+
 void GameLayer::setupBoard()
 {
 	board = new Board(15, 15);
 	board->setPosition(ccp(64, 48));
-	addChild(board);
+	addChild(board, zBoard);
 
 	Game::current().setCurrentBoard(board);
 }

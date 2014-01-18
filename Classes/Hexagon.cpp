@@ -6,8 +6,9 @@ Hexagon::Hexagon(size_t x_coord, size_t y_coord):
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
 	isSelected(false), selection(0), generator(0)
 {
-	initWithFile("image/hex.png");
+	initWithFile("image/hex3.png");
 	setColor(hexDefault);
+	setOpacity(50);
 
 	setupTroopsLabel();
 	
@@ -70,8 +71,10 @@ void Hexagon::setOwner(Player* owner)
 	// Note: это нужно если игроки ровно убились, и клетка осталась без хозяина
 	if(owner){
 		setColor(owner->getColor());
+		setOpacity(175);
 	}else{
 		setColor(hexDefault);
+		setOpacity(50);
 	}
 }
 

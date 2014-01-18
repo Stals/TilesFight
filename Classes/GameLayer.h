@@ -15,6 +15,11 @@ public:
     static cocos2d::CCScene* scene();
 
 private:
+	enum zOrder{
+		zBackground,
+		zBoard
+	};
+
 	// implement the "static node()" method manually
     CREATE_FUNC(GameLayer);
 
@@ -22,6 +27,8 @@ private:
 	Player* player;
 	Player* computer;
 	std::vector<Player*> neutrals;
+
+	void setupBackgroud();
 
 	void setupBoard();
 	void setupWalls();
