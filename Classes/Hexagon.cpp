@@ -110,8 +110,9 @@ void Hexagon::setGenerator(TroopsGenerator* generator)
 	this->generator = generator;
 
 	CCSprite* genIcon = generator->getIcon();
-	genIcon->setScale(0.6f);
-	genIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.4f));
+	//genIcon->getTexture()->setAliasTexParameters();
+	//genIcon->setScale(0.6f);
+	genIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.35f));
 	this->addChild(genIcon, zGenIcon);
 	this->addChild(generator);
 }

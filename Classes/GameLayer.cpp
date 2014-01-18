@@ -68,6 +68,7 @@ void GameLayer::setupBackgroud()
 	CCLog("%s", file.c_str());
 
 	CCSprite* bg = CCSprite::create(file.c_str());
+	bg->setScale(0.8f);
 	bg->setPosition(ccp(visibleSize.width/2, visibleSize.height/2));
 	addChild(bg, zBackground); 
 }
