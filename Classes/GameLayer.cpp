@@ -3,6 +3,7 @@
 #include "TroopsGenerator.h"
 
 #include "Game.h"
+#include "ai/RandomAI.h"
 
 USING_NS_CC;
 
@@ -70,8 +71,9 @@ void GameLayer::setupWalls()
 
 void GameLayer::setupPlayers()
 {
-	player = new Player("Player", hexRed, false);
-	computer = new Player("AI", hexGreen, true);
+	player = new Player("Player", hexRed);
+	computer = new Player("AI", hexGreen);
+	computer->setAI(new RandomAI(computer));
 
 	createStartingArmy(player, 1, 7);
 	createStartingArmy(computer, 12, 7);

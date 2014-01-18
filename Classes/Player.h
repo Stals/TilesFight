@@ -5,17 +5,20 @@
 
 #include "Constants.h"
 
+class AbstractAI;
 class Hexagon;
 
-class Player{
+class Player{ 
 public:
-	Player(const std::string &name, const ccColor3B& color, bool ai);
-	static Player* createNeutral();
+	Player(const std::string &name, const ccColor3B& color);
+	static Player* createNeutral();	
+	~Player();
+
+	bool isAI();
+	void setAI(AbstractAI* ai);
 
 	std::string getName();
-	bool isAI();
 	ccColor3B getColor();
-
 	bool isNeutral();
 
 	void removeControlledHexagon(Hexagon* hex);
@@ -26,7 +29,7 @@ public:
 private:
 	std::string name;
 	ccColor3B color;
-	bool ai;
+	AbstractAI* ai;
 	bool neutral;
 
 	std::set<Hexagon*> controlledHexagons;

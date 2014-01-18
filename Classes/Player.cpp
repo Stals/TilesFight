@@ -1,14 +1,20 @@
 #include "Player.h"
 #include "Hexagon.h"
+#include "ai/AbstractAI.h"
 
-Player::Player(const std::string &name, const ccColor3B& color, bool ai): 
-	name(name), color(color), ai(ai), neutral(false)
+Player::Player(const std::string &name, const ccColor3B& color): 
+	name(name), color(color), ai(0), neutral(false)
 {
+}
+
+Player::~Player()
+{
+	if(ai) delete ai;
 }
 
 Player* Player::createNeutral()
 {
-	Player* player = new Player("neutral", hexGray, true);
+	Player* player = new Player("neutral", hexGray);
 	player->neutral = true;
 	return player;
 }
@@ -21,6 +27,11 @@ std::string Player::getName()
 bool Player::isAI()
 {
 	return ai;
+}
+
+void Player::setAI(AbstractAI* newAI)
+{
+	ai = newAI;
 }
 
 ccColor3B Player::getColor()
