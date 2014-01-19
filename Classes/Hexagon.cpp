@@ -50,12 +50,6 @@ void Hexagon::addTroops(int troops)
 	// TODO вызуально показать что добавилось и зафейдить
 	troopsCount += troops;
 	troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
-
-	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 1.2f, 1.2f), 2.f);
-	CCEaseInOut* action2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 1.f, 1.f), 2.f);
-	CCSequence* seq = CCSequence::create(action1, action2, NULL);
-
-	troopsLabel->runAction(seq);
 }
 
 Player* Hexagon::getOwner()
@@ -123,6 +117,15 @@ void Hexagon::runScaleAction()
 	CCSequence* seq = CCSequence::create(action1, action2, NULL);
 	
 	this->runAction(seq);
+}
+
+void Hexagon::runScaleLabelAction()
+{
+	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 1.2f, 1.2f), 2.f);
+	CCEaseInOut* action2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 1.f, 1.f), 2.f);
+	CCSequence* seq = CCSequence::create(action1, action2, NULL);
+
+	troopsLabel->runAction(seq);
 }
 
 void Hexagon::setupTroopsLabel()

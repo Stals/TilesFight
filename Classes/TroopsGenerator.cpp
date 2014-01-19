@@ -43,5 +43,6 @@ void TroopsGenerator::tick(float dt)
 {
 	if(hex->getOwner() && (!hex->getOwner()->isNeutral())){
 		hex->addTroops(troopsPerTick);
+		hex->runScaleLabelAction();
 	}
 }

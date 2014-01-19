@@ -40,6 +40,7 @@ public:
 
 	// анимация увеличения / уменьшения
 	void runScaleAction();
+	void runScaleLabelAction();
 
 private:
 	enum zOrder{
