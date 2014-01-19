@@ -133,9 +133,13 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 }
 
 
-int Board::getWidth()
+int Board::getWidth(size_t row)
 {
-	return width;
+	if(row % 2 == 0){
+		return width;
+	}else{
+		return width - 1;
+	}
 }
 
 int Board::getHeight()

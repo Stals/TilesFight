@@ -29,7 +29,7 @@ void NeutralsHelper::addNeutrals(Player* player, Player* player2, GeneratorType 
 
 void NeutralsHelper::getSymmetricCoords(size_t x, size_t y, size_t &sym_x, size_t &sym_y)
 {
-	sym_x = std::abs(Game::current().getBoard()->getWidth() - 1 - (int)x);
+	sym_x = std::abs(Game::current().getBoard()->getWidth(y) - 1 - (int)x);
 	sym_y = std::abs(Game::current().getBoard()->getHeight() - 1 - (int)y);
 }
 

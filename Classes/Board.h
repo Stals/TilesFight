@@ -14,7 +14,7 @@ public:
 
 	void moveTroops(Hexagon * startHex, Hexagon* endHex);
 
-	int getWidth();
+	int getWidth(size_t row);
 	int getHeight();
 
 private:
