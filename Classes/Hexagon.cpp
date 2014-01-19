@@ -17,7 +17,7 @@ Hexagon::Hexagon(size_t x_coord, size_t y_coord):
 
 Hexagon::~Hexagon()
 {
-	if(generator) delete generator;
+	//if(generator) delete generator;
 }
 
 size_t Hexagon::getXCoord()
