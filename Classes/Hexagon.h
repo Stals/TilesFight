@@ -38,6 +38,9 @@ public:
 
 	void setGenerator(TroopsGenerator* generator);
 
+	// анимация увеличения / уменьшения
+	void runScaleAction();
+
 private:
 	enum zOrder{
 		zSelectionGlow,

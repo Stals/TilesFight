@@ -56,7 +56,6 @@ void Hexagon::addTroops(int troops)
 	CCSequence* seq = CCSequence::create(action1, action2, NULL);
 
 	troopsLabel->runAction(seq);
-
 }
 
 Player* Hexagon::getOwner()
@@ -115,6 +114,15 @@ void Hexagon::setGenerator(TroopsGenerator* generator)
 	genIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.35f));
 	this->addChild(genIcon, zGenIcon);
 	this->addChild(generator);
+}
+
+void Hexagon::runScaleAction()
+{
+	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 0.30f, 0.30f), 2.f);
+	CCEaseInOut* action2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 0.25f, 0.25f), 2.f);
+	CCSequence* seq = CCSequence::create(action1, action2, NULL);
+	
+	this->runAction(seq);
 }
 
 void Hexagon::setupTroopsLabel()
