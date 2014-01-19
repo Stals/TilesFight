@@ -64,7 +64,7 @@ void GameLayer::setupBackgroud()
 	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
 
 	std::string file = (std::string("image/bg") +
-		StringExtension::toString(RandomGenerator::getRandom(1, 5)) + ".jpg");
+		StringExtension::toString(RandomGenerator::getRandom(1, 12)) + ".jpg");
 	CCLog("%s", file.c_str());
 
 	CCSprite* bg = CCSprite::create(file.c_str());
