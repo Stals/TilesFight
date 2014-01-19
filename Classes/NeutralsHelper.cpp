@@ -3,8 +3,13 @@
 
 #define NEURALS_FACTOR 2
 
-// TODO должен не спавнить на игроках или мимо краты!
+
 void NeutralsHelper::addNeutrals(Player* player, GeneratorType type, size_t x, size_t y)
+{
+	addNeutrals(player, player, type, x, y);
+}
+
+void NeutralsHelper::addNeutrals(Player* player, Player* player2, GeneratorType type, size_t x, size_t y)
 {
 	Hexagon* hex = Game::current().getBoard()->at(x, y);
 	if((!hex) || hex->getOwner()) return;
@@ -12,7 +17,7 @@ void NeutralsHelper::addNeutrals(Player* player, GeneratorType type, size_t x, s
 	Hexagon* sym_hex = getSymmetricHexagon(hex);
 
 	hex->changeOwner(player);
-	sym_hex->changeOwner(player);
+	sym_hex->changeOwner(player2);
 
 	hex->setGenerator(new TroopsGenerator(hex, type));
 	sym_hex->setGenerator(new TroopsGenerator(sym_hex, type));

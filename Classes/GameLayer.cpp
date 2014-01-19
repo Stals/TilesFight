@@ -58,8 +58,9 @@ bool GameLayer::init()
 	setupPlayers();
 	setupNeutrals();
 
-	//Player* neutral = Player::createNeutral();
-	//NeutralsHelper::addNeutrals(neutral, MediumGen, 14, 14);
+	Player* neutral = Player::createNeutral();
+	NeutralsHelper::addNeutrals(neutral, MediumGen, 13, 13);
+	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 13);
 
 	return true;
 }

@@ -3,11 +3,13 @@
 #include "TroopsGenerator.h"
 
 // TODO переименовать - так. как этот класс подойдет и для расположения арсий игроков
+// Если напрмиер передавать 2 игрока, то симметричный будет игрок 2
 
 class NeutralsHelper{
 public:
-	// TODO должен не спавнить на игроках или мимо краты!
+	// не спавнит на игроках или мимо краты!
 	static void addNeutrals(Player* player, GeneratorType type, size_t x, size_t y);
+	static void addNeutrals(Player* player, Player* player2, GeneratorType type, size_t x, size_t y);
 
 private:
 	NeutralsHelper();
