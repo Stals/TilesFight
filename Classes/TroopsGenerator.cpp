@@ -8,18 +8,17 @@ TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type): hex(hex), ge
 
 	switch(type){
 	case SmallGen:
-		troopsPerTick = 5;
 		generatorIcon = CCSprite::create("image/smallGen.png");
 		break;
 	case MediumGen:
-		troopsPerTick = 10;
 		generatorIcon = CCSprite::create("image/mediumGen.png");
 		break;
 	case LargeGen:
-		troopsPerTick = 25;
 		generatorIcon = CCSprite::create("image/largeGen.png");
 		break;
 	}
+	troopsPerTick = getTroopsForType(type);
+
 	this->schedule( schedule_selector(TroopsGenerator::tick), TICK_DELAY );
 }
 
@@ -36,6 +35,18 @@ CCSprite* TroopsGenerator::getIcon()
 int TroopsGenerator::getTroopsPerTick()
 {
 	return troopsPerTick;
+}
+
+int TroopsGenerator::getTroopsForType(GeneratorType type)
+{
+	switch(type){
+	case SmallGen:
+		return 5;
+	case MediumGen:
+		return 10;
+	case LargeGen:
+		return 25;
+	}
 }
 
 

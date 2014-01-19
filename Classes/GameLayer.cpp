@@ -34,6 +34,8 @@ CCScene* GameLayer::scene()
     return scene;
 }
 
+#include "NeutralsHelper.h"
+
 // on "init" you need to initialize your instance
 bool GameLayer::init()
 {
@@ -55,6 +57,9 @@ bool GameLayer::init()
 	setupWalls();
 	setupPlayers();
 	setupNeutrals();
+
+	//Player* neutral = Player::createNeutral();
+	//NeutralsHelper::addNeutrals(neutral, MediumGen, 14, 14);
 
 	return true;
 }

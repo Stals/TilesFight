@@ -14,6 +14,9 @@ public:
 
 	void moveTroops(Hexagon * startHex, Hexagon* endHex);
 
+	int getWidth();
+	int getHeight();
+
 private:
 	int width, height;
 	HexArray2D hexArray2D;

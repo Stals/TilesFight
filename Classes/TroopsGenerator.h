@@ -18,6 +18,8 @@ public:
 	CCSprite* getIcon();
 
 	int getTroopsPerTick();
+	// возвращает сколько дается за тик для определенного типа генератора
+	static int getTroopsForType(GeneratorType type);
 
 private:
 	Hexagon* hex;

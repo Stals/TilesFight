@@ -132,6 +132,17 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 	}
 }
 
+
+int Board::getWidth()
+{
+	return width;
+}
+
+int Board::getHeight()
+{
+	return height;
+}
+
 void Board::getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex)
 {
 	for(size_t y = 0; y < hexArray2D.size(); ++y){
