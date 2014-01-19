@@ -126,7 +126,9 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 				endHex->changeOwner(startHex->getOwner());
 			}
 		}
-		endHex->runScaleAction();
+		if(endHex->getTroopsCount() > 0){
+			endHex->runScaleAction();
+		}
 	}
 }
 
