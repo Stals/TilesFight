@@ -54,6 +54,10 @@
 	<true/>
 	<key>NSMainNibFile</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fonts/GAMECUBEN.ttf</string>
+	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>

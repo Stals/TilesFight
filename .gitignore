@@ -19,7 +19,7 @@ proj.marm*/
 *.ilk
 *.meta
 *.obj
-*.pch
+#*.pch
 *.pdb
 *.pgc
 *.pgd
