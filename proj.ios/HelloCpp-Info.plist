@@ -37,7 +37,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>org.cocos2d-x.HelloCpp</string>
+	<string>com.nekki.audio.iphone</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -60,6 +60,8 @@
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeRight</string>
