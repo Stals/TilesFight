@@ -53,7 +53,7 @@ static AppDelegate s_sharedApplication;
 		[window makeKeyAndOrderFront:self];
 		[window setAcceptsMouseMovedEvents:NO];
         
-        [glView setFrameZoomFactor:0.4];
+        [glView setFrameZoomFactor:0.5];
 
 		cocos2d::CCApplication::sharedApplication()->run();
 	}
