@@ -121,7 +121,7 @@ void Hexagon::runScaleAction()
 
 void Hexagon::runScaleLabelAction()
 {
-	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 1.2f, 1.2f), 2.f);
+	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 1.1f, 1.1f), 2.f);
 	CCEaseInOut* action2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 1.f, 1.f), 2.f);
 	CCSequence* seq = CCSequence::create(action1, action2, NULL);
 
