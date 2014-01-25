@@ -110,6 +110,11 @@ void Hexagon::setGenerator(TroopsGenerator* generator)
 	this->addChild(generator);
 }
 
+bool Hexagon::hasGenerator()
+{
+    return generator;
+}
+
 void Hexagon::runScaleAction()
 {
 	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 0.30f, 0.30f), 2.f);

@@ -48,7 +48,7 @@ void Player::removeControlledHexagon(Hexagon* hex)
 {
 	controlledHexagons.erase(hex);
     
-    if(controlledHexagons.size() == 0)
+    if(hasLost())
         cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), this);
 }
 
@@ -60,5 +60,20 @@ void Player::addControlledHexagon(Hexagon* hex)
 std::set<Hexagon*>& Player::getControlledHexagons()
 {
 	return controlledHexagons;
+}
+
+bool Player::hasLost()
+{
+    if(controlledHexagons.size() == 0) return true;
+    
+    for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
+    {
+        Hexagon* hex = *it;
+        
+        if(hex->hasGenerator() || (hex->getTroopsCount() > 1)){
+            return false;
+        }
+    }
+    return true;
 }
 

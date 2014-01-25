@@ -33,5 +33,7 @@ private:
 	bool neutral;
 
 	std::set<Hexagon*> controlledHexagons;
+    
+    bool hasLost();
 };
 

@@ -37,6 +37,7 @@ public:
 	void toggleSelected();
 
 	void setGenerator(TroopsGenerator* generator);
+    bool hasGenerator();
 
 	// анимация увеличения / уменьшения
 	void runScaleAction();
