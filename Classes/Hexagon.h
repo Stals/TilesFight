@@ -40,7 +40,7 @@ public:
 
 	// анимация увеличения / уменьшения
 	void runScaleAction();
-	void runScaleLabelAction();
+	void runScaleLabelAction(float maxScale);
 
 private:
 	enum zOrder{
@@ -60,6 +60,7 @@ private:
 	CCSprite *selection;
 
 	CCLabelTTF* troopsLabel;
+    CCSprite* generatorIcon;
 	TroopsGenerator* generator;
 
 	void setupTroopsLabel();

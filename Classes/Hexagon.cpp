@@ -102,11 +102,11 @@ void Hexagon::setGenerator(TroopsGenerator* generator)
 {
 	this->generator = generator;
 
-	CCSprite* genIcon = generator->getIcon();
+	generatorIcon = generator->getIcon();
 	//genIcon->getTexture()->setAliasTexParameters();
 	//genIcon->setScale(0.6f);
-	genIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.35f));
-	this->addChild(genIcon, zGenIcon);
+	generatorIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.35f));
+	this->addChild(generatorIcon, zGenIcon);
 	this->addChild(generator);
 }
 
@@ -119,9 +119,9 @@ void Hexagon::runScaleAction()
 	this->runAction(seq);
 }
 
-void Hexagon::runScaleLabelAction()
+void Hexagon::runScaleLabelAction(float maxScale)
 {
-	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 1.1f, 1.1f), 2.f);
+	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, maxScale, maxScale), 2.f);
 	CCEaseInOut* action2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 1.f, 1.f), 2.f);
 	CCSequence* seq = CCSequence::create(action1, action2, NULL);
 
