@@ -34,6 +34,11 @@ private:
 	void setupWalls();
 	void setupPlayers();
 	void setupNeutrals();
+    // может перенести в Game?
+    void setupListeners();
 
 	void createStartingArmy(Player* player, int x, int y);
+    
+    
+    void onPlayerLost(CCObject* obj);
 };

@@ -6,6 +6,8 @@ class Game{
 public:
 	static Game& current();
 
+    void starNewGame();
+    
 	void setCurrentBoard(Board* board);
 	Board* getBoard();
 

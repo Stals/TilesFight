@@ -220,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				D405D0A31893E446000CB7E8 /* ai */,
+				D405D0BD1893E446000CB7E8 /* utils */,
 				D405D0AA1893E446000CB7E8 /* Board.cpp */,
 				D405D0AB1893E446000CB7E8 /* Board.h */,
 				D405D0AC1893E446000CB7E8 /* Constants.h */,
@@ -239,7 +240,6 @@
 				D405D0BA1893E446000CB7E8 /* Player.h */,
 				D405D0BB1893E446000CB7E8 /* TroopsGenerator.cpp */,
 				D405D0BC1893E446000CB7E8 /* TroopsGenerator.h */,
-				D405D0BD1893E446000CB7E8 /* utils */,
 				41CD6C7115BF76FB005E6F29 /* AppDelegate.cpp */,
 				41CD6C7215BF76FB005E6F29 /* AppDelegate.h */,
 			);

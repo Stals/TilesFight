@@ -39,3 +39,9 @@ inline float scaledHeight(CCSprite* sprite)
 {
 	return sprite->getContentSize().height * sprite->getScaleY();
 }
+
+
+// Notificatoins
+const std::string PLAYER_LOOSE_MGS = "Plaeyer_Loose";
+
+//CCMessageBox("onEnemyKilled", "Title");

@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "GameLayer.h"
 
 Game::Game()
 {
@@ -18,4 +19,15 @@ void Game::setCurrentBoard(Board* board)
 Board* Game::getBoard()
 {
 	return currentBoard;
+}
+
+void Game::starNewGame()
+{
+    CCScene *pScene = GameLayer::scene();
+ 
+    if(CCDirector::sharedDirector()->getRunningScene()){
+        CCDirector::sharedDirector()->replaceScene(pScene);
+    }else{
+        CCDirector::sharedDirector()->runWithScene(pScene);
+    }
 }

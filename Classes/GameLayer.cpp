@@ -57,8 +57,8 @@ bool GameLayer::init()
 	setupWalls();
 	setupPlayers();
 	setupNeutrals();
-
-
+    
+    setupListeners();
 
 	return true;
 }
@@ -99,6 +99,12 @@ void GameLayer::setupPlayers()
 	createStartingArmy(player, 1, 7);
 	createStartingArmy(computer, 12, 7);
 }
+
+void GameLayer::setupListeners()
+{
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(GameLayer::onPlayerLost), PLAYER_LOOSE_MGS.c_str(), NULL);
+}
+
 void GameLayer::createStartingArmy(Player* player, int x, int y)
 {
 	const ccColor3B playerColor = player->getColor();
@@ -149,4 +155,18 @@ void GameLayer::setupNeutrals()
 	for(int i = 0; i < 5; ++i){
 		NeutralsHelper::addNeutrals(neutral, SmallGen, RandomGenerator::getRandom(0, 15), RandomGenerator::getRandom(0, 15));
 	}
+}
+
+void GameLayer::onPlayerLost(CCObject* obj)
+{
+    if((Player*)obj == player){
+        CCMessageBox("You Loose", "Game Over");
+    }else{
+        CCMessageBox("You WIN", "Game Over");
+    }
+    
+    Game::current().starNewGame();
+    
+    //Remove event listener.
+    //CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS);
 }

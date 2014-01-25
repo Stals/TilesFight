@@ -47,6 +47,9 @@ bool Player::isNeutral()
 void Player::removeControlledHexagon(Hexagon* hex)
 {
 	controlledHexagons.erase(hex);
+    
+    if(controlledHexagons.size() == 0)
+        cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), this);
 }
 
 void Player::addControlledHexagon(Hexagon* hex)

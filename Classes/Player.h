@@ -8,7 +8,7 @@
 class AbstractAI;
 class Hexagon;
 
-class Player{ 
+class Player : CCObject{
 public:
 	Player(const std::string &name, const ccColor3B& color);
 	static Player* createNeutral();	

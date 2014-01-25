@@ -5,6 +5,7 @@
 
 #include "Constants.h"
 #include "GameLayer.h"
+#include "Game.h"
 
 USING_NS_CC;
 
@@ -36,15 +37,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
 
-
-	//GameLayer::setTwoPlayers(true);
-
-    // create a scene. it's an autorelease object
-    CCScene *pScene = GameLayer::scene();
-	
-
-    // run
-    pDirector->runWithScene(pScene);
+    Game::current().starNewGame();
+    
     return true;
 }
 
