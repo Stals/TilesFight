@@ -2,7 +2,7 @@
 #include "../Player.h"
 
 
-const float defaultDelay = .5f;
+const float defaultDelay = .75f;
 
 AbstractAI::AbstractAI(Player* player): turnDelay(defaultDelay), player(player)
 {

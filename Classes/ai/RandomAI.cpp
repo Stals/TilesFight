@@ -18,27 +18,28 @@ void RandomAI::doTurn(float dt)
 
 	while(!endHex){
 		startHex = getRandomControlledHexagon();
+        if(!startHex) return; // no hexagons to move
+        
 		endHex = getRandomSideHexagon(startHex);
 	}
-	
-	
 
 	if(startHex->getTroopsCount() > 1){
 		startHex->setSelected(true);
-		// todo wait a bit
+		// todo wait a bit (schedule selector?)
 		Game::current().getBoard()->moveTroops(startHex, endHex);
 	}
 }
 
 Hexagon* RandomAI::getRandomControlledHexagon()
 {
-	std::set<Hexagon*>& hexagons = player->getControlledHexagons();
-	size_t rnd = RandomGenerator::getRandom(0, hexagons.size());
-
-	std::set<Hexagon*>::iterator it = hexagons.begin();
-	std::advance(it, rnd);
-
-	return *it;
+    std::vector<Hexagon*> hexagons = player->getHexagonsWithTroops();
+    
+    if(!hexagons.empty()){
+        size_t rnd = RandomGenerator::getRandom(0, hexagons.size());
+        return hexagons[rnd];
+    }else{
+        return NULL;
+    }
 }
 
 Hexagon* RandomAI::getRandomSideHexagon(Hexagon* hex)
