@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7E605FDF-2AF4-4B6B-B749-11BC9B611EAB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelloCpp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F3DF8BA7-D719-408F-B87E-DF67E575C3C7</key>
+		<string>https://github.com/Stals/TilesFight.git</string>
+		<key>F86762F6-8E32-44E1-A9AD-A1C72E4E6F50</key>
+		<string>svn://188.93.18.250/shadowfight2</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>cocos2d-x-2.1.4/samples/Cpp/TilesFight/proj.ios/HelloCpp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F3DF8BA7-D719-408F-B87E-DF67E575C3C7</key>
+		<string>../../..</string>
+		<key>F86762F6-8E32-44E1-A9AD-A1C72E4E6F50</key>
+		<string>../../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>F86762F6-8E32-44E1-A9AD-A1C72E4E6F50</key>
+		<string>svn://188.93.18.250/shadowfight2</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Stals/TilesFight.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F86762F6-8E32-44E1-A9AD-A1C72E4E6F50</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F86762F6-8E32-44E1-A9AD-A1C72E4E6F50</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dev</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F3DF8BA7-D719-408F-B87E-DF67E575C3C7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TilesFight</string>
+		</dict>
+	</array>
+</dict>
+</plist>
