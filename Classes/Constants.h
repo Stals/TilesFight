@@ -5,9 +5,13 @@
 
 #ifdef __APPLE__
 #define FONT(var) var
+#define IMG(var) var
 #else
 #define FONT(var) std::string("fonts/").append(var).append(".ttf")
+#define IMG(var) std::string("image/").append(var)
 #endif
+
+
 
 
 using namespace cocos2d;

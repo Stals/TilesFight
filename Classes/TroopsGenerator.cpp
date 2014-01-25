@@ -8,13 +8,13 @@ TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type): hex(hex), ge
 
 	switch(type){
 	case SmallGen:
-		generatorIcon = CCSprite::create("image/smallGen.png");
+		generatorIcon = CCSprite::create(IMG("smallGen.png"));
 		break;
 	case MediumGen:
-		generatorIcon = CCSprite::create("image/mediumGen.png");
+		generatorIcon = CCSprite::create(IMG("mediumGen.png"));
 		break;
 	case LargeGen:
-		generatorIcon = CCSprite::create("image/largeGen.png");
+		generatorIcon = CCSprite::create(IMG("largeGen.png"));
 		break;
 	}
 	troopsPerTick = getTroopsForType(type);
