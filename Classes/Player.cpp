@@ -62,6 +62,32 @@ std::set<Hexagon*>& Player::getControlledHexagons()
 	return controlledHexagons;
 }
 
+std::vector<Hexagon*> Player::getHexagonsWithTroops()
+{
+    std::vector<Hexagon*> result;
+    
+    for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
+    {
+        if((*it)->getTroopsCount() > 1)
+            result.push_back(*it);
+    }
+    
+    return result;
+}
+
+std::vector<Hexagon*> Player::getHaxagonsWithGenerators()
+{
+    std::vector<Hexagon*> result;
+    
+    for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
+    {
+        if((*it)->hasGenerator())
+            result.push_back(*it);
+    }
+    
+    return result;
+}
+
 bool Player::hasLost()
 {
     if(controlledHexagons.size() == 0) return true;

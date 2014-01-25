@@ -25,6 +25,8 @@ public:
 	void addControlledHexagon(Hexagon* hex);
 
 	std::set<Hexagon*>& getControlledHexagons();
+    std::vector<Hexagon*> getHexagonsWithTroops();
+    std::vector<Hexagon*> getHaxagonsWithGenerators();
 
 private:
 	std::string name;
