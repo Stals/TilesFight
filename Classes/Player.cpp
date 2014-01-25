@@ -48,7 +48,7 @@ void Player::removeControlledHexagon(Hexagon* hex)
 {
 	controlledHexagons.erase(hex);
     
-    if(hasLost())
+    if((!isNeutral()) && hasLost())
         cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), this);
 }
 
