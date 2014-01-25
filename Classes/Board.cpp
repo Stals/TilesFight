@@ -93,6 +93,8 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		Hexagon* endHex = 0;
 
 		getStartEndHex(touch, startHex, endHex);
+		if(startHex) startHex->setSelected(false);
+
         if((!startHex) || (!endHex)) continue;
 		if(startHex && startHex->getOwner() && startHex->getOwner()->isAI()) continue;
 
