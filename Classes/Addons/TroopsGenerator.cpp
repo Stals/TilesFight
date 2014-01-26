@@ -2,7 +2,7 @@
 
 
 
-TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type):Addon(hex), generatorIcon(0), troopsPerTick(0)
+TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type):Addon(hex, GeneratorAddon), generatorIcon(0), troopsPerTick(0)
 {
 	float delay =  0.f;
 	switch(type){

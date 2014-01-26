@@ -2,9 +2,19 @@
 #include "../utils/StringExtension.h"
 
 
-AmoutIncreaser::AmoutIncreaser(Hexagon* hex):Addon(hex)
+AmoutIncreaser::AmoutIncreaser(Hexagon* hex,  AIncreaserType type):Addon(hex, AIncreaserAddon)
 {
-    additionalAmount = 3;
+    switch(type){
+        case SmallAInc:
+            additionalAmount = 1;
+            break;
+        case MediumAInc:
+            additionalAmount = 2;
+            break;
+        case LargeAInc:
+            additionalAmount = 3;
+            break;
+    }
 }
 
 int AmoutIncreaser::getAdditionalAmout()
