@@ -10,6 +10,8 @@
 #include "ai/RandomAI.h"
 #include "ai/NoAI.h"
 
+#include "CCShake.h"
+
 USING_NS_CC;
 
 
@@ -95,7 +97,7 @@ void GameLayer::setupPlayers()
 	computer->setAI(new RandomAI(computer));
 
     
-    size_t playerY = RandomGenerator::getRandom(0, Game::current().getBoard()->getHeight() - 1);
+    size_t playerY = RandomGenerator::getRandom(1, Game::current().getBoard()->getHeight() - 1);
     size_t enemyY = Game::current().getBoard()->getHeight() - playerY;
     
 	createStartingArmy(player, 1, playerY);
@@ -109,7 +111,6 @@ void GameLayer::setupListeners()
 
 void GameLayer::createStartingArmy(Player* player, int x, int y)
 {
-	const ccColor3B playerColor = player->getColor();
 	Hexagon* centerHex = board->at(x, y);
 	centerHex->changeOwner(player);
 	centerHex->addTroops(25);
@@ -123,7 +124,7 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 			hex->changeOwner(player);
 			hex->addTroops(5);
 			hex->setGenerator(new TroopsGenerator(hex, SmallGen));
-		}
+        }
 	}
 }
 

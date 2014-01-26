@@ -20,12 +20,12 @@ Hexagon::~Hexagon()
 	//if(generator) delete generator;
 }
 
-size_t Hexagon::getXCoord()
+size_t Hexagon::getXCoord() const
 {
 	return x_coord;
 }
 
-size_t Hexagon::getYCoord()
+size_t Hexagon::getYCoord() const
 {
 	return y_coord;
 }

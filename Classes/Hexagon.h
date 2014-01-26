@@ -19,8 +19,8 @@ class Hexagon : public CCSprite{
 public:
 	Hexagon(size_t x_coord, size_t y_coord);
 	~Hexagon();
-	size_t getXCoord();
-	size_t getYCoord();
+	size_t getXCoord() const;
+	size_t getYCoord() const;
 
 	int getTroopsCount();
 	bool containsTouchLocation(cocos2d::CCTouch *touch);

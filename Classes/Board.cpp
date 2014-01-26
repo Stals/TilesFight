@@ -1,5 +1,6 @@
 #include "Board.h"
 #include "TroopsGenerator.h"
+#include "CCShake.h"
 
 #define HEX_SIZE 64.f
 
@@ -65,7 +66,7 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 					//hex->setColor(hexRed);
 					//hex->addTroops(rand() % 100);
 					break;
-					// TODO ÌÛÊÌÓ Ì‡ÈÚË ÒÔÓÒÓ· ‚˚ıÓ‰ËÚ Ë ËÁ ˆËÍÎ‡ y - Ú.Í. ˝ÚÓ ÎË¯ÌÂÂ
+					// TODO √å√õ√ä√å√ì √å‚Ä°√à√ö√ã √í√î√ì√í√ì¬∑ ‚ÄöÀöƒ±√ì‚Ä∞√ã√ö √ã √ã√Å ÀÜ√ã√ç√é‚Ä° y - √ö.√ç. Àù√ö√ì √é√ã¬Ø√å√Ç√Ç
 				}			
 			}		
 		}
@@ -74,14 +75,14 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 }
 
 /*
-	TODO ÚÛÚÊÂ ÌÛÊÌÓ ·Û‰ÂÚ ‰ÂÎ‡Ú¸ ıËÚ˚Â ¯ÚÛÍË Ò touch moved Ò ÔÓÌËÏ‡ÂÌËÂÏ ˜ÚÓ ÓÌ ÛÊÂ ‚˚‰ÂÎËÎ - ÎË·Ó ÚÛÔÓ ‰ÂÎ‡Ú¸ ËÏ setSelected()
-	‡ ÔÓÚÓÏ ‰ÂÎ‡Ú¸ getSelectedHexagons() ÍÓÚÓ˚È ‚ÂÌÂÚ hexArray Ò ÍÓÚÓ˚Ï ˇ ÏÓ„Û ÛÊÂ ˜ÚÓ Û„Ó‰ÌÓ ‰ÂÎ‡Ú¸
+	TODO √ö√õ√ö√ä√Ç √å√õ√ä√å√ì ¬∑√õ‚Ä∞√Ç√ö ‚Ä∞√Ç√é‚Ä°√ö¬∏ ƒ±√ã√öÔ£øÀö√Ç ¬Ø√ö√õ√ç√ã √í touch moved √í √î√ì√å√ã√è‚Ä°√Ç√å√ã√Ç√è Àú√ö√ì √ì√å √õ√ä√Ç ‚ÄöÀö‚Ä∞√Ç√é√ã√é - √é√ã¬∑√ì √ö√õ√î√ì ‚Ä∞√Ç√é‚Ä°√ö¬∏ √ã√è setSelected()
+	‚Ä° √î√ì√ö√ì√è ‚Ä∞√Ç√é‚Ä°√ö¬∏ getSelectedHexagons() √ç√ì√ö√ìÔ£øÀö√à ‚Äö√ÇÔ£ø√å√Ç√ö hexArray √í √ç√ì√ö√ìÔ£øÀö√è Àá √è√ì‚Äû√õ √õ√ä√Ç Àú√ö√ì √õ‚Äû√ì‚Ä∞√å√ì ‚Ä∞√Ç√é‚Ä°√ö¬∏
 */
 
 void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 {
 	/*
-		TODO ËÁ ÔÂ‰‚Â‰Û˘ÂÈ ÚÓ˜ÍË ÔÓÎÛ˜ËÚ¸ owner'a Ë Â„Ó Í‡Í‡Á Ë Á‡ÏÛÚËÚ¸
+		TODO √ã√Å √î√ÇÔ£ø‚Ä∞‚Äö√Ç‚Ä∞√õÀò√Ç√à √ö√ìÀú√ç√ã √î√ì√é√õÀú√ã√ö¬∏ owner'a √ã √Ç‚Äû√ì √ç‚Ä°√çÔ£ø‚Ä°√Å √ã √Å‚Ä°√è√õ√ö√ã√ö¬∏
 	*/
 }
 
@@ -109,7 +110,7 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 	if(!hexArray2D.areConnected(startHex, endHex)) return;
 	if(startHex->getTroopsCount() <= 1) return;
 
-	// TODO ‰Ó·‡‚ËÚ¸ ‡Ú‡ÍÛ
+	// TODO ‚Ä∞√ì¬∑‚Ä°‚Äö√ã√ö¬∏ ‚Ä°√ö‚Ä°√ç√õ
 	if(startHex != endHex){
 		const int troops = startHex->getTroopsCount() - 1;
 		startHex->removeTroops(troops);
@@ -119,7 +120,7 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 		}else{
 			if(troops == endHex->getTroopsCount()){
 				endHex->removeTroops(troops);
-				endHex->changeOwner(0); // TODO NoPlayer ÍÓÚÓ˚È ÛÊÂ = 0?
+				endHex->changeOwner(0); // TODO NoPlayer √ç√ì√ö√ìÔ£øÀö√à √õ√ä√Ç = 0?
 			}else if(troops < endHex->getTroopsCount()){
 				endHex->removeTroops(troops);			
 			}else{ // troops > endHex->getTroopsCount()
@@ -128,11 +129,13 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 				endHex->addTroops(firstPlayerTroopsLeft);
 				endHex->changeOwner(startHex->getOwner());
 			}
+            //shakeAround(endHex, 2);
 		}
 		if(endHex->getTroopsCount() > 0){
 			endHex->runScaleAction();
 		}
 	}
+    
 }
 
 
@@ -161,7 +164,7 @@ void Board::getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex)
 				startHex = hex;
 				if(startHex && endHex) return;
 			}
-			// Note: ÌÂ else if - Ú‡Í Í‡Í ÓÌ ÏÓÊÂÚ ·˚Ú¸ Ë ÒÚ‡ÚÓÏ Ë ÍÓÌˆÓÏ
+			// Note: √å√Ç else if - √ö‚Ä°√ç √ç‚Ä°√ç √ì√å √è√ì√ä√Ç√ö ¬∑Àö√ö¬∏ √ã √í√ö‚Ä°Ô£ø√ö√ì√è √ã √ç√ì√åÀÜ√ì√è
 			if(hex->containsTouchLocation(touch->getLocation())){
 				endHex = hex;
 				if(startHex && endHex) return;
@@ -172,4 +175,24 @@ void Board::getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex)
 
 void Board::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 {
+}
+
+void Board::shakeAround(const Hexagon *hex, int strength)
+{
+    
+    const float dt = 0.5f;
+
+    // Shake around
+    /*for(int side = 0; side < HexSidesCount; ++side)
+	{
+		Hexagon* h = sideHexAt((HexSide)side, hex->getXCoord(), hex->getYCoord());
+		if(h){
+            h->runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
+        }
+    }*/
+
+    // shake all
+    runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
+    
+
 }

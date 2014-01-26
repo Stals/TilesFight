@@ -66,6 +66,7 @@
 		D405D0CC1893E446000CB7E8 /* TroopsGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0BB1893E446000CB7E8 /* TroopsGenerator.cpp */; };
 		D405D0CD1893E446000CB7E8 /* RandomGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0BE1893E446000CB7E8 /* RandomGenerator.cpp */; };
 		D405D10218953EB5000CB7E8 /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10018953EB5000CB7E8 /* Addon.cpp */; };
+		D405D10518955959000CB7E8 /* CCShake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10318955959000CB7E8 /* CCShake.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,8 @@
 		D405D0C01893E446000CB7E8 /* StringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringExtension.h; sourceTree = "<group>"; };
 		D405D10018953EB5000CB7E8 /* Addon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Addon.cpp; path = ../Classes/Addon.cpp; sourceTree = "<group>"; };
 		D405D10118953EB5000CB7E8 /* Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Addon.h; path = ../Classes/Addon.h; sourceTree = "<group>"; };
+		D405D10318955959000CB7E8 /* CCShake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCShake.cpp; path = ../Classes/CCShake.cpp; sourceTree = "<group>"; };
+		D405D10418955959000CB7E8 /* CCShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCShake.h; path = ../Classes/CCShake.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +250,8 @@
 				41CD6C7215BF76FB005E6F29 /* AppDelegate.h */,
 				D405D10018953EB5000CB7E8 /* Addon.cpp */,
 				D405D10118953EB5000CB7E8 /* Addon.h */,
+				D405D10318955959000CB7E8 /* CCShake.cpp */,
+				D405D10418955959000CB7E8 /* CCShake.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				D405D0CD1893E446000CB7E8 /* RandomGenerator.cpp in Sources */,
 				AB63787B16FE1A4C00079CB7 /* SimpleAudioEngine_objc.m in Sources */,
 				D405D0C41893E446000CB7E8 /* Board.cpp in Sources */,
+				D405D10518955959000CB7E8 /* CCShake.cpp in Sources */,
 				D405D0C51893E446000CB7E8 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
