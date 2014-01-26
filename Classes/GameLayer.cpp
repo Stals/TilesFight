@@ -125,32 +125,7 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 
 void GameLayer::setupNeutrals()
 {
-	/*Player* neutral = Player::createNeutral();
-	neutral->setAI(new NoAI(neutral));
-
-	//createStartingArmy(neutral, 6, 4);
-	//createStartingArmy(neutral, 7, 10);
-
-	// TODO move everything to Neutrals Spawner
-
-	// add big camps
-	size_t center_x = 6;
-	size_t center_y = 4;
-
-	NeutralsHelper::addNeutrals(neutral, LargeGen, center_x, center_y);
-	for(int side = 0; side < HexSidesCount; ++side)
-	{
-		Hexagon* hex = board->sideHexAt((HexSide)side, center_x, center_y);
-		NeutralsHelper::addNeutrals(neutral, SmallGen, hex->getXCoord(), hex->getYCoord());		
-	}
-
-
-	// add small camps
-	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 13);
-	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 1);*/
-
-	for(int i = 0; i < 1; ++i){
-		//NeutralsHelper::addNeutrals(neutral, SmallGen, RandomGenerator::getRandom(0, 15), RandomGenerator::getRandom(0, 15));
+	for(int i = 0; i < 6; ++i){
         NeutralSpawner::current().spawnRandomCamp();
 	}
 }

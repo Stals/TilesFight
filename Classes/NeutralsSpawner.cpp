@@ -17,10 +17,10 @@ struct SpawnerType{
 
 
 SpawnerType types[] = {
-    SpawnerType(&NeutralSpawner::spawnSmall, 5),
+    SpawnerType(&NeutralSpawner::spawnSmall, 3),
     SpawnerType(&NeutralSpawner::spawnBigSurroundedGenerator, 1),
-    SpawnerType(&NeutralSpawner::spawnSmallCluster, 3),
-    SpawnerType(&NeutralSpawner::spawnMedium, 4),
+    SpawnerType(&NeutralSpawner::spawnSmallCluster, 1.5),
+    SpawnerType(&NeutralSpawner::spawnMedium, 2.5),
     SpawnerType(&NeutralSpawner::spawnMediumCamp, 1)
 };
 
@@ -40,7 +40,7 @@ NeutralSpawner& NeutralSpawner::current()
 
 void NeutralSpawner::spawnRandomCamp()
 {
-    (this->*(types[4].method))();
+    (this->*(types[getRandomTypeID()].method))();
 }
 
 
@@ -49,6 +49,19 @@ void NeutralSpawner::getCoords(size_t &x, size_t &y)
     Board* board = Game::current().getBoard();
     x = RandomGenerator::getRandom(0, board->getHeight());
     y = RandomGenerator::getRandom(0, board->getWidth(y));
+}
+
+size_t NeutralSpawner::getRandomTypeID()
+{
+    const size_t typesSize = sizeof(types) / sizeof(SpawnerType);
+    std::vector<double> weights(typesSize);
+    
+    for(size_t i = 0; i < typesSize; ++i){
+        weights[i] = types[i].weight;
+    }
+    
+    return RandomGenerator::getRandomID(weights);
+    
 }
 
 void NeutralSpawner::spawnSmall(){
