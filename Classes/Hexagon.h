@@ -3,7 +3,7 @@
 #include "Constants.h"
 #include "Player.h"
 
-class TroopsGenerator;
+class Addon;
 
 enum HexSide{
 	HexTopLeft,
@@ -36,8 +36,8 @@ public:
 	void setSelected(bool selected);
 	void toggleSelected();
 
-	void setGenerator(TroopsGenerator* generator);
-    bool hasGenerator();
+	void setAddon(Addon* addon);
+    bool hasAddon();
 
 	// анимация увеличения / уменьшения
 	void runScaleAction();
@@ -61,8 +61,8 @@ private:
 	CCSprite *selection;
 
 	CCLabelTTF* troopsLabel;
-    CCSprite* generatorIcon;
-	TroopsGenerator* generator;
+    CCNode* addonIcon;
+	Addon* addon;
 
 	void setupTroopsLabel();
 

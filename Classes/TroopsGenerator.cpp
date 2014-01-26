@@ -29,7 +29,7 @@ TroopsGenerator::~TroopsGenerator(void)
 {
 }
 	
-CCSprite* TroopsGenerator::getIcon()
+CCNode* TroopsGenerator::getIcon()
 {
 	return generatorIcon;
 }

@@ -4,7 +4,7 @@
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
-	isSelected(false), selection(0), generator(0)
+	isSelected(false), selection(0), addon(0)
 {
 	initWithFile(IMG("hex3.png"));
 	setColor(hexDefault);
@@ -98,21 +98,21 @@ void Hexagon::toggleSelected()
 	setSelected(!isSelected);
 }
 
-void Hexagon::setGenerator(TroopsGenerator* generator)
+void Hexagon::setAddon(Addon* addon)
 {
-	this->generator = generator;
+	this->addon = addon;
 
-	generatorIcon = generator->getIcon();
+	addonIcon = addon->getIcon();
 	//genIcon->getTexture()->setAliasTexParameters();
 	//genIcon->setScale(0.6f);
-	generatorIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.35f));
-	this->addChild(generatorIcon, zGenIcon);
-	this->addChild(generator);
+	addonIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.35f));
+	this->addChild(addonIcon, zGenIcon);
+	this->addChild(addon);
 }
 
-bool Hexagon::hasGenerator()
+bool Hexagon::hasAddon()
 {
-    return generator;
+    return addon;
 }
 
 void Hexagon::runScaleAction()

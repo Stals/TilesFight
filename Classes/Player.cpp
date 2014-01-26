@@ -88,7 +88,7 @@ std::vector<Hexagon*> Player::getHaxagonsWithGenerators()
     
     for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
     {
-        if((*it)->hasGenerator())
+        if((*it)->hasAddon())
             result.push_back(*it);
     }
     
@@ -103,7 +103,7 @@ bool Player::hasLost()
     {
         Hexagon* hex = *it;
         
-        if(hex->hasGenerator() || (hex->getTroopsCount() > 1)){
+        if(hex->hasAddon() || (hex->getTroopsCount() > 1)){
             return false;
         }
     }

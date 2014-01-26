@@ -15,10 +15,10 @@ public:
 	TroopsGenerator(Hexagon* hex, GeneratorType type);
 	~TroopsGenerator(void);
 	
-	CCSprite* getIcon();
+	virtual CCNode* getIcon();
 
 	int getTroopsPerTick();
-	// возвращает сколько дается за тик для определенного типа генератора
+	// вЂљГ“ГЃвЂљпЈївЂЎЛвЂЎГ‚Гљ Г’ГЌГ“ГЋВёГЌГ“ вЂ°вЂЎГ‚ГљГ’Л‡ ГЃвЂЎ ГљГ‹ГЌ вЂ°ГЋЛ‡ Г“Г”пЈїГ‚вЂ°Г‚ГЋГ‚ГЊГЊГ“вЂћГ“ ГљГ‹Г”вЂЎ вЂћГ‚ГЊГ‚пЈївЂЎГљГ“пЈївЂЎ
 	static int getTroopsForType(GeneratorType type);
 
 private:

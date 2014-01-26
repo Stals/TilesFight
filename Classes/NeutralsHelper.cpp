@@ -19,8 +19,8 @@ void NeutralsHelper::addNeutrals(Player* player, Player* player2, GeneratorType 
 	hex->changeOwner(player);
 	sym_hex->changeOwner(player2);
 
-	hex->setGenerator(new TroopsGenerator(hex, type));
-	sym_hex->setGenerator(new TroopsGenerator(sym_hex, type));
+	hex->setAddon(new TroopsGenerator(hex, type));
+	sym_hex->setAddon(new TroopsGenerator(sym_hex, type));
 
 	hex->addTroops(TroopsGenerator::getTroopsForType(type) * NEURALS_FACTOR);
 	sym_hex->addTroops(TroopsGenerator::getTroopsForType(type) * NEURALS_FACTOR);
