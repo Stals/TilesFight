@@ -41,18 +41,16 @@ void NeutralSpawner::spawnRandomCamp()
 }
 
 void NeutralSpawner::spawnSmallCapm(){
-    Board* board = Game::current().getBoard();
-    size_t y = RandomGenerator::getRandom(0, board->getHeight());
-    size_t x = RandomGenerator::getRandom(0, board->getWidth(y));
+    size_t x, y;
+    getCoords(x, y);
     
     NeutralsHelper::addNeutrals( neutral, SmallGen, x, y);
 }
 
 void NeutralSpawner::spawnBigSurroundedGenerator()
 {
-    Board* board = Game::current().getBoard();
-    size_t center_y = RandomGenerator::getRandom(0, board->getHeight());
-    size_t center_x = RandomGenerator::getRandom(0, board->getWidth(center_y));
+    size_t center_x, center_y;
+    getCoords(center_x, center_y);
     
 	NeutralsHelper::addNeutrals(neutral, LargeGen, center_x, center_y);
 	for(int side = 0; side < HexSidesCount; ++side)
@@ -62,3 +60,12 @@ void NeutralSpawner::spawnBigSurroundedGenerator()
             NeutralsHelper::addNeutrals(neutral, SmallGen, hex->getXCoord(), hex->getYCoord());
 	}
 }
+
+void NeutralSpawner::getCoords(size_t &x, size_t &y)
+{
+    Board* board = Game::current().getBoard();
+    x = RandomGenerator::getRandom(0, board->getHeight());
+    y = RandomGenerator::getRandom(0, board->getWidth(y));
+}
+
+

@@ -16,6 +16,8 @@ public:
 private:
     NeutralSpawner();
     
+    void getCoords(size_t &x, size_t &y);
+    
     Player* neutral;
 };
 
