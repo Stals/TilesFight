@@ -1,6 +1,8 @@
 #include "GameLayer.h"
 #include "Hexagon.h"
 #include "TroopsGenerator.h"
+#include "NeutralsSpawner.h"
+
 #include "utils/RandomGenerator.h"
 #include "utils/StringExtension.h"
 
@@ -12,10 +14,6 @@ USING_NS_CC;
 
 
 GameLayer::~GameLayer(){
-	while(!neutrals.empty()) {
-		delete neutrals.back();
-		neutrals.pop_back();
-	}
 }
 
 
@@ -127,9 +125,8 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 
 void GameLayer::setupNeutrals()
 {
-	Player* neutral = Player::createNeutral();
+	/*Player* neutral = Player::createNeutral();
 	neutral->setAI(new NoAI(neutral));
-	neutrals.push_back(neutral);
 
 	//createStartingArmy(neutral, 6, 4);
 	//createStartingArmy(neutral, 7, 10);
@@ -150,10 +147,11 @@ void GameLayer::setupNeutrals()
 
 	// add small camps
 	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 13);
-	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 1);
+	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 1);*/
 
 	for(int i = 0; i < 5; ++i){
-		NeutralsHelper::addNeutrals(neutral, SmallGen, RandomGenerator::getRandom(0, 15), RandomGenerator::getRandom(0, 15));
+		//NeutralsHelper::addNeutrals(neutral, SmallGen, RandomGenerator::getRandom(0, 15), RandomGenerator::getRandom(0, 15));
+        NeutralSpawner::current().spawnRandomCamp();
 	}
 }
 

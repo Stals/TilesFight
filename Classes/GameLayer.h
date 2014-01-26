@@ -26,7 +26,6 @@ private:
 	Board* board;
 	Player* player;
 	Player* computer;
-	std::vector<Player*> neutrals;
 
 	void setupBackgroud();
 
