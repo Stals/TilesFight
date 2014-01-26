@@ -63,10 +63,10 @@
 		D405D0C91893E446000CB7E8 /* NeutralsHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0B51893E446000CB7E8 /* NeutralsHelper.cpp */; };
 		D405D0CA1893E446000CB7E8 /* NeutralsSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0B71893E446000CB7E8 /* NeutralsSpawner.cpp */; };
 		D405D0CB1893E446000CB7E8 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0B91893E446000CB7E8 /* Player.cpp */; };
-		D405D0CC1893E446000CB7E8 /* TroopsGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0BB1893E446000CB7E8 /* TroopsGenerator.cpp */; };
 		D405D0CD1893E446000CB7E8 /* RandomGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0BE1893E446000CB7E8 /* RandomGenerator.cpp */; };
-		D405D10218953EB5000CB7E8 /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10018953EB5000CB7E8 /* Addon.cpp */; };
 		D405D10518955959000CB7E8 /* CCShake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10318955959000CB7E8 /* CCShake.cpp */; };
+		D405D10B18956BD7000CB7E8 /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10718956BD7000CB7E8 /* Addon.cpp */; };
+		D405D10C18956BD7000CB7E8 /* TroopsGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10918956BD7000CB7E8 /* TroopsGenerator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,15 +168,15 @@
 		D405D0B81893E446000CB7E8 /* NeutralsSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NeutralsSpawner.h; path = ../Classes/NeutralsSpawner.h; sourceTree = "<group>"; };
 		D405D0B91893E446000CB7E8 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../Classes/Player.cpp; sourceTree = "<group>"; };
 		D405D0BA1893E446000CB7E8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Classes/Player.h; sourceTree = "<group>"; };
-		D405D0BB1893E446000CB7E8 /* TroopsGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TroopsGenerator.cpp; path = ../Classes/TroopsGenerator.cpp; sourceTree = "<group>"; };
-		D405D0BC1893E446000CB7E8 /* TroopsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TroopsGenerator.h; path = ../Classes/TroopsGenerator.h; sourceTree = "<group>"; };
 		D405D0BE1893E446000CB7E8 /* RandomGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomGenerator.cpp; sourceTree = "<group>"; };
 		D405D0BF1893E446000CB7E8 /* RandomGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomGenerator.h; sourceTree = "<group>"; };
 		D405D0C01893E446000CB7E8 /* StringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringExtension.h; sourceTree = "<group>"; };
-		D405D10018953EB5000CB7E8 /* Addon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Addon.cpp; path = ../Classes/Addon.cpp; sourceTree = "<group>"; };
-		D405D10118953EB5000CB7E8 /* Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Addon.h; path = ../Classes/Addon.h; sourceTree = "<group>"; };
 		D405D10318955959000CB7E8 /* CCShake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCShake.cpp; path = ../Classes/CCShake.cpp; sourceTree = "<group>"; };
 		D405D10418955959000CB7E8 /* CCShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCShake.h; path = ../Classes/CCShake.h; sourceTree = "<group>"; };
+		D405D10718956BD7000CB7E8 /* Addon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Addon.cpp; sourceTree = "<group>"; };
+		D405D10818956BD7000CB7E8 /* Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Addon.h; sourceTree = "<group>"; };
+		D405D10918956BD7000CB7E8 /* TroopsGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TroopsGenerator.cpp; sourceTree = "<group>"; };
+		D405D10A18956BD7000CB7E8 /* TroopsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroopsGenerator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +225,7 @@
 		41CD6C5D15BF750B005E6F29 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D405D10618956BD7000CB7E8 /* Addons */,
 				D405D0A31893E446000CB7E8 /* ai */,
 				D405D0BD1893E446000CB7E8 /* utils */,
 				D405D0AA1893E446000CB7E8 /* Board.cpp */,
@@ -244,12 +245,8 @@
 				D405D0B81893E446000CB7E8 /* NeutralsSpawner.h */,
 				D405D0B91893E446000CB7E8 /* Player.cpp */,
 				D405D0BA1893E446000CB7E8 /* Player.h */,
-				D405D0BB1893E446000CB7E8 /* TroopsGenerator.cpp */,
-				D405D0BC1893E446000CB7E8 /* TroopsGenerator.h */,
 				41CD6C7115BF76FB005E6F29 /* AppDelegate.cpp */,
 				41CD6C7215BF76FB005E6F29 /* AppDelegate.h */,
-				D405D10018953EB5000CB7E8 /* Addon.cpp */,
-				D405D10118953EB5000CB7E8 /* Addon.h */,
 				D405D10318955959000CB7E8 /* CCShake.cpp */,
 				D405D10418955959000CB7E8 /* CCShake.h */,
 			);
@@ -413,6 +410,18 @@
 			path = ../Classes/utils;
 			sourceTree = "<group>";
 		};
+		D405D10618956BD7000CB7E8 /* Addons */ = {
+			isa = PBXGroup;
+			children = (
+				D405D10718956BD7000CB7E8 /* Addon.cpp */,
+				D405D10818956BD7000CB7E8 /* Addon.h */,
+				D405D10918956BD7000CB7E8 /* TroopsGenerator.cpp */,
+				D405D10A18956BD7000CB7E8 /* TroopsGenerator.h */,
+			);
+			name = Addons;
+			path = ../Classes/Addons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -518,7 +527,7 @@
 			files = (
 				D405D0C31893E446000CB7E8 /* RandomAI.cpp in Sources */,
 				41CD6C6515BF7574005E6F29 /* AppController.mm in Sources */,
-				D405D10218953EB5000CB7E8 /* Addon.cpp in Sources */,
+				D405D10B18956BD7000CB7E8 /* Addon.cpp in Sources */,
 				41CD6C6615BF7574005E6F29 /* main.m in Sources */,
 				41CD6C7515BF76FB005E6F29 /* AppDelegate.cpp in Sources */,
 				D405D0CB1893E446000CB7E8 /* Player.cpp in Sources */,
@@ -526,6 +535,7 @@
 				D405D0C91893E446000CB7E8 /* NeutralsHelper.cpp in Sources */,
 				D405D0C61893E446000CB7E8 /* GameLayer.cpp in Sources */,
 				D405D0CA1893E446000CB7E8 /* NeutralsSpawner.cpp in Sources */,
+				D405D10C18956BD7000CB7E8 /* TroopsGenerator.cpp in Sources */,
 				D405D0C71893E446000CB7E8 /* Hexagon.cpp in Sources */,
 				AB63787716FE1A4C00079CB7 /* CDOpenALSupport.m in Sources */,
 				D405D0C81893E446000CB7E8 /* HexArray.cpp in Sources */,
@@ -533,7 +543,6 @@
 				AB63787816FE1A4C00079CB7 /* CDXMacOSXSupport.mm in Sources */,
 				AB63787916FE1A4C00079CB7 /* CocosDenshion.m in Sources */,
 				D405D0C11893E446000CB7E8 /* AbstractAI.cpp in Sources */,
-				D405D0CC1893E446000CB7E8 /* TroopsGenerator.cpp in Sources */,
 				AB63787A16FE1A4C00079CB7 /* SimpleAudioEngine.mm in Sources */,
 				D405D0CD1893E446000CB7E8 /* RandomGenerator.cpp in Sources */,
 				AB63787B16FE1A4C00079CB7 /* SimpleAudioEngine_objc.m in Sources */,

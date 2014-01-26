@@ -1,6 +1,6 @@
 #include "GameLayer.h"
 #include "Hexagon.h"
-#include "TroopsGenerator.h"
+#include "Addons/TroopsGenerator.h"
 #include "NeutralsSpawner.h"
 
 #include "utils/RandomGenerator.h"

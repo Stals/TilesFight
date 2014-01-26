@@ -1,6 +1,6 @@
 #include "Hexagon.h"
 #include "utils/StringExtension.h"
-#include "TroopsGenerator.h"
+#include "Addons/TroopsGenerator.h"
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 

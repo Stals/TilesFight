@@ -1,6 +1,6 @@
 #pragma once
 
-#include "TroopsGenerator.h"
+#include "Addons/TroopsGenerator.h"
 
 // TODO ÔÂÂËÏÂÌÓ‚‡Ú¸ - Ú‡Í. Í‡Í ˝ÚÓÚ ÍÎ‡ÒÒ ÔÓ‰ÓÈ‰ÂÚ Ë ‰Îˇ ‡ÒÔÓÎÓÊÂÌËˇ ‡ÒËÈ Ë„ÓÍÓ‚
 // ≈ÒÎË Ì‡ÔÏËÂ ÔÂÂ‰‡‚‡Ú¸ 2 Ë„ÓÍ‡, ÚÓ ÒËÏÏÂÚË˜Ì˚È ·Û‰ÂÚ Ë„ÓÍ 2

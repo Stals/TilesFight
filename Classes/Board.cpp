@@ -1,5 +1,5 @@
 #include "Board.h"
-#include "TroopsGenerator.h"
+#include "Addons/TroopsGenerator.h"
 #include "CCShake.h"
 
 #define HEX_SIZE 64.f
