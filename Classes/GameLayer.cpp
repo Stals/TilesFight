@@ -149,7 +149,7 @@ void GameLayer::setupNeutrals()
 	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 13);
 	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 1);*/
 
-	for(int i = 0; i < 5; ++i){
+	for(int i = 0; i < 1; ++i){
 		//NeutralsHelper::addNeutrals(neutral, SmallGen, RandomGenerator::getRandom(0, 15), RandomGenerator::getRandom(0, 15));
         NeutralSpawner::current().spawnRandomCamp();
 	}

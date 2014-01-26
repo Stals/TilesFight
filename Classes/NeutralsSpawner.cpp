@@ -17,8 +17,11 @@ struct SpawnerType{
 
 
 SpawnerType types[] = {
-    SpawnerType(&NeutralSpawner::spawnSmallCapm, 5),
-    SpawnerType(&NeutralSpawner::spawnBigSurroundedGenerator, 1)
+    SpawnerType(&NeutralSpawner::spawnSmall, 5),
+    SpawnerType(&NeutralSpawner::spawnBigSurroundedGenerator, 1),
+    SpawnerType(&NeutralSpawner::spawnSmallCluster, 3),
+    SpawnerType(&NeutralSpawner::spawnMedium, 4),
+    SpawnerType(&NeutralSpawner::spawnMediumCamp, 1)
 };
 
 
@@ -37,10 +40,18 @@ NeutralSpawner& NeutralSpawner::current()
 
 void NeutralSpawner::spawnRandomCamp()
 {
-    (this->*(types[0].method))();
+    (this->*(types[4].method))();
 }
 
-void NeutralSpawner::spawnSmallCapm(){
+
+void NeutralSpawner::getCoords(size_t &x, size_t &y)
+{
+    Board* board = Game::current().getBoard();
+    x = RandomGenerator::getRandom(0, board->getHeight());
+    y = RandomGenerator::getRandom(0, board->getWidth(y));
+}
+
+void NeutralSpawner::spawnSmall(){
     size_t x, y;
     getCoords(x, y);
     
@@ -61,11 +72,43 @@ void NeutralSpawner::spawnBigSurroundedGenerator()
 	}
 }
 
-void NeutralSpawner::getCoords(size_t &x, size_t &y)
+void NeutralSpawner::spawnSmallCluster()
 {
-    Board* board = Game::current().getBoard();
-    x = RandomGenerator::getRandom(0, board->getHeight());
-    y = RandomGenerator::getRandom(0, board->getWidth(y));
+    size_t x, y;
+    getCoords(x, y);
+    
+    NeutralsHelper::addNeutrals( neutral, SmallGen, x, y);
+    NeutralsHelper::addNeutrals( neutral, SmallGen, x, y-1);
+    NeutralsHelper::addNeutrals( neutral, SmallGen, x-1, y);
+    NeutralsHelper::addNeutrals( neutral, SmallGen, x-1, y-1);
+
 }
+
+void NeutralSpawner::spawnMedium()
+{
+    size_t x, y;
+    getCoords(x, y);
+    NeutralsHelper::addNeutrals( neutral, MediumGen, x, y);
+}
+
+void NeutralSpawner::spawnMediumCamp(){
+    const size_t smallOnSides = RandomGenerator::getRandom(1, 4);
+    
+    size_t center_x, center_y;
+    getCoords(center_x, center_y);
+
+    NeutralsHelper::addNeutrals( neutral, MediumGen, center_x, center_y);
+
+    for(size_t i = 0; i < smallOnSides; ++i){
+        HexSide rndSide = (HexSide)RandomGenerator::getRandom(0, HexSidesCount);
+        Hexagon* hex = Game::current().getBoard()->sideHexAt(rndSide, center_x, center_y);
+        if(hex)
+            NeutralsHelper::addNeutrals(neutral, SmallGen, hex->getXCoord(), hex->getYCoord());
+        
+    }
+    
+}
+
+
 
 

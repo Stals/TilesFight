@@ -10,8 +10,12 @@ public:
     
     
     // different spawners
-    void spawnSmallCapm();
+    void spawnSmall();
     void spawnBigSurroundedGenerator();
+    void spawnSmallCluster();
+    void spawnMedium();
+    void spawnMediumCamp();
+    
     
 private:
     NeutralSpawner();
