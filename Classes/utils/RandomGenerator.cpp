@@ -56,9 +56,7 @@ size_t RandomGenerator::getRandomID(std::vector<double> weights)
 void RandomGenerator::normalize(std::vector<double> &probabilities)
 {
     
-    double sum;
-    std::accumulate(probabilities.begin(), probabilities.end(),
-                    static_cast<double>(0));
+    const double sum = std::accumulate(probabilities.begin(), probabilities.end(), static_cast<double>(0));
     for(std::vector<double>::iterator
         iter = probabilities.begin(),
         end = probabilities.end();
