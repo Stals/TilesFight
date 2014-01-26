@@ -98,7 +98,7 @@ void GameLayer::setupPlayers()
 
     
     size_t playerY = RandomGenerator::getRandom(1, Game::current().getBoard()->getHeight() - 1);
-    size_t enemyY = Game::current().getBoard()->getHeight() - playerY;
+    size_t enemyY = Game::current().getBoard()->getHeight() - playerY - 1;
     
 	createStartingArmy(player, 1, playerY);
 	createStartingArmy(computer, 12, enemyY);
