@@ -38,7 +38,8 @@ public:
 
 	void setAddon(Addon* addon);
     bool hasAddon();
-
+    const Addon* getAddon();
+    
 	// анимация увеличения / уменьшения
 	void runScaleAction();
 	void runScaleLabelAction(float maxScale);

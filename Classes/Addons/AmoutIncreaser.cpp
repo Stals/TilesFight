@@ -1,7 +1,6 @@
 #include "AmoutIncreaser.h"
 #include "../utils/StringExtension.h"
 
-
 AmoutIncreaser::AmoutIncreaser(Hexagon* hex,  AIncreaserType type):Addon(hex, AIncreaserAddon)
 {
     switch(type){
@@ -24,5 +23,5 @@ int AmoutIncreaser::getAdditionalAmout()
 
 CCNode* AmoutIncreaser::getIcon()
 {
-    return CCLabelTTF::create(std::string("+").append(StringExtension::toString(additionalAmount)).c_str(), default_font.c_str(), 10);
+    return CCLabelTTF::create(std::string("+").append(StringExtension::toString(additionalAmount)).c_str(), "Arial", 55);
 }

@@ -1,10 +1,12 @@
 #pragma once
 
-#include "Hexagon.h"
+#include "../Constants.h"
+#include "../Hexagon.h"
 
 enum AddonType{
     GeneratorAddon,
-    AIncreaserAddon
+    AIncreaserAddon,
+    NoAddon
 };
 
 class Addon : public CCNode{
@@ -13,7 +15,7 @@ public:
     
     virtual CCNode* getIcon() = 0;
     
-    AddonType getType();
+    AddonType getType() const;
     
 protected:
     Hexagon* hex;

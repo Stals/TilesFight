@@ -1,5 +1,6 @@
 #include "TroopsGenerator.h"
 
+#include "Hexagon.h"
 
 
 TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type):Addon(hex, GeneratorAddon), generatorIcon(0), troopsPerTick(0)

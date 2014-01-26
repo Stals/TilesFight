@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Hexagon.h"
 #include "ai/AbstractAI.h"
+#include "Addons/AmoutIncreaser.h"
 
 #define TROOPS_PER_TICK 5
 
@@ -51,7 +52,11 @@ void Player::removeControlledHexagon(Hexagon* hex)
 {
 	controlledHexagons.erase(hex);
     
-    // TODO проверяем если на нем increaser - то уменьшаем troopsPerTick
+    // проверяем если на нем increaser - то уменьшаем troopsPerTick
+    const Addon* addon = hex->getAddon();
+    if(addon && (addon->getType() == AIncreaserAddon)){
+        troopsPerTick -= ((AmoutIncreaser*)addon)->getAdditionalAmout();
+    }
 
     if((!isNeutral()) && hasLost())
         cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), this);
@@ -61,7 +66,11 @@ void Player::addControlledHexagon(Hexagon* hex)
 {
 	controlledHexagons.insert(hex);
     
-    // TODO проверяем если на нем increaser - то увеличивает troopsPerTick
+    // проверяем если на нем increaser - то увеличивает troopsPerTick
+    const Addon* addon = hex->getAddon();
+    if(addon && (addon->getType() == AIncreaserAddon)){
+        troopsPerTick += ((AmoutIncreaser*)addon)->getAdditionalAmout();
+    }
 }
 
 std::set<Hexagon*>& Player::getControlledHexagons()

@@ -13,7 +13,7 @@ Addon::Addon(Hexagon* hex, AddonType type): hex(hex), addonType(type)
 	CCNode::init();
 }
 
-AddonType Addon::getType()
+AddonType Addon::getType() const
 {
     return addonType;
 }
