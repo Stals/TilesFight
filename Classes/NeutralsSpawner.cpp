@@ -1,6 +1,7 @@
 #include "NeutralsSpawner.h"
 
 #include "NeutralsHelper.h"
+#include "Addons/AmoutIncreaser.h"
 #include "ai/NoAI.h"
 #include "utils/RandomGenerator.h"
 #include "Game.h"
