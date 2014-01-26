@@ -27,12 +27,16 @@ public:
 	std::set<Hexagon*>& getControlledHexagons();
     std::vector<Hexagon*> getHexagonsWithTroops();
     std::vector<Hexagon*> getHaxagonsWithGenerators();
+    
+    int getTroopsPerTick();
 
 private:
 	std::string name;
 	ccColor3B color;
 	AbstractAI* ai;
 	bool neutral;
+    
+    int troopsPerTick;
 
 	std::set<Hexagon*> controlledHexagons;
     

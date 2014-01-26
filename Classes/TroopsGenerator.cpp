@@ -1,6 +1,5 @@
 #include "TroopsGenerator.h"
 
-#define TROOPS_PER_TICK 5
 
 
 TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type):Addon(hex), generatorIcon(0), troopsPerTick(0)
@@ -56,7 +55,7 @@ int TroopsGenerator::getTroopsForType(GeneratorType type)
 void TroopsGenerator::tick(float dt)
 {
 	if(hex->getOwner() && (!hex->getOwner()->isNeutral())){
-		hex->addTroops(TROOPS_PER_TICK);
+		hex->addTroops(hex->getOwner()->getTroopsPerTick());
         
         const float maxScale = 1.1;//1 + 3 * (( 1 / dt ) / 10);
 		hex->runScaleLabelAction(maxScale);

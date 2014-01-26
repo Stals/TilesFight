@@ -2,8 +2,11 @@
 #include "Hexagon.h"
 #include "ai/AbstractAI.h"
 
+#define TROOPS_PER_TICK 5
+
+
 Player::Player(const std::string &name, const ccColor3B& color): 
-	name(name), color(color), ai(0), neutral(false)
+	name(name), color(color), ai(0), neutral(false), troopsPerTick(TROOPS_PER_TICK)
 {
 }
 
@@ -48,6 +51,8 @@ void Player::removeControlledHexagon(Hexagon* hex)
 {
 	controlledHexagons.erase(hex);
     
+    // TODO проверяем если на нем increaser - то уменьшаем troopsPerTick
+
     if((!isNeutral()) && hasLost())
         cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), this);
 }
@@ -55,6 +60,8 @@ void Player::removeControlledHexagon(Hexagon* hex)
 void Player::addControlledHexagon(Hexagon* hex)
 {
 	controlledHexagons.insert(hex);
+    
+    // TODO проверяем если на нем increaser - то увеличивает troopsPerTick
 }
 
 std::set<Hexagon*>& Player::getControlledHexagons()
@@ -102,4 +109,10 @@ bool Player::hasLost()
     }
     return true;
 }
+
+int Player::getTroopsPerTick()
+{
+    return troopsPerTick;
+}
+
 
