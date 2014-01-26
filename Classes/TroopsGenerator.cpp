@@ -3,11 +3,8 @@
 #define TROOPS_PER_TICK 5
 
 
-TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type): hex(hex), generatorIcon(0), troopsPerTick(0)
+TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type):Addon(hex), generatorIcon(0), troopsPerTick(0)
 {
-	CCNode::init();
-
-
 	float delay =  0.f;
 	switch(type){
 	case SmallGen:

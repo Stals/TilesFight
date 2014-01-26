@@ -65,6 +65,7 @@
 		D405D0CB1893E446000CB7E8 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0B91893E446000CB7E8 /* Player.cpp */; };
 		D405D0CC1893E446000CB7E8 /* TroopsGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0BB1893E446000CB7E8 /* TroopsGenerator.cpp */; };
 		D405D0CD1893E446000CB7E8 /* RandomGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D0BE1893E446000CB7E8 /* RandomGenerator.cpp */; };
+		D405D10218953EB5000CB7E8 /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10018953EB5000CB7E8 /* Addon.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,8 @@
 		D405D0BE1893E446000CB7E8 /* RandomGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomGenerator.cpp; sourceTree = "<group>"; };
 		D405D0BF1893E446000CB7E8 /* RandomGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomGenerator.h; sourceTree = "<group>"; };
 		D405D0C01893E446000CB7E8 /* StringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringExtension.h; sourceTree = "<group>"; };
+		D405D10018953EB5000CB7E8 /* Addon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Addon.cpp; path = ../Classes/Addon.cpp; sourceTree = "<group>"; };
+		D405D10118953EB5000CB7E8 /* Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Addon.h; path = ../Classes/Addon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +245,8 @@
 				D405D0BC1893E446000CB7E8 /* TroopsGenerator.h */,
 				41CD6C7115BF76FB005E6F29 /* AppDelegate.cpp */,
 				41CD6C7215BF76FB005E6F29 /* AppDelegate.h */,
+				D405D10018953EB5000CB7E8 /* Addon.cpp */,
+				D405D10118953EB5000CB7E8 /* Addon.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 			files = (
 				D405D0C31893E446000CB7E8 /* RandomAI.cpp in Sources */,
 				41CD6C6515BF7574005E6F29 /* AppController.mm in Sources */,
+				D405D10218953EB5000CB7E8 /* Addon.cpp in Sources */,
 				41CD6C6615BF7574005E6F29 /* main.m in Sources */,
 				41CD6C7515BF76FB005E6F29 /* AppDelegate.cpp in Sources */,
 				D405D0CB1893E446000CB7E8 /* Player.cpp in Sources */,

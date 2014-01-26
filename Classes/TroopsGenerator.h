@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hexagon.h"
+#include "Addon.h"
 
 enum GeneratorType{
 	SmallGen, 
@@ -9,7 +9,7 @@ enum GeneratorType{
 };
 
 
-class TroopsGenerator : public CCNode
+class TroopsGenerator : public Addon
 {
 public:
 	TroopsGenerator(Hexagon* hex, GeneratorType type);
@@ -22,8 +22,7 @@ public:
 	static int getTroopsForType(GeneratorType type);
 
 private:
-	Hexagon* hex;
-
+    
 	CCSprite* generatorIcon;
 	int troopsPerTick;
 
