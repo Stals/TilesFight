@@ -94,8 +94,12 @@ void GameLayer::setupPlayers()
 	computer = new Player("AI", hexGreen);
 	computer->setAI(new RandomAI(computer));
 
-	createStartingArmy(player, 1, 7);
-	createStartingArmy(computer, 12, 7);
+    
+    size_t playerY = RandomGenerator::getRandom(0, Game::current().getBoard()->getHeight() - 1);
+    size_t enemyY = Game::current().getBoard()->getHeight() - playerY;
+    
+	createStartingArmy(player, 1, playerY);
+	createStartingArmy(computer, 12, enemyY);
 }
 
 void GameLayer::setupListeners()
@@ -125,6 +129,8 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 
 void GameLayer::setupNeutrals()
 {
+    NeutralSpawner::current().spawnBigSurroundedGenerator();
+    
 	for(int i = 0; i < 6; ++i){
         NeutralSpawner::current().spawnRandomCamp();
 	}
