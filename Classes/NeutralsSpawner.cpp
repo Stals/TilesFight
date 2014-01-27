@@ -69,7 +69,7 @@ void NeutralSpawner::spawnSmall(){
     size_t x, y;
     getCoords(x, y);
     
-    NeutralsHelper::addNeutrals( neutral, SmallGen, x, y);
+    NeutralsHelper::addNeutrals( neutral, TroopsGenerator::Small, x, y);
 }
 
 void NeutralSpawner::spawnBigSurroundedGenerator()
@@ -77,12 +77,12 @@ void NeutralSpawner::spawnBigSurroundedGenerator()
     size_t center_x, center_y;
     getCoords(center_x, center_y);
     
-	NeutralsHelper::addNeutrals(neutral, LargeGen, center_x, center_y);
+	NeutralsHelper::addNeutrals(neutral, TroopsGenerator::Large, center_x, center_y);
 	for(int side = 0; side < HexSidesCount; ++side)
 	{
 		Hexagon* hex = Game::current().getBoard()->sideHexAt((HexSide)side, center_x, center_y);
         if(hex)
-            NeutralsHelper::addNeutrals(neutral, SmallGen, hex->getXCoord(), hex->getYCoord());
+            NeutralsHelper::addNeutrals(neutral, TroopsGenerator::Small, hex->getXCoord(), hex->getYCoord());
 	}
 }
 
@@ -91,10 +91,10 @@ void NeutralSpawner::spawnSmallCluster()
     size_t x, y;
     getCoords(x, y);
     
-    NeutralsHelper::addNeutrals( neutral, SmallGen, x, y);
-    NeutralsHelper::addNeutrals( neutral, SmallGen, x, y-1);
-    NeutralsHelper::addNeutrals( neutral, SmallGen, x-1, y);
-    NeutralsHelper::addNeutrals( neutral, SmallGen, x-1, y-1);
+    NeutralsHelper::addNeutrals( neutral, TroopsGenerator::Small, x, y);
+    NeutralsHelper::addNeutrals( neutral, TroopsGenerator::Small, x, y-1);
+    NeutralsHelper::addNeutrals( neutral, TroopsGenerator::Small, x-1, y);
+    NeutralsHelper::addNeutrals( neutral, TroopsGenerator::Small, x-1, y-1);
 
 }
 
@@ -102,7 +102,7 @@ void NeutralSpawner::spawnMedium()
 {
     size_t x, y;
     getCoords(x, y);
-    NeutralsHelper::addNeutrals( neutral, MediumGen, x, y);
+    NeutralsHelper::addNeutrals( neutral, TroopsGenerator::Medium, x, y);
 }
 
 void NeutralSpawner::spawnMediumCamp(){
@@ -111,13 +111,13 @@ void NeutralSpawner::spawnMediumCamp(){
     size_t center_x, center_y;
     getCoords(center_x, center_y);
 
-    NeutralsHelper::addNeutrals( neutral, MediumGen, center_x, center_y);
+    NeutralsHelper::addNeutrals( neutral, TroopsGenerator::Medium, center_x, center_y);
 
     for(size_t i = 0; i < smallOnSides; ++i){
         HexSide rndSide = (HexSide)RandomGenerator::getRandom(0, HexSidesCount);
         Hexagon* hex = Game::current().getBoard()->sideHexAt(rndSide, center_x, center_y);
         if(hex)
-            NeutralsHelper::addNeutrals(neutral, SmallGen, hex->getXCoord(), hex->getYCoord());
+            NeutralsHelper::addNeutrals(neutral, TroopsGenerator::Small, hex->getXCoord(), hex->getYCoord());
         
     }
     

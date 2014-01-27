@@ -2,16 +2,18 @@
 
 #include "Addon.h"
 
-enum AIncreaserType{
-	SmallAInc,
-	MediumAInc,
-	LargeAInc
-};
+
 
 
 class AmoutIncreaser : public Addon{
 public:
-    AmoutIncreaser(Hexagon* hex, AIncreaserType type);
+    enum Type{
+        Small,
+        Medium,
+        Large
+    };
+    
+    AmoutIncreaser(Hexagon* hex, AmoutIncreaser::Type type);
     
     int getAdditionalAmout();
     virtual CCNode* getIcon();

@@ -54,7 +54,7 @@ void Player::removeControlledHexagon(Hexagon* hex)
     
     // проверяем если на нем increaser - то уменьшаем troopsPerTick
     const Addon* addon = hex->getAddon();
-    if(addon && (addon->getType() == AIncreaserAddon)){
+    if(addon && (addon->getType() == Addon::AIncreaser)){
         troopsPerTick -= ((AmoutIncreaser*)addon)->getAdditionalAmout();
     }
 
@@ -68,7 +68,7 @@ void Player::addControlledHexagon(Hexagon* hex)
     
     // проверяем если на нем increaser - то увеличивает troopsPerTick
     const Addon* addon = hex->getAddon();
-    if(addon && (addon->getType() == AIncreaserAddon)){
+    if(addon && (addon->getType() == Addon::AIncreaser)){
         troopsPerTick += ((AmoutIncreaser*)addon)->getAdditionalAmout();
     }
 }

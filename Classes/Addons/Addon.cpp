@@ -8,12 +8,12 @@
 
 #include "Addon.h"
 
-Addon::Addon(Hexagon* hex, AddonType type): hex(hex), addonType(type)
+Addon::Addon(Hexagon* hex, Addon::Type type): hex(hex), addonType(type)
 {
 	CCNode::init();
 }
 
-AddonType Addon::getType() const
+Addon::Type Addon::getType() const
 {
     return addonType;
 }

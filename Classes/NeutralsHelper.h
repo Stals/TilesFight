@@ -13,11 +13,11 @@ public:
     // TODO сделать чтобы принимало Addon* а не type - тоесть уже созданные передается?
     // а какже тогда компирование и стафф всмысле как мне для второго типа такойже сделать?
     
-	static void addNeutrals(Player* player, GeneratorType type, size_t x, size_t y);
-	static void addNeutrals(Player* player, Player* player2, GeneratorType type, size_t x, size_t y);
+	static void addNeutrals(Player* player, TroopsGenerator::Type type, size_t x, size_t y);
+	static void addNeutrals(Player* player, Player* player2, TroopsGenerator::Type type, size_t x, size_t y);
 
-	static void addNeutrals(Player* player, AIncreaserType type, size_t x, size_t y);
-	static void addNeutrals(Player* player, Player* player2, AIncreaserType type, size_t x, size_t y);
+	static void addNeutrals(Player* player, AmoutIncreaser::Type type, size_t x, size_t y);
+	static void addNeutrals(Player* player, Player* player2, AmoutIncreaser::Type type, size_t x, size_t y);
     
     //static void addNeutralWithAddon(Player* player, Player* player2, Addon* addon1, Addon* addon2, size_t x, size_t y);
 

@@ -4,12 +4,12 @@
 #define NEURALS_FACTOR 2
 
 
-void NeutralsHelper::addNeutrals(Player* player, GeneratorType type, size_t x, size_t y)
+void NeutralsHelper::addNeutrals(Player* player, TroopsGenerator::Type type, size_t x, size_t y)
 {
 	addNeutrals(player, player, type, x, y);
 }
 
-void NeutralsHelper::addNeutrals(Player* player, Player* player2, GeneratorType type, size_t x, size_t y)
+void NeutralsHelper::addNeutrals(Player* player, Player* player2, TroopsGenerator::Type type, size_t x, size_t y)
 {
 	Hexagon* hex = Game::current().getBoard()->at(x, y);
 	if((!hex) || hex->getOwner()) return;
@@ -26,13 +26,13 @@ void NeutralsHelper::addNeutrals(Player* player, Player* player2, GeneratorType 
 	sym_hex->addTroops(TroopsGenerator::getTroopsForType(type) * NEURALS_FACTOR);
 }
 
-void NeutralsHelper::addNeutrals(Player* player, AIncreaserType type, size_t x, size_t y)
+void NeutralsHelper::addNeutrals(Player* player, AmoutIncreaser::Type type, size_t x, size_t y)
 {
     addNeutrals(player, player, type, x, y);
 
 }
 
-void NeutralsHelper::addNeutrals(Player* player, Player* player2, AIncreaserType type, size_t x, size_t y)
+void NeutralsHelper::addNeutrals(Player* player, Player* player2, AmoutIncreaser::Type type, size_t x, size_t y)
 {
     Hexagon* hex = Game::current().getBoard()->at(x, y);
 	if((!hex) || hex->getOwner()) return;

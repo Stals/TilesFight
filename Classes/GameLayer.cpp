@@ -115,7 +115,7 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 	centerHex->changeOwner(player);
 	centerHex->addTroops(25);
 
-	centerHex->setAddon(new TroopsGenerator(centerHex, LargeGen));
+	centerHex->setAddon(new TroopsGenerator(centerHex, TroopsGenerator::Large));
 
 	for(int side = 0; side < HexSidesCount; ++side)
 	{
@@ -123,7 +123,7 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 		if(hex){
 			hex->changeOwner(player);
 			hex->addTroops(5);
-			hex->setAddon(new TroopsGenerator(hex, SmallGen));
+			hex->setAddon(new TroopsGenerator(hex, TroopsGenerator::Small));
         }
 	}
 }

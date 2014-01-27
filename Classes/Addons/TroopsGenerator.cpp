@@ -3,19 +3,19 @@
 #include "Hexagon.h"
 
 
-TroopsGenerator::TroopsGenerator(Hexagon* hex, GeneratorType type):Addon(hex, GeneratorAddon), generatorIcon(0), troopsPerTick(0)
+TroopsGenerator::TroopsGenerator(Hexagon* hex, TroopsGenerator::Type type):Addon(hex, Addon::Generator), generatorIcon(0), troopsPerTick(0)
 {
 	float delay =  0.f;
 	switch(type){
-	case SmallGen:
+	case Small:
 		generatorIcon = CCSprite::create(IMG("smallGen.png"));
 		delay = 5.f;
 		break;
-	case MediumGen:
+	case Medium:
 		generatorIcon = CCSprite::create(IMG("mediumGen.png"));
 		delay = 2.5f;
 		break;
-	case LargeGen:
+	case Large:
 		generatorIcon = CCSprite::create(IMG("largeGen.png"));
 		delay = 1.f;
 		break;
@@ -40,14 +40,14 @@ int TroopsGenerator::getTroopsPerTick()
 	return troopsPerTick;
 }
 
-int TroopsGenerator::getTroopsForType(GeneratorType type)
+int TroopsGenerator::getTroopsForType(TroopsGenerator::Type type)
 {
 	switch(type){
-	case SmallGen:
+	case Small:
 		return 5;
-	case MediumGen:
+	case Medium:
 		return 10;
-	case LargeGen:
+	case Large:
 		return 25;
 	}
 }
