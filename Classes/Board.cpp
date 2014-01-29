@@ -22,6 +22,11 @@ Hexagon* Board::sideHexAt(HexSide side, size_t x, size_t y)
 	return hexArray2D.sideHexAt(side, x, y);
 }
 
+Hexagon* Board::sideHexAt(HexSide side, Hexagon* hex)
+{
+    return sideHexAt(side, hex->getXCoord(), hex->getYCoord());
+}
+
 
 void Board::initBoard()
 {

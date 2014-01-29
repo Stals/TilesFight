@@ -11,6 +11,7 @@ public:
 
 	Hexagon* at(size_t x, size_t y);
 	Hexagon* sideHexAt(HexSide side, size_t x, size_t y);
+    Hexagon* sideHexAt(HexSide side, Hexagon* hex);
 
 	void moveTroops(Hexagon * startHex, Hexagon* endHex);
 

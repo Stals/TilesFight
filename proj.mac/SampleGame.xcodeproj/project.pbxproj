@@ -68,6 +68,7 @@
 		D405D10B18956BD7000CB7E8 /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10718956BD7000CB7E8 /* Addon.cpp */; };
 		D405D10C18956BD7000CB7E8 /* TroopsGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10918956BD7000CB7E8 /* TroopsGenerator.cpp */; };
 		D405D10F18956C96000CB7E8 /* AmoutIncreaser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10D18956C96000CB7E8 /* AmoutIncreaser.cpp */; };
+		D405D11218998319000CB7E8 /* AStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D11018998319000CB7E8 /* AStar.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,8 @@
 		D405D10A18956BD7000CB7E8 /* TroopsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroopsGenerator.h; sourceTree = "<group>"; };
 		D405D10D18956C96000CB7E8 /* AmoutIncreaser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AmoutIncreaser.cpp; sourceTree = "<group>"; };
 		D405D10E18956C96000CB7E8 /* AmoutIncreaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmoutIncreaser.h; sourceTree = "<group>"; };
+		D405D11018998319000CB7E8 /* AStar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AStar.cpp; path = ../Classes/AStar.cpp; sourceTree = "<group>"; };
+		D405D11118998319000CB7E8 /* AStar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AStar.h; path = ../Classes/AStar.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 				41CD6C7215BF76FB005E6F29 /* AppDelegate.h */,
 				D405D10318955959000CB7E8 /* CCShake.cpp */,
 				D405D10418955959000CB7E8 /* CCShake.h */,
+				D405D11018998319000CB7E8 /* AStar.cpp */,
+				D405D11118998319000CB7E8 /* AStar.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				D405D10B18956BD7000CB7E8 /* Addon.cpp in Sources */,
 				41CD6C6615BF7574005E6F29 /* main.m in Sources */,
 				41CD6C7515BF76FB005E6F29 /* AppDelegate.cpp in Sources */,
+				D405D11218998319000CB7E8 /* AStar.cpp in Sources */,
 				D405D0CB1893E446000CB7E8 /* Player.cpp in Sources */,
 				AB63787616FE1A4C00079CB7 /* CDAudioManager.m in Sources */,
 				D405D0C91893E446000CB7E8 /* NeutralsHelper.cpp in Sources */,
