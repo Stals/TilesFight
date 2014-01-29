@@ -20,7 +20,7 @@ AStar::~AStar(){
 }
 
 std::list<Hexagon*> AStar::findPath(Hexagon* startHex, Hexagon* endHex){
-	Node* startingNode = new Node(startHex, NULL);
+	Node* startingNode = new Node(startHex, NULL, hex_distance(startHex, endHex));
 	open.push_back(startingNode);
     
     
@@ -44,7 +44,7 @@ std::list<Hexagon*> AStar::findPath(Hexagon* startHex, Hexagon* endHex){
             
 			if( !linkInOpen ){
                 
-				Node* newNode = new Node(hexAround, bestNodeFromOpen);
+				Node* newNode = new Node(hexAround, bestNodeFromOpen, hex_distance(hexAround, endHex));
 				open.push_back(newNode);
 				if(hexAround == endHex){
 					return getPath(newNode);

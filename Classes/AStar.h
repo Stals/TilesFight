@@ -56,11 +56,12 @@ private:
 };
 
 
+#include "utils/StringExtension.h"
+
 //  TODO - для первой ячейки нужно понимать чему равен parent
 class Node{
 public:
-	Node(Hexagon* hex, Node* parent): hex(hex), parent(parent), G(0), F(0){
-		
+	Node(Hexagon* hex, Node* parent, double H): hex(hex), parent(parent), G(0), F(0), H(H){
 		if(parent) setParent(parent);
 	}
     
@@ -68,7 +69,11 @@ public:
 		this->parent = parent;
 		G = parent->G + 1;
         
-		F = G + AStar::hex_distance(parent->hex, hex); // hex_distance - H
+		F = G + H;
+        CCLabelTTF* label =cocos2d::CCLabelTTF::create(StringExtension::toString(H).c_str(), "Arial", 54);
+        label->setPosition(ccp(128, 128));
+        
+        hex->addChild(label);
 	}
     
 	Hexagon* hex;
@@ -76,6 +81,7 @@ public:
     
 	int G; // суммарная стоимость того чтобы до сюда дойти
 	double F;
+    double H; // росстояние до конца
 };
 
 
