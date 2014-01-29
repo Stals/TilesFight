@@ -127,11 +127,13 @@ std::list<Hexagon*> AStar::getPath(Node* finalNode)
 double AStar::hex_distance(Hexagon* hex1, Hexagon* hex2)
 {
 	return hex_distance(hex1->getXCoord(), hex1->getYCoord(), hex2->getXCoord(), hex2->getYCoord());
+    
+	//return hex_distance(hex1->getPositionX(), hex1->getPositionY(), hex2->getPositionX(), hex2->getPositionY());
 }
 
 
 double AStar::hex_distance(int q1, int r1, int q2, int r2)
 {
-    return (abs(q1 - q2) + abs(r1 - r2)
-            + abs(q1 + r1 - q2 - r2)) / 2;
+    return (abs(q1 - q2) + abs(r1 - r2));
+          //  + abs(q1 + r1 - q2 - r2)) / 2;
 }

@@ -70,10 +70,10 @@ public:
 		G = parent->G + 1;
         
 		F = G + H;
-        CCLabelTTF* label =cocos2d::CCLabelTTF::create(StringExtension::toString(H).c_str(), "Arial", 54);
-        label->setPosition(ccp(128, 128));
         
-        hex->addChild(label);
+        /*CCLabelTTF* label =cocos2d::CCLabelTTF::create(StringExtension::toString(H).c_str(), "Arial", 54);
+        label->setPosition(ccp(128, 128));
+        hex->addChild(label);*/
 	}
     
 	Hexagon* hex;
