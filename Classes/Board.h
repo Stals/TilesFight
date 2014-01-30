@@ -1,5 +1,7 @@
 #pragma once
 
+#include <list>
+
 #include "Constants.h"
 #include "Hexagon.h"
 #include "HexArray.h"
@@ -12,6 +14,8 @@ public:
 	Hexagon* at(size_t x, size_t y);
 	Hexagon* sideHexAt(HexSide side, size_t x, size_t y);
     Hexagon* sideHexAt(HexSide side, Hexagon* hex);
+    
+    std::list<Hexagon*> getPath(Hexagon* start, Hexagon* end);
 
 	void moveTroops(Hexagon * startHex, Hexagon* endHex);
 

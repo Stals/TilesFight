@@ -1,6 +1,7 @@
 #include "Board.h"
 #include "Addons/TroopsGenerator.h"
 #include "CCShake.h"
+#include "AStar.h"
 
 #define HEX_SIZE 64.f
 
@@ -27,6 +28,11 @@ Hexagon* Board::sideHexAt(HexSide side, Hexagon* hex)
     return sideHexAt(side, hex->getXCoord(), hex->getYCoord());
 }
 
+std::list<Hexagon*> Board::getPath(Hexagon* start, Hexagon* end)
+{
+    AStar astar;
+    return astar.findPath(start, end);
+}
 
 void Board::initBoard()
 {
