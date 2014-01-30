@@ -22,13 +22,11 @@
 
 #pragma once
 #include <list>
+
 #include "Hexagon.h"
-
-
-
+#include "utils/StringExtension.h"
 
 class Node;
-
 
 class AStar{
 public:
@@ -36,14 +34,10 @@ public:
 	~AStar();
     
 	std::list<Hexagon*> findPath(Hexagon* startHex, Hexagon* endHex);
-    
-    static double hex_distance(Hexagon* hex1, Hexagon* hex2);
 
 private:
 	std::list<Node*> open;
 	std::list<Node*> closed;
-    
-	static double hex_distance(int q1, int r1, int q2, int r2);
     
 	Node* getBestNodeFromOpen();
     
@@ -53,12 +47,12 @@ private:
 	bool isInClosed(Hexagon* hex);
     
 	std::list<Hexagon*> getPath(Node* finalNode);
+    
+    double hex_distance(Hexagon* hex1, Hexagon* hex2);
+    double hex_distance(int q1, int r1, int q2, int r2);
 };
 
 
-#include "utils/StringExtension.h"
-
-//  TODO - для первой ячейки нужно понимать чему равен parent
 class Node{
 public:
 	Node(Hexagon* hex, Node* parent, double H): hex(hex), parent(parent), G(0), F(0), H(H){
