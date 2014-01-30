@@ -60,17 +60,6 @@ bool GameLayer::init()
 	setupNeutrals();
     
     setupListeners();
-    
-
-    
-    /*Hexagon* start = board->at(5, 0);
-    Hexagon* end = board->at(5, 14);
-    
-    std::list<Hexagon*> path = board->getPath(start, end);
-    
-    for(std::list<Hexagon*>::iterator it = path.begin(); it != path.end(); ++it){
-        (*it)->changeOwner(player);
-    }*/
 
 	return true;
 }

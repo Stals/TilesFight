@@ -95,6 +95,32 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 	/*
 		TODO ËÁ ÔÂ‰‚Â‰Û˘ÂÈ ÚÓ˜ÍË ÔÓÎÛ˜ËÚ¸ owner'a Ë Â„Ó Í‡Í‡Á Ë Á‡ÏÛÚËÚ¸
 	*/
+    /*
+     // Path finding debug
+    for(size_t y = 0; y < hexArray2D.size(); ++y){
+        HexArray *row = hexArray2D.row(y);
+        
+        for(size_t x = 0; x < row->size(); ++x){
+            Hexagon* hex = row->at(x);
+            hex->setColor(ccc3(0,0,0));
+            
+        }
+    }
+    
+    for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
+		CCTouch* touch = ((CCTouch*)*it);
+		Hexagon* startHex = 0;
+		Hexagon* endHex = 0;
+        
+		getStartEndHex(touch, startHex, endHex);
+        
+        std::list<Hexagon*> path = getPath(startHex, endHex);
+        for(std::list<Hexagon*>::iterator it = path.begin(); it != path.end(); ++it){
+            (*it)->setColor(ccc3(255, 255, 255));
+            (*it)->setOpacity(255);
+        }
+        
+    }*/
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
@@ -105,6 +131,7 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		Hexagon* endHex = 0;
 
 		getStartEndHex(touch, startHex, endHex);
+        
 		if(startHex) startHex->setSelected(false);
 
         if((!startHex) || (!endHex)) continue;
