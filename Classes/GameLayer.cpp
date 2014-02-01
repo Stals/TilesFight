@@ -98,11 +98,18 @@ void GameLayer::setupPlayers()
 	computer->setAI(new RandomAI(computer));
 
     
-    size_t playerY = RandomGenerator::getRandom(1, Game::current().getBoard()->getHeight() - 1);
-    size_t enemyY = Game::current().getBoard()->getHeight() - playerY - 1;
+    
+    
+    
+    const size_t playerX = 1;
+    const size_t playerY = RandomGenerator::getRandom(1, Game::current().getBoard()->getHeight() - 1);
+    
+    createStartingArmies(player, computer, playerX, playerY);
+    
+    /*size_t enemyY = Game::current().getBoard()->getHeight() - playerY - 1;
     
 	createStartingArmy(player, 1, playerY);
-	createStartingArmy(computer, 12, enemyY);
+	createStartingArmy(computer, 12, enemyY);*/
 }
 
 void GameLayer::setupListeners()
@@ -129,11 +136,23 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 	}
 }
 
+void GameLayer::createStartingArmies(Player* player, Player* player2, size_t playerX, size_t playerY)
+{
+    NeutralsHelper::addNeutrals(player, player2, TroopsGenerator::Large, playerX, playerY);
+    
+    for(int side = 0; side < HexSidesCount; ++side){
+        Hexagon* hex = board->sideHexAt((HexSide)side, playerX, playerY);
+		if(hex){
+            NeutralsHelper::addNeutrals(player, player2, TroopsGenerator::Small, hex->getXCoord(), hex->getYCoord());
+        }
+    }
+}
+
 void GameLayer::setupNeutrals()
 {
     NeutralSpawner::current().spawnBigSurroundedGenerator();
     
-	for(int i = 0; i < 6; ++i){
+	for(int i = 0; i < 5; ++i){
         NeutralSpawner::current().spawnRandomCamp();
 	}
 }

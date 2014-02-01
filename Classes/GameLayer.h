@@ -37,7 +37,8 @@ private:
     void setupListeners();
 
 	void createStartingArmy(Player* player, int x, int y);
-    
+    void createStartingArmies(Player* player, Player* player2, size_t playerX, size_t playerY);
+
     
     void onPlayerLost(CCObject* obj);
 };
