@@ -116,6 +116,7 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
             (*it)->setOpacity(255);
         }*/
         
+        if(startHex)
         lines.insert(std::make_pair(startHex->getOwner(), LineData(startHex->getOwner()->getColor(), startHex->getPosition(), convertTouchToNodeSpace(touch))));
         
     }
@@ -145,7 +146,7 @@ void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 {
 	startHex->setSelected(false);
 
-	if(!hexArray2D.areConnected(startHex, endHex)) return;
+	//if(!hexArray2D.areConnected(startHex, endHex)) return;
 	if(startHex->getTroopsCount() <= 1) return;
 
 	// TODO ‰Ó·‡‚ËÚ¸ ‡Ú‡ÍÛ
