@@ -22,11 +22,14 @@ void RandomAI::doTurn(float dt)
         
 		endHex = getRandomSideHexagon(startHex);
 	}
-
+    
+    std::vector<Hexagon*> selectedHexagons;
 	if(startHex->getTroopsCount() > 1){
-		startHex->setSelected(true);
+		//startHex->setSelected(true);
 		// todo wait a bit (schedule selector?)
-		Game::current().getBoard()->moveTroops(startHex, endHex);
+        selectedHexagons.push_back(startHex);
+		Game::current().getBoard()->moveTroops(selectedHexagons, endHex);
+        //startHex->setSelected(false);
 	}
 }
 

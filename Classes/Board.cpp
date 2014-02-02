@@ -139,47 +139,57 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
 		getStartEndHex(touch, startHex, endHex);
         
-		if(startHex) startHex->setSelected(false);
+        std::vector<Hexagon*> selectedHexagons;
+		if(startHex){
+            selectedHexagons = startHex->getOwner()->getSelectedHexagons();
+            startHex->getOwner()->deselectAllHexagons();
+        }
 
         if((!startHex) || (!endHex)) continue;
 		if(startHex && startHex->getOwner() && startHex->getOwner()->isAI()) continue;
 
-		moveTroops(startHex, endHex);
+		moveTroops(selectedHexagons, endHex);
 	}
 }
 
-void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
+// TODO move to TroopsMover class probably
+void Board::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex)
 {
-	startHex->getOwner()->deselectAllHexagons();
-
 	//if(!hexArray2D.areConnected(startHex, endHex)) return;
-	if(startHex->getTroopsCount() <= 1) return;
+    
+    for(size_t hexID = 0; hexID < selectedHexagons.size(); ++hexID){
+        Hexagon* startHex = selectedHexagons[hexID];
+        
+        if(startHex->getTroopsCount() <= 1) continue;
 
-	// TODO ‰Ó·‡‚ËÚ¸ ‡Ú‡ÍÛ
-	if(startHex != endHex){
-		const int troops = startHex->getTroopsCount() - 1;
-		startHex->removeTroops(troops);
+        // TODO ‰Ó·‡‚ËÚ¸ ‡Ú‡ÍÛ
+        if(startHex != endHex){
+            const int troops = startHex->getTroopsCount() - 1;
+            startHex->removeTroops(troops);
 
-		if(endHex->getOwner() == startHex->getOwner()){
-			endHex->addTroops(troops);
-		}else{
-			if(troops == endHex->getTroopsCount()){
-				endHex->removeTroops(troops);
-				endHex->changeOwner(0); // TODO NoPlayer ÍÓÚÓ˚È ÛÊÂ = 0?
-			}else if(troops < endHex->getTroopsCount()){
-				endHex->removeTroops(troops);			
-			}else{ // troops > endHex->getTroopsCount()
-				const int firstPlayerTroopsLeft = troops - endHex->getTroopsCount();
-				endHex->removeTroops(endHex->getTroopsCount());
-				endHex->addTroops(firstPlayerTroopsLeft);
-				endHex->changeOwner(startHex->getOwner());
-			}
-            //shakeAround(endHex, 2);
-		}
-		if(endHex->getTroopsCount() > 0){
-			endHex->runScaleAction();
-		}
-	}
+            if(endHex->getOwner() == startHex->getOwner()){
+                endHex->addTroops(troops);
+            }else{
+                if(troops == endHex->getTroopsCount()){
+                    endHex->removeTroops(troops);
+                    endHex->changeOwner(0); // TODO NoPlayer ÍÓÚÓ˚È ÛÊÂ = 0?
+                }else if(troops < endHex->getTroopsCount()){
+                    endHex->removeTroops(troops);			
+                }else{ // troops > endHex->getTroopsCount()
+                    const int firstPlayerTroopsLeft = troops - endHex->getTroopsCount();
+                    endHex->removeTroops(endHex->getTroopsCount());
+                    endHex->addTroops(firstPlayerTroopsLeft);
+                    endHex->changeOwner(startHex->getOwner());
+                }
+                //shakeAround(endHex, 2);
+            }
+            if(endHex->getTroopsCount() > 0){
+                endHex->runScaleAction();
+            }
+        }
+    }
+    //firstHex->getOwner()->deselectAllHexagons();
+
     
 }
 
