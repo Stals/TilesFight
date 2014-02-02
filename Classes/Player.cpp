@@ -146,4 +146,9 @@ int Player::getTroopsPerTick()
     return troopsPerTick;
 }
 
+bool Player::isHexagonsSelectable()
+{
+    return !ai;
+}
+
 

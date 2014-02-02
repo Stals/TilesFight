@@ -32,6 +32,9 @@ public:
     void deselectAllHexagons();
     
     int getTroopsPerTick();
+    
+    //можно ли выделять hexagonы этого игрока
+    bool isHexagonsSelectable();
 
 private:
 	std::string name;

@@ -101,8 +101,10 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         if(!endHex) continue;
         
         Player* owner = startHex->getOwner();
-        if(owner == endHex->getOwner()){
-            endHex->setSelected(true);
+        if(owner && owner->isHexagonsSelectable()){
+            if(owner == endHex->getOwner()){
+                endHex->setSelected(true);
+            }
         }
         
     }
@@ -140,13 +142,14 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		getStartEndHex(touch, startHex, endHex);
         
         std::vector<Hexagon*> selectedHexagons;
-		if(startHex){
+		if(startHex && startHex->getOwner() && (startHex->getOwner()->isHexagonsSelectable())){
             selectedHexagons = startHex->getOwner()->getSelectedHexagons();
             startHex->getOwner()->deselectAllHexagons();
+        }else{
+            continue;
         }
 
         if((!startHex) || (!endHex)) continue;
-		if(startHex && startHex->getOwner() && startHex->getOwner()->isAI()) continue;
 
 		moveTroops(selectedHexagons, endHex);
 	}
@@ -156,7 +159,7 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 void Board::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex)
 {
 	//if(!hexArray2D.areConnected(startHex, endHex)) return;
-    
+    endHex->setSelected(false);
     for(size_t hexID = 0; hexID < selectedHexagons.size(); ++hexID){
         Hexagon* startHex = selectedHexagons[hexID];
         
