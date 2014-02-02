@@ -101,8 +101,8 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         }
     }*/
     
-    lines.clear();
-    
+    //lines.clear();
+    /*
     for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
 		CCTouch* touch = ((CCTouch*)*it);
 		Hexagon* startHex = 0;
@@ -110,16 +110,56 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         
 		getStartEndHex(touch, startHex, endHex);
         
-        /*std::list<Hexagon*> path = getPath(startHex, endHex);
-        for(std::list<Hexagon*>::iterator it = path.begin(); it != path.end(); ++it){
-            (*it)->setColor(ccc3(255, 255, 255));
-            (*it)->setOpacity(255);
-        }*/
+        //std::list<Hexagon*> path = getPath(startHex, endHex);
+        //for(std::list<Hexagon*>::iterator it = path.begin(); it != path.end(); ++it){
+        //    (*it)->setColor(ccc3(255, 255, 255));
+        //    (*it)->setOpacity(255);
+        //}
         
-        if(startHex)
+        
+        std::vector<Hexagon*> selectedHexagons =
+    */
+        
+        /*if(startHex)
         lines.insert(std::make_pair(startHex->getOwner(), LineData(startHex->getOwner()->getColor(), startHex->getPosition(), convertTouchToNodeSpace(touch))));
         
+    }*/
+    
+    // select hexagon if not yet selected
+    
+    for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
+		CCTouch* touch = ((CCTouch*)*it);
+		Hexagon* startHex = 0;
+		Hexagon* endHex = 0;
+        
+		getStartEndHex(touch, startHex, endHex);
+        if(!startHex) break;
+        if(!endHex) continue;
+        
+        Player* owner = startHex->getOwner();
+        if(owner == endHex->getOwner()){
+            endHex->setSelected(true);
+        }
+        
     }
+    
+    
+    
+    // add lines for drawing
+    /*
+    lines.clear();
+
+    for( all players){ // добавить в GAME?
+        //TODO  тут нужно получить touch который именно для этого игрока!!!
+        
+        
+        get selectedHexagons
+        
+        for(all selectedHexagons){
+            lines.insert(std::make_pair(startHex->getOwner(), LineData(startHex->getOwner()->getColor(), startHex->getPosition(), convertTouchToNodeSpace(touch))));
+            
+        }
+    }*/
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
