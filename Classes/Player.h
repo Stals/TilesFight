@@ -27,6 +27,7 @@ public:
 	std::set<Hexagon*>& getControlledHexagons();
     std::vector<Hexagon*> getHexagonsWithTroops();
     std::vector<Hexagon*> getHaxagonsWithGenerators();
+    std::vector<Hexagon*> getSelectedHexagons();
     
     int getTroopsPerTick();
 

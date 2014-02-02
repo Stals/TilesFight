@@ -4,7 +4,7 @@
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
-	isSelected(false), selection(0), addon(0)
+	selected(false), selection(0), addon(0)
 {
 	initWithFile(IMG("hex3.png"));
 	setColor(hexDefault);
@@ -79,6 +79,12 @@ void Hexagon::changeOwner(Player* newOwner)
 	if(newOwner) newOwner->addControlledHexagon(this);
 }
 
+bool Hexagon::isSelected()
+{
+    return selected;
+}
+
+
 void Hexagon::setSelected(bool selected)
 {
 	if(!getOwner()) return;
@@ -89,13 +95,13 @@ void Hexagon::setSelected(bool selected)
 		this->addChild(selection, zSelectionGlow);
 	}
 
-	this->isSelected = selected;
-	selection->setVisible(isSelected);
+	this->selected = selected;
+	selection->setVisible(selected);
 }
 
 void Hexagon::toggleSelected()
 {
-	setSelected(!isSelected);
+	setSelected(!selected);
 }
 
 void Hexagon::setAddon(Addon* addon)

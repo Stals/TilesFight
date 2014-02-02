@@ -33,6 +33,7 @@ public:
 	
 	void changeOwner(Player* player);
 
+    bool isSelected();
 	void setSelected(bool selected);
 	void toggleSelected();
 
@@ -57,7 +58,7 @@ private:
 
 	Player* owner;
 	int troopsCount;
-	bool isSelected;
+	bool selected;
 
 	CCSprite *selection;
 

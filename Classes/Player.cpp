@@ -104,6 +104,19 @@ std::vector<Hexagon*> Player::getHaxagonsWithGenerators()
     return result;
 }
 
+std::vector<Hexagon*> Player::getSelectedHexagons()
+{
+    std::vector<Hexagon*> result;
+    
+    for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
+    {
+        if((*it)->isSelected())
+            result.push_back(*it);
+    }
+    
+    return result;
+}
+
 bool Player::hasLost()
 {
     if(controlledHexagons.size() == 0) return true;
