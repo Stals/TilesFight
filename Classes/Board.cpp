@@ -2,6 +2,7 @@
 #include "Addons/TroopsGenerator.h"
 #include "CCShake.h"
 #include "AStar.h"
+#include "Game.h"
 
 #define HEX_SIZE 64.f //80?
 
@@ -88,43 +89,6 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 
 void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 {
-
-    /*
-     // Path finding debug
-    for(size_t y = 0; y < hexArray2D.size(); ++y){
-        HexArray *row = hexArray2D.row(y);
-        
-        for(size_t x = 0; x < row->size(); ++x){
-            Hexagon* hex = row->at(x);
-            hex->setColor(ccc3(0,0,0));
-            
-        }
-    }*/
-    
-    //lines.clear();
-    /*
-    for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
-		CCTouch* touch = ((CCTouch*)*it);
-		Hexagon* startHex = 0;
-		Hexagon* endHex = 0;
-        
-		getStartEndHex(touch, startHex, endHex);
-        
-        //std::list<Hexagon*> path = getPath(startHex, endHex);
-        //for(std::list<Hexagon*>::iterator it = path.begin(); it != path.end(); ++it){
-        //    (*it)->setColor(ccc3(255, 255, 255));
-        //    (*it)->setOpacity(255);
-        //}
-        
-        
-        std::vector<Hexagon*> selectedHexagons =
-    */
-        
-        /*if(startHex)
-        lines.insert(std::make_pair(startHex->getOwner(), LineData(startHex->getOwner()->getColor(), startHex->getPosition(), convertTouchToNodeSpace(touch))));
-        
-    }*/
-    
     // select hexagon if not yet selected
     
     for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
@@ -143,23 +107,25 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         
     }
     
-    
-    
     // add lines for drawing
-    /*
+    
     lines.clear();
+    CCTouch* touch = ((CCTouch*)*pTouches->begin());
+    std::vector<Player*> players = Game::current().getPlayers();
 
-    for( all players){ // добавить в GAME?
+    for(size_t playerID = 0; playerID < players.size(); ++playerID){
         //TODO  тут нужно получить touch который именно для этого игрока!!!
         
         
-        get selectedHexagons
+        std::vector<Hexagon*> selectedHexagons = players[playerID]->getSelectedHexagons();
         
-        for(all selectedHexagons){
+        for(size_t hexID = 0; hexID < selectedHexagons.size(); ++hexID){
+            Hexagon* startHex = selectedHexagons[hexID];
+            
             lines.insert(std::make_pair(startHex->getOwner(), LineData(startHex->getOwner()->getColor(), startHex->getPosition(), convertTouchToNodeSpace(touch))));
             
         }
-    }*/
+    }
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
@@ -184,7 +150,7 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
 void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
 {
-	startHex->setSelected(false);
+	startHex->getOwner()->deselectAllHexagons();
 
 	//if(!hexArray2D.areConnected(startHex, endHex)) return;
 	if(startHex->getTroopsCount() <= 1) return;
@@ -278,7 +244,7 @@ void Board::shakeAround(const Hexagon *hex, int strength)
 void Board::draw(){
     
     
-    glLineWidth(5.0f);
+    glLineWidth(3.0f);
     glEnable(GL_LINE_SMOOTH);
     for(std::multimap<Player*, LineData>::iterator it = lines.begin(); it != lines.end(); ++it){
         cocos2d::ccDrawColor4B(it->second.color.r, it->second.color.g, it->second.color.b, 255);

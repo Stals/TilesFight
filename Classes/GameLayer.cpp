@@ -17,6 +17,7 @@ USING_NS_CC;
 
 
 GameLayer::~GameLayer(){
+    Game::current().clearPlayers();
 }
 
 
@@ -97,19 +98,13 @@ void GameLayer::setupPlayers()
 	computer = new Player("AI", hexGreen);
 	computer->setAI(new RandomAI(computer));
 
-    
-    
-    
+    Game::current().addPlayer(player);
+    Game::current().addPlayer(computer);
     
     const size_t playerX = 1;
     const size_t playerY = RandomGenerator::getRandom(1, Game::current().getBoard()->getHeight() - 1);
     
     createStartingArmies(player, computer, playerX, playerY);
-    
-    /*size_t enemyY = Game::current().getBoard()->getHeight() - playerY - 1;
-    
-	createStartingArmy(player, 1, playerY);
-	createStartingArmy(computer, 12, enemyY);*/
 }
 
 void GameLayer::setupListeners()

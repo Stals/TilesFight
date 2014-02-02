@@ -29,6 +29,8 @@ public:
     std::vector<Hexagon*> getHaxagonsWithGenerators();
     std::vector<Hexagon*> getSelectedHexagons();
     
+    void deselectAllHexagons();
+    
     int getTroopsPerTick();
 
 private:

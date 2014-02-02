@@ -31,3 +31,18 @@ void Game::starNewGame()
         CCDirector::sharedDirector()->runWithScene(pScene);
     }
 }
+
+void Game::addPlayer(Player* player)
+{
+    players.push_back(player);
+}
+
+std::vector<Player*> Game::getPlayers()
+{
+    return players;
+}
+
+void Game::clearPlayers()
+{
+    players.clear();
+}

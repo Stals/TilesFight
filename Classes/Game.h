@@ -10,6 +10,10 @@ public:
     
 	void setCurrentBoard(Board* board);
 	Board* getBoard();
+    
+    void addPlayer(Player* player);
+    std::vector<Player*> getPlayers();
+    void clearPlayers();
 
 private:
 	Game();
@@ -17,4 +21,6 @@ private:
 	Game& operator=(const Game& other);
 
 	Board* currentBoard;
+    
+    std::vector<Player*> players;
 };

@@ -117,6 +117,15 @@ std::vector<Hexagon*> Player::getSelectedHexagons()
     return result;
 }
 
+void Player::deselectAllHexagons()
+{
+    for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
+    {
+        (*it)->setSelected(false);
+    }
+}
+
+
 bool Player::hasLost()
 {
     if(controlledHexagons.size() == 0) return true;
