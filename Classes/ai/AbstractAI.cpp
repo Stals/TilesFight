@@ -12,6 +12,11 @@ AbstractAI::AbstractAI(Player* player): turnDelay(defaultDelay), player(player)
 	CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(AbstractAI::doTurn),this,defaultDelay,false);
 }
 
+AbstractAI::~AbstractAI()
+{
+    unscheduleSelector();
+}
+
 void AbstractAI::unscheduleSelector()
 {
 	CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(AbstractAI::doTurn),this);

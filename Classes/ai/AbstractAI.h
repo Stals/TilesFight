@@ -7,6 +7,7 @@ class AbstractAI : public cocos2d::CCNode
 {
 public:
 	AbstractAI(Player* player);
+    virtual ~AbstractAI();
 
 protected:
 	Player* player;

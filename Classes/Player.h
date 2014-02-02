@@ -21,7 +21,8 @@ public:
 	ccColor3B getColor();
 	bool isNeutral();
 
-	void removeControlledHexagon(Hexagon* hex);
+    // return true if player lost
+	bool removeControlledHexagon(Hexagon* hex);
 	void addControlledHexagon(Hexagon* hex);
 
 	std::set<Hexagon*>& getControlledHexagons();

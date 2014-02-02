@@ -4,6 +4,8 @@
 #include "../utils/RandomGenerator.h"
 #include "../Hexagon.h"
 
+#define MAX_ATTEMPTS 10
+
 RandomAI::RandomAI(Player* player):AbstractAI(player)
 {
 }
@@ -16,7 +18,10 @@ void RandomAI::doTurn(float dt)
 	Hexagon* endHex = NULL;
 	Hexagon* startHex = NULL;
 
-	while(!endHex){
+    size_t attempt = 0;
+	while(!endHex || attempt >= MAX_ATTEMPTS){
+        ++attempt;
+        
 		startHex = getRandomControlledHexagon();
         if(!startHex) return; // no hexagons to move
         

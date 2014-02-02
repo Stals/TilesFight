@@ -24,7 +24,6 @@ Board* Game::getBoard()
 void Game::starNewGame()
 {
     CCScene *pScene = GameLayer::scene();
- 
     if(CCDirector::sharedDirector()->getRunningScene()){
         CCDirector::sharedDirector()->replaceScene(pScene);
     }else{
@@ -44,5 +43,8 @@ std::vector<Player*> Game::getPlayers()
 
 void Game::clearPlayers()
 {
-    players.clear();
+    while(!players.empty()){
+        delete players.back();
+        players.pop_back();
+    }
 }

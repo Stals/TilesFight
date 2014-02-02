@@ -74,8 +74,11 @@ void Hexagon::setOwner(Player* owner)
 
 void Hexagon::changeOwner(Player* newOwner)
 {
-	if(owner) owner->removeControlledHexagon(this);
-	setOwner(newOwner);
+    bool lost = false;
+	if(owner) {lost = owner->removeControlledHexagon(this);}
+	if(lost) return;
+
+    setOwner(newOwner);
 	if(newOwner) newOwner->addControlledHexagon(this);
 }
 

@@ -17,7 +17,7 @@ USING_NS_CC;
 
 
 GameLayer::~GameLayer(){
-    Game::current().clearPlayers();
+    //delete board;
 }
 
 
@@ -160,8 +160,10 @@ void GameLayer::onPlayerLost(CCObject* obj)
         CCMessageBox("You WIN", "Game Over");
     }
     
+    //board->setTouchEnabled(false);
+    Game::current().clearPlayers();
     Game::current().starNewGame();
     
     //Remove event listener.
-    //CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS);
+    CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
 }

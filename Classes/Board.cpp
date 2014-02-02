@@ -6,12 +6,16 @@
 
 #define HEX_SIZE 64.f //80?
 
-Board::Board(int width, int height):width(width), height(height){
+Board::Board(int width, int height): width(width), height(height){
 	CCLayer::init();
 	autorelease();
 	setTouchEnabled(true);
 
 	initBoard();
+}
+
+Board::~Board()
+{
 }
 
 Hexagon* Board::at(size_t x, size_t y)
@@ -251,9 +255,9 @@ void Board::shakeAround(const Hexagon *hex, int strength)
 
     // shake all
     runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
-    
-
 }
+
+
 void Board::draw(){
     
     

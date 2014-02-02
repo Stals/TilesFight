@@ -48,7 +48,7 @@ bool Player::isNeutral()
 	return neutral;
 }
 
-void Player::removeControlledHexagon(Hexagon* hex)
+bool Player::removeControlledHexagon(Hexagon* hex)
 {
 	controlledHexagons.erase(hex);
     
@@ -58,8 +58,12 @@ void Player::removeControlledHexagon(Hexagon* hex)
         troopsPerTick -= ((AmoutIncreaser*)addon)->getAdditionalAmout();
     }
 
-    if((!isNeutral()) && hasLost())
+    if((!isNeutral()) && hasLost()){
         cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), this);
+        return true;
+    }
+    
+    return false;
 }
 
 void Player::addControlledHexagon(Hexagon* hex)

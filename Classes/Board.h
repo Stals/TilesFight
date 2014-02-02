@@ -17,6 +17,7 @@ struct LineData{
 class Board : public CCLayer{
 public:
 	Board(int width, int height);
+    ~Board();
 
 	Hexagon* at(size_t x, size_t y);
 	Hexagon* sideHexAt(HexSide side, size_t x, size_t y);
@@ -30,7 +31,7 @@ public:
 	int getHeight();
     
     void shakeAround(const Hexagon* hex, int strength);
-
+    
 private:
 	int width, height;
 	HexArray2D hexArray2D;
