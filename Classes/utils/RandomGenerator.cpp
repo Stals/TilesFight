@@ -27,7 +27,7 @@ double RandomGenerator::getRandom01()
 
 size_t RandomGenerator::getRandomID(std::vector<double> weights)
 {
-    if(weights.empty()) return 0;
+    if(weights.empty() || (weights.size() == 1)) return 0;
     
     double val;
     double sum;
