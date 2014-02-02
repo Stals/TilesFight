@@ -3,7 +3,7 @@
 #include "CCShake.h"
 #include "AStar.h"
 
-#define HEX_SIZE 64.f
+#define HEX_SIZE 64.f //80?
 
 Board::Board(int width, int height):width(width), height(height){
 	CCLayer::init();
@@ -85,16 +85,10 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 	}
 }
 
-/*
-	TODO ÚÛÚÊÂ ÌÛÊÌÓ ·Û‰ÂÚ ‰ÂÎ‡Ú¸ ıËÚ˚Â ¯ÚÛÍË Ò touch moved Ò ÔÓÌËÏ‡ÂÌËÂÏ ˜ÚÓ ÓÌ ÛÊÂ ‚˚‰ÂÎËÎ - ÎË·Ó ÚÛÔÓ ‰ÂÎ‡Ú¸ ËÏ setSelected()
-	‡ ÔÓÚÓÏ ‰ÂÎ‡Ú¸ getSelectedHexagons() ÍÓÚÓ˚È ‚ÂÌÂÚ hexArray Ò ÍÓÚÓ˚Ï ˇ ÏÓ„Û ÛÊÂ ˜ÚÓ Û„Ó‰ÌÓ ‰ÂÎ‡Ú¸
-*/
 
 void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 {
-	/*
-		TODO ËÁ ÔÂ‰‚Â‰Û˘ÂÈ ÚÓ˜ÍË ÔÓÎÛ˜ËÚ¸ owner'a Ë Â„Ó Í‡Í‡Á Ë Á‡ÏÛÚËÚ¸
-	*/
+
     /*
      // Path finding debug
     for(size_t y = 0; y < hexArray2D.size(); ++y){
@@ -105,7 +99,9 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
             hex->setColor(ccc3(0,0,0));
             
         }
-    }
+    }*/
+    
+    lines.clear();
     
     for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
 		CCTouch* touch = ((CCTouch*)*it);
@@ -114,17 +110,21 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         
 		getStartEndHex(touch, startHex, endHex);
         
-        std::list<Hexagon*> path = getPath(startHex, endHex);
+        /*std::list<Hexagon*> path = getPath(startHex, endHex);
         for(std::list<Hexagon*>::iterator it = path.begin(); it != path.end(); ++it){
             (*it)->setColor(ccc3(255, 255, 255));
             (*it)->setOpacity(255);
-        }
+        }*/
         
-    }*/
+        lines.insert(std::make_pair(startHex->getOwner(), LineData(startHex->getOwner()->getColor(), startHex->getPosition(), convertTouchToNodeSpace(touch))));
+        
+    }
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 {
+    lines.clear();
+
 	for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
 		CCTouch* touch = ((CCTouch*)*it);
 		Hexagon* startHex = 0;
@@ -233,4 +233,16 @@ void Board::shakeAround(const Hexagon *hex, int strength)
     runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
     
 
+}
+void Board::draw(){
+    
+    
+    glLineWidth(5.0f);
+    glEnable(GL_LINE_SMOOTH);
+    for(std::multimap<Player*, LineData>::iterator it = lines.begin(); it != lines.end(); ++it){
+        cocos2d::ccDrawColor4B(it->second.color.r, it->second.color.g, it->second.color.b, 255);
+        //cocos2d::ccDrawCircle(it->second.start, 29, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
+        cocos2d::ccDrawLine(it->second.start, it->second.end);
+        cocos2d::ccDrawCircle(it->second.end, 6, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
+    }
 }

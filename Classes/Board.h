@@ -7,6 +7,13 @@
 #include "HexArray.h"
 
 
+struct LineData{
+    LineData(ccColor3B color, const CCPoint& start, const CCPoint& end):color(color), start(start), end(end){}
+    ccColor3B color;
+    CCPoint start;
+    CCPoint end;
+};
+
 class Board : public CCLayer{
 public:
 	Board(int width, int height);
@@ -27,6 +34,8 @@ public:
 private:
 	int width, height;
 	HexArray2D hexArray2D;
+    
+    std::multimap<Player*, LineData> lines;
 
 	void initBoard();
 
@@ -36,6 +45,8 @@ private:
     virtual void ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent);
+    
+    virtual void draw();
 };
 
 // TODO
