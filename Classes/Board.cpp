@@ -195,9 +195,8 @@ void Board::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex)
             }
         }
     }
-    //firstHex->getOwner()->deselectAllHexagons();
-
-    
+    // таким образом человек может слить и если он своию армию повел на суицид
+    Game::current().checkEndGame();
 }
 
 

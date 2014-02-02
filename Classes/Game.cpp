@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "GameLayer.h"
+#include "cocos2d.h"
 
 Game::Game()
 {
@@ -46,5 +47,16 @@ void Game::clearPlayers()
     while(!players.empty()){
         delete players.back();
         players.pop_back();
+    }
+}
+
+void Game::checkEndGame()
+{
+    for(size_t playerID = 0; playerID < players.size(); ++playerID){
+        Player* player = players[playerID];
+        
+        if((!player->isNeutral()) && player->hasLost()){
+            cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), player);
+        }
     }
 }

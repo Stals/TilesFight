@@ -14,6 +14,8 @@ public:
     void addPlayer(Player* player);
     std::vector<Player*> getPlayers();
     void clearPlayers();
+    
+    void checkEndGame();
 
 private:
 	Game();

@@ -57,11 +57,6 @@ bool Player::removeControlledHexagon(Hexagon* hex)
     if(addon && (addon->getType() == Addon::AIncreaser)){
         troopsPerTick -= ((AmoutIncreaser*)addon)->getAdditionalAmout();
     }
-
-    if((!isNeutral()) && hasLost()){
-        cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), this);
-        return true;
-    }
     
     return false;
 }

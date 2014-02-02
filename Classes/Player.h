@@ -8,7 +8,7 @@
 class AbstractAI;
 class Hexagon;
 
-class Player : CCObject{
+class Player : public CCObject{
 public:
 	Player(const std::string &name, const ccColor3B& color);
 	static Player* createNeutral();	
@@ -37,6 +37,8 @@ public:
     //можно ли выделять hexagonы этого игрока
     bool isHexagonsSelectable();
 
+    bool hasLost();
+    
 private:
 	std::string name;
 	ccColor3B color;
@@ -46,7 +48,5 @@ private:
     int troopsPerTick;
 
 	std::set<Hexagon*> controlledHexagons;
-    
-    bool hasLost();
 };
 

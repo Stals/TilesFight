@@ -47,7 +47,7 @@ void Hexagon::removeTroops(int troops)
 
 void Hexagon::addTroops(int troops)
 {
-	// TODO вызуально показать что добавилось и зафейдить
+	// TODO вЂљЛљГЃГ›вЂЎГЋВёГЊГ“ Г”Г“ГЌвЂЎГЃвЂЎГљВё ЛњГљГ“ вЂ°Г“В·вЂЎвЂљГ‹ГЋГ“Г’Вё Г‹ ГЃвЂЎГ™Г‚Г€вЂ°Г‹ГљВё
 	troopsCount += troops;
 	troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
 }
@@ -61,7 +61,7 @@ void Hexagon::setOwner(Player* owner)
 {
 	this->owner = owner;
 
-	// Note: это нужно если игроки ровно убились, и клетка осталась без хозяина
+	// Note: ЛќГљГ“ ГЊГ›ГЉГЊГ“ Г‚Г’ГЋГ‹ Г‹вЂћпЈїГ“ГЌГ‹ пЈїГ“вЂљГЊГ“ Г›В·Г‹ГЋГ‹Г’Вё, Г‹ ГЌГЋГ‚ГљГЌвЂЎ Г“Г’ГљвЂЎГЋвЂЎГ’Вё В·Г‚ГЃ Д±Г“ГЃЛ‡Г‹ГЊвЂЎ
 	if(owner){
 		setColor(owner->getColor());
 		setOpacity(220);
@@ -74,10 +74,8 @@ void Hexagon::setOwner(Player* owner)
 
 void Hexagon::changeOwner(Player* newOwner)
 {
-    bool lost = false;
-	if(owner) {lost = owner->removeControlledHexagon(this);}
-	if(lost) return;
-
+    // TODO РµСЃР»Рё СЏ РІС‹РёРіСЂС‹РІР°СЋ РєРѕРіРґР° Сѓ РјРµРЅСЏ РІС‹РґРµР»РµРЅРѕ Р±РѕР»СЊС€Рµ С‡РµРј 1  - С‚Рѕ РІС‹Р»РµС‚РёС‚!
+	if(owner) owner->removeControlledHexagon(this);
     setOwner(newOwner);
 	if(newOwner) newOwner->addControlledHexagon(this);
 }
@@ -169,8 +167,8 @@ bool Hexagon::containsTouchLocation(cocos2d::CCPoint point)
 bool Hexagon::containsPoint(cocos2d::CCPoint pos)
 {
 	// http://www.playchilla.com/how-to-check-if-a-point-is-inside-a-hexagon
-	// там в комментариях есть пример для перевернутого тоже
-	//const double offset = 3; // - TODO им нужно менять vert и hori
+	// ГљвЂЎГЏ вЂљ ГЌГ“ГЏГЏГ‚ГЊГљвЂЎпЈїГ‹Л‡Д± Г‚Г’ГљВё Г”пЈїГ‹ГЏГ‚пЈї вЂ°ГЋЛ‡ Г”Г‚пЈїГ‚вЂљГ‚пЈїГЊГ›ГљГ“вЂћГ“ ГљГ“ГЉГ‚
+	//const double offset = 3; // - TODO Г‹ГЏ ГЊГ›ГЉГЊГ“ ГЏГ‚ГЊЛ‡ГљВё vert Г‹ hori
 
 	const double _vert = ((getTextureRect().size.width) * getScaleX()) / 4;
 	const double _hori = ((getTextureRect().size.width) * getScaleX()) / 2;
