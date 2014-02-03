@@ -13,7 +13,7 @@ Player::Player(const std::string &name, const ccColor3B& color):
 
 Player::~Player()
 {
-	if(ai) delete ai;
+	if(ai) ai->unscheduleSelector();
 }
 
 Player* Player::createNeutral()
