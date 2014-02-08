@@ -83,5 +83,7 @@ private:
 
 	void setOwner(Player* owner);
     
+    // переводит все армии находящиеся на этом секторе в стационарные troops
+    void allArmiesToTroops();
     void removeAllArmies();
 };

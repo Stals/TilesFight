@@ -155,9 +155,16 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
         if((!startHex) || (!endHex)) continue;
 
-        
+        // Note: we need to create and move armies in 2 cycles so thar they will not travel all the way
+        std::vector<Army*> armies(selectedHexagons.size());
+        // create armies
         for(size_t i = 0; i < selectedHexagons.size(); ++i){
-            selectedHexagons[i]->createArmy(endHex)->move(0);
+            armies[i] = selectedHexagons[i]->createArmy(endHex);
+        }
+        
+        // move armies
+        for(size_t i = 0; i < armies.size(); ++i){
+            armies[i]->move(0);
         }
         
 	}

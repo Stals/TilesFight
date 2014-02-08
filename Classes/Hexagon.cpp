@@ -19,6 +19,7 @@ Hexagon::Hexagon(size_t x_coord, size_t y_coord):
 Hexagon::~Hexagon()
 {
 	//if(generator) delete generator;
+    removeAllArmies();
 }
 
 size_t Hexagon::getXCoord() const
@@ -49,7 +50,50 @@ int Hexagon::getTroopsCount()
 
 void Hexagon::removeTroops(int troops)
 {
-	troopsCount -= troops;
+    
+    // TODO убираем армии с toopsCount - 1
+    // потом начинаем удалять из армий
+    // и только если армии кончились - мы удаляем последнего мелкого
+    // Но вначале - если они прям равны - то тупо = 0 и удаляем армии
+    
+    
+    const int totalTroops = getTroopsCount();
+    if(totalTroops == troops){
+        troopsCount = 0;
+        removeAllArmies();
+        
+    }else if(totalTroops > troops){
+        if(troops < troopsCount){
+            troopsCount -= troops;
+        }else{
+            troopsCount -= (troops - 1);
+            troops -= (troops - 1);
+        
+
+            std::list<Army*>::iterator it = armies.begin();
+            while (it != armies.end())
+            {
+                Army* army = *it;
+                const int armyTroops = army->getTroopsCount();
+                
+                if(troops > armyTroops){
+                    troops -= armyTroops;
+                    armies.erase(it++);
+                    
+                }else if(troops < armyTroops){
+                    army->removeTroops(troops);
+                    break; // troops кончились
+                    
+                }else{ //troops == army->getTroopsCount();
+                    armies.erase(it++);
+                    break; // troops кончились
+                }
+            }
+        }
+    }else{
+        CCLog("ERROR - 'troops to remove' > 'troops on the hexagon'");
+    }
+    
 	if(troopsCount > 0){
         troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
 	}else{
@@ -177,6 +221,9 @@ Army* Hexagon::createArmy(Hexagon* destination)
     int troops = totalTroops * factor;
     if(troops == totalTroops) troops -= 1;
     
+    
+    
+    allArmiesToTroops();
     removeTroops(troops);
     return new Army(this, troops, destination);
 }
@@ -198,6 +245,16 @@ void Hexagon::addArmy(Army *army)
         troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
     }
 }
+
+void Hexagon::allArmiesToTroops()
+{
+    while(!armies.empty()){
+        troopsCount += armies.back()->getTroopsCount();
+        delete armies.back();
+        armies.pop_back();
+    }
+}
+
 
 void Hexagon::removeAllArmies()
 {
