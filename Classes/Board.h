@@ -26,6 +26,7 @@ public:
     std::list<Hexagon*> getPath(Hexagon* start, Hexagon* end);
 
 	void moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex);
+    void moveTroops(Hexagon* startHex, Hexagon* endHex);
 
 	int getWidth(size_t row);
 	int getHeight();
