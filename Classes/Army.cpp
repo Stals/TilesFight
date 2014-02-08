@@ -12,8 +12,11 @@
 Army::Army(Hexagon* hex, int troopsCount, Point destination):
 currentHex(hex), troopsCount(troopsCount), destination(destination)
 {
-    
+ 
+    // TODO create scheduler
 }
+
+// TODO unschedule
 
 Hexagon* Army::getCurrentHex()
 {
@@ -29,6 +32,12 @@ void Army::setCurrentHex(Hexagon* hex)
 {
     currentHex = hex;
 }
+
+Point Army::getDestination()
+{
+    return destination;
+}
+
 
 void Army::move(float dt)
 {

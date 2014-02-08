@@ -39,7 +39,12 @@ Point Hexagon::getCoord() const
 
 int Hexagon::getTroopsCount()
 {
-	return troopsCount;
+    int totalTroopsCount = troopsCount;
+    for(std::list<Army*>::iterator it = armies.begin(); it != armies.end(); ++it){
+        totalTroopsCount += (*it)->getTroopsCount();
+    }
+    
+	return totalTroopsCount;
 }
 
 void Hexagon::removeTroops(int troops)
@@ -182,8 +187,14 @@ void Hexagon::removeArmy(Army* army)
 
 void Hexagon::addArmy(Army *army)
 {
-    armies.push_back(army);
-    troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
+    if(getCoord() == army->getDestination()){
+        addTroops(army->getTroopsCount());
+        delete army;
+    }else{
+        army->setCurrentHex(this);
+        armies.push_back(army);
+        troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
+    }
 }
 
 

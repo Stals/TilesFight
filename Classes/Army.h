@@ -9,6 +9,7 @@ public:
     Hexagon* getCurrentHex();
 	int getTroopsCount();
     void setCurrentHex(Hexagon* hex);
+    Point getDestination();
     
 private:
     Hexagon* currentHex;
