@@ -78,6 +78,7 @@ private:
     std::list<Army*> armies;
 
 	void setupTroopsLabel();
+    void updateTroopsLabel();
 
 	bool containsPoint(cocos2d::CCPoint point);
 
@@ -86,4 +87,5 @@ private:
     // переводит все армии находящиеся на этом секторе в стационарные troops
     void allArmiesToTroops();
     void removeAllArmies();
+    
 };

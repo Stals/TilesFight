@@ -94,18 +94,14 @@ void Hexagon::removeTroops(int troops)
         CCLog("ERROR - 'troops to remove' > 'troops on the hexagon'");
     }
     
-	if(troopsCount > 0){
-        troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
-	}else{
-		troopsLabel->setString("");
-	}
+	updateTroopsLabel();
 }
 
 void Hexagon::addTroops(int troops)
 {
 	// TODO ‚˚ÁÛ‡Î¸ÌÓ ÔÓÍ‡Á‡Ú¸ ˜ÚÓ ‰Ó·‡‚ËÎÓÒ¸ Ë Á‡ÙÂÈ‰ËÚ¸
 	troopsCount += troops;
-	troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
+	updateTroopsLabel();
 }
 
 Player* Hexagon::getOwner()
@@ -202,6 +198,16 @@ void Hexagon::runScaleLabelAction(float maxScale)
 	troopsLabel->runAction(seq);
 }
 
+void Hexagon::updateTroopsLabel()
+{
+    if(getTroopsCount() > 1){
+        troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
+	}else{
+		troopsLabel->setString("");
+	}
+}
+
+
 void Hexagon::setupTroopsLabel()
 {
 	troopsLabel = CCLabelTTF::create("", default_font.c_str(), 64);
@@ -229,7 +235,7 @@ Army* Hexagon::createArmy(Hexagon* destination)
 void Hexagon::removeArmy(Army* army)
 {
     armies.remove(army);
-    troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
+	updateTroopsLabel();
 }
 
 void Hexagon::addArmy(Army *army)
@@ -241,7 +247,7 @@ void Hexagon::addArmy(Army *army)
     }else{
         army->setCurrentHex(this);
         armies.push_back(army);
-        troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
+        updateTroopsLabel();
     }
 }
 
