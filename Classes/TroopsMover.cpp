@@ -56,7 +56,7 @@ void TroopsMover::moveTroops(Hexagon* startHex, Hexagon* endHex)
 void TroopsMover::shakeAround(const Hexagon *hex, int strength)
 {
     
-    const float dt = 0.5f;
+    //const float dt = 0.5f;
     
     // Shake around
     /*for(int side = 0; side < HexSidesCount; ++side)

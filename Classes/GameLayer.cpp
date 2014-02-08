@@ -49,8 +49,8 @@ bool GameLayer::init()
         return false;
     }
     
-    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+    //CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+    //CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
 	setTouchEnabled(true);
 	

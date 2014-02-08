@@ -83,6 +83,8 @@ Hexagon* HexArray2D::sideHexAt(HexSide side, size_t x, size_t y)
 			if(!even){x+=1;} 
 			y+=1; 
 			break;
+        default:
+            CCLog("Error - unknown side");
 	}
 
 	return at(x, y);
