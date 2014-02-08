@@ -12,6 +12,7 @@
 
 #include "CCShake.h"
 
+#define CHECK_ENDGAME_DELAY 1.f
 
 USING_NS_CC;
 
@@ -61,7 +62,8 @@ bool GameLayer::init()
 	setupNeutrals();
     
     setupListeners();
-
+    
+    this->schedule(schedule_selector(GameLayer::checkEndGame), CHECK_ENDGAME_DELAY, kCCRepeatForever, CHECK_ENDGAME_DELAY);
 	return true;
 }
 
@@ -166,4 +168,12 @@ void GameLayer::onPlayerLost(CCObject* obj)
     
     //Remove event listener.
     CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
+    
+    this->unschedule(schedule_selector(GameLayer::checkEndGame));
 }
+
+void GameLayer::checkEndGame(float dt)
+{
+    Game::current().checkEndGame();
+}
+

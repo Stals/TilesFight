@@ -20,8 +20,6 @@ void TroopsMover::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* e
         if(startHex->getTroopsCount() <= 1) continue;
         moveTroops(startHex, endHex);
     }
-    // таким образом человек может слить и если он своию армию повел на суицид
-    Game::current().checkEndGame();
 }
 
 void TroopsMover::moveTroops(Hexagon* startHex, Hexagon* endHex)

@@ -41,4 +41,6 @@ private:
 
     
     void onPlayerLost(CCObject* obj);
+    
+    void checkEndGame(float dt);
 };
