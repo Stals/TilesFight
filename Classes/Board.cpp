@@ -1,6 +1,5 @@
 #include "Board.h"
 #include "Addons/TroopsGenerator.h"
-#include "CCShake.h"
 #include "AStar.h"
 #include "Game.h"
 
@@ -155,53 +154,9 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
         if((!startHex) || (!endHex)) continue;
 
-		moveTroops(selectedHexagons, endHex);
+        TroopsMover::moveTroops(selectedHexagons, endHex);
 	}
 }
-
-// TODO move to TroopsMover class probably
-void Board::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex)
-{
-    endHex->setSelected(false);
-    for(size_t hexID = 0; hexID < selectedHexagons.size(); ++hexID){
-        Hexagon* startHex = selectedHexagons[hexID];
-        if(startHex->getTroopsCount() <= 1) continue;
-        moveTroops(startHex, endHex);
-    }
-    // таким образом человек может слить и если он своию армию повел на суицид
-    Game::current().checkEndGame();
-}
-
-void Board::moveTroops(Hexagon* startHex, Hexagon* endHex)
-{
-    //if(!hexArray2D.areConnected(startHex, endHex)) return;
-
-    if(startHex != endHex){
-        const int troops = startHex->getTroopsCount() - 1;
-        startHex->removeTroops(troops);
-        
-        if(endHex->getOwner() == startHex->getOwner()){
-            endHex->addTroops(troops);
-        }else{
-            if(troops == endHex->getTroopsCount()){
-                endHex->removeTroops(troops);
-                endHex->changeOwner(0); // TODO NoPlayer вместо 0?
-            }else if(troops < endHex->getTroopsCount()){
-                endHex->removeTroops(troops);
-            }else{ // troops > endHex->getTroopsCount()
-                const int firstPlayerTroopsLeft = troops - endHex->getTroopsCount();
-                endHex->removeTroops(endHex->getTroopsCount());
-                endHex->addTroops(firstPlayerTroopsLeft);
-                endHex->changeOwner(startHex->getOwner());
-            }
-            //shakeAround(endHex, 2);
-        }
-        if(endHex->getTroopsCount() > 0){
-            endHex->runScaleAction();
-        }
-    }
-}
-
 
 
 int Board::getWidth(size_t row)
@@ -240,24 +195,6 @@ void Board::getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex)
 
 void Board::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 {
-}
-
-void Board::shakeAround(const Hexagon *hex, int strength)
-{
-    
-    const float dt = 0.5f;
-
-    // Shake around
-    /*for(int side = 0; side < HexSidesCount; ++side)
-	{
-		Hexagon* h = sideHexAt((HexSide)side, hex->getXCoord(), hex->getYCoord());
-		if(h){
-            h->runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
-        }
-    }*/
-
-    // shake all
-    runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
 }
 
 

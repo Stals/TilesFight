@@ -70,6 +70,7 @@
 		D405D10F18956C96000CB7E8 /* AmoutIncreaser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10D18956C96000CB7E8 /* AmoutIncreaser.cpp */; };
 		D405D11218998319000CB7E8 /* AStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D11018998319000CB7E8 /* AStar.cpp */; };
 		D42C777518A657AE00FE4EDB /* Army.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777318A657AE00FE4EDB /* Army.cpp */; };
+		D42C777818A65D0C00FE4EDB /* TroopsMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +187,8 @@
 		D405D11118998319000CB7E8 /* AStar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AStar.h; path = ../Classes/AStar.h; sourceTree = "<group>"; };
 		D42C777318A657AE00FE4EDB /* Army.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Army.cpp; path = ../Classes/Army.cpp; sourceTree = "<group>"; };
 		D42C777418A657AE00FE4EDB /* Army.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Army.h; path = ../Classes/Army.h; sourceTree = "<group>"; };
+		D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TroopsMover.cpp; path = ../Classes/TroopsMover.cpp; sourceTree = "<group>"; };
+		D42C777718A65D0C00FE4EDB /* TroopsMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TroopsMover.h; path = ../Classes/TroopsMover.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +265,8 @@
 				D405D11118998319000CB7E8 /* AStar.h */,
 				D42C777318A657AE00FE4EDB /* Army.cpp */,
 				D42C777418A657AE00FE4EDB /* Army.h */,
+				D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */,
+				D42C777718A65D0C00FE4EDB /* TroopsMover.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				D405D0C21893E446000CB7E8 /* NoAI.cpp in Sources */,
 				AB63787816FE1A4C00079CB7 /* CDXMacOSXSupport.mm in Sources */,
 				AB63787916FE1A4C00079CB7 /* CocosDenshion.m in Sources */,
+				D42C777818A65D0C00FE4EDB /* TroopsMover.cpp in Sources */,
 				D405D0C11893E446000CB7E8 /* AbstractAI.cpp in Sources */,
 				AB63787A16FE1A4C00079CB7 /* SimpleAudioEngine.mm in Sources */,
 				D405D0CD1893E446000CB7E8 /* RandomGenerator.cpp in Sources */,
