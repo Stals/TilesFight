@@ -114,7 +114,8 @@ std::list<Hexagon*> AStar::getPath(Node* finalNode)
 	std::list<Hexagon*> result;
     
 	Node* node = finalNode;
-	while(node != NULL){
+    // add all except stating point
+	while(node->parent != NULL){
 		result.push_back(node->hex);
 		node = node->parent;
 	}

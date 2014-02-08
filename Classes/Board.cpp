@@ -2,6 +2,7 @@
 #include "Addons/TroopsGenerator.h"
 #include "AStar.h"
 #include "Game.h"
+#include "Army.h"
 
 #define HEX_SIZE 64.f //80?
 
@@ -155,12 +156,10 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
         if((!startHex) || (!endHex)) continue;
 
         
-        std::vector<Army*> armies(selectedHexagons.size());
         for(size_t i = 0; i < selectedHexagons.size(); ++i){
-            armies[i] = (selectedHexagons[i]->createArmy(endHex->getCoord()));
+            selectedHexagons[i]->createArmy(endHex)->move(0);
         }
         
-        TroopsMover::moveTroops(armies, endHex);
 	}
 }
 

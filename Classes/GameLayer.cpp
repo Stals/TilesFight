@@ -98,7 +98,7 @@ void GameLayer::setupPlayers()
 {
 	player = new Player("Player", hexRed);
 	computer = new Player("AI", hexGreen);
-	computer->setAI(new RandomAI(computer));
+	//computer->setAI(new RandomAI(computer));
 
     Game::current().addPlayer(player);
     Game::current().addPlayer(computer);

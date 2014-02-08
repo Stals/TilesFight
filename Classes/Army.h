@@ -5,9 +5,9 @@
 
 class Army{
 public:
-    Army(Hexagon* hex, int troopsCount, Point destination);
+    Army(Hexagon* hex, int troopsCount, Hexagon* destination);
 
-    Point getDestination();
+    Hexagon* getDestination();
     
     Hexagon* getCurrentHex();
     void setCurrentHex(Hexagon* hex);
@@ -15,10 +15,10 @@ public:
     int getTroopsCount();
     void removeTroops(int count);
     
+    void move(float dt);
+    
 private:
     Hexagon* currentHex;
     int troopsCount;
-    Point destination;
-    
-    void move(float dt);
+    Hexagon* destination;
 };

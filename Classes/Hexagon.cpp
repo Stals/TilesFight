@@ -168,12 +168,14 @@ void Hexagon::setupTroopsLabel()
 
 
 
-Army* Hexagon::createArmy(Point destination)
+Army* Hexagon::createArmy(Hexagon* destination)
 {
     float factor = 1.0f; // player->getPecent() / 100;
     
-    int troops = troopsCount * factor;
-    if(troops == troopsCount) troops -= 1;
+    const int totalTroops = getTroopsCount();
+    
+    int troops = totalTroops * factor;
+    if(troops == totalTroops) troops -= 1;
     
     removeTroops(troops);
     return new Army(this, troops, destination);
@@ -187,7 +189,7 @@ void Hexagon::removeArmy(Army* army)
 
 void Hexagon::addArmy(Army *army)
 {
-    if(getCoord() == army->getDestination()){
+    if(this == army->getDestination()){
         addTroops(army->getTroopsCount());
         delete army;
     }else{
@@ -196,6 +198,15 @@ void Hexagon::addArmy(Army *army)
         troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
     }
 }
+
+void Hexagon::removeAllArmies()
+{
+    while(!armies.empty()){
+        delete armies.back();
+        armies.pop_back();
+    }
+}
+
 
 
 // --------------TOUCH----------------------

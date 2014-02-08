@@ -50,7 +50,7 @@ public:
 	void runScaleLabelAction(float maxScale);
     
     // Armies
-    Army* createArmy(Point destination);
+    Army* createArmy(Hexagon* destination);
     void removeArmy(Army* army);
     void addArmy(Army *army);
 
@@ -82,4 +82,6 @@ private:
 	bool containsPoint(cocos2d::CCPoint point);
 
 	void setOwner(Player* owner);
+    
+    void removeAllArmies();
 };
