@@ -221,8 +221,6 @@ Army* Hexagon::createArmy(Hexagon* destination)
     int troops = totalTroops * factor;
     if(troops == totalTroops) troops -= 1;
     
-    
-    
     allArmiesToTroops();
     removeTroops(troops);
     return new Army(this, troops, destination);
@@ -239,6 +237,7 @@ void Hexagon::addArmy(Army *army)
     if(this == army->getDestination()){
         addTroops(army->getTroopsCount());
         delete army;
+        
     }else{
         army->setCurrentHex(this);
         armies.push_back(army);

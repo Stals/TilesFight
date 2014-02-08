@@ -71,6 +71,11 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
     const int troops = army->getTroopsCount();
     startHex->removeArmy(army);
     
+    if(troops == 0){
+        delete army;
+        return;
+    }
+    
     if(endHex->getOwner() == startHex->getOwner()){
         endHex->addArmy(army);
     }else{
@@ -94,7 +99,7 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
         }
         //shakeAround(endHex, 2);
     }
-    if(endHex->getTroopsCount() > 0){
+    if((endHex->getTroopsCount() > 0) && (startHex != endHex)){
         endHex->runScaleAction();
     }
 
