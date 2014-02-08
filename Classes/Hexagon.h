@@ -5,6 +5,12 @@
 
 class Addon;
 
+struct Point{
+    Point(size_t x, size_t y):x(x), y(y){}
+    size_t x;
+    size_t y;
+};
+
 enum HexSide{
 	HexTopLeft,
 	HexTopRight,
@@ -21,6 +27,7 @@ public:
 	~Hexagon();
 	size_t getXCoord() const;
 	size_t getYCoord() const;
+    Point getCoord() const;
 
 	int getTroopsCount();
 	bool containsTouchLocation(cocos2d::CCTouch *touch);

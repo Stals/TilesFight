@@ -69,6 +69,7 @@
 		D405D10C18956BD7000CB7E8 /* TroopsGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10918956BD7000CB7E8 /* TroopsGenerator.cpp */; };
 		D405D10F18956C96000CB7E8 /* AmoutIncreaser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D10D18956C96000CB7E8 /* AmoutIncreaser.cpp */; };
 		D405D11218998319000CB7E8 /* AStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D11018998319000CB7E8 /* AStar.cpp */; };
+		D42C777518A657AE00FE4EDB /* Army.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777318A657AE00FE4EDB /* Army.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,8 @@
 		D405D10E18956C96000CB7E8 /* AmoutIncreaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmoutIncreaser.h; sourceTree = "<group>"; };
 		D405D11018998319000CB7E8 /* AStar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AStar.cpp; path = ../Classes/AStar.cpp; sourceTree = "<group>"; };
 		D405D11118998319000CB7E8 /* AStar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AStar.h; path = ../Classes/AStar.h; sourceTree = "<group>"; };
+		D42C777318A657AE00FE4EDB /* Army.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Army.cpp; path = ../Classes/Army.cpp; sourceTree = "<group>"; };
+		D42C777418A657AE00FE4EDB /* Army.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Army.h; path = ../Classes/Army.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +260,8 @@
 				D405D10418955959000CB7E8 /* CCShake.h */,
 				D405D11018998319000CB7E8 /* AStar.cpp */,
 				D405D11118998319000CB7E8 /* AStar.h */,
+				D42C777318A657AE00FE4EDB /* Army.cpp */,
+				D42C777418A657AE00FE4EDB /* Army.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42C777518A657AE00FE4EDB /* Army.cpp in Sources */,
 				D405D0C31893E446000CB7E8 /* RandomAI.cpp in Sources */,
 				41CD6C6515BF7574005E6F29 /* AppController.mm in Sources */,
 				D405D10B18956BD7000CB7E8 /* Addon.cpp in Sources */,

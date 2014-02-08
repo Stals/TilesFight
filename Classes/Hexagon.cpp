@@ -30,6 +30,12 @@ size_t Hexagon::getYCoord() const
 	return y_coord;
 }
 
+Point Hexagon::getCoord() const
+{
+    return Point(x_coord, y_coord);
+}
+
+
 int Hexagon::getTroopsCount()
 {
 	return troopsCount;
