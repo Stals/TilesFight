@@ -189,6 +189,7 @@
 		D42C777418A657AE00FE4EDB /* Army.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Army.h; path = ../Classes/Army.h; sourceTree = "<group>"; };
 		D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TroopsMover.cpp; path = ../Classes/TroopsMover.cpp; sourceTree = "<group>"; };
 		D42C777718A65D0C00FE4EDB /* TroopsMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TroopsMover.h; path = ../Classes/TroopsMover.h; sourceTree = "<group>"; };
+		D42C777B18A6696400FE4EDB /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Point.h; path = ../Classes/Point.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +268,7 @@
 				D42C777418A657AE00FE4EDB /* Army.h */,
 				D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */,
 				D42C777718A65D0C00FE4EDB /* TroopsMover.h */,
+				D42C777B18A6696400FE4EDB /* Point.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

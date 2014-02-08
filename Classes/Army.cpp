@@ -9,15 +9,30 @@
 #include "Army.h"
 #include "Game.h"
 
-Army::Army(Hexagon* hex, Point destination):
-currentHex(hex), destination(destination)
+Army::Army(Hexagon* hex, int troopsCount, Point destination):
+currentHex(hex), troopsCount(troopsCount), destination(destination)
 {
     
 }
 
+Hexagon* Army::getCurrentHex()
+{
+    return currentHex;
+}
+
+int Army::getTroopsCount()
+{
+    return troopsCount;
+}
+
+void Army::setCurrentHex(Hexagon* hex)
+{
+    currentHex = hex;
+}
 
 void Army::move(float dt)
 {
+    // TODO тут должен быть только следующий в пути
     Hexagon* dest = Game::current().getBoard()->at(destination.x, destination.y);
     
     // зачем я передалывал на передачу туда массива если бы я мог просто много раз вызвать тот метод который был?
@@ -25,10 +40,10 @@ void Army::move(float dt)
     // Если я переделаю на перемещение из 1 хекса в другой
     // то потом смогу переделать на передвижение именно армии - и создавать саму армию из выбранного хексагоня для ее передвижения
     
-    /*Game::current().getBoard()->moveTroops(<#std::vector<Hexagon *> &selectedHexagons#>, <#Hexagon *endHex#>)
+    //TroopsMover::moveTroops(this, dest);
     
-    hex->removeArmy(this);
-    dest->addArmy(this);
-    hex = dest;*/
+    
+    // то что снизу написано занимается сам mover? потому что он же сейчас типо такого вещи делает - наверное да
+    // но вот отниманием войск наверное сам хексагон должен думать как он это делает
     
 }

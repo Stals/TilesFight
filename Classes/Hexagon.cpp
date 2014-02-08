@@ -1,6 +1,7 @@
 #include "Hexagon.h"
 #include "utils/StringExtension.h"
 #include "Addons/TroopsGenerator.h"
+#include "Army.h"
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
@@ -45,7 +46,7 @@ void Hexagon::removeTroops(int troops)
 {
 	troopsCount -= troops;
 	if(troopsCount > 0){
-		troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
+        troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
 	}else{
 		troopsLabel->setString("");
 	}
@@ -55,7 +56,7 @@ void Hexagon::addTroops(int troops)
 {
 	// TODO ‚˚ÁÛ‡Î¸ÌÓ ÔÓÍ‡Á‡Ú¸ ˜ÚÓ ‰Ó·‡‚ËÎÓÒ¸ Ë Á‡ÙÂÈ‰ËÚ¸
 	troopsCount += troops;
-	troopsLabel->setString(StringExtension::toString(troopsCount).c_str());
+	troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
 }
 
 Player* Hexagon::getOwner()
@@ -161,6 +162,32 @@ void Hexagon::setupTroopsLabel()
 }
 
 
+
+Army* Hexagon::createArmy(Point destination)
+{
+    float factor = 1.0f; // player->getPecent() / 100;
+    
+    int troops = troopsCount * factor;
+    if(troops == troopsCount) troops -= 1;
+    
+    removeTroops(troops);
+    return new Army(this, troops, destination);
+}
+
+void Hexagon::removeArmy(Army* army)
+{
+    armies.remove(army);
+    troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
+}
+
+void Hexagon::addArmy(Army *army)
+{
+    armies.push_back(army);
+    troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
+}
+
+
+// --------------TOUCH----------------------
 bool Hexagon::containsTouchLocation(cocos2d::CCTouch *touch) {
 	return containsPoint(getParent()->convertTouchToNodeSpace(touch));
 }

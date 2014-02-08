@@ -2,14 +2,11 @@
 
 #include "Constants.h"
 #include "Player.h"
+#include "Point.h"
 
+class Army;
 class Addon;
 
-struct Point{
-    Point(size_t x, size_t y):x(x), y(y){}
-    size_t x;
-    size_t y;
-};
 
 enum HexSide{
 	HexTopLeft,
@@ -48,9 +45,14 @@ public:
     bool hasAddon();
     const Addon* getAddon();
     
-	// анимация увеличения / уменьшения
+	// вЂЎГЊГ‹ГЏвЂЎЛ†Г‹Л‡ Г›вЂљГ‚ГЋГ‹ЛњГ‚ГЊГ‹Л‡ / Г›ГЏГ‚ГЊВёВЇГ‚ГЊГ‹Л‡
 	void runScaleAction();
 	void runScaleLabelAction(float maxScale);
+    
+    // Armies
+    Army* createArmy(Point destination);
+    void removeArmy(Army* army);
+    void addArmy(Army *army);
 
 private:
 	enum zOrder{
@@ -59,7 +61,7 @@ private:
 		zTroopsCount
 	};
 
-	// положение hexagon'a на board
+	// Г”Г“ГЋГ“ГЉГ‚ГЊГ‹Г‚ hexagon'a ГЊвЂЎ board
 	size_t x_coord;
 	size_t y_coord;
 
@@ -72,6 +74,8 @@ private:
 	CCLabelTTF* troopsLabel;
     CCNode* addonIcon;
 	Addon* addon;
+    
+    std::list<Army*> armies;
 
 	void setupTroopsLabel();
 
