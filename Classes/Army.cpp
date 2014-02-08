@@ -28,6 +28,12 @@ int Army::getTroopsCount()
     return troopsCount;
 }
 
+void Army::removeTroops(int count)
+{
+    troopsCount -= count;
+}
+
+
 void Army::setCurrentHex(Hexagon* hex)
 {
     currentHex = hex;

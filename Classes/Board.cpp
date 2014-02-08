@@ -154,7 +154,13 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
         if((!startHex) || (!endHex)) continue;
 
-        TroopsMover::moveTroops(selectedHexagons, endHex);
+        
+        std::vector<Army*> armies(selectedHexagons.size());
+        for(size_t i = 0; i < selectedHexagons.size(); ++i){
+            armies[i] = (selectedHexagons[i]->createArmy(endHex->getCoord()));
+        }
+        
+        TroopsMover::moveTroops(armies, endHex);
 	}
 }
 

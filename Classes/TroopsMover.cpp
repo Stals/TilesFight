@@ -10,6 +10,7 @@
 #include "CCShake.h"
 #include "Hexagon.h"
 #include "Game.h"
+#include "Army.h"
 
 
 void TroopsMover::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex)
@@ -51,6 +52,56 @@ void TroopsMover::moveTroops(Hexagon* startHex, Hexagon* endHex)
         }
     }
 }
+
+void TroopsMover::moveTroops(std::vector<Army*> armies, Hexagon* endHex)
+{
+    endHex->setSelected(false);
+    for(size_t armyID = 0; armyID < armies.size(); ++armyID){
+
+        moveTroops(armies[armyID], endHex);
+    }
+    
+}
+
+void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
+{
+    Hexagon* startHex = army->getCurrentHex();
+    //if(!hexArray2D.areConnected(startHex, endHex)) return;
+    
+    if(army->getCurrentHex() != endHex){
+        const int troops = army->getTroopsCount();
+        startHex->removeArmy(army);
+        
+        if(endHex->getOwner() == startHex->getOwner()){
+            endHex->addArmy(army);
+        }else{
+            // ничья
+            if(troops == endHex->getTroopsCount()){
+                endHex->removeTroops(troops);
+                endHex->changeOwner(0); // TODO NoPlayer вместо 0?
+                delete army;
+                
+            // выиграл защищающийся
+            }else if(troops < endHex->getTroopsCount()){
+                endHex->removeTroops(troops);
+                delete army;
+                
+            // выиграл нападающий
+            }else{ // troops > endHex->getTroopsCount()
+                army->removeTroops(endHex->getTroopsCount());
+                endHex->removeTroops(endHex->getTroopsCount());
+                endHex->addArmy(army);
+                endHex->changeOwner(startHex->getOwner());
+            }
+            //shakeAround(endHex, 2);
+        }
+        if(endHex->getTroopsCount() > 0){
+            endHex->runScaleAction();
+        }
+    }
+
+}
+
 
 
 void TroopsMover::shakeAround(const Hexagon *hex, int strength)
