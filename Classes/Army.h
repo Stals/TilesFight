@@ -3,10 +3,11 @@
 #include "Point.h"
 #include "Hexagon.h"
 
-class Army{
+class Army : cocos2d::CCObject{
 public:
     Army(Hexagon* hex, int troopsCount, Hexagon* destination);
-
+    ~Army();
+    
     Hexagon* getDestination();
     
     Hexagon* getCurrentHex();

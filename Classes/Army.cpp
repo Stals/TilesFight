@@ -9,14 +9,19 @@
 #include "Army.h"
 #include "Game.h"
 
+#define MOVE_DELAY 1.f
+
 Army::Army(Hexagon* hex, int troopsCount, Hexagon* destination):
 currentHex(hex), troopsCount(troopsCount), destination(destination)
 {
- 
-    // TODO create scheduler
+	CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(Army::move), this, MOVE_DELAY,false);
+    retain();
 }
 
-// TODO unschedule
+Army::~Army()
+{
+    CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(Army::move), this);
+}
 
 Hexagon* Army::getCurrentHex()
 {

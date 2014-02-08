@@ -92,10 +92,21 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
             
         // выиграл нападающий
         }else{ // troops > endHex->getTroopsCount()
+            endHex->changeOwner(startHex->getOwner());
+            
             army->removeTroops(endHex->getTroopsCount());
             endHex->removeTroops(endHex->getTroopsCount());
-            endHex->addArmy(army);
-            endHex->changeOwner(startHex->getOwner());
+            
+            // для того чтобы остался как минимум 1
+            army->removeTroops(1);
+            endHex->addTroops(1);
+            
+            
+            if(army->getTroopsCount() > 0){
+                endHex->addArmy(army);
+            }else{
+                delete army;
+            }
         }
         //shakeAround(endHex, 2);
     }
