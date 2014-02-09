@@ -67,10 +67,10 @@ void Hexagon::removeTroops(int troops)
     }else if(totalTroops > troops){
         if(troops < troopsCount){
             troopsCount -= troops;
+            
         }else{
-            troopsCount -= (troops - 1);
-            troops -= (troops - 1);
-        
+            troops -= troopsCount;
+            troopsCount = 0;
 
             std::list<Army*>::iterator it = armies.begin();
             while (it != armies.end())
@@ -208,7 +208,7 @@ void Hexagon::runScaleLabelAction(float maxScale)
 
 void Hexagon::updateTroopsLabel()
 {
-    if(getTroopsCount() > 1){
+    if(getTroopsCount() > 0){
         troopsLabel->setString(StringExtension::toString(getTroopsCount()).c_str());
 	}else{
 		troopsLabel->setString("");
@@ -233,7 +233,6 @@ Army* Hexagon::createArmy(Hexagon* destination)
     const int totalTroops = getTroopsCount();
     
     int troops = totalTroops * factor;
-    if(troops == totalTroops) troops -= 1;
     
     allArmiesToTroops();
     removeTroops(troops);

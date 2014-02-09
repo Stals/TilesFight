@@ -82,7 +82,7 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
         // ничья
         if(troops == endHex->getTroopsCount()){
             endHex->removeTroops(troops);
-            endHex->changeOwner(0); // TODO NoPlayer вместо 0?
+            //endHex->changeOwner(0); // TODO NoPlayer вместо 0?
             delete army;
             
         // выиграл защищающийся
@@ -96,11 +96,6 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
             
             army->removeTroops(endHex->getTroopsCount());
             endHex->removeTroops(endHex->getTroopsCount());
-            
-            // для того чтобы остался как минимум 1
-            army->removeTroops(1);
-            endHex->addTroops(1);
-            
             
             if(army->getTroopsCount() > 0){
                 endHex->addArmy(army);
