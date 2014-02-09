@@ -169,8 +169,11 @@ void Hexagon::toggleSelected()
 
 bool Hexagon::isSelectable()
 {
-    // TODO еще если на ней есть генератор то можно даже если 0 типов
-    return (owner && owner->isHexagonsSelectable()) &&(getTroopsCount() > 0);
+    if(owner && owner->isHexagonsSelectable()){
+        return (getTroopsCount() > 0) || (addon && (addon->getType() == Addon::Generator));
+    }
+    
+    return false;
 }
 
 void Hexagon::setAddon(Addon* addon)
