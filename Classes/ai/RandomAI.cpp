@@ -30,7 +30,7 @@ void RandomAI::doTurn(float dt)
     
     std::vector<Hexagon*> selectedHexagons;
 	if(startHex->getTroopsCount() > 1){
-        TroopsMover::moveTroops(startHex, endHex);
+        TroopsMover::moveTroops(startHex->createArmy(endHex), endHex);
 	}
 }
 
