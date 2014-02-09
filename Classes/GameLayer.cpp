@@ -9,6 +9,7 @@
 #include "Game.h"
 #include "ai/RandomAI.h"
 #include "ai/NoAI.h"
+#include "ai/ExpansionAI.h"
 
 #include "CCShake.h"
 
@@ -98,7 +99,7 @@ void GameLayer::setupPlayers()
 {
 	player = new Player("Player", hexRed);
 	computer = new Player("AI", hexGreen);
-	computer->setAI(new RandomAI(computer));
+	computer->setAI(new ExpansionAI(computer));
 
     Game::current().addPlayer(player);
     Game::current().addPlayer(computer);

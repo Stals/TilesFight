@@ -71,6 +71,7 @@
 		D405D11218998319000CB7E8 /* AStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D405D11018998319000CB7E8 /* AStar.cpp */; };
 		D42C777518A657AE00FE4EDB /* Army.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777318A657AE00FE4EDB /* Army.cpp */; };
 		D42C777818A65D0C00FE4EDB /* TroopsMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */; };
+		D42C777F18A808D700FE4EDB /* ExpansionAI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777D18A808D700FE4EDB /* ExpansionAI.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,8 @@
 		D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TroopsMover.cpp; path = ../Classes/TroopsMover.cpp; sourceTree = "<group>"; };
 		D42C777718A65D0C00FE4EDB /* TroopsMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TroopsMover.h; path = ../Classes/TroopsMover.h; sourceTree = "<group>"; };
 		D42C777B18A6696400FE4EDB /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Point.h; path = ../Classes/Point.h; sourceTree = "<group>"; };
+		D42C777D18A808D700FE4EDB /* ExpansionAI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExpansionAI.cpp; sourceTree = "<group>"; };
+		D42C777E18A808D700FE4EDB /* ExpansionAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpansionAI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +411,8 @@
 		D405D0A31893E446000CB7E8 /* ai */ = {
 			isa = PBXGroup;
 			children = (
+				D42C777D18A808D700FE4EDB /* ExpansionAI.cpp */,
+				D42C777E18A808D700FE4EDB /* ExpansionAI.h */,
 				D405D0A41893E446000CB7E8 /* AbstractAI.cpp */,
 				D405D0A51893E446000CB7E8 /* AbstractAI.h */,
 				D405D0A61893E446000CB7E8 /* NoAI.cpp */,
@@ -571,6 +576,7 @@
 				D405D0C11893E446000CB7E8 /* AbstractAI.cpp in Sources */,
 				AB63787A16FE1A4C00079CB7 /* SimpleAudioEngine.mm in Sources */,
 				D405D0CD1893E446000CB7E8 /* RandomGenerator.cpp in Sources */,
+				D42C777F18A808D700FE4EDB /* ExpansionAI.cpp in Sources */,
 				AB63787B16FE1A4C00079CB7 /* SimpleAudioEngine_objc.m in Sources */,
 				D405D0C41893E446000CB7E8 /* Board.cpp in Sources */,
 				D405D10518955959000CB7E8 /* CCShake.cpp in Sources */,
