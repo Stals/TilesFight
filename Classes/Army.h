@@ -5,7 +5,7 @@
 
 class Army : cocos2d::CCObject{
 public:
-    Army(Hexagon* hex, int troopsCount, Hexagon* destination);
+    Army(Hexagon* hex, int troopsCount, Hexagon* destination, bool selected = false);
     ~Army();
     
     Hexagon* getDestination();
@@ -18,8 +18,12 @@ public:
     
     void move(float dt);
     
+    void setSelected(bool selected);
+    bool isSelected();
+    
 private:
     Hexagon* currentHex;
     int troopsCount;
     Hexagon* destination;
+    bool selected;
 };

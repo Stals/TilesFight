@@ -78,12 +78,12 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 				if(hex->getOwner() && hex->getOwner()->isAI()) continue;
 
 				if(hex->containsTouchLocation(touch)){
-					hex->toggleSelected();
-					//hex->setColor(hexRed);
-					//hex->addTroops(rand() % 100);
+					if(hex->isSelectable()){
+                        hex->setSelected(true);
+                    }
 					break;
-					// TODO ÌÛÊÌÓ Ì‡ÈÚË ÒÔÓÒÓ· ‚˚ıÓ‰ËÚ Ë ËÁ ˆËÍÎ‡ y - Ú.Í. ˝ÚÓ ÎË¯ÌÂÂ
-				}			
+                    
+				}
 			}		
 		}
 	
@@ -105,11 +105,9 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         if(!endHex) continue;
         
         Player* owner = startHex->getOwner();
-        if(owner && owner->isHexagonsSelectable()){
-            if(owner == endHex->getOwner()){
-                //if(endHex->getTroopsCount() > 1){
+        if(owner && (owner == endHex->getOwner())){
+            if(endHex->isSelectable()){
                 endHex->setSelected(true);
-                //}
             }
         }
         

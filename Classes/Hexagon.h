@@ -40,6 +40,7 @@ public:
     bool isSelected();
 	void setSelected(bool selected);
 	void toggleSelected();
+    bool isSelectable();
 
 	void setAddon(Addon* addon);
     bool hasAddon();

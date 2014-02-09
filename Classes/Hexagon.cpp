@@ -97,6 +97,9 @@ void Hexagon::removeTroops(int troops)
     }
     
 	updateTroopsLabel();
+    if(getTroopsCount() == 0){
+        setSelected(false);
+    }
 }
 
 void Hexagon::addTroops(int troops)
@@ -152,11 +155,22 @@ void Hexagon::setSelected(bool selected)
 
 	this->selected = selected;
 	selection->setVisible(selected);
+    
+    for(std::list<Army*>::iterator it = armies.begin(); it != armies.end(); ++it){
+        (*it)->setSelected(selected);
+    }
+    
 }
 
 void Hexagon::toggleSelected()
 {
 	setSelected(!selected);
+}
+
+bool Hexagon::isSelectable()
+{
+    // TODO еще если на ней есть генератор то можно даже если 0 типов
+    return (owner && owner->isHexagonsSelectable()) &&(getTroopsCount() > 0);
 }
 
 void Hexagon::setAddon(Addon* addon)
@@ -236,17 +250,25 @@ Army* Hexagon::createArmy(Hexagon* destination)
     
     allArmiesToTroops();
     removeTroops(troops);
-    return new Army(this, troops, destination);
+    
+    return new Army(this, troops, destination, selected);
 }
 
 void Hexagon::removeArmy(Army* army)
 {
     armies.remove(army);
 	updateTroopsLabel();
+    if(getTroopsCount() == 0){
+        setSelected(false);
+    }
 }
 
 void Hexagon::addArmy(Army *army)
 {
+    if(army->isSelected()){
+        setSelected(true);
+    }
+    
     if(this == army->getDestination()){
         addTroops(army->getTroopsCount());
         delete army;

@@ -11,8 +11,8 @@
 
 #define MOVE_DELAY 1.5f
 
-Army::Army(Hexagon* hex, int troopsCount, Hexagon* destination):
-currentHex(hex), troopsCount(troopsCount), destination(destination)
+Army::Army(Hexagon* hex, int troopsCount, Hexagon* destination, bool selected):
+currentHex(hex), troopsCount(troopsCount), destination(destination), selected(selected)
 {
 	CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(Army::move), this, MOVE_DELAY,false);
     retain();
@@ -49,6 +49,14 @@ Hexagon* Army::getDestination()
     return destination;
 }
 
+void Army::setSelected(bool selected){
+    this->selected = selected;
+}
+
+bool Army::isSelected()
+{
+    return selected;
+}
 
 void Army::move(float dt)
 {
