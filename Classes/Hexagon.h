@@ -75,6 +75,9 @@ private:
     CCNode* addonIcon;
 	Addon* addon;
     
+    CCEaseInOut* scaleAction1;
+    CCEaseInOut* scaleAction2;
+    
     std::list<Army*> armies;
 
 	void setupTroopsLabel();

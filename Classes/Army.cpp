@@ -9,7 +9,7 @@
 #include "Army.h"
 #include "Game.h"
 
-#define MOVE_DELAY 1.f
+#define MOVE_DELAY 1.5f
 
 Army::Army(Hexagon* hex, int troopsCount, Hexagon* destination):
 currentHex(hex), troopsCount(troopsCount), destination(destination)

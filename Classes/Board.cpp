@@ -107,7 +107,9 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         Player* owner = startHex->getOwner();
         if(owner && owner->isHexagonsSelectable()){
             if(owner == endHex->getOwner()){
+                //if(endHex->getTroopsCount() > 1){
                 endHex->setSelected(true);
+                //}
             }
         }
         

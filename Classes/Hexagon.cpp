@@ -5,7 +5,7 @@
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
-	selected(false), selection(0), addon(0)
+	selected(false), selection(0), addon(0), scaleAction1(0), scaleAction2(0)
 {
 	initWithFile(IMG("hex3.png"));
 	setColor(hexDefault);
@@ -20,6 +20,8 @@ Hexagon::~Hexagon()
 {
 	//if(generator) delete generator;
     removeAllArmies();
+    //scaleAction1->release();
+    //scaleAction2->release();
 }
 
 size_t Hexagon::getXCoord() const
@@ -182,10 +184,16 @@ const Addon* Hexagon::getAddon()
 
 void Hexagon::runScaleAction()
 {
-	CCEaseInOut* action1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 0.30f, 0.30f), 2.f);
-	CCEaseInOut* action2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 0.25f, 0.25f), 2.f);
-	CCSequence* seq = CCSequence::create(action1, action2, NULL);
-	
+    if(!scaleAction1){
+    
+        scaleAction1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 0.30f, 0.30f), 2.f);
+        scaleAction2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 0.25f, 0.25f), 2.f);
+        
+        scaleAction1->retain();
+        scaleAction2->retain();
+    }
+    
+	CCSequence* seq = CCSequence::create(scaleAction1, scaleAction2, NULL);
 	this->runAction(seq);
 }
 
