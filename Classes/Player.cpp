@@ -83,7 +83,7 @@ std::vector<Hexagon*> Player::getHexagonsWithTroops()
     
     for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
     {
-        if((*it)->getTroopsCount() > 1)
+        if((*it)->getTroopsCount() > 0)
             result.push_back(*it);
     }
     
