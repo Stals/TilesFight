@@ -72,6 +72,7 @@
 		D42C777518A657AE00FE4EDB /* Army.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777318A657AE00FE4EDB /* Army.cpp */; };
 		D42C777818A65D0C00FE4EDB /* TroopsMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */; };
 		D42C777F18A808D700FE4EDB /* ExpansionAI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C777D18A808D700FE4EDB /* ExpansionAI.cpp */; };
+		D42C778218AA9A6600FE4EDB /* ConquerorAI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C778018AA9A6600FE4EDB /* ConquerorAI.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +194,8 @@
 		D42C777B18A6696400FE4EDB /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Point.h; path = ../Classes/Point.h; sourceTree = "<group>"; };
 		D42C777D18A808D700FE4EDB /* ExpansionAI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExpansionAI.cpp; sourceTree = "<group>"; };
 		D42C777E18A808D700FE4EDB /* ExpansionAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpansionAI.h; sourceTree = "<group>"; };
+		D42C778018AA9A6600FE4EDB /* ConquerorAI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConquerorAI.cpp; sourceTree = "<group>"; };
+		D42C778118AA9A6600FE4EDB /* ConquerorAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConquerorAI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +414,8 @@
 		D405D0A31893E446000CB7E8 /* ai */ = {
 			isa = PBXGroup;
 			children = (
+				D42C778018AA9A6600FE4EDB /* ConquerorAI.cpp */,
+				D42C778118AA9A6600FE4EDB /* ConquerorAI.h */,
 				D42C777D18A808D700FE4EDB /* ExpansionAI.cpp */,
 				D42C777E18A808D700FE4EDB /* ExpansionAI.h */,
 				D405D0A41893E446000CB7E8 /* AbstractAI.cpp */,
@@ -570,6 +575,7 @@
 				D405D10F18956C96000CB7E8 /* AmoutIncreaser.cpp in Sources */,
 				D405D0C81893E446000CB7E8 /* HexArray.cpp in Sources */,
 				D405D0C21893E446000CB7E8 /* NoAI.cpp in Sources */,
+				D42C778218AA9A6600FE4EDB /* ConquerorAI.cpp in Sources */,
 				AB63787816FE1A4C00079CB7 /* CDXMacOSXSupport.mm in Sources */,
 				AB63787916FE1A4C00079CB7 /* CocosDenshion.m in Sources */,
 				D42C777818A65D0C00FE4EDB /* TroopsMover.cpp in Sources */,

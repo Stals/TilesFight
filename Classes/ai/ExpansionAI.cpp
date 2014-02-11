@@ -17,13 +17,6 @@ void ExpansionAI::doTurn(float dt)
 	if(player->getControlledHexagons().size() == 0) return;
     if(!center) setupCenter();
 
-    getClosestUnoccupiedHexagon();
-
-    
-    // TODO блин а что делать еслицентр захватят? брать новый центр из списка тех которыми владеет!
-
-    
-    
     // if have current target but not currently occupied
     if(currentTarget && (currentTarget->getOwner() != player)){
         // send all armies there
