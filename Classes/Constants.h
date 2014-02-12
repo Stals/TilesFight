@@ -7,8 +7,8 @@
 #define FONT(var) var
 #define IMG(var) var
 #else
-#define FONT(var) std::string("fonts/").append(var).append(".ttf")
-#define IMG(var) std::string("image/").append(var)
+#define FONT(var) std::string("fonts/").append(var).append(".ttf").c_str()
+#define IMG(var) std::string("image/").append(var).c_str()
 #endif
 
 
