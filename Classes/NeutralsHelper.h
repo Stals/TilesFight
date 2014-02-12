@@ -1,15 +1,26 @@
 #pragma once
 
-#include "TroopsGenerator.h"
+#include "Addons/TroopsGenerator.h"
+#include "Addons/AmoutIncreaser.h"
 
-// TODO переименовать - так. как этот класс подойдет и для расположения арсий игроков
-// Если напрмиер передавать 2 игрока, то симметричный будет игрок 2
+// TODO Г”Г‚пЈїГ‚Г‹ГЏГ‚ГЊГ“вЂљвЂЎГљВё - ГљвЂЎГЌ. ГЌвЂЎГЌ ЛќГљГ“Гљ ГЌГЋвЂЎГ’Г’ Г”Г“вЂ°Г“Г€вЂ°Г‚Гљ Г‹ вЂ°ГЋЛ‡ пЈївЂЎГ’Г”Г“ГЋГ“ГЉГ‚ГЊГ‹Л‡ вЂЎпЈїГ’Г‹Г€ Г‹вЂћпЈїГ“ГЌГ“вЂљ
+// в‰€Г’ГЋГ‹ ГЊвЂЎГ”пЈїГЏГ‹Г‚пЈї Г”Г‚пЈїГ‚вЂ°вЂЎвЂљвЂЎГљВё 2 Г‹вЂћпЈїГ“ГЌвЂЎ, ГљГ“ Г’Г‹ГЏГЏГ‚ГљпЈїГ‹ЛњГЊЛљГ€ В·Г›вЂ°Г‚Гљ Г‹вЂћпЈїГ“ГЌ 2
 
 class NeutralsHelper{
 public:
-	// не спавнит на игроках или мимо краты!
-	static void addNeutrals(Player* player, GeneratorType type, size_t x, size_t y);
-	static void addNeutrals(Player* player, Player* player2, GeneratorType type, size_t x, size_t y);
+	// ГЊГ‚ Г’Г”вЂЎвЂљГЊГ‹Гљ ГЊвЂЎ Г‹вЂћпЈїГ“ГЌвЂЎД± Г‹ГЋГ‹ ГЏГ‹ГЏГ“ ГЌпЈївЂЎГљЛљ!
+    
+    // TODO СЃРґРµР»Р°С‚СЊ С‡С‚РѕР±С‹ РїСЂРёРЅРёРјР°Р»Рѕ Addon* Р° РЅРµ type - С‚РѕРµСЃС‚СЊ СѓР¶Рµ СЃРѕР·РґР°РЅРЅС‹Рµ РїРµСЂРµРґР°РµС‚СЃСЏ?
+    // Р° РєР°РєР¶Рµ С‚РѕРіРґР° РєРѕРјРїРёСЂРѕРІР°РЅРёРµ Рё СЃС‚Р°С„С„ РІСЃРјС‹СЃР»Рµ РєР°Рє РјРЅРµ РґР»СЏ РІС‚РѕСЂРѕРіРѕ С‚РёРїР° С‚Р°РєРѕР№Р¶Рµ СЃРґРµР»Р°С‚СЊ?
+    
+	static void addNeutrals(Player* player, TroopsGenerator::Type type, size_t x, size_t y);
+	static void addNeutrals(Player* player, Player* player2, TroopsGenerator::Type type, size_t x, size_t y);
+
+	static void addNeutrals(Player* player, AmoutIncreaser::Type type, size_t x, size_t y);
+	static void addNeutrals(Player* player, Player* player2, AmoutIncreaser::Type type, size_t x, size_t y);
+    
+    //static void addNeutralWithAddon(Player* player, Player* player2, Addon* addon1, Addon* addon2, size_t x, size_t y);
+
 
 private:
 	NeutralsHelper();

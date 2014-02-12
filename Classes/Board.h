@@ -1,25 +1,42 @@
 #pragma once
 
+#include <list>
+
 #include "Constants.h"
 #include "Hexagon.h"
 #include "HexArray.h"
+#include "TroopsMover.h"
 
+
+struct LineData{
+    LineData(ccColor3B color, const CCPoint& start, const CCPoint& end):color(color), start(start), end(end){}
+    ccColor3B color;
+    CCPoint start;
+    CCPoint end;
+};
 
 class Board : public CCLayer{
 public:
 	Board(int width, int height);
+    ~Board();
 
 	Hexagon* at(size_t x, size_t y);
 	Hexagon* sideHexAt(HexSide side, size_t x, size_t y);
+    Hexagon* sideHexAt(HexSide side, Hexagon* hex);
+    
+    std::list<Hexagon*> getPath(Hexagon* start, Hexagon* end);
 
-	void moveTroops(Hexagon * startHex, Hexagon* endHex);
+
 
 	int getWidth(size_t row);
 	int getHeight();
-
+    
+    
 private:
 	int width, height;
 	HexArray2D hexArray2D;
+    
+    std::multimap<Player*, LineData> lines;
 
 	void initBoard();
 
@@ -29,19 +46,21 @@ private:
     virtual void ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent);
+    
+    virtual void draw();
 };
 
 // TODO
 /*
-	Может хранение и доступ вынести еще?
-	я думаю да, тогда при добавлении будет изи. но внутри там будет замес происходить =)
-	Как назвать, как хранить?
+	ГѓГ“ГЉГ‚Гљ Д±пЈївЂЎГЊГ‚ГЊГ‹Г‚ Г‹ вЂ°Г“Г’ГљГ›Г” вЂљЛљГЊГ‚Г’ГљГ‹ Г‚ЛГ‚?
+	Л‡ вЂ°Г›ГЏвЂЎЛ› вЂ°вЂЎ, ГљГ“вЂћвЂ°вЂЎ Г”пЈїГ‹ вЂ°Г“В·вЂЎвЂљГЋГ‚ГЊГ‹Г‹ В·Г›вЂ°Г‚Гљ Г‹ГЃГ‹. ГЊГ“ вЂљГЊГ›ГљпЈїГ‹ ГљвЂЎГЏ В·Г›вЂ°Г‚Гљ ГЃвЂЎГЏГ‚Г’ Г”пЈїГ“Г‹Г’Д±Г“вЂ°Г‹ГљВё =)
+	В вЂЎГЌ ГЊвЂЎГЃвЂљвЂЎГљВё, ГЌвЂЎГЌ Д±пЈївЂЎГЊГ‹ГљВё?
 
-	Создать я думаю создавать сразу через N типо сколько в строке?
-	Хотя нет.
-	Просто смотря на количество строк он будет с правильным смещением уже добавлять?
-	тогда мне нужно зарание знать?
-	Либо там было как зранить без смещений? я не уверен
+	вЂ”Г“ГЃвЂ°вЂЎГљВё Л‡ вЂ°Г›ГЏвЂЎЛ› Г’Г“ГЃвЂ°вЂЎвЂљвЂЎГљВё Г’пЈївЂЎГЃГ› ЛњГ‚пЈїГ‚ГЃ N ГљГ‹Г”Г“ Г’ГЌГ“ГЋВёГЌГ“ вЂљ Г’ГљпЈїГ“ГЌГ‚?
+	вЂ™Г“ГљЛ‡ ГЊГ‚Гљ.
+	Е“пЈїГ“Г’ГљГ“ Г’ГЏГ“ГљпЈїЛ‡ ГЊвЂЎ ГЌГ“ГЋГ‹ЛњГ‚Г’ГљвЂљГ“ Г’ГљпЈїГ“ГЌ Г“ГЊ В·Г›вЂ°Г‚Гљ Г’ Г”пЈївЂЎвЂљГ‹ГЋВёГЊЛљГЏ Г’ГЏГ‚ЛГ‚ГЊГ‹Г‚ГЏ Г›ГЉГ‚ вЂ°Г“В·вЂЎвЂљГЋЛ‡ГљВё?
+	ГљГ“вЂћвЂ°вЂЎ ГЏГЊГ‚ ГЊГ›ГЉГЊГ“ ГЃвЂЎпЈївЂЎГЊГ‹Г‚ ГЃГЊвЂЎГљВё?
+	ГЂГ‹В·Г“ ГљвЂЎГЏ В·ЛљГЋГ“ ГЌвЂЎГЌ ГЃпЈївЂЎГЊГ‹ГљВё В·Г‚ГЃ Г’ГЏГ‚ЛГ‚ГЊГ‹Г€? Л‡ ГЊГ‚ Г›вЂљГ‚пЈїГ‚ГЊ
 
 	HexArray
 */

@@ -26,7 +26,6 @@ private:
 	Board* board;
 	Player* player;
 	Player* computer;
-	std::vector<Player*> neutrals;
 
 	void setupBackgroud();
 
@@ -34,6 +33,14 @@ private:
 	void setupWalls();
 	void setupPlayers();
 	void setupNeutrals();
+    // может перенести в Game?
+    void setupListeners();
 
 	void createStartingArmy(Player* player, int x, int y);
+    void createStartingArmies(Player* player, Player* player2, size_t playerX, size_t playerY);
+
+    
+    void onPlayerLost(CCObject* obj);
+    
+    void checkEndGame(float dt);
 };

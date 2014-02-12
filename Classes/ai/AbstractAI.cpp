@@ -2,14 +2,18 @@
 #include "../Player.h"
 
 
-const float defaultDelay = .5f;
 
-AbstractAI::AbstractAI(Player* player): turnDelay(defaultDelay), player(player)
+AbstractAI::AbstractAI(Player* player, float turnDelay): turnDelay(turnDelay), player(player)
 {
 	CCNode::init();
 
 	// Note: позволяет сделать schedule даже если нод не добавлен как чилд
-	CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(AbstractAI::doTurn),this,defaultDelay,false);
+	CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(AbstractAI::doTurn), this, turnDelay, false);
+}
+
+AbstractAI::~AbstractAI()
+{
+    unscheduleSelector();
 }
 
 void AbstractAI::unscheduleSelector()

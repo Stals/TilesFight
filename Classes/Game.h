@@ -6,8 +6,16 @@ class Game{
 public:
 	static Game& current();
 
+    void starNewGame();
+    
 	void setCurrentBoard(Board* board);
 	Board* getBoard();
+    
+    void addPlayer(Player* player);
+    std::vector<Player*> getPlayers();
+    void clearPlayers();
+    
+    void checkEndGame();
 
 private:
 	Game();
@@ -15,4 +23,6 @@ private:
 	Game& operator=(const Game& other);
 
 	Board* currentBoard;
+    
+    std::vector<Player*> players;
 };

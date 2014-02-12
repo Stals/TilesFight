@@ -1,14 +1,21 @@
 #include "Board.h"
-#include "TroopsGenerator.h"
+#include "Addons/TroopsGenerator.h"
+#include "AStar.h"
+#include "Game.h"
+#include "Army.h"
 
-#define HEX_SIZE 64.f
+#define HEX_SIZE 64.f //80?
 
-Board::Board(int width, int height):width(width), height(height){
+Board::Board(int width, int height): width(width), height(height){
 	CCLayer::init();
 	autorelease();
 	setTouchEnabled(true);
 
 	initBoard();
+}
+
+Board::~Board()
+{
 }
 
 Hexagon* Board::at(size_t x, size_t y)
@@ -21,6 +28,16 @@ Hexagon* Board::sideHexAt(HexSide side, size_t x, size_t y)
 	return hexArray2D.sideHexAt(side, x, y);
 }
 
+Hexagon* Board::sideHexAt(HexSide side, Hexagon* hex)
+{
+    return sideHexAt(side, hex->getXCoord(), hex->getYCoord());
+}
+
+std::list<Hexagon*> Board::getPath(Hexagon* start, Hexagon* end)
+{
+    AStar astar;
+    return astar.findPath(start, end);
+}
 
 void Board::initBoard()
 {
@@ -61,77 +78,95 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 				if(hex->getOwner() && hex->getOwner()->isAI()) continue;
 
 				if(hex->containsTouchLocation(touch)){
-					hex->toggleSelected();
-					//hex->setColor(hexRed);
-					//hex->addTroops(rand() % 100);
+					if(hex->isSelectable()){
+                        hex->setSelected(true);
+                    }
 					break;
-					// TODO нужно найти способ выходит и из цикла y - т.к. это лишнее
-				}			
+                    
+				}
 			}		
 		}
 	
 	}
 }
 
-/*
-	TODO тутже нужно будет делать хитрые штуки с touch moved с понимаением что он уже выделил - либо тупо делать им setSelected()
-	а потом делать getSelectedHexagons() который вернет hexArray с которым я могу уже что угодно делать
-*/
 
 void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 {
-	/*
-		TODO из пердведущей точки получить owner'a и его какраз и замутить
-	*/
+    // select hexagon if not yet selected
+    
+    for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
+		CCTouch* touch = ((CCTouch*)*it);
+		Hexagon* startHex = 0;
+		Hexagon* endHex = 0;
+        
+		getStartEndHex(touch, startHex, endHex);
+        if(!startHex) break;
+        if(!endHex) continue;
+        
+        Player* owner = startHex->getOwner();
+        if(owner && (owner == endHex->getOwner())){
+            if(endHex->isSelectable()){
+                endHex->setSelected(true);
+            }
+        }
+        
+    }
+    
+    // add lines for drawing
+    
+    lines.clear();
+    CCTouch* touch = ((CCTouch*)*pTouches->begin());
+    std::vector<Player*> players = Game::current().getPlayers();
+
+    for(size_t playerID = 0; playerID < players.size(); ++playerID){
+        //TODO  С‚СѓС‚ РЅСѓР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ touch РєРѕС‚РѕСЂС‹Р№ РёРјРµРЅРЅРѕ РґР»СЏ СЌС‚РѕРіРѕ РёРіСЂРѕРєР°!!!
+        
+        
+        std::vector<Hexagon*> selectedHexagons = players[playerID]->getSelectedHexagons();
+        
+        for(size_t hexID = 0; hexID < selectedHexagons.size(); ++hexID){
+            Hexagon* startHex = selectedHexagons[hexID];
+            
+            lines.insert(std::make_pair(startHex->getOwner(), LineData(startHex->getOwner()->getColor(), startHex->getPosition(), convertTouchToNodeSpace(touch))));
+            
+        }
+    }
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 {
+    lines.clear();
+
 	for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
 		CCTouch* touch = ((CCTouch*)*it);
 		Hexagon* startHex = 0;
 		Hexagon* endHex = 0;
 
 		getStartEndHex(touch, startHex, endHex);
-		if(startHex) startHex->setSelected(false);
+        
+        std::vector<Hexagon*> selectedHexagons;
+		if(startHex && startHex->getOwner() && (startHex->getOwner()->isHexagonsSelectable())){
+            selectedHexagons = startHex->getOwner()->getSelectedHexagons();
+            startHex->getOwner()->deselectAllHexagons();
+        }else{
+            continue;
+        }
 
         if((!startHex) || (!endHex)) continue;
-		if(startHex && startHex->getOwner() && startHex->getOwner()->isAI()) continue;
 
-		moveTroops(startHex, endHex);
-	}
-}
-
-void Board::moveTroops(Hexagon * startHex, Hexagon* endHex)
-{
-	startHex->setSelected(false);
-
-	if(!hexArray2D.areConnected(startHex, endHex)) return;
-	if(startHex->getTroopsCount() <= 1) return;
-
-	// TODO добавить атаку
-	if(startHex != endHex){
-		const int troops = startHex->getTroopsCount() - 1;
-		startHex->removeTroops(troops);
-
-		if(endHex->getOwner() == startHex->getOwner()){
-			endHex->addTroops(troops);
-		}else{
-			if(troops == endHex->getTroopsCount()){
-				endHex->removeTroops(troops);
-				endHex->changeOwner(0); // TODO NoPlayer который уже = 0?
-			}else if(troops < endHex->getTroopsCount()){
-				endHex->removeTroops(troops);			
-			}else{ // troops > endHex->getTroopsCount()
-				const int firstPlayerTroopsLeft = troops - endHex->getTroopsCount();
-				endHex->removeTroops(endHex->getTroopsCount());
-				endHex->addTroops(firstPlayerTroopsLeft);
-				endHex->changeOwner(startHex->getOwner());
-			}
-		}
-		if(endHex->getTroopsCount() > 0){
-			endHex->runScaleAction();
-		}
+        // Note: we need to create and move armies in 2 cycles so thar they will not travel all the way
+        std::vector<Army*> armies(selectedHexagons.size());
+        // create armies
+        for(size_t i = 0; i < selectedHexagons.size(); ++i){
+            armies[i] = selectedHexagons[i]->createArmy(endHex);
+        }
+        
+        // move armies
+        for(size_t i = 0; i < armies.size(); ++i){
+            armies[i]->move(0);
+        }
+        
 	}
 }
 
@@ -161,7 +196,7 @@ void Board::getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex)
 				startHex = hex;
 				if(startHex && endHex) return;
 			}
-			// Note: не else if - так как он может быть и стартом и концом
+			// Note: ГЊГ‚ else if - ГљвЂЎГЌ ГЌвЂЎГЌ Г“ГЊ ГЏГ“ГЉГ‚Гљ В·ЛљГљВё Г‹ Г’ГљвЂЎпЈїГљГ“ГЏ Г‹ ГЌГ“ГЊЛ†Г“ГЏ
 			if(hex->containsTouchLocation(touch->getLocation())){
 				endHex = hex;
 				if(startHex && endHex) return;
@@ -172,4 +207,18 @@ void Board::getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex)
 
 void Board::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 {
+}
+
+
+void Board::draw(){
+    
+    
+    glLineWidth(3.0f);
+    glEnable(GL_LINE_SMOOTH);
+    for(std::multimap<Player*, LineData>::iterator it = lines.begin(); it != lines.end(); ++it){
+        cocos2d::ccDrawColor4B(it->second.color.r, it->second.color.g, it->second.color.b, 255);
+        //cocos2d::ccDrawCircle(it->second.start, 29, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
+        cocos2d::ccDrawLine(it->second.start, it->second.end);
+        cocos2d::ccDrawCircle(it->second.end, 6, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
+    }
 }

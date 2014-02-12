@@ -1,21 +1,26 @@
 #include "GameLayer.h"
 #include "Hexagon.h"
-#include "TroopsGenerator.h"
+#include "Addons/TroopsGenerator.h"
+#include "NeutralsSpawner.h"
+
 #include "utils/RandomGenerator.h"
 #include "utils/StringExtension.h"
 
 #include "Game.h"
 #include "ai/RandomAI.h"
 #include "ai/NoAI.h"
+#include "ai/ExpansionAI.h"
+#include "ai/ConquerorAI.h"
+
+#include "CCShake.h"
+
+#define CHECK_ENDGAME_DELAY 1.f
 
 USING_NS_CC;
 
 
 GameLayer::~GameLayer(){
-	while(!neutrals.empty()) {
-		delete neutrals.back();
-		neutrals.pop_back();
-	}
+    //delete board;
 }
 
 
@@ -46,8 +51,8 @@ bool GameLayer::init()
         return false;
     }
     
-    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+    //CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+    //CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
 	setTouchEnabled(true);
 	
@@ -57,9 +62,10 @@ bool GameLayer::init()
 	setupWalls();
 	setupPlayers();
 	setupNeutrals();
-
-
-
+    
+    setupListeners();
+    
+    this->schedule(schedule_selector(GameLayer::checkEndGame), CHECK_ENDGAME_DELAY, kCCRepeatForever, CHECK_ENDGAME_DELAY);
 	return true;
 }
 
@@ -67,8 +73,8 @@ void GameLayer::setupBackgroud()
 {
 	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
 
-	std::string file = (std::string("image/bg") +
-		StringExtension::toString(RandomGenerator::getRandom(1, 12)) + ".jpg");
+	std::string file = IMG((std::string("bg") +
+		StringExtension::toString(RandomGenerator::getRandom(1, 12)) + ".jpg"));
 	CCLog("%s", file.c_str());
 
 	CCSprite* bg = CCSprite::create(file.c_str());
@@ -94,19 +100,29 @@ void GameLayer::setupPlayers()
 {
 	player = new Player("Player", hexRed);
 	computer = new Player("AI", hexGreen);
-	computer->setAI(new RandomAI(computer));
+	computer->setAI(new ConquerorAI(computer));
 
-	createStartingArmy(player, 1, 7);
-	createStartingArmy(computer, 12, 7);
+    Game::current().addPlayer(player);
+    Game::current().addPlayer(computer);
+    
+    const size_t playerX = 1;
+    const size_t playerY = RandomGenerator::getRandom(1, Game::current().getBoard()->getHeight() - 1);
+    
+    createStartingArmies(player, computer, playerX, playerY);
 }
+
+void GameLayer::setupListeners()
+{
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(GameLayer::onPlayerLost), PLAYER_LOOSE_MGS.c_str(), NULL);
+}
+
 void GameLayer::createStartingArmy(Player* player, int x, int y)
 {
-	const ccColor3B playerColor = player->getColor();
 	Hexagon* centerHex = board->at(x, y);
 	centerHex->changeOwner(player);
 	centerHex->addTroops(25);
 
-	centerHex->setGenerator(new TroopsGenerator(centerHex, LargeGen));
+	centerHex->setAddon(new TroopsGenerator(centerHex, TroopsGenerator::Large));
 
 	for(int side = 0; side < HexSidesCount; ++side)
 	{
@@ -114,39 +130,52 @@ void GameLayer::createStartingArmy(Player* player, int x, int y)
 		if(hex){
 			hex->changeOwner(player);
 			hex->addTroops(5);
-			hex->setGenerator(new TroopsGenerator(hex, SmallGen));
-		}
+			hex->setAddon(new TroopsGenerator(hex, TroopsGenerator::Small));
+        }
 	}
+}
+
+void GameLayer::createStartingArmies(Player* player, Player* player2, size_t playerX, size_t playerY)
+{
+    NeutralsHelper::addNeutrals(player, player2, TroopsGenerator::Large, playerX, playerY);
+    
+    for(int side = 0; side < HexSidesCount; ++side){
+        Hexagon* hex = board->sideHexAt((HexSide)side, playerX, playerY);
+		if(hex){
+            NeutralsHelper::addNeutrals(player, player2, TroopsGenerator::Small, hex->getXCoord(), hex->getYCoord());
+        }
+    }
 }
 
 void GameLayer::setupNeutrals()
 {
-	Player* neutral = Player::createNeutral();
-	neutral->setAI(new NoAI(neutral));
-	neutrals.push_back(neutral);
-
-	//createStartingArmy(neutral, 6, 4);
-	//createStartingArmy(neutral, 7, 10);
-
-	// TODO move everything to Neutrals Spawner
-
-	// add big camps
-	size_t center_x = 6;
-	size_t center_y = 4;
-
-	NeutralsHelper::addNeutrals(neutral, LargeGen, center_x, center_y);
-	for(int side = 0; side < HexSidesCount; ++side)
-	{
-		Hexagon* hex = board->sideHexAt((HexSide)side, center_x, center_y);
-		NeutralsHelper::addNeutrals(neutral, SmallGen, hex->getXCoord(), hex->getYCoord());		
-	}
-
-
-	// add small camps
-	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 13);
-	NeutralsHelper::addNeutrals(neutral, MediumGen, 1, 1);
-
+    NeutralSpawner::current().spawnBigSurroundedGenerator();
+    
 	for(int i = 0; i < 5; ++i){
-		NeutralsHelper::addNeutrals(neutral, SmallGen, RandomGenerator::getRandom(0, 15), RandomGenerator::getRandom(0, 15));
+        NeutralSpawner::current().spawnRandomCamp();
 	}
 }
+
+void GameLayer::onPlayerLost(CCObject* obj)
+{
+    if((Player*)obj == player){
+        CCMessageBox("You Loose", "Game Over");
+    }else{
+        CCMessageBox("You WIN", "Game Over");
+    }
+    
+    //board->setTouchEnabled(false);
+    Game::current().clearPlayers();
+    Game::current().starNewGame();
+    
+    //Remove event listener.
+    CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
+    
+    this->unschedule(schedule_selector(GameLayer::checkEndGame));
+}
+
+void GameLayer::checkEndGame(float dt)
+{
+    Game::current().checkEndGame();
+}
+

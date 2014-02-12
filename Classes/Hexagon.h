@@ -2,8 +2,11 @@
 
 #include "Constants.h"
 #include "Player.h"
+#include "Point.h"
 
-class TroopsGenerator;
+class Army;
+class Addon;
+
 
 enum HexSide{
 	HexTopLeft,
@@ -19,8 +22,9 @@ class Hexagon : public CCSprite{
 public:
 	Hexagon(size_t x_coord, size_t y_coord);
 	~Hexagon();
-	size_t getXCoord();
-	size_t getYCoord();
+	size_t getXCoord() const;
+	size_t getYCoord() const;
+    Point getCoord() const;
 
 	int getTroopsCount();
 	bool containsTouchLocation(cocos2d::CCTouch *touch);
@@ -33,14 +37,23 @@ public:
 	
 	void changeOwner(Player* player);
 
+    bool isSelected();
 	void setSelected(bool selected);
 	void toggleSelected();
+    bool isSelectable();
 
-	void setGenerator(TroopsGenerator* generator);
-
-	// �������� ���������� / ����������
+	void setAddon(Addon* addon);
+    bool hasAddon();
+    const Addon* getAddon();
+    
+	// ‡ÌËÏ‡ˆËˇ Û‚ÂÎË˜ÂÌËˇ / ÛÏÂÌ¸¯ÂÌËˇ
 	void runScaleAction();
-	void runScaleLabelAction();
+	void runScaleLabelAction(float maxScale);
+    
+    // Armies
+    Army* createArmy(Hexagon* destination);
+    void removeArmy(Army* army);
+    void addArmy(Army *army);
 
 private:
 	enum zOrder{
@@ -49,22 +62,34 @@ private:
 		zTroopsCount
 	};
 
-	// ��������� hexagon'a �� board
+	// ÔÓÎÓÊÂÌËÂ hexagon'a Ì‡ board
 	size_t x_coord;
 	size_t y_coord;
 
 	Player* owner;
 	int troopsCount;
-	bool isSelected;
+	bool selected;
 
 	CCSprite *selection;
 
 	CCLabelTTF* troopsLabel;
-	TroopsGenerator* generator;
+    CCNode* addonIcon;
+	Addon* addon;
+    
+    CCEaseInOut* scaleAction1;
+    CCEaseInOut* scaleAction2;
+    
+    std::list<Army*> armies;
 
 	void setupTroopsLabel();
+    void updateTroopsLabel();
 
 	bool containsPoint(cocos2d::CCPoint point);
 
 	void setOwner(Player* owner);
+    
+    // переводит все армии находящиеся на этом секторе в стационарные troops
+    void allArmiesToTroops();
+    void removeAllArmies();
+    
 };

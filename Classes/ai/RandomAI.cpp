@@ -4,6 +4,8 @@
 #include "../utils/RandomGenerator.h"
 #include "../Hexagon.h"
 
+#define MAX_ATTEMPTS 10
+
 RandomAI::RandomAI(Player* player):AbstractAI(player)
 {
 }
@@ -16,29 +18,32 @@ void RandomAI::doTurn(float dt)
 	Hexagon* endHex = NULL;
 	Hexagon* startHex = NULL;
 
-	while(!endHex){
+    size_t attempt = 0;
+	while(!endHex || attempt >= MAX_ATTEMPTS){
+        ++attempt;
+        
 		startHex = getRandomControlledHexagon();
+        if(!startHex) return; // no hexagons to move
+        
 		endHex = getRandomSideHexagon(startHex);
 	}
-	
-	
-
+    
+    std::vector<Hexagon*> selectedHexagons;
 	if(startHex->getTroopsCount() > 1){
-		startHex->setSelected(true);
-		// todo wait a bit
-		Game::current().getBoard()->moveTroops(startHex, endHex);
+        TroopsMover::moveTroops(startHex->createArmy(endHex), endHex);
 	}
 }
 
 Hexagon* RandomAI::getRandomControlledHexagon()
 {
-	std::set<Hexagon*>& hexagons = player->getControlledHexagons();
-	size_t rnd = RandomGenerator::getRandom(0, hexagons.size());
-
-	std::set<Hexagon*>::iterator it = hexagons.begin();
-	std::advance(it, rnd);
-
-	return *it;
+    std::vector<Hexagon*> hexagons = player->getHexagonsWithTroops();
+    
+    if(!hexagons.empty()){
+        size_t rnd = RandomGenerator::getRandom(0, hexagons.size());
+        return hexagons[rnd];
+    }else{
+        return NULL;
+    }
 }
 
 Hexagon* RandomAI::getRandomSideHexagon(Hexagon* hex)

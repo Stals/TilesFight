@@ -5,9 +5,13 @@
 
 #ifdef __APPLE__
 #define FONT(var) var
+#define IMG(var) var
 #else
 #define FONT(var) std::string("fonts/").append(var).append(".ttf")
+#define IMG(var) std::string("image/").append(var)
 #endif
+
+
 
 
 using namespace cocos2d;
@@ -18,6 +22,8 @@ const ccColor3B hexGreen(ccc3(25, 150, 25));
 const ccColor3B hexDark(ccc3(45, 45, 45)); // border / wall color
 const ccColor3B hexGray(ccc3(127, 127, 127));
 const ccColor3B hexWhite(ccc3(245, 245, 245));
+const ccColor3B hexOrange(ccc3(239, 215, 55));
+const ccColor3B hexLightBlue(ccc3(133, 242, 247));
 
 const ccColor3B hexDefault(hexGray);
 // yellow
@@ -35,3 +41,9 @@ inline float scaledHeight(CCSprite* sprite)
 {
 	return sprite->getContentSize().height * sprite->getScaleY();
 }
+
+
+// Notificatoins
+const std::string PLAYER_LOOSE_MGS = "Plaeyer_Loose";
+
+//CCMessageBox("onEnemyKilled", "Title");
