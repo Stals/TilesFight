@@ -33,7 +33,11 @@ void ConquerorAI::doTurn(float dt)
             
             // TODO нельзя сразу двигать - она может переместиться сразу много раз
                 // Это решается задержкой внутри create которая сама подвинет?
-            hex->createArmy(target)->move(0);
+            Army* army = hex->createArmy(target);
+            
+            // TODO
+            //CCDirector::sharedDirector()->getScheduler()-> scheduleSelector(schedule_selector(Army::move), army, 1.f, false);
+            army->move(0);
         }
     }
 }

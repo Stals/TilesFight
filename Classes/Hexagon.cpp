@@ -253,8 +253,11 @@ Army* Hexagon::createArmy(Hexagon* destination)
     
     allArmiesToTroops();
     removeTroops(troops);
-    
-    return new Army(this, troops, destination, selected);
+
+    Army *newArmy = new Army(this, troops, destination, selected);
+    armies.push_back(newArmy);
+
+    return newArmy;
 }
 
 void Hexagon::removeArmy(Army* army)
