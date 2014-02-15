@@ -61,7 +61,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.nekki.audio.iphone</string>
+	<string>com.stals.admiral</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -80,7 +80,7 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>fonts/GAMECUBEN.ttf</string>
+		<string>GAMECUBEN.ttf</string>
 	</array>
 	<key>UILaunchImageFile~ipad</key>
 	<string>Default</string>
