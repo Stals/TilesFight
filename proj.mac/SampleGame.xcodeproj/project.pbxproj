@@ -85,6 +85,14 @@
 		D42C77FE18AFD1C500FE4EDB /* loader.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C77F318AFD1C500FE4EDB /* loader.png */; };
 		D42C77FF18AFD1C500FE4EDB /* loader1024.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C77F418AFD1C500FE4EDB /* loader1024.png */; };
 		D42C780118AFD1E100FE4EDB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42C780018AFD1E100FE4EDB /* Images.xcassets */; };
+		D42C780718B0E56D00FE4EDB /* ButtonFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C780518B0E56D00FE4EDB /* ButtonFactory.cpp */; };
+		D42C781E18B0EE0A00FE4EDB /* ai.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781718B0EE0A00FE4EDB /* ai.png */; };
+		D42C781F18B0EE0A00FE4EDB /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781818B0EE0A00FE4EDB /* button.png */; };
+		D42C782018B0EE0A00FE4EDB /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781918B0EE0A00FE4EDB /* credits.png */; };
+		D42C782118B0EE0A00FE4EDB /* gc.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781A18B0EE0A00FE4EDB /* gc.png */; };
+		D42C782218B0EE0A00FE4EDB /* human.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781B18B0EE0A00FE4EDB /* human.png */; };
+		D42C782318B0EE0A00FE4EDB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781C18B0EE0A00FE4EDB /* settings.png */; };
+		D42C782418B0EE0A00FE4EDB /* tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781D18B0EE0A00FE4EDB /* tutorial.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +228,15 @@
 		D42C77F318AFD1C500FE4EDB /* loader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader.png; sourceTree = "<group>"; };
 		D42C77F418AFD1C500FE4EDB /* loader1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader1024.png; sourceTree = "<group>"; };
 		D42C780018AFD1E100FE4EDB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SampleGame/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		D42C780518B0E56D00FE4EDB /* ButtonFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ButtonFactory.cpp; path = ../Classes/ButtonFactory.cpp; sourceTree = "<group>"; };
+		D42C780618B0E56D00FE4EDB /* ButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonFactory.h; path = ../Classes/ButtonFactory.h; sourceTree = "<group>"; };
+		D42C781718B0EE0A00FE4EDB /* ai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ai.png; sourceTree = "<group>"; };
+		D42C781818B0EE0A00FE4EDB /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		D42C781918B0EE0A00FE4EDB /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
+		D42C781A18B0EE0A00FE4EDB /* gc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gc.png; sourceTree = "<group>"; };
+		D42C781B18B0EE0A00FE4EDB /* human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human.png; sourceTree = "<group>"; };
+		D42C781C18B0EE0A00FE4EDB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		D42C781D18B0EE0A00FE4EDB /* tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +316,8 @@
 				D42C777618A65D0C00FE4EDB /* TroopsMover.cpp */,
 				D42C777718A65D0C00FE4EDB /* TroopsMover.h */,
 				D42C777B18A6696400FE4EDB /* Point.h */,
+				D42C780518B0E56D00FE4EDB /* ButtonFactory.cpp */,
+				D42C780618B0E56D00FE4EDB /* ButtonFactory.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -413,6 +432,7 @@
 		D405D0791893E434000CB7E8 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D42C782518B0EE1500FE4EDB /* button */,
 				D42C77E818AFD1C500FE4EDB /* icon */,
 				D42C77F118AFD1C500FE4EDB /* loader */,
 				D405D07A1893E434000CB7E8 /* background.png */,
@@ -506,6 +526,20 @@
 			path = loader;
 			sourceTree = "<group>";
 		};
+		D42C782518B0EE1500FE4EDB /* button */ = {
+			isa = PBXGroup;
+			children = (
+				D42C781718B0EE0A00FE4EDB /* ai.png */,
+				D42C781818B0EE0A00FE4EDB /* button.png */,
+				D42C781918B0EE0A00FE4EDB /* credits.png */,
+				D42C781A18B0EE0A00FE4EDB /* gc.png */,
+				D42C781B18B0EE0A00FE4EDB /* human.png */,
+				D42C781C18B0EE0A00FE4EDB /* settings.png */,
+				D42C781D18B0EE0A00FE4EDB /* tutorial.png */,
+			);
+			name = button;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -597,19 +631,26 @@
 				D405D09C1893E434000CB7E8 /* hex.png in Resources */,
 				D405D0951893E434000CB7E8 /* bg3.jpg in Resources */,
 				D405D0941893E434000CB7E8 /* bg2.jpg in Resources */,
+				D42C782418B0EE0A00FE4EDB /* tutorial.png in Resources */,
+				D42C782118B0EE0A00FE4EDB /* gc.png in Resources */,
 				D405D09D1893E434000CB7E8 /* hex3.png in Resources */,
 				D42C77FF18AFD1C500FE4EDB /* loader1024.png in Resources */,
 				D405D0981893E434000CB7E8 /* bg6.jpg in Resources */,
 				D405D09A1893E434000CB7E8 /* bg8.jpg in Resources */,
 				D405D09F1893E434000CB7E8 /* hex_old.png in Resources */,
+				D42C782018B0EE0A00FE4EDB /* credits.png in Resources */,
 				D405D0A01893E434000CB7E8 /* largeGen.png in Resources */,
+				D42C782218B0EE0A00FE4EDB /* human.png in Resources */,
+				D42C781E18B0EE0A00FE4EDB /* ai.png in Resources */,
 				D405D09B1893E434000CB7E8 /* bg9.jpg in Resources */,
 				D42C77F918AFD1C500FE4EDB /* icon152.png in Resources */,
 				D405D0961893E434000CB7E8 /* bg4.jpg in Resources */,
 				D405D0931893E434000CB7E8 /* bg11.jpg in Resources */,
+				D42C782318B0EE0A00FE4EDB /* settings.png in Resources */,
 				D405D0A21893E434000CB7E8 /* smallGen.png in Resources */,
 				41CD6C6F15BF7673005E6F29 /* MainMenu.xib in Resources */,
 				D405D08F1893E434000CB7E8 /* GAMECUBEN.ttf in Resources */,
+				D42C781F18B0EE0A00FE4EDB /* button.png in Resources */,
 				41BC70AD15BF7CCE006A0A6C /* Icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +677,7 @@
 				D405D10C18956BD7000CB7E8 /* TroopsGenerator.cpp in Sources */,
 				D405D0C71893E446000CB7E8 /* Hexagon.cpp in Sources */,
 				AB63787716FE1A4C00079CB7 /* CDOpenALSupport.m in Sources */,
+				D42C780718B0E56D00FE4EDB /* ButtonFactory.cpp in Sources */,
 				D405D10F18956C96000CB7E8 /* AmoutIncreaser.cpp in Sources */,
 				D405D0C81893E446000CB7E8 /* HexArray.cpp in Sources */,
 				D405D0C21893E446000CB7E8 /* NoAI.cpp in Sources */,

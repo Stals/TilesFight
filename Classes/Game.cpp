@@ -22,9 +22,12 @@ Board* Game::getBoard()
 	return currentBoard;
 }
 
-void Game::starNewGame()
+void Game::starNewGame(Game::Type type)
 {
     CCScene *pScene = GameLayer::scene();
+    GameLayer* gameLayer = (GameLayer*)pScene->getChildByTag(1337);
+    gameLayer->setGameType(type);
+    
     if(CCDirector::sharedDirector()->getRunningScene()){
         CCDirector::sharedDirector()->replaceScene(pScene);
     }else{

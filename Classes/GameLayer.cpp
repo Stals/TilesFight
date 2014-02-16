@@ -60,13 +60,17 @@ bool GameLayer::init()
 
 	setupBoard();
 	setupWalls();
-	setupPlayers();
 	setupNeutrals();
     
     setupListeners();
     
     this->schedule(schedule_selector(GameLayer::checkEndGame), CHECK_ENDGAME_DELAY, kCCRepeatForever, CHECK_ENDGAME_DELAY);
 	return true;
+}
+
+void GameLayer::setGameType(Game::Type type)
+{
+    setupPlayers(type);
 }
 
 void GameLayer::setupBackgroud()
@@ -96,11 +100,14 @@ void GameLayer::setupWalls()
 {
 }
 
-void GameLayer::setupPlayers()
+void GameLayer::setupPlayers(Game::Type type)
 {
 	player = new Player("Player", hexRed);
 	computer = new Player("AI", hexGreen);
-	computer->setAI(new ExpansionAI(computer));
+    
+    if(type == Game::VS_AI){
+        computer->setAI(new ExpansionAI(computer));
+    }
 
     Game::current().addPlayer(player);
     Game::current().addPlayer(computer);

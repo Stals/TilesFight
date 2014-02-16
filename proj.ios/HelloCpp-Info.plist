@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>HelloCpp</string>
+	<string>Admiral HEX</string>
 	<key>CFBundleExecutable</key>
 	<string>HelloCpp</string>
 	<key>CFBundleIconFile</key>
@@ -65,7 +65,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>HelloCpp</string>
+	<string>Admiral HEX</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

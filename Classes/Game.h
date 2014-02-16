@@ -1,12 +1,18 @@
 #pragma once
 #include "Board.h"
 
+
 // TODO сюда можно закинуть игроков (например чтобы AI имел доступ к игроку)
 class Game{
 public:
-	static Game& current();
+    enum Type{
+        VS_AI,
+        VS_HUMAN
+    };
+	
+    static Game& current();
 
-    void starNewGame();
+    void starNewGame(Game::Type type = VS_AI);
     
 	void setCurrentBoard(Board* board);
 	Board* getBoard();
