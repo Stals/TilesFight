@@ -16,6 +16,10 @@ public:
     void clearPlayers();
     
     void checkEndGame();
+    
+    
+    float artScale();
+    void setArtScale(float scale);
 
 private:
 	Game();
@@ -25,4 +29,6 @@ private:
 	Board* currentBoard;
     
     std::vector<Player*> players;
+    
+    float _artScale;
 };

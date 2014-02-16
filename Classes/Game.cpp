@@ -2,7 +2,7 @@
 #include "GameLayer.h"
 #include "cocos2d.h"
 
-Game::Game()
+Game::Game():_artScale(1)
 {
 }
 
@@ -59,4 +59,14 @@ void Game::checkEndGame()
             cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), player);
         }
     }
+}
+
+float Game::artScale()
+{
+    return _artScale;
+}
+
+void Game::setArtScale(float scale)
+{
+    _artScale = scale;
 }
