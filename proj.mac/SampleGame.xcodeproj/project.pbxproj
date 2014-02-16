@@ -93,6 +93,8 @@
 		D42C782218B0EE0A00FE4EDB /* human.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781B18B0EE0A00FE4EDB /* human.png */; };
 		D42C782318B0EE0A00FE4EDB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781C18B0EE0A00FE4EDB /* settings.png */; };
 		D42C782418B0EE0A00FE4EDB /* tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781D18B0EE0A00FE4EDB /* tutorial.png */; };
+		D42C782818B0EF3500FE4EDB /* TitleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C782618B0EF3500FE4EDB /* TitleScreen.cpp */; };
+		D42C782A18B0EFEA00FE4EDB /* loader.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C782918B0EFEA00FE4EDB /* loader.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +239,9 @@
 		D42C781B18B0EE0A00FE4EDB /* human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human.png; sourceTree = "<group>"; };
 		D42C781C18B0EE0A00FE4EDB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		D42C781D18B0EE0A00FE4EDB /* tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial.png; sourceTree = "<group>"; };
+		D42C782618B0EF3500FE4EDB /* TitleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScreen.cpp; sourceTree = "<group>"; };
+		D42C782718B0EF3500FE4EDB /* TitleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScreen.h; sourceTree = "<group>"; };
+		D42C782918B0EFEA00FE4EDB /* loader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +323,8 @@
 				D42C777B18A6696400FE4EDB /* Point.h */,
 				D42C780518B0E56D00FE4EDB /* ButtonFactory.cpp */,
 				D42C780618B0E56D00FE4EDB /* ButtonFactory.h */,
+				D42C782618B0EF3500FE4EDB /* TitleScreen.cpp */,
+				D42C782718B0EF3500FE4EDB /* TitleScreen.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -432,6 +439,7 @@
 		D405D0791893E434000CB7E8 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D42C782918B0EFEA00FE4EDB /* loader.png */,
 				D42C782518B0EE1500FE4EDB /* button */,
 				D42C77E818AFD1C500FE4EDB /* icon */,
 				D42C77F118AFD1C500FE4EDB /* loader */,
@@ -636,6 +644,7 @@
 				D405D09D1893E434000CB7E8 /* hex3.png in Resources */,
 				D42C77FF18AFD1C500FE4EDB /* loader1024.png in Resources */,
 				D405D0981893E434000CB7E8 /* bg6.jpg in Resources */,
+				D42C782A18B0EFEA00FE4EDB /* loader.png in Resources */,
 				D405D09A1893E434000CB7E8 /* bg8.jpg in Resources */,
 				D405D09F1893E434000CB7E8 /* hex_old.png in Resources */,
 				D42C782018B0EE0A00FE4EDB /* credits.png in Resources */,
@@ -664,6 +673,7 @@
 			files = (
 				D42C777518A657AE00FE4EDB /* Army.cpp in Sources */,
 				D405D0C31893E446000CB7E8 /* RandomAI.cpp in Sources */,
+				D42C782818B0EF3500FE4EDB /* TitleScreen.cpp in Sources */,
 				41CD6C6515BF7574005E6F29 /* AppController.mm in Sources */,
 				D405D10B18956BD7000CB7E8 /* Addon.cpp in Sources */,
 				41CD6C6615BF7574005E6F29 /* main.m in Sources */,

@@ -5,6 +5,7 @@
 
 #include "Constants.h"
 #include "GameLayer.h"
+#include "TitleScreen.h"
 #include "Game.h"
 
 USING_NS_CC;
@@ -38,7 +39,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     pDirector->setAnimationInterval(1.0 / 60);
 
     Game::current().setArtScale(0.5);
-    Game::current().starNewGame();
+
+    CCScene *pScene = TitleScreen::scene();
+    CCDirector::sharedDirector()->runWithScene(pScene);
     
     return true;
 }

@@ -10,20 +10,20 @@
 #include "Game.h"
 
 #define MAIN_BUTTON_IMAGE IMG("button.png")
-#define ICON_PADDING 10
-#define LABEL_PADDING 15
+#define ICON_PADDING 15
+#define LABEL_PADDING 20
 
 
-CCSprite* ButtonFactory::mainMenuButton(const char* iconPath, const std::string& text, IconSide side)
+CCSprite* ButtonFactory::mainMenuButtonSprite(const char* iconPath, const std::string& text, IconSide side)
 {
     CCSprite *button = CCSprite::create(MAIN_BUTTON_IMAGE);
+    button->setAnchorPoint(ccp(0.5, 0.5));
     button->setScale(Game::current().artScale());
     
     CCSprite* icon = CCSprite::create(iconPath);
     icon->setAnchorPoint(ccp(0.5, 0.5));
-    
     button->addChild(icon);
-    // TODO * artScale?
+
     
     if(side == ICON_RIGHT){
         icon->setPositionX((button->getContentSize().width) - (icon->getContentSize().width) - ICON_PADDING);
@@ -48,3 +48,4 @@ CCSprite* ButtonFactory::mainMenuButton(const char* iconPath, const std::string&
     label->setPositionY(button->getContentSize().height/2);
     return button;
 }
+
