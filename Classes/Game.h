@@ -26,6 +26,9 @@ public:
     
     float artScale();
     void setArtScale(float scale);
+    
+    void pauseGame();
+    void resumeGame();
 
 private:
 	Game();
@@ -37,4 +40,6 @@ private:
     std::vector<Player*> players;
     
     float _artScale;
+    
+    CCSet* pausedTargets;
 };

@@ -2,7 +2,7 @@
 #include "GameLayer.h"
 #include "cocos2d.h"
 
-Game::Game():_artScale(1)
+Game::Game():_artScale(1), pausedTargets(0)
 {
 }
 
@@ -73,3 +73,19 @@ void Game::setArtScale(float scale)
 {
     _artScale = scale;
 }
+
+void Game::pauseGame()
+{
+    // TODO show pause layer
+    pausedTargets = CCDirector::sharedDirector()->getScheduler()->pauseAllTargets();
+    pausedTargets->retain();
+}
+
+void Game::resumeGame()
+{
+    CCDirector::sharedDirector()->getScheduler()->resumeTargets(pausedTargets);
+    pausedTargets->release();
+    pausedTargets = 0;
+}
+
+
