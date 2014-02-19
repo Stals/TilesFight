@@ -137,6 +137,8 @@
 		D42C783F18B10FAA00FE4EDB /* loader.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C783718B10FAA00FE4EDB /* loader.png */; };
 		D42C784018B10FAA00FE4EDB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C783818B10FAA00FE4EDB /* settings.png */; };
 		D42C784118B10FAA00FE4EDB /* tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C783918B10FAA00FE4EDB /* tutorial.png */; };
+		D42C784518B5365F00FE4EDB /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C784318B5365F00FE4EDB /* PauseLayer.cpp */; };
+		D42C784718B53B6800FE4EDB /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C784618B53B6800FE4EDB /* pixel.png */; };
 		D446FD79161028E9000ADA7B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD78161028E9000ADA7B /* Default.png */; };
 		D446FD7B161028ED000ADA7B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7A161028ED000ADA7B /* Default@2x.png */; };
 		D446FD7D161028F4000ADA7B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7C161028F4000ADA7B /* Default-568h@2x.png */; };
@@ -380,6 +382,9 @@
 		D42C783718B10FAA00FE4EDB /* loader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader.png; sourceTree = "<group>"; };
 		D42C783818B10FAA00FE4EDB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		D42C783918B10FAA00FE4EDB /* tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial.png; sourceTree = "<group>"; };
+		D42C784318B5365F00FE4EDB /* PauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseLayer.cpp; sourceTree = "<group>"; };
+		D42C784418B5365F00FE4EDB /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
+		D42C784618B53B6800FE4EDB /* pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel.png; sourceTree = "<group>"; };
 		D446FD78161028E9000ADA7B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../proj.ios/Default.png; sourceTree = "<group>"; };
 		D446FD7A161028ED000ADA7B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../proj.ios/Default@2x.png"; sourceTree = "<group>"; };
 		D446FD7C161028F4000ADA7B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../proj.ios/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -709,6 +714,8 @@
 				D42C77C818AFD11700FE4EDB /* TroopsMover.cpp */,
 				D42C77C918AFD11700FE4EDB /* TroopsMover.h */,
 				D42C77CA18AFD11700FE4EDB /* utils */,
+				D42C784318B5365F00FE4EDB /* PauseLayer.cpp */,
+				D42C784418B5365F00FE4EDB /* PauseLayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -738,6 +745,7 @@
 		D405D0D51893E6F2000CB7E8 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D42C784618B53B6800FE4EDB /* pixel.png */,
 				D42C784218B10FB000FE4EDB /* button */,
 				D42C783718B10FAA00FE4EDB /* loader.png */,
 				D42C778418AFD02D00FE4EDB /* icon */,
@@ -958,6 +966,7 @@
 				D42C779718AFD02D00FE4EDB /* icon72.png in Resources */,
 				D42C783F18B10FAA00FE4EDB /* loader.png in Resources */,
 				D446FD79161028E9000ADA7B /* Default.png in Resources */,
+				D42C784718B53B6800FE4EDB /* pixel.png in Resources */,
 				D405D0EB1893E6F2000CB7E8 /* Basica.ttf in Resources */,
 				D42C783D18B10FAA00FE4EDB /* gc.png in Resources */,
 				D405D0F41893E6F2000CB7E8 /* bg5.jpg in Resources */,
@@ -1036,6 +1045,7 @@
 				5255A09E170E458F0079C316 /* b2ContactSolver.cpp in Sources */,
 				5255A09F170E458F0079C316 /* b2EdgeAndCircleContact.cpp in Sources */,
 				5255A0A0170E458F0079C316 /* b2EdgeAndPolygonContact.cpp in Sources */,
+				D42C784518B5365F00FE4EDB /* PauseLayer.cpp in Sources */,
 				D42C77E018AFD11700FE4EDB /* HexArray.cpp in Sources */,
 				5255A0A1170E458F0079C316 /* b2PolygonAndCircleContact.cpp in Sources */,
 				5255A0A2170E458F0079C316 /* b2PolygonContact.cpp in Sources */,
