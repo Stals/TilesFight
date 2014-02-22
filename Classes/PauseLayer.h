@@ -6,11 +6,6 @@ class PauseLayer : public CCLayer{
 public:
 	PauseLayer();
     
-	virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
-    
-	virtual void onEnter();
-	virtual void onExit();
-    
 private:
 	void setupBackground();
     void setupButtons();

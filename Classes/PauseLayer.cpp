@@ -8,6 +8,7 @@ PauseLayer::PauseLayer()
 	CCLayer::init();
 	setupBackground();
     setupButtons();
+    setTouchEnabled(true);
 }
 
 
@@ -65,37 +66,23 @@ void PauseLayer::setupButtons()
 
 }
 
-bool PauseLayer::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
-{
-	if(this->isVisible()){
-		return true;
-	}
-	return false;
-}
-
-void PauseLayer::onEnter(){
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, -250, true);
-    CCLayer::onEnter();
-}
-
-void PauseLayer::onExit(){
-    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
-    CCLayer::onExit();
-}
 
 void PauseLayer::resumeChosen(CCObject* pSender)
 {
     Game::current().resumeGame();
+    this->removeFromParentAndCleanup(true);
 }
 
 void PauseLayer::restartChosen(CCObject* pSender)
 {
     // TODO with current game type and correct AI, colors. ect
     Game::current().starNewGame();
+    this->removeFromParentAndCleanup(true);
 }
 
 void PauseLayer::menuChosen(CCObject* pSender)
 {
     CCScene *pScene = TitleScreen::scene();
     CCDirector::sharedDirector()->replaceScene(pScene);
+    this->removeFromParentAndCleanup(true);
 }

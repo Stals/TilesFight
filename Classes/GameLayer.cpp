@@ -2,6 +2,7 @@
 #include "Hexagon.h"
 #include "Addons/TroopsGenerator.h"
 #include "NeutralsSpawner.h"
+#include "PauseLayer.h"
 
 #include "utils/RandomGenerator.h"
 #include "utils/StringExtension.h"
@@ -57,6 +58,7 @@ bool GameLayer::init()
 	setTouchEnabled(true);
 	
 	setupBackgroud();
+    setupPause();
 
 	setupBoard();
 	setupWalls();
@@ -84,7 +86,23 @@ void GameLayer::setupBackgroud()
 	CCSprite* bg = CCSprite::create(file.c_str());
 	bg->setScale(0.8f);
 	bg->setPosition(ccp(visibleSize.width/2, visibleSize.height/2));
-	addChild(bg, zBackground); 
+	addChild(bg, zBackground);
+}
+
+void GameLayer::setupPause()
+{
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    CCSprite* buttonImage = CCSprite::create(IMG("pause.png"));
+    CCMenuItemSprite* button = CCMenuItemSprite::create(buttonImage, buttonImage, buttonImage,
+                                                        this, menu_selector(GameLayer::onPauseButtonPressed));
+
+    CCMenu* menu = CCMenu::create(button, NULL);
+    this->addChild(menu, zPause);
+    
+    const float padding = 3;
+    menu->setPosition(ccp(button->getContentSize().width + padding, winSize.height - button->getContentSize().height - padding));
+    
 }
 
 void GameLayer::setupBoard()
@@ -179,6 +197,12 @@ void GameLayer::onPlayerLost(CCObject* obj)
     CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
     
     this->unschedule(schedule_selector(GameLayer::checkEndGame));
+}
+
+void GameLayer::onPauseButtonPressed(CCObject* obj)
+{
+    Game::current().pauseGame();
+    addChild(new PauseLayer, zPause);
 }
 
 void GameLayer::checkEndGame(float dt)

@@ -20,7 +20,8 @@ public:
 private:
 	enum zOrder{
 		zBackground,
-		zBoard
+		zBoard,
+        zPause
 	};
 
 	// implement the "static node()" method manually
@@ -31,6 +32,7 @@ private:
 	Player* computer;
 
 	void setupBackgroud();
+    void setupPause();
 
 	void setupBoard();
 	void setupWalls();
@@ -44,6 +46,7 @@ private:
 
     
     void onPlayerLost(CCObject* obj);
+    void onPauseButtonPressed(CCObject* obj);
     
     void checkEndGame(float dt);
 };

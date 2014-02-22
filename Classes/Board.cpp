@@ -67,7 +67,7 @@ void Board::initBoard()
 
 void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 {
-	for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
+    for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
 		CCTouch* touch = ((CCTouch*)*it);
 
 		for(size_t y = 0; y < hexArray2D.size(); ++y){
@@ -214,7 +214,7 @@ void Board::draw(){
     
     
     glLineWidth(3.0f);
-    glEnable(GL_LINE_SMOOTH);
+    //glEnable(GL_LINE_SMOOTH);
     for(std::multimap<Player*, LineData>::iterator it = lines.begin(); it != lines.end(); ++it){
         cocos2d::ccDrawColor4B(it->second.color.r, it->second.color.g, it->second.color.b, 255);
         //cocos2d::ccDrawCircle(it->second.start, 29, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
