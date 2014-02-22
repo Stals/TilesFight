@@ -10,6 +10,13 @@ public:
         VS_HUMAN
     };
 	
+    enum Screen{
+        GAME_SCREEN,
+        PAUSE_SCREEN,
+        TUTORIAL_SCREEN,
+        MENU_SCREEN
+    };
+    
     static Game& current();
 
     void starNewGame(Game::Type type = VS_AI);
@@ -29,6 +36,9 @@ public:
     
     void pauseGame();
     void resumeGame();
+    
+    Screen getCurrentScreen();
+    void setCurrentScreen(Screen screen);
 
 private:
 	Game();
@@ -42,4 +52,6 @@ private:
     float _artScale;
     
     CCSet* pausedTargets;
+    
+    Screen currentScreen;
 };

@@ -22,6 +22,7 @@ USING_NS_CC;
 
 GameLayer::~GameLayer(){
     //delete board;
+    CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
 }
 
 
@@ -196,13 +197,13 @@ void GameLayer::onPlayerLost(CCObject* obj)
     //Remove event listener.
     CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
     
+    // TODO должно делаться если игра перезапускается или выклчючется без этого
     this->unschedule(schedule_selector(GameLayer::checkEndGame));
 }
 
 void GameLayer::onPauseButtonPressed(CCObject* obj)
 {
     Game::current().pauseGame();
-    addChild(new PauseLayer, zPause);
 }
 
 void GameLayer::checkEndGame(float dt)

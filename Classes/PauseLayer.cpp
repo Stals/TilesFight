@@ -82,6 +82,8 @@ void PauseLayer::restartChosen(CCObject* pSender)
 
 void PauseLayer::menuChosen(CCObject* pSender)
 {
+    Game::current().setCurrentScreen(Game::MENU_SCREEN);
+    
     CCScene *pScene = TitleScreen::scene();
     CCDirector::sharedDirector()->replaceScene(pScene);
     this->removeFromParentAndCleanup(true);

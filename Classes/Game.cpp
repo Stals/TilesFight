@@ -1,8 +1,9 @@
 #include "Game.h"
 #include "GameLayer.h"
 #include "cocos2d.h"
+#include "PauseLayer.h"
 
-Game::Game():_artScale(1), pausedTargets(0)
+Game::Game():_artScale(1), pausedTargets(0), currentScreen(MENU_SCREEN)
 {
 }
 
@@ -33,6 +34,8 @@ void Game::starNewGame(Game::Type type)
     }else{
         CCDirector::sharedDirector()->runWithScene(pScene);
     }
+    
+    setCurrentScreen(GAME_SCREEN);
 }
 
 void Game::addPlayer(Player* player)
@@ -79,6 +82,10 @@ void Game::pauseGame()
     // TODO show pause layer
     pausedTargets = CCDirector::sharedDirector()->getScheduler()->pauseAllTargets();
     pausedTargets->retain();
+    
+    CCDirector::sharedDirector()->getRunningScene()->addChild(new PauseLayer, 100500);
+    
+    setCurrentScreen(PAUSE_SCREEN);
 }
 
 void Game::resumeGame()
@@ -86,6 +93,18 @@ void Game::resumeGame()
     CCDirector::sharedDirector()->getScheduler()->resumeTargets(pausedTargets);
     pausedTargets->release();
     pausedTargets = 0;
+    
+    setCurrentScreen(GAME_SCREEN);
+}
+
+Game::Screen Game::getCurrentScreen()
+{
+    return currentScreen;
+}
+
+void Game::setCurrentScreen(Screen screen)
+{
+    currentScreen = screen;
 }
 
 
