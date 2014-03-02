@@ -6,7 +6,7 @@
 #include "../Army.h"
 
 
-ConquerorAI::ConquerorAI(Player* player):AbstractAI(player, 5)
+ConquerorAI::ConquerorAI(Player* player):AbstractAI(AbstractAI::Conqueror, player, 5)
 {
     
 }

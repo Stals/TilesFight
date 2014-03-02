@@ -6,7 +6,7 @@
 
 #define MAX_ATTEMPTS 10
 
-RandomAI::RandomAI(Player* player):AbstractAI(player)
+RandomAI::RandomAI(Player* player):AbstractAI(AbstractAI::Random, player)
 {
 }
 

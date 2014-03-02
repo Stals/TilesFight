@@ -3,7 +3,7 @@
 
 
 
-AbstractAI::AbstractAI(Player* player, float turnDelay): turnDelay(turnDelay), player(player)
+AbstractAI::AbstractAI(Type aiType, Player* player, float turnDelay): turnDelay(turnDelay), player(player), aiType(aiType)
 {
 	CCNode::init();
 
@@ -19,4 +19,10 @@ AbstractAI::~AbstractAI()
 void AbstractAI::unscheduleSelector()
 {
 	CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(AbstractAI::doTurn),this);
+}
+
+
+AbstractAI::Type AbstractAI::getType()
+{
+    return aiType;
 }

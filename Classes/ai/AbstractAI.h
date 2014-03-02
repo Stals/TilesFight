@@ -9,10 +9,20 @@ class Player;
 class AbstractAI : public cocos2d::CCNode
 {
 public:
-	AbstractAI(Player* player, float turnDelay = defaultDelay);
+    enum Type{
+        NoAI,
+        Conqueror,
+        Expansion,
+        Random,
+        AI_COUNT
+    };
+    
+	AbstractAI(Type aiType, Player* player, float turnDelay = defaultDelay);
     virtual ~AbstractAI();
     
     void unscheduleSelector();
+    
+    Type getType();
 
 protected:
 	Player* player;
@@ -21,4 +31,5 @@ protected:
 
 private:
 	float turnDelay;
+    Type aiType;
 };

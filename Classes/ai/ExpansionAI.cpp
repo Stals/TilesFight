@@ -6,7 +6,7 @@
 #include "../Army.h"
 
 
-ExpansionAI::ExpansionAI(Player* player):AbstractAI(player), currentTarget(NULL)
+ExpansionAI::ExpansionAI(Player* player):AbstractAI(AbstractAI::Expansion, player), currentTarget(NULL)
 {
     setupCenter();
 }
