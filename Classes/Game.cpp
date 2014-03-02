@@ -28,7 +28,7 @@ void Game::starNewGame(Game::Type type)
 {
     CCScene *pScene = GameLayer::scene();
     GameLayer* gameLayer = (GameLayer*)pScene->getChildByTag(1337);
-    gameLayer->setGameType(type);
+    gameLayer->startGame(type);
     
     if(CCDirector::sharedDirector()->getRunningScene()){
         CCDirector::sharedDirector()->replaceScene(pScene);

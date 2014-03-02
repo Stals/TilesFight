@@ -63,8 +63,7 @@ bool GameLayer::init()
     setupPause();
 
 	setupBoard();
-	setupWalls();
-	setupNeutrals();
+	
     
     setupListeners();
     
@@ -72,10 +71,14 @@ bool GameLayer::init()
 	return true;
 }
 
-void GameLayer::setGameType(Game::Type type)
+
+void GameLayer::startGame(Game::Type type)
 {
     setupPlayers(type);
+    setupWalls();
+	setupNeutrals();
 }
+
 
 void GameLayer::setupBackgroud()
 {
