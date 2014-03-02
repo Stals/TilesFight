@@ -125,8 +125,8 @@ void GameLayer::setupWalls()
 
 void GameLayer::setupPlayers(Game::Type type)
 {
-	player = new Player("Player", hexRed);
-	computer = new Player("AI", hexGreen);
+	player = new Player("Player", hexOrange);
+	computer = new Player("AI", hexLightBlue);
     
     if(type == Game::VS_AI){
         computer->setAI(new ExpansionAI(computer));
