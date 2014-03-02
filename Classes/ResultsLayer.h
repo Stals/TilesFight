@@ -1,14 +1,15 @@
-//
-//  ResultsLayer.h
-//  HelloCpp
-//
-//  Created by Stanislav Korotaev on 3/2/14.
-//
-//
+#pragma once
 
-#ifndef __HelloCpp__ResultsLayer__
-#define __HelloCpp__ResultsLayer__
+#include "PauseLayer.h"
+#include "Game.h"
 
-#include <iostream>
 
-#endif /* defined(__HelloCpp__ResultsLayer__) */
+class ResultsLayer : public PauseLayer{
+public:
+    ResultsLayer(Game::Type gameType, int playerID);
+    
+private:
+    void setupLabel(Game::Type gameType, int playerID);
+    
+    std::string getText(Game::Type gameType, int playerID);
+};
