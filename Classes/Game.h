@@ -7,7 +7,8 @@ class Game{
 public:
     enum Type{
         VS_AI,
-        VS_HUMAN
+        VS_HUMAN,
+        WRONG_TYPE
     };
 	
     enum Screen{
@@ -20,6 +21,7 @@ public:
     static Game& current();
 
     void starNewGame(Game::Type type = VS_AI);
+    Game::Type getCurrentGameType();
     
 	void setCurrentBoard(Board* board);
 	Board* getBoard();
@@ -34,7 +36,7 @@ public:
     float artScale();
     void setArtScale(float scale);
     
-    void pauseGame();
+    void pauseGame(bool showLayer = true);
     void resumeGame();
     
     Screen getCurrentScreen();
@@ -54,4 +56,5 @@ private:
     CCSet* pausedTargets;
     
     Screen currentScreen;
+    Game::Type currentGameType;
 };

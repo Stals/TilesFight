@@ -3,6 +3,7 @@
 #include "Addons/TroopsGenerator.h"
 #include "NeutralsSpawner.h"
 #include "PauseLayer.h"
+#include "ResultsLayer.h"
 
 #include "utils/RandomGenerator.h"
 #include "utils/StringExtension.h"
@@ -184,21 +185,31 @@ void GameLayer::setupNeutrals()
 
 void GameLayer::onPlayerLost(CCObject* obj)
 {
-    if((Player*)obj == player){
-        CCMessageBox("You Loose", "Game Over");
-    }else{
-        CCMessageBox("You WIN", "Game Over");
-    }
-    
-    //board->setTouchEnabled(false);
-    Game::current().clearPlayers();
-    Game::current().starNewGame();
+    Game::current().pauseGame(false);
     
     //Remove event listener.
     CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
     
     // TODO должно делаться если игра перезапускается или выклчючется без этого
     this->unschedule(schedule_selector(GameLayer::checkEndGame));
+    
+    
+    if((Player*)obj == player){
+        addChild(new ResultsLayer(Game::current().getCurrentGameType(), 1), zPause);
+
+    }else{
+        addChild(new ResultsLayer(Game::current().getCurrentGameType(), 0), zPause);
+    }
+    
+    //board->setTouchEnabled(false);
+    /*  Game::current().clearPlayers();
+    Game::current().starNewGame();
+    
+    //Remove event listener.
+    CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
+    
+    // TODO должно делаться если игра перезапускается или выклчючется без этого
+    this->unschedule(schedule_selector(GameLayer::checkEndGame));*/
 }
 
 void GameLayer::onPauseButtonPressed(CCObject* obj)

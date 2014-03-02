@@ -23,7 +23,7 @@ void PauseLayer::setupBackground()
     bg->setScaleX(winSize.width);
     bg->setScaleY(winSize.height);
     bg->setColor(ccBLACK);
-    bg->setOpacity(127);
+    bg->setOpacity(170);
     
     addChild(bg);
     
@@ -38,12 +38,6 @@ void PauseLayer::setupButtons()
     CCSprite* buttonImage1 = NULL;
     CCSprite* buttonImage2 = NULL;
     CCSprite* buttonImage3 = NULL;
-    
-    CCMenuItemSprite* button1 = NULL;
-    CCMenuItemSprite* button2 = NULL;
-    CCMenuItemSprite* button3 = NULL;
-
-    CCMenu* menu = NULL;
     
     buttonImage1 = ButtonFactory::mainMenuButtonSprite(IMG("tutorial.png"), "RESUME", ICON_RIGHT);
     buttonImage2 = ButtonFactory::mainMenuButtonSprite(IMG("tutorial.png"), "RESTART", ICON_LEFT);
@@ -76,7 +70,7 @@ void PauseLayer::resumeChosen(CCObject* pSender)
 void PauseLayer::restartChosen(CCObject* pSender)
 {
     // TODO with current game type and correct AI, colors. ect
-    Game::current().starNewGame();
+    Game::current().starNewGame(Game::current().getCurrentGameType());
     this->removeFromParentAndCleanup(true);
 }
 

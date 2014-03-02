@@ -2,8 +2,9 @@
 #include "GameLayer.h"
 #include "cocos2d.h"
 #include "PauseLayer.h"
+#include "ResultsLayer.h"
 
-Game::Game():_artScale(1), pausedTargets(0), currentScreen(MENU_SCREEN)
+Game::Game():_artScale(1), pausedTargets(0), currentScreen(MENU_SCREEN), currentGameType(WRONG_TYPE)
 {
 }
 
@@ -36,6 +37,12 @@ void Game::starNewGame(Game::Type type)
     }
     
     setCurrentScreen(GAME_SCREEN);
+    currentGameType = type;
+}
+
+Game::Type Game::getCurrentGameType()
+{
+    return currentGameType;
 }
 
 void Game::addPlayer(Player* player)
@@ -77,13 +84,15 @@ void Game::setArtScale(float scale)
     _artScale = scale;
 }
 
-void Game::pauseGame()
+void Game::pauseGame(bool showLayer)
 {
     // TODO show pause layer
     pausedTargets = CCDirector::sharedDirector()->getScheduler()->pauseAllTargets();
     pausedTargets->retain();
     
-    CCDirector::sharedDirector()->getRunningScene()->addChild(new PauseLayer, 100500);
+    if(showLayer){
+        CCDirector::sharedDirector()->getRunningScene()->addChild(new PauseLayer, 100500);
+    }
     
     setCurrentScreen(PAUSE_SCREEN);
 }
