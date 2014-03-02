@@ -70,6 +70,7 @@ void Game::checkEndGame()
         
         if((!player->isNeutral()) && player->hasLost()){
             cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), player);
+            break;
         }
     }
 }
