@@ -1,7 +1,7 @@
 #include "ConquerorAI.h"
 #include "../Player.h"
 #include "../Game.h"
-#include "../utils/RandomGenerator.h"
+#include "../../lib/utils/RandomGenerator.h"
 #include "../Hexagon.h"
 #include "../Army.h"
 

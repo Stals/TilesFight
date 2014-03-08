@@ -1,7 +1,7 @@
 #include "RandomAI.h"
 #include "../Player.h"
 #include "../Game.h"
-#include "../utils/RandomGenerator.h"
+#include "../../lib//utils/RandomGenerator.h"
 #include "../Hexagon.h"
 
 #define MAX_ATTEMPTS 10

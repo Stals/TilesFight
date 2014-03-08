@@ -5,8 +5,8 @@
 #include "PauseLayer.h"
 #include "ResultsLayer.h"
 
-#include "utils/RandomGenerator.h"
-#include "utils/StringExtension.h"
+#include "../lib/utils/RandomGenerator.h"
+#include "../lib/utils/StringExtension.h"
 
 #include "Game.h"
 #include "ai/RandomAI.h"

@@ -1,5 +1,5 @@
 #include "AmoutIncreaser.h"
-#include "../utils/StringExtension.h"
+#include "../../lib/utils/StringExtension.h"
 
 AmoutIncreaser::AmoutIncreaser(Hexagon* hex,  AmoutIncreaser::Type type):Addon(hex, Addon::AIncreaser)
 {

@@ -24,7 +24,7 @@
 #include <list>
 
 #include "Hexagon.h"
-#include "utils/StringExtension.h"
+#include "../lib/utils/StringExtension.h"
 
 class Node;
 

@@ -3,7 +3,7 @@
 #include "NeutralsHelper.h"
 #include "Addons/AmoutIncreaser.h"
 #include "ai/NoAI.h"
-#include "utils/RandomGenerator.h"
+#include "../lib/utils/RandomGenerator.h"
 #include "Game.h"
 
 typedef void (NeutralSpawner::*spawnMethod)();

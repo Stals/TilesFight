@@ -125,8 +125,6 @@
 		D42C77E218AFD11700FE4EDB /* NeutralsSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C77C318AFD11700FE4EDB /* NeutralsSpawner.cpp */; };
 		D42C77E318AFD11700FE4EDB /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C77C518AFD11700FE4EDB /* Player.cpp */; };
 		D42C77E418AFD11700FE4EDB /* TroopsMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C77C818AFD11700FE4EDB /* TroopsMover.cpp */; };
-		D42C77E518AFD11700FE4EDB /* MathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C77CB18AFD11700FE4EDB /* MathUtils.cpp */; };
-		D42C77E618AFD11700FE4EDB /* RandomGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C77CD18AFD11700FE4EDB /* RandomGenerator.cpp */; };
 		D42C783018B10F9000FE4EDB /* ButtonFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C782C18B10F9000FE4EDB /* ButtonFactory.cpp */; };
 		D42C783118B10F9000FE4EDB /* TitleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C782E18B10F9000FE4EDB /* TitleScreen.cpp */; };
 		D42C783A18B10FAA00FE4EDB /* ai.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C783218B10FAA00FE4EDB /* ai.png */; };
@@ -143,6 +141,9 @@
 		D42C784C18C39E5100FE4EDB /* ResultsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C784A18C39E5100FE4EDB /* ResultsLayer.cpp */; };
 		D42C784F18C656CF00FE4EDB /* ColorPicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C784D18C656CF00FE4EDB /* ColorPicker.cpp */; };
 		D42C785218CB262A00FE4EDB /* mainmenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D42C785118CB262A00FE4EDB /* mainmenu.mp3 */; };
+		D42C786C18CB311800FE4EDB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D42C786518CB311800FE4EDB /* README.md */; };
+		D42C786D18CB311800FE4EDB /* MathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C786718CB311800FE4EDB /* MathUtils.cpp */; };
+		D42C786E18CB311800FE4EDB /* RandomGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C786918CB311800FE4EDB /* RandomGenerator.cpp */; };
 		D446FD79161028E9000ADA7B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD78161028E9000ADA7B /* Default.png */; };
 		D446FD7B161028ED000ADA7B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7A161028ED000ADA7B /* Default@2x.png */; };
 		D446FD7D161028F4000ADA7B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7C161028F4000ADA7B /* Default-568h@2x.png */; };
@@ -369,11 +370,6 @@
 		D42C77C718AFD11700FE4EDB /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
 		D42C77C818AFD11700FE4EDB /* TroopsMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TroopsMover.cpp; sourceTree = "<group>"; };
 		D42C77C918AFD11700FE4EDB /* TroopsMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroopsMover.h; sourceTree = "<group>"; };
-		D42C77CB18AFD11700FE4EDB /* MathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathUtils.cpp; sourceTree = "<group>"; };
-		D42C77CC18AFD11700FE4EDB /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
-		D42C77CD18AFD11700FE4EDB /* RandomGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomGenerator.cpp; sourceTree = "<group>"; };
-		D42C77CE18AFD11700FE4EDB /* RandomGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomGenerator.h; sourceTree = "<group>"; };
-		D42C77CF18AFD11700FE4EDB /* StringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringExtension.h; sourceTree = "<group>"; };
 		D42C782C18B10F9000FE4EDB /* ButtonFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonFactory.cpp; sourceTree = "<group>"; };
 		D42C782D18B10F9000FE4EDB /* ButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonFactory.h; sourceTree = "<group>"; };
 		D42C782E18B10F9000FE4EDB /* TitleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScreen.cpp; sourceTree = "<group>"; };
@@ -395,6 +391,12 @@
 		D42C784D18C656CF00FE4EDB /* ColorPicker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorPicker.cpp; sourceTree = "<group>"; };
 		D42C784E18C656CF00FE4EDB /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
 		D42C785118CB262A00FE4EDB /* mainmenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mainmenu.mp3; path = music/mainmenu.mp3; sourceTree = "<group>"; };
+		D42C786518CB311800FE4EDB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		D42C786718CB311800FE4EDB /* MathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathUtils.cpp; sourceTree = "<group>"; };
+		D42C786818CB311800FE4EDB /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
+		D42C786918CB311800FE4EDB /* RandomGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomGenerator.cpp; sourceTree = "<group>"; };
+		D42C786A18CB311800FE4EDB /* RandomGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomGenerator.h; sourceTree = "<group>"; };
+		D42C786B18CB311800FE4EDB /* StringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringExtension.h; sourceTree = "<group>"; };
 		D446FD78161028E9000ADA7B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../proj.ios/Default.png; sourceTree = "<group>"; };
 		D446FD7A161028ED000ADA7B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../proj.ios/Default@2x.png"; sourceTree = "<group>"; };
 		D446FD7C161028F4000ADA7B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../proj.ios/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -690,6 +692,7 @@
 		BF23D4E2143315EB00657E08 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D42C786418CB311700FE4EDB /* lib */,
 				D42C782C18B10F9000FE4EDB /* ButtonFactory.cpp */,
 				D42C782D18B10F9000FE4EDB /* ButtonFactory.h */,
 				D42C782E18B10F9000FE4EDB /* TitleScreen.cpp */,
@@ -724,7 +727,6 @@
 				D42C77C718AFD11700FE4EDB /* Point.h */,
 				D42C77C818AFD11700FE4EDB /* TroopsMover.cpp */,
 				D42C77C918AFD11700FE4EDB /* TroopsMover.h */,
-				D42C77CA18AFD11700FE4EDB /* utils */,
 				D42C784318B5365F00FE4EDB /* PauseLayer.cpp */,
 				D42C784418B5365F00FE4EDB /* PauseLayer.h */,
 				D42C784A18C39E5100FE4EDB /* ResultsLayer.cpp */,
@@ -844,18 +846,6 @@
 			path = ai;
 			sourceTree = "<group>";
 		};
-		D42C77CA18AFD11700FE4EDB /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				D42C77CB18AFD11700FE4EDB /* MathUtils.cpp */,
-				D42C77CC18AFD11700FE4EDB /* MathUtils.h */,
-				D42C77CD18AFD11700FE4EDB /* RandomGenerator.cpp */,
-				D42C77CE18AFD11700FE4EDB /* RandomGenerator.h */,
-				D42C77CF18AFD11700FE4EDB /* StringExtension.h */,
-			);
-			path = utils;
-			sourceTree = "<group>";
-		};
 		D42C784218B10FB000FE4EDB /* button */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,6 +858,28 @@
 				D42C783918B10FAA00FE4EDB /* tutorial.png */,
 			);
 			name = button;
+			sourceTree = "<group>";
+		};
+		D42C786418CB311700FE4EDB /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				D42C786518CB311800FE4EDB /* README.md */,
+				D42C786618CB311800FE4EDB /* utils */,
+			);
+			name = lib;
+			path = ../lib;
+			sourceTree = "<group>";
+		};
+		D42C786618CB311800FE4EDB /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D42C786718CB311800FE4EDB /* MathUtils.cpp */,
+				D42C786818CB311800FE4EDB /* MathUtils.h */,
+				D42C786918CB311800FE4EDB /* RandomGenerator.cpp */,
+				D42C786A18CB311800FE4EDB /* RandomGenerator.h */,
+				D42C786B18CB311800FE4EDB /* StringExtension.h */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -956,6 +968,7 @@
 				D405D0FF1893E6F2000CB7E8 /* smallGen.png in Resources */,
 				D42C783C18B10FAA00FE4EDB /* credits.png in Resources */,
 				D405D0F81893E6F2000CB7E8 /* bg9.jpg in Resources */,
+				D42C786C18CB311800FE4EDB /* README.md in Resources */,
 				D405D0EC1893E6F2000CB7E8 /* GAMECUBEN.ttf in Resources */,
 				D42C779618AFD02D00FE4EDB /* icon57.png in Resources */,
 				D42C784918B8B84600FE4EDB /* pause.png in Resources */,
@@ -1006,7 +1019,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D42C77E618AFD11700FE4EDB /* RandomGenerator.cpp in Sources */,
 				BF365AA812A103F70050DCF4 /* AppController.mm in Sources */,
 				BF4DE6AD138BB89600CF907D /* RootViewController.mm in Sources */,
 				D42C77E218AFD11700FE4EDB /* NeutralsSpawner.cpp in Sources */,
@@ -1026,9 +1038,9 @@
 				5255A087170E458F0079C316 /* b2Distance.cpp in Sources */,
 				5255A088170E458F0079C316 /* b2DynamicTree.cpp in Sources */,
 				D42C784F18C656CF00FE4EDB /* ColorPicker.cpp in Sources */,
-				D42C77E518AFD11700FE4EDB /* MathUtils.cpp in Sources */,
 				D42C77DE18AFD11700FE4EDB /* GameLayer.cpp in Sources */,
 				5255A089170E458F0079C316 /* b2TimeOfImpact.cpp in Sources */,
+				D42C786E18CB311800FE4EDB /* RandomGenerator.cpp in Sources */,
 				D42C77D918AFD11700FE4EDB /* Army.cpp in Sources */,
 				5255A08A170E458F0079C316 /* b2ChainShape.cpp in Sources */,
 				5255A08B170E458F0079C316 /* b2CircleShape.cpp in Sources */,
@@ -1081,6 +1093,7 @@
 				5255A0AA170E458F0079C316 /* b2RevoluteJoint.cpp in Sources */,
 				D42C77DC18AFD11700FE4EDB /* CCShake.cpp in Sources */,
 				D42C77D318AFD11700FE4EDB /* AbstractAI.cpp in Sources */,
+				D42C786D18CB311800FE4EDB /* MathUtils.cpp in Sources */,
 				D42C77D518AFD11700FE4EDB /* ExpansionAI.cpp in Sources */,
 				5255A0AB170E458F0079C316 /* b2RopeJoint.cpp in Sources */,
 				D42C77D818AFD11700FE4EDB /* AppDelegate.cpp in Sources */,

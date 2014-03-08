@@ -1,5 +1,5 @@
 #include "Hexagon.h"
-#include "utils/StringExtension.h"
+#include "../lib/utils/StringExtension.h"
 #include "Addons/TroopsGenerator.h"
 #include "Army.h"
 
