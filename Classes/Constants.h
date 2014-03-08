@@ -6,9 +6,13 @@
 #ifdef __APPLE__
 #define FONT(var) var
 #define IMG(var) var
+#define MUSIC(var) var
+#define SOUND(var) var
 #else
 #define FONT(var) std::string("fonts/").append(var).append(".ttf").c_str()
 #define IMG(var) std::string("image/").append(var).c_str()
+#define MUSIC(var) std::string("music/").append(var).c_str()
+#define SOUND(var) std::string("sound/").appned(var).c_str()
 #endif
 
 

@@ -2,6 +2,7 @@
 #include "GameLayer.h"
 #include "Game.h"
 #include "ButtonFactory.h"
+#include "SimpleAudioEngine.h"
 
 TitleScreen::~TitleScreen()
 {
@@ -34,6 +35,8 @@ bool TitleScreen::init()
 	setupBackground();
 	setupButtons();
 	setTouchEnabled(true);
+    
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic(MUSIC("mainmenu.mp3"), true);
     
 	return true;
 }
