@@ -93,8 +93,12 @@
 		D42C782218B0EE0A00FE4EDB /* human.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781B18B0EE0A00FE4EDB /* human.png */; };
 		D42C782318B0EE0A00FE4EDB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781C18B0EE0A00FE4EDB /* settings.png */; };
 		D42C782418B0EE0A00FE4EDB /* tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C781D18B0EE0A00FE4EDB /* tutorial.png */; };
-		D42C782818B0EF3500FE4EDB /* TitleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C782618B0EF3500FE4EDB /* TitleScreen.cpp */; };
 		D42C782A18B0EFEA00FE4EDB /* loader.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C782918B0EFEA00FE4EDB /* loader.png */; };
+		D42C785A18CB288700FE4EDB /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C785418CB288700FE4EDB /* PauseLayer.cpp */; };
+		D42C785B18CB288700FE4EDB /* ResultsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C785618CB288700FE4EDB /* ResultsLayer.cpp */; };
+		D42C785C18CB288700FE4EDB /* TitleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C785818CB288700FE4EDB /* TitleScreen.cpp */; };
+		D42C785F18CB28A700FE4EDB /* MathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C785D18CB28A700FE4EDB /* MathUtils.cpp */; };
+		D42C786218CB28B600FE4EDB /* mainmenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D42C786118CB28B600FE4EDB /* mainmenu.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,9 +243,16 @@
 		D42C781B18B0EE0A00FE4EDB /* human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human.png; sourceTree = "<group>"; };
 		D42C781C18B0EE0A00FE4EDB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		D42C781D18B0EE0A00FE4EDB /* tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial.png; sourceTree = "<group>"; };
-		D42C782618B0EF3500FE4EDB /* TitleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScreen.cpp; sourceTree = "<group>"; };
-		D42C782718B0EF3500FE4EDB /* TitleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScreen.h; sourceTree = "<group>"; };
 		D42C782918B0EFEA00FE4EDB /* loader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader.png; sourceTree = "<group>"; };
+		D42C785418CB288700FE4EDB /* PauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PauseLayer.cpp; path = ../Classes/PauseLayer.cpp; sourceTree = "<group>"; };
+		D42C785518CB288700FE4EDB /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseLayer.h; path = ../Classes/PauseLayer.h; sourceTree = "<group>"; };
+		D42C785618CB288700FE4EDB /* ResultsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResultsLayer.cpp; path = ../Classes/ResultsLayer.cpp; sourceTree = "<group>"; };
+		D42C785718CB288700FE4EDB /* ResultsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultsLayer.h; path = ../Classes/ResultsLayer.h; sourceTree = "<group>"; };
+		D42C785818CB288700FE4EDB /* TitleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TitleScreen.cpp; path = ../Classes/TitleScreen.cpp; sourceTree = "<group>"; };
+		D42C785918CB288700FE4EDB /* TitleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleScreen.h; path = ../Classes/TitleScreen.h; sourceTree = "<group>"; };
+		D42C785D18CB28A700FE4EDB /* MathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathUtils.cpp; sourceTree = "<group>"; };
+		D42C785E18CB28A700FE4EDB /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
+		D42C786118CB28B600FE4EDB /* mainmenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainmenu.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +301,12 @@
 		41CD6C5D15BF750B005E6F29 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D42C785418CB288700FE4EDB /* PauseLayer.cpp */,
+				D42C785518CB288700FE4EDB /* PauseLayer.h */,
+				D42C785618CB288700FE4EDB /* ResultsLayer.cpp */,
+				D42C785718CB288700FE4EDB /* ResultsLayer.h */,
+				D42C785818CB288700FE4EDB /* TitleScreen.cpp */,
+				D42C785918CB288700FE4EDB /* TitleScreen.h */,
 				D405D10618956BD7000CB7E8 /* Addons */,
 				D405D0A31893E446000CB7E8 /* ai */,
 				D405D0BD1893E446000CB7E8 /* utils */,
@@ -323,8 +340,6 @@
 				D42C777B18A6696400FE4EDB /* Point.h */,
 				D42C780518B0E56D00FE4EDB /* ButtonFactory.cpp */,
 				D42C780618B0E56D00FE4EDB /* ButtonFactory.h */,
-				D42C782618B0EF3500FE4EDB /* TitleScreen.cpp */,
-				D42C782718B0EF3500FE4EDB /* TitleScreen.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -418,6 +433,7 @@
 		ABC96BC316FE18D00089A41B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D42C786018CB28B600FE4EDB /* music */,
 				D42C780018AFD1E100FE4EDB /* Images.xcassets */,
 				D405D0751893E434000CB7E8 /* app.icf */,
 				D405D0761893E434000CB7E8 /* development.icf */,
@@ -487,6 +503,8 @@
 		D405D0BD1893E446000CB7E8 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				D42C785D18CB28A700FE4EDB /* MathUtils.cpp */,
+				D42C785E18CB28A700FE4EDB /* MathUtils.h */,
 				D405D0BE1893E446000CB7E8 /* RandomGenerator.cpp */,
 				D405D0BF1893E446000CB7E8 /* RandomGenerator.h */,
 				D405D0C01893E446000CB7E8 /* StringExtension.h */,
@@ -546,6 +564,14 @@
 				D42C781D18B0EE0A00FE4EDB /* tutorial.png */,
 			);
 			name = button;
+			sourceTree = "<group>";
+		};
+		D42C786018CB28B600FE4EDB /* music */ = {
+			isa = PBXGroup;
+			children = (
+				D42C786118CB28B600FE4EDB /* mainmenu.mp3 */,
+			);
+			path = music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,6 +656,7 @@
 				D42C77FA18AFD1C500FE4EDB /* icon57.png in Resources */,
 				D405D08E1893E434000CB7E8 /* development.icf in Resources */,
 				D405D0901893E434000CB7E8 /* background.png in Resources */,
+				D42C786218CB28B600FE4EDB /* mainmenu.mp3 in Resources */,
 				D405D0921893E434000CB7E8 /* bg10.jpg in Resources */,
 				D405D0991893E434000CB7E8 /* bg7.jpg in Resources */,
 				D42C77F718AFD1C500FE4EDB /* icon120.png in Resources */,
@@ -673,13 +700,14 @@
 			files = (
 				D42C777518A657AE00FE4EDB /* Army.cpp in Sources */,
 				D405D0C31893E446000CB7E8 /* RandomAI.cpp in Sources */,
-				D42C782818B0EF3500FE4EDB /* TitleScreen.cpp in Sources */,
+				D42C785C18CB288700FE4EDB /* TitleScreen.cpp in Sources */,
 				41CD6C6515BF7574005E6F29 /* AppController.mm in Sources */,
 				D405D10B18956BD7000CB7E8 /* Addon.cpp in Sources */,
 				41CD6C6615BF7574005E6F29 /* main.m in Sources */,
 				41CD6C7515BF76FB005E6F29 /* AppDelegate.cpp in Sources */,
 				D405D11218998319000CB7E8 /* AStar.cpp in Sources */,
 				D405D0CB1893E446000CB7E8 /* Player.cpp in Sources */,
+				D42C785B18CB288700FE4EDB /* ResultsLayer.cpp in Sources */,
 				AB63787616FE1A4C00079CB7 /* CDAudioManager.m in Sources */,
 				D405D0C91893E446000CB7E8 /* NeutralsHelper.cpp in Sources */,
 				D405D0C61893E446000CB7E8 /* GameLayer.cpp in Sources */,
@@ -693,11 +721,13 @@
 				D405D0C21893E446000CB7E8 /* NoAI.cpp in Sources */,
 				D42C778218AA9A6600FE4EDB /* ConquerorAI.cpp in Sources */,
 				AB63787816FE1A4C00079CB7 /* CDXMacOSXSupport.mm in Sources */,
+				D42C785F18CB28A700FE4EDB /* MathUtils.cpp in Sources */,
 				AB63787916FE1A4C00079CB7 /* CocosDenshion.m in Sources */,
 				D42C777818A65D0C00FE4EDB /* TroopsMover.cpp in Sources */,
 				D405D0C11893E446000CB7E8 /* AbstractAI.cpp in Sources */,
 				AB63787A16FE1A4C00079CB7 /* SimpleAudioEngine.mm in Sources */,
 				D405D0CD1893E446000CB7E8 /* RandomGenerator.cpp in Sources */,
+				D42C785A18CB288700FE4EDB /* PauseLayer.cpp in Sources */,
 				D42C777F18A808D700FE4EDB /* ExpansionAI.cpp in Sources */,
 				AB63787B16FE1A4C00079CB7 /* SimpleAudioEngine_objc.m in Sources */,
 				D405D0C41893E446000CB7E8 /* Board.cpp in Sources */,
