@@ -88,7 +88,7 @@ void Game::setArtScale(float scale)
 void Game::pauseGame(bool showLayer)
 {
     // TODO show pause layer
-    pausedTargets = CCDirector::sharedDirector()->getScheduler()->pauseAllTargets();
+    pausedTargets = CCDirector::sharedDirector()->getScheduler()->pauseAllTargetsWithMinPriority(kCCPriorityNonSystemMin);
     pausedTargets->retain();
     
     if(showLayer){
