@@ -2,7 +2,7 @@
 #include "GameLayer.h"
 #include "Game.h"
 #include "ButtonFactory.h"
-#include "SimpleAudioEngine.h"
+#include "../lib/cocos/sound/Sound.h"
 
 TitleScreen::~TitleScreen()
 {
@@ -36,8 +36,7 @@ bool TitleScreen::init()
 	setupButtons();
 	setTouchEnabled(true);
     
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic(MUSIC("mainmenu.mp3"), true);
-    
+    Sound::playMusic(MUSIC("mainmenu.mp3"), true);
 	return true;
 }
 
@@ -123,7 +122,7 @@ void TitleScreen::vsHumanChosen(CCObject* pSender)
 
 void TitleScreen::tutorialChosen(CCObject* pSender)
 {
-    
+    Sound::playMusic(MUSIC("mainmenu.mp3"), true);
 }
 
 void TitleScreen::gamecenterChosen(CCObject* pSender)

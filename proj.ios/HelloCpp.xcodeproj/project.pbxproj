@@ -146,6 +146,9 @@
 		D42C786E18CB311800FE4EDB /* RandomGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C786918CB311800FE4EDB /* RandomGenerator.cpp */; };
 		D42C787018CB322C00FE4EDB /* StringExtension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C786F18CB322C00FE4EDB /* StringExtension.cpp */; };
 		D42C787318CB338600FE4EDB /* VectorExtension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C787118CB338600FE4EDB /* VectorExtension.cpp */; };
+		D42C787718CB38B700FE4EDB /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C787518CB38B700FE4EDB /* Sound.cpp */; };
+		D42C787A18CB3B5A00FE4EDB /* MusicFader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C787818CB3B5A00FE4EDB /* MusicFader.cpp */; };
+		D42C787E18CB435A00FE4EDB /* CCFadeMusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C787C18CB435A00FE4EDB /* CCFadeMusic.cpp */; };
 		D446FD79161028E9000ADA7B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD78161028E9000ADA7B /* Default.png */; };
 		D446FD7B161028ED000ADA7B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7A161028ED000ADA7B /* Default@2x.png */; };
 		D446FD7D161028F4000ADA7B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7C161028F4000ADA7B /* Default-568h@2x.png */; };
@@ -402,6 +405,12 @@
 		D42C786F18CB322C00FE4EDB /* StringExtension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringExtension.cpp; sourceTree = "<group>"; };
 		D42C787118CB338600FE4EDB /* VectorExtension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorExtension.cpp; sourceTree = "<group>"; };
 		D42C787218CB338600FE4EDB /* VectorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorExtension.h; sourceTree = "<group>"; };
+		D42C787518CB38B700FE4EDB /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sound.cpp; sourceTree = "<group>"; };
+		D42C787618CB38B700FE4EDB /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		D42C787818CB3B5A00FE4EDB /* MusicFader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MusicFader.cpp; sourceTree = "<group>"; };
+		D42C787918CB3B5A00FE4EDB /* MusicFader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicFader.h; sourceTree = "<group>"; };
+		D42C787C18CB435A00FE4EDB /* CCFadeMusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCFadeMusic.cpp; sourceTree = "<group>"; };
+		D42C787D18CB435A00FE4EDB /* CCFadeMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFadeMusic.h; sourceTree = "<group>"; };
 		D446FD78161028E9000ADA7B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../proj.ios/Default.png; sourceTree = "<group>"; };
 		D446FD7A161028ED000ADA7B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../proj.ios/Default@2x.png"; sourceTree = "<group>"; };
 		D446FD7C161028F4000ADA7B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../proj.ios/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -868,6 +877,7 @@
 		D42C786418CB311700FE4EDB /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				D42C787418CB38A200FE4EDB /* sound */,
 				D42C786518CB311800FE4EDB /* README.md */,
 				D42C786618CB311800FE4EDB /* utils */,
 			);
@@ -888,6 +898,20 @@
 				D42C787218CB338600FE4EDB /* VectorExtension.h */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		D42C787418CB38A200FE4EDB /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				D42C787C18CB435A00FE4EDB /* CCFadeMusic.cpp */,
+				D42C787D18CB435A00FE4EDB /* CCFadeMusic.h */,
+				D42C787518CB38B700FE4EDB /* Sound.cpp */,
+				D42C787618CB38B700FE4EDB /* Sound.h */,
+				D42C787818CB3B5A00FE4EDB /* MusicFader.cpp */,
+				D42C787918CB3B5A00FE4EDB /* MusicFader.h */,
+			);
+			name = sound;
+			path = cocos/sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1038,6 +1062,7 @@
 				52559FDD170E36500079C316 /* SimpleAudioEngine.mm in Sources */,
 				52559FDE170E36500079C316 /* SimpleAudioEngine_objc.m in Sources */,
 				D42C787018CB322C00FE4EDB /* StringExtension.cpp in Sources */,
+				D42C787718CB38B700FE4EDB /* Sound.cpp in Sources */,
 				5255A082170E458F0079C316 /* b2BroadPhase.cpp in Sources */,
 				5255A083170E458F0079C316 /* b2CollideCircle.cpp in Sources */,
 				5255A084170E458F0079C316 /* b2CollideEdge.cpp in Sources */,
@@ -1083,6 +1108,7 @@
 				D42C77DF18AFD11700FE4EDB /* Hexagon.cpp in Sources */,
 				5255A09D170E458F0079C316 /* b2Contact.cpp in Sources */,
 				D42C77D018AFD11700FE4EDB /* Addon.cpp in Sources */,
+				D42C787E18CB435A00FE4EDB /* CCFadeMusic.cpp in Sources */,
 				5255A09E170E458F0079C316 /* b2ContactSolver.cpp in Sources */,
 				5255A09F170E458F0079C316 /* b2EdgeAndCircleContact.cpp in Sources */,
 				5255A0A0170E458F0079C316 /* b2EdgeAndPolygonContact.cpp in Sources */,
@@ -1097,6 +1123,7 @@
 				5255A0A6170E458F0079C316 /* b2Joint.cpp in Sources */,
 				5255A0A7170E458F0079C316 /* b2MouseJoint.cpp in Sources */,
 				D42C77E318AFD11700FE4EDB /* Player.cpp in Sources */,
+				D42C787A18CB3B5A00FE4EDB /* MusicFader.cpp in Sources */,
 				5255A0A8170E458F0079C316 /* b2PrismaticJoint.cpp in Sources */,
 				5255A0A9170E458F0079C316 /* b2PulleyJoint.cpp in Sources */,
 				D42C77E418AFD11700FE4EDB /* TroopsMover.cpp in Sources */,
