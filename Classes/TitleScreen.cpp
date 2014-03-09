@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "ButtonFactory.h"
 #include "../lib/cocos/sound/Sound.h"
+#include "ExpandingLayer.h"
 
 TitleScreen::~TitleScreen()
 {
@@ -34,6 +35,7 @@ bool TitleScreen::init()
     
 	setupBackground();
 	setupButtons();
+    setupClippingSprite();
 	setTouchEnabled(true);
     
     Sound::playMusic(MUSIC("mainmenu.mp3"), true);
@@ -47,7 +49,7 @@ void TitleScreen::setupBackground()
 	CCSprite* bgSprite = CCSprite::create(IMG("loader.png"));
     bgSprite->setScale(Game::current().artScale());
 	bgSprite->setPosition(ccp(winSize.width/2, winSize.height/2));
-	this->addChild(bgSprite);
+	this->addChild(bgSprite, zBackground);
 }
 
 void TitleScreen::setupButtons()
@@ -74,7 +76,7 @@ void TitleScreen::setupButtons()
     
     menu = CCMenu::create(buttonLeft, buttonRight, NULL);
 	menu->alignItemsHorizontallyWithPadding(300);
-    this->addChild(menu, 2);
+    this->addChild(menu, zButtons);
     menu->setPosition(ccp(winSize.width/2 + buttonLeft->getContentSize().width/4, (winSize.height/2) + 100 - 3));
 
     
@@ -90,7 +92,7 @@ void TitleScreen::setupButtons()
     
     menu = CCMenu::create(buttonLeft, buttonRight, NULL);
 	menu->alignItemsHorizontallyWithPadding(200);
-    this->addChild(menu, 2);
+    this->addChild(menu, zButtons);
     menu->setPosition(ccp(winSize.width/2 + buttonLeft->getContentSize().width/4, (winSize.height/2) - 3));
     
     
@@ -106,8 +108,14 @@ void TitleScreen::setupButtons()
     
     menu = CCMenu::create(buttonLeft, buttonRight, NULL);
 	menu->alignItemsHorizontallyWithPadding(100);
-    this->addChild(menu, 2);
+    this->addChild(menu, zButtons);
     menu->setPosition(ccp(winSize.width/2 + buttonLeft->getContentSize().width/4, (winSize.height/2) - 100 - 3));
+}
+
+void TitleScreen::setupClippingSprite()
+{
+    expandingLayer = new ExpandingLayer;
+    this->addChild(expandingLayer, zCippingSprite);
 }
 
 void TitleScreen::vsAIChosen(CCObject* pSender)
@@ -122,20 +130,20 @@ void TitleScreen::vsHumanChosen(CCObject* pSender)
 
 void TitleScreen::tutorialChosen(CCObject* pSender)
 {
-    Sound::playMusic(MUSIC("mainmenu.mp3"), true);
+    
 }
 
 void TitleScreen::gamecenterChosen(CCObject* pSender)
 {
-    
+   
 }
 
 void TitleScreen::settingsChosen(CCObject* pSender)
 {
-    
+    expandingLayer->expand();
 }
 
 void TitleScreen::creditsChosen(CCObject* pSender)
 {
-
+    expandingLayer->collapse();
 }

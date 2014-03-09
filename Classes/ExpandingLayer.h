@@ -1,0 +1,29 @@
+#pragma once
+
+#include "cocos2d.h"
+#include "clippingSprite.h"
+
+class ExpandingLayer : public cocos2d::CCLayer{
+public:
+    ExpandingLayer();
+    
+    void expand();
+    void collapse();
+    
+    // добавляется на background
+    // void setContainerLayer(CCLayer* layer);
+    
+private:
+    enum State{
+        Expanding,
+        Collapsing,
+        Idle
+    };
+    State currentState;
+    ClippingSprite* clippingSprite;
+    cocos2d::CCSprite* bg;
+    
+    void setupClippingSprite();
+    
+    virtual void update(float dt);
+};
