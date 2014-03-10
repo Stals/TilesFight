@@ -64,3 +64,25 @@ CCSprite* ButtonFactory::buttonSprite(const std::string& text)
     
     return button;
 }
+
+Button* ButtonFactory::button(const char* iconPath, const std::string& text, IconSide side, Handler* handler)
+{
+    CCSprite* inactive = ButtonFactory::mainMenuButtonSprite(iconPath, text, side);
+    CCSprite* pressed = ButtonFactory::mainMenuButtonSprite(iconPath, text, side);
+    pressed->setOpacity(127);
+    
+    Button* button = new Button(inactive, pressed, handler);
+    return button;
+}
+
+
+Button* ButtonFactory::button(const std::string& text, Handler* handler)
+{
+    CCSprite* inactive = ButtonFactory::buttonSprite(text);
+    CCSprite* pressed = ButtonFactory::buttonSprite(text);
+    pressed->setOpacity(127);
+    
+    Button* button = new Button(inactive, pressed, handler);
+    return button;
+}
+

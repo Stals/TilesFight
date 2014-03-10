@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Constants.h"
+#include "Button.h"
+#include "Handler.h"
 
 enum IconSide{
     ICON_LEFT,
@@ -12,4 +14,8 @@ public:
     static CCSprite* mainMenuButtonSprite(const char* iconPath, const std::string& text, IconSide side);
     
     static CCSprite* buttonSprite(const std::string& text);
+    
+    
+    static Button* button(const char* iconPath, const std::string& text, IconSide side, Handler* handler);
+    static Button* button(const std::string& text, Handler* handler);
 };

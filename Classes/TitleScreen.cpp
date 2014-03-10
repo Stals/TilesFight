@@ -60,60 +60,40 @@ void TitleScreen::setupButtons()
 {
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
-    CCSprite* buttonImageLeft = NULL;
-    CCSprite* buttonImageRight = NULL;
+    // row 1
+    Button* buttonLeft = NULL;
+    Button* buttonRight = NULL;
     
-    CCMenuItemSprite *buttonLeft = NULL;
-    CCMenuItemSprite *buttonRight = NULL;
+    buttonLeft = ButtonFactory::button(IMG("ai.png"), "VS AI", ICON_RIGHT, new Handler(this, menu_selector(TitleScreen::vsAIChosen)));
+    buttonRight = ButtonFactory::button(IMG("human.png"), "VS HUMAN", ICON_LEFT, new Handler(this, menu_selector(TitleScreen::vsHumanChosen)));
     
-    CCMenu* menu = NULL;
+    buttonLeft->setPosition(ccp(winSize.width/2 - 340, winSize.height/2 + 60 + 3));
+    buttonRight->setPosition(ccp(winSize.width/2 + 340, winSize.height/2 + 60 + 3));
     
+    this->addChild(buttonLeft);
+    this->addChild(buttonRight);
+        
+        
+        
+    // row 2
+    buttonLeft = ButtonFactory::button(IMG("tutorial.png"), "TUTORIAL", ICON_RIGHT, new Handler(this, menu_selector(TitleScreen::tutorialChosen)));
+    buttonRight = ButtonFactory::button(IMG("gc.png"), "GAME\nCENTER", ICON_LEFT, new Handler(this, menu_selector(TitleScreen::gamecenterChosen)));
     
-    // 1 row
-    buttonImageLeft = ButtonFactory::mainMenuButtonSprite(IMG("ai.png"), "VS AI", ICON_RIGHT);
-    buttonImageRight = ButtonFactory::mainMenuButtonSprite(IMG("human.png"), "VS HUMAN", ICON_LEFT);
+    buttonLeft->setPosition(ccp(winSize.width/2 - 290, winSize.height/2 - 40 + 3));
+    buttonRight->setPosition(ccp(winSize.width/2 + 290, winSize.height/2 - 40 + 3));
+    
+    this->addChild(buttonLeft);
+    this->addChild(buttonRight);
+        
+    // row 3
+    buttonLeft = ButtonFactory::button(IMG("settings.png"), "SETTINGS", ICON_RIGHT, new Handler(this, menu_selector(TitleScreen::settingsChosen)));
+    buttonRight = ButtonFactory::button(IMG("credits.png"), "CREDITS", ICON_LEFT, new Handler(this, menu_selector(TitleScreen::creditsChosen)));
 
-    buttonLeft = CCMenuItemSprite::create(buttonImageLeft, buttonImageLeft, buttonImageLeft,
-                                          this, menu_selector(TitleScreen::vsAIChosen));
-    buttonRight = CCMenuItemSprite::create(buttonImageRight, buttonImageRight, buttonImageRight,
-                                           this, menu_selector(TitleScreen::vsHumanChosen));
+    buttonLeft->setPosition(ccp(winSize.width/2 - 240, winSize.height/2 - 140 + 3));
+    buttonRight->setPosition(ccp(winSize.width/2 + 240, winSize.height/2 - 140 + 3));
     
-    menu = CCMenu::create(buttonLeft, buttonRight, NULL);
-	menu->alignItemsHorizontallyWithPadding(300);
-    this->addChild(menu, zButtons);
-    menu->setPosition(ccp(winSize.width/2 + buttonLeft->getContentSize().width/4, (winSize.height/2) + 100 - 3));
-
-    
-    
-    // 2 row
-    buttonImageLeft = ButtonFactory::mainMenuButtonSprite(IMG("tutorial.png"), "TUTORIAL", ICON_RIGHT);
-    buttonImageRight = ButtonFactory::mainMenuButtonSprite(IMG("gc.png"), "GAME\nCENTER", ICON_LEFT);
-    
-    buttonLeft = CCMenuItemSprite::create(buttonImageLeft, buttonImageLeft, buttonImageLeft,
-                                          this, menu_selector(TitleScreen::tutorialChosen));
-    buttonRight = CCMenuItemSprite::create(buttonImageRight, buttonImageRight, buttonImageRight,
-                                           this, menu_selector(TitleScreen::gamecenterChosen));
-    
-    menu = CCMenu::create(buttonLeft, buttonRight, NULL);
-	menu->alignItemsHorizontallyWithPadding(200);
-    this->addChild(menu, zButtons);
-    menu->setPosition(ccp(winSize.width/2 + buttonLeft->getContentSize().width/4, (winSize.height/2) - 3));
-    
-    
-    // 3 row
-    
-    buttonImageLeft = ButtonFactory::mainMenuButtonSprite(IMG("settings.png"), "SETTINGS", ICON_RIGHT);
-    buttonImageRight = ButtonFactory::mainMenuButtonSprite(IMG("credits.png"), "CREDITS", ICON_LEFT);
-    
-    buttonLeft = CCMenuItemSprite::create(buttonImageLeft, buttonImageLeft, buttonImageLeft,
-                                          this, menu_selector(TitleScreen::settingsChosen));
-    buttonRight = CCMenuItemSprite::create(buttonImageRight, buttonImageRight, buttonImageRight,
-                                           this, menu_selector(TitleScreen::creditsChosen));
-    
-    menu = CCMenu::create(buttonLeft, buttonRight, NULL);
-	menu->alignItemsHorizontallyWithPadding(100);
-    this->addChild(menu, zButtons);
-    menu->setPosition(ccp(winSize.width/2 + buttonLeft->getContentSize().width/4, (winSize.height/2) - 100 - 3));
+    this->addChild(buttonLeft);
+    this->addChild(buttonRight);
 }
 
 void TitleScreen::setupClippingSprite()
