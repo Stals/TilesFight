@@ -11,7 +11,7 @@ public:
     void collapse();
     
     // добавляется на background
-    // void setContainerLayer(CCLayer* layer);
+    void setContainer(cocos2d::CCNode* container);
     
 private:
     enum State{
@@ -22,6 +22,8 @@ private:
     State currentState;
     ClippingSprite* clippingSprite;
     cocos2d::CCSprite* bg;
+    
+    cocos2d::CCNode* container;
     
     void setupClippingSprite();
     

@@ -2,14 +2,14 @@
 
 #include "Constants.h"
 
-#define BG_HEIGHT 200
+#define BG_HEIGHT 300
 
 #define EXPAND_TIME 2.f
 #define COLLAPSE_TIME EXPAND_TIME
 
 #define PXL_PER_TICK 6.f
 
-ExpandingLayer::ExpandingLayer(): currentState(Idle)
+ExpandingLayer::ExpandingLayer(): currentState(Idle), container(NULL)
 {
     CCLayer::init();
     this->autorelease();
@@ -75,4 +75,13 @@ void ExpandingLayer::update(float dt)
     }
 }
 
+void ExpandingLayer::setContainer(CCNode* cont)
+{
+    if(container){
+        container->removeFromParentAndCleanup(true);
+    }
+    
+    this->container = cont;
+    clippingSprite->addChild(container);
+}
 
