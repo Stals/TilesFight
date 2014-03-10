@@ -17,9 +17,10 @@ ColorPicker::ColorPicker()
     owner = new Player("Color_Picker", hexRed);
     
     setupColors();
-    setupHexagons();
+    
     
     this->setContentSize(CCSizeMake(HEX_SIZE * WIDTH, HEX_SIZE * HEIGHT));
+    setupHexagons();
 }
 
 ColorPicker::~ColorPicker()
@@ -40,6 +41,9 @@ void ColorPicker::setupColors()
 
 void ColorPicker::setupHexagons()
 {
+    const float shiftX = HEX_SIZE / 2;
+    const float shiftY = HEX_SIZE * 3/4;
+    
     size_t colorID = 0;
     for(size_t y = 0; y < HEIGHT; ++y){
         const size_t maxX = (y == 1) ? WIDTH : WIDTH-1;
@@ -49,11 +53,11 @@ void ColorPicker::setupHexagons()
             hex->setScale(HEX_SIZE / hex->getContentSize().width);
             
             if((y % 2) == 0){
-                hex->setPositionX(x * scaledWidth(hex));
+                hex->setPositionX(x * scaledWidth(hex) - shiftX);
             }else{
-                hex->setPositionX((x * scaledWidth(hex)) - (scaledWidth(hex) / 2));
+                hex->setPositionX((x * scaledWidth(hex)) - (scaledWidth(hex) / 2) - shiftX);
             }
-            hex->setPositionY(y * (scaledHeight(hex) * 3/4));
+            hex->setPositionY(y * (scaledHeight(hex) * 3/4) - shiftY);
             
             hex->changeOwner(owner);
             hex->setColor(colors[colorID]);
