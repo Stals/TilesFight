@@ -9,6 +9,7 @@
 #define COLLAPSE_TIME EXPAND_TIME
 
 #define PXL_PER_TICK 6.f
+#define LINE_WIDTH 6.f
 
 ExpandingLayer::ExpandingLayer(): currentState(Idle), container(NULL)
 {
@@ -48,6 +49,7 @@ void ExpandingLayer::collapse()
 
 void ExpandingLayer::update(float dt)
 {
+    
     if(currentState == Idle) return;
     
     CCSize rect = clippingSprite->getContentSize();
@@ -84,5 +86,33 @@ void ExpandingLayer::setContainer(CCNode* cont)
     
     this->container = cont;
     clippingSprite->addChild(container);
+}
+
+void ExpandingLayer::draw()
+{
+    drawBorders();
+}
+
+void ExpandingLayer::drawBorders()
+{
+    CCSize rect = clippingSprite->getContentSize();
+    if(rect.height == 0) return;
+    
+    const CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    glLineWidth(LINE_WIDTH);
+    
+    CCPoint start1  = ccp(0, (winSize.height/2) - (rect.height/2));
+    CCPoint end1    = ccp(winSize.width, (winSize.height/2) - (rect.height/2));
+    
+    CCPoint start2 = start1;
+    CCPoint end2 = end1;
+    start2.y = (winSize.height/2) + (rect.height/2);
+    end2.y = (winSize.height/2) + (rect.height/2);
+
+    
+    
+    cocos2d::ccDrawLine(start1, end1);
+    cocos2d::ccDrawLine(start2, end2);
 }
 

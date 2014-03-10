@@ -28,4 +28,8 @@ private:
     void setupClippingSprite();
     
     virtual void update(float dt);
+    
+    void drawBorders();
+    
+    virtual void draw();
 };
