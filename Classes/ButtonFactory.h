@@ -10,4 +10,6 @@ enum IconSide{
 class ButtonFactory{
 public:
     static CCSprite* mainMenuButtonSprite(const char* iconPath, const std::string& text, IconSide side);
+    
+    static CCSprite* buttonSprite(const std::string& text);
 };

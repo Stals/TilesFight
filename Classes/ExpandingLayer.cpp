@@ -1,8 +1,9 @@
 #include "ExpandingLayer.h"
 
 #include "Constants.h"
+#include "TitleScreens/EmptyScreen.h"
 
-#define BG_HEIGHT 300
+#define BG_HEIGHT EmptyScreen::getHeight()
 
 #define EXPAND_TIME 2.f
 #define COLLAPSE_TIME EXPAND_TIME

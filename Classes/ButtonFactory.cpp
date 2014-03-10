@@ -49,3 +49,18 @@ CCSprite* ButtonFactory::mainMenuButtonSprite(const char* iconPath, const std::s
     return button;
 }
 
+CCSprite* ButtonFactory::buttonSprite(const std::string& text)
+{
+    CCSprite *button = CCSprite::create(MAIN_BUTTON_IMAGE);
+    button->setAnchorPoint(ccp(0.5, 0.5));
+    button->setScale(Game::current().artScale());
+    
+    CCLabelTTF* label = CCLabelTTF::create(text.c_str(), default_font.c_str(), 48);
+    label->setAnchorPoint(ccp(0.5, 0.5));
+    label->setPositionX((button->getContentSize().width/2));
+    label->setPositionY(button->getContentSize().height/2);
+    
+    button->addChild(label);
+    
+    return button;
+}

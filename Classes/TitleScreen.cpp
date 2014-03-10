@@ -4,6 +4,10 @@
 #include "ButtonFactory.h"
 #include "../lib/cocos/sound/Sound.h"
 #include "ExpandingLayer.h"
+#include "ColorPicker.h"
+
+#include "VsAIScreen.h"
+#include "VsHumanScreen.h"
 
 TitleScreen::~TitleScreen()
 {
@@ -120,12 +124,18 @@ void TitleScreen::setupClippingSprite()
 
 void TitleScreen::vsAIChosen(CCObject* pSender)
 {
-    Game::current().starNewGame(Game::VS_AI);
+    //Game::current().starNewGame(Game::VS_AI);
+    
+    expandingLayer->setContainer(new VsAIScreen);
+    expandingLayer->expand();
 }
 
 void TitleScreen::vsHumanChosen(CCObject* pSender)
 {
-    Game::current().starNewGame(Game::VS_HUMAN);
+    //Game::current().starNewGame(Game::VS_HUMAN);
+    
+    expandingLayer->setContainer(new VsHumanScreen);
+    expandingLayer->expand();
 }
 
 void TitleScreen::tutorialChosen(CCObject* pSender)
@@ -140,6 +150,14 @@ void TitleScreen::gamecenterChosen(CCObject* pSender)
 
 void TitleScreen::settingsChosen(CCObject* pSender)
 {
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+
+    ColorPicker* colorPicker = new ColorPicker;
+    //colorPicker->setPosition(-colorPicker->getContentSize().width/2, -colorPicker->getContentSize().height/2);
+    //colorPicker->setPosition(ccp(winSize.width/2, winSize.height/2));
+    
+    //this->addChild(colorPicker);
+    expandingLayer->setContainer(colorPicker);
     expandingLayer->expand();
 }
 

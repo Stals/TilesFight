@@ -3,7 +3,7 @@
 #include "Hexagon.h"
 #include "Player.h"
 
-#define HEX_SIZE 100
+#define HEX_SIZE 90
 
 #define WIDTH 3
 #define HEIGHT 3
@@ -96,5 +96,18 @@ void ColorPicker::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 void ColorPicker::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 {
     
+}
+
+void ColorPicker::pickAtIndex(size_t index)
+{
+    for(size_t i = 0; i < hexagons.size(); ++i){
+        Hexagon* hex = hexagons[i];
+        
+        if(i == index){
+            hex->setSelected(true);
+        }else{
+            hex->setSelected(false);
+        }
+    }
 }
 

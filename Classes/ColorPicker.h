@@ -8,7 +8,9 @@ class Player;
 class ColorPicker : public CCLayer{
 public:
     ColorPicker();
-    ~ColorPicker();
+    virtual ~ColorPicker();
+    
+    void pickAtIndex(size_t index);
     
 private:
     void setupHexagons();
