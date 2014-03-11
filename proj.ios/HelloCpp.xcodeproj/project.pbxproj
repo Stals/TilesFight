@@ -159,6 +159,7 @@
 		D42C789918CE148B00FE4EDB /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C789618CE148B00FE4EDB /* Timer.cpp */; };
 		D42C789C18CE14A300FE4EDB /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C789A18CE14A300FE4EDB /* Button.cpp */; };
 		D42C789F18CE1EED00FE4EDB /* Handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C789D18CE1EED00FE4EDB /* Handler.cpp */; };
+		D42C78A218CF9A2400FE4EDB /* TBAScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C78A018CF9A2400FE4EDB /* TBAScreen.cpp */; };
 		D446FD79161028E9000ADA7B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD78161028E9000ADA7B /* Default.png */; };
 		D446FD7B161028ED000ADA7B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7A161028ED000ADA7B /* Default@2x.png */; };
 		D446FD7D161028F4000ADA7B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7C161028F4000ADA7B /* Default-568h@2x.png */; };
@@ -440,6 +441,8 @@
 		D42C789B18CE14A300FE4EDB /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		D42C789D18CE1EED00FE4EDB /* Handler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handler.cpp; sourceTree = "<group>"; };
 		D42C789E18CE1EED00FE4EDB /* Handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handler.h; sourceTree = "<group>"; };
+		D42C78A018CF9A2400FE4EDB /* TBAScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TBAScreen.cpp; sourceTree = "<group>"; };
+		D42C78A118CF9A2400FE4EDB /* TBAScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAScreen.h; sourceTree = "<group>"; };
 		D446FD78161028E9000ADA7B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../proj.ios/Default.png; sourceTree = "<group>"; };
 		D446FD7A161028ED000ADA7B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../proj.ios/Default@2x.png"; sourceTree = "<group>"; };
 		D446FD7C161028F4000ADA7B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../proj.ios/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -953,6 +956,8 @@
 		D42C788718CDE35100FE4EDB /* TitleScreens */ = {
 			isa = PBXGroup;
 			children = (
+				D42C78A018CF9A2400FE4EDB /* TBAScreen.cpp */,
+				D42C78A118CF9A2400FE4EDB /* TBAScreen.h */,
 				D42C788818CDE36C00FE4EDB /* VsAIScreen.cpp */,
 				D42C788918CDE36C00FE4EDB /* VsAIScreen.h */,
 				D42C788B18CDE37A00FE4EDB /* VsHumanScreen.cpp */,
@@ -1138,6 +1143,7 @@
 				D42C77D418AFD11700FE4EDB /* ConquerorAI.cpp in Sources */,
 				5255A085170E458F0079C316 /* b2CollidePolygon.cpp in Sources */,
 				5255A086170E458F0079C316 /* b2Collision.cpp in Sources */,
+				D42C78A218CF9A2400FE4EDB /* TBAScreen.cpp in Sources */,
 				5255A087170E458F0079C316 /* b2Distance.cpp in Sources */,
 				5255A088170E458F0079C316 /* b2DynamicTree.cpp in Sources */,
 				D42C784F18C656CF00FE4EDB /* ColorPicker.cpp in Sources */,

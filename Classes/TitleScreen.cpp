@@ -8,6 +8,7 @@
 
 #include "VsAIScreen.h"
 #include "VsHumanScreen.h"
+#include "TBAScreen.h"
 
 TitleScreen::~TitleScreen()
 {
@@ -104,44 +105,36 @@ void TitleScreen::setupClippingSprite()
 
 void TitleScreen::vsAIChosen(CCObject* pSender)
 {
-    //Game::current().starNewGame(Game::VS_AI);
-    
     expandingLayer->setContainer(new VsAIScreen);
     expandingLayer->expand();
 }
 
 void TitleScreen::vsHumanChosen(CCObject* pSender)
 {
-    //Game::current().starNewGame(Game::VS_HUMAN);
-    
     expandingLayer->setContainer(new VsHumanScreen);
     expandingLayer->expand();
 }
 
 void TitleScreen::tutorialChosen(CCObject* pSender)
 {
-    
+    expandingLayer->setContainer(new TBAScreen);
+    expandingLayer->expand();
 }
 
 void TitleScreen::gamecenterChosen(CCObject* pSender)
 {
-   
+    expandingLayer->setContainer(new TBAScreen);
+    expandingLayer->expand();
 }
 
 void TitleScreen::settingsChosen(CCObject* pSender)
 {
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-
-    ColorPicker* colorPicker = new ColorPicker;
-    //colorPicker->setPosition(-colorPicker->getContentSize().width/2, -colorPicker->getContentSize().height/2);
-    //colorPicker->setPosition(ccp(winSize.width/2, winSize.height/2));
-    
-    //this->addChild(colorPicker);
-    expandingLayer->setContainer(colorPicker);
+    expandingLayer->setContainer(new TBAScreen);
     expandingLayer->expand();
 }
 
 void TitleScreen::creditsChosen(CCObject* pSender)
 {
-    expandingLayer->collapse();
+    expandingLayer->setContainer(new TBAScreen);
+    expandingLayer->expand();
 }
