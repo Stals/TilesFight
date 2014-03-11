@@ -13,7 +13,7 @@ ColorPicker::ColorPicker()
     CCLayer::init();
     autorelease();
     setTouchEnabled(true);
-    
+
     owner = new Player("Color_Picker", hexRed);
     
     setupColors();
@@ -69,34 +69,42 @@ void ColorPicker::setupHexagons()
     }
 }
 
-void ColorPicker::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
+bool ColorPicker::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-    for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
-		CCTouch* touch = ((CCTouch*)*it);
-        
-        for(size_t i = 0; i < hexagons.size(); ++i){
-            Hexagon* hex = hexagons[i];
-            hex->setSelected(false);
-            if(hex->containsTouchLocation(touch)){
-                hex->setSelected(true);
-            }
+    for(size_t i = 0; i < hexagons.size(); ++i){
+        Hexagon* hex = hexagons[i];
+        if(hex->containsTouchLocation(pTouch)){
+            deselectAll();
+            hex->setSelected(true);
+            return true;
         }
+    }
+    
+    return false;
+}
+
+void ColorPicker::deselectAll()
+{
+    for(size_t i = 0; i < hexagons.size(); ++i){
+        hexagons[i]->setSelected(false);
     }
 }
 
-void ColorPicker::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
+void ColorPicker::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     
 }
 
-void ColorPicker::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
-{
-}
-
-void ColorPicker::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
+void ColorPicker::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     
 }
+
+void ColorPicker::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+{
+    
+}
+
 
 void ColorPicker::pickAtIndex(size_t index)
 {
@@ -109,5 +117,14 @@ void ColorPicker::pickAtIndex(size_t index)
             hex->setSelected(false);
         }
     }
+}
+
+void ColorPicker::onEnter(){
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, -262, true);
+    CCLayer::onEnter();
+}
+void ColorPicker::onExit(){
+    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
+    CCLayer::onExit();
 }
 

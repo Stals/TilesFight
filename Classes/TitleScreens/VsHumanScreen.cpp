@@ -56,16 +56,9 @@ void VsHumanScreen::setupLabels()
 
 void VsHumanScreen::setupButton()
 {
-    CCSprite* buttonImage = ButtonFactory::buttonSprite(BUTTON_TEXT);    
-    CCMenuItemSprite* button = CCMenuItemSprite::create(buttonImage, buttonImage, buttonImage,
-                                        this, menu_selector(VsHumanScreen::startGame));
+    Button* button = ButtonFactory::button(BUTTON_TEXT, new Handler(this, menu_selector(VsHumanScreen::startGame)), -261);
     
-    CCMenu* menu = CCMenu::createWithItem(button);
-    this->addChild(menu);
-    
-    menu->setPosition(ccp((buttonImage->getContentSize().width * buttonImage->getScaleX()) / 2,
-                          (buttonImage->getContentSize().height * buttonImage->getScaleY()) / 2));
-
+    this->addChild(button);
 }
 
 void VsHumanScreen::startGame(CCObject* pSender)

@@ -13,6 +13,11 @@ public:
     // добавляется на background
     void setContainer(cocos2d::CCNode* container);
     
+    virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+    
+    virtual void onEnter();
+	virtual void onExit();
+    
 private:
     enum State{
         Expanding,

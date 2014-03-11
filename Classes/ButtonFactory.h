@@ -16,6 +16,6 @@ public:
     static CCSprite* buttonSprite(const std::string& text);
     
     
-    static Button* button(const char* iconPath, const std::string& text, IconSide side, Handler* handler);
-    static Button* button(const std::string& text, Handler* handler);
+    static Button* button(const char* iconPath, const std::string& text, IconSide side, Handler* handler, int touchPrority = -255);
+    static Button* button(const std::string& text, Handler* handler, int touchPrority = -255);
 };
