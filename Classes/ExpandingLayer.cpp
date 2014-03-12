@@ -116,6 +116,7 @@ void ExpandingLayer::drawBorders()
     end2.y = (winSize.height/2) + (rect.height/2);
 
     glLineWidth(LINE_WIDTH);
+    cocos2d::ccDrawColor4B(255, 255, 255, 255);
     cocos2d::ccDrawLine(start1, end1);
     cocos2d::ccDrawLine(start2, end2);
 }
