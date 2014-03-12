@@ -125,6 +125,9 @@ void GameLayer::setupWalls()
 
 void GameLayer::setupPlayers(Player* player1, Player* player2)
 {
+    player = player1;
+    computer = player2;
+    
     const size_t playerX = 1;
     const size_t playerY = RandomGenerator::getRandom(1, Game::current().getBoard()->getHeight() - 1);
     
@@ -186,14 +189,15 @@ void GameLayer::onPlayerLost(CCObject* obj)
     
     board->setTouchEnabled(false);
     Game::current().pauseGame(false);
-    Game::current().clearPlayers();
     
     if((Player*)obj == player){
-        addChild(new ResultsLayer(Game::current().getCurrentGameType(), 1), zPause);
+        addChild(new ResultsLayer(computer), zPause);
 
     }else{
-        addChild(new ResultsLayer(Game::current().getCurrentGameType(), 0), zPause);
+        addChild(new ResultsLayer(player), zPause);
     }
+    
+    Game::current().clearPlayers();
 }
 
 void GameLayer::onPauseButtonPressed(CCObject* obj)

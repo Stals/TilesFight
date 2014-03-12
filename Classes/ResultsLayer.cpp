@@ -9,38 +9,25 @@
 #include "ResultsLayer.h"
 
 
-ResultsLayer::ResultsLayer(Game::Type gameType, int playerID)
+ResultsLayer::ResultsLayer(Player* winner)
 {
     button1->setVisible(false);
     
-    setupLabel(gameType, playerID);
+    setupLabel(winner);
 }
 
-void ResultsLayer::setupLabel(Game::Type gameType, int playerID)
+void ResultsLayer::setupLabel(Player* winner)
 {
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
 
     
-    CCLabelTTF* label = CCLabelTTF::create(getText(gameType, playerID).c_str(), default_font.c_str(), 64);
+    CCLabelTTF* label = CCLabelTTF::create(getText(winner).c_str(), default_font.c_str(), 64);
 	label->setPosition(ccp(visibleSize.width/2, menu->getPositionY() + button1->getPositionY()));
     
 	this->addChild(label);
 }
 
-std::string ResultsLayer::getText(Game::Type gameType, int playerID)
+std::string ResultsLayer::getText(Player* winner)
 {
-    if(gameType == Game::VS_AI){
-        if(playerID){
-            return "AI WINS!";
-        }else{
-            return "PLAYER WINS!";
-        }
-        
-    }else if(gameType == Game::VS_HUMAN){
-        if(playerID){
-            return "PLAYER 2 WINS!";
-        }else{
-            return "PLAYER 1 WINS!";
-        }
-    }
+    return winner->getName().append(" WINS!");
 }

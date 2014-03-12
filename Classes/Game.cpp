@@ -45,6 +45,8 @@ void Game::starNewGame(Player* player1, Player* player2)
 
 void Game::restartGame()
 {
+    // ! TOOD ! убрать clearPlayers из onPlayerLost
+    
     // TODO clear player
     // gameLayer->startGame ect ect
 }

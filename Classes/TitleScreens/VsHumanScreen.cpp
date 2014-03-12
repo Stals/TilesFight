@@ -63,7 +63,7 @@ void VsHumanScreen::setupButton()
 
 void VsHumanScreen::startGame(CCObject* pSender)
 {
-    Player* player1 = new Player("Player1", picker1->getSelectedColor());
-	Player* player2 = new Player("Player2", picker2->getSelectedColor());
+    Player* player1 = new Player("PLAYER 1", picker1->getSelectedColor());
+	Player* player2 = new Player("PLAYER 2", picker2->getSelectedColor());
     Game::current().starNewGame(player1, player2);
 }
