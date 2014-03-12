@@ -70,7 +70,8 @@ void PauseLayer::resumeChosen(CCObject* pSender)
 void PauseLayer::restartChosen(CCObject* pSender)
 {
     // TODO with current game type and correct AI, colors. ect
-    Game::current().starNewGame(Game::current().getCurrentGameType());
+    //Game::current().starNewGame(Game::current().getCurrentGameType());
+    Game::current().restartGame();
     this->removeFromParentAndCleanup(true);
 }
 

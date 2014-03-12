@@ -15,7 +15,7 @@ public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::CCScene* scene();
     
-    void startGame(Game::Type type);
+    void startGame(Player* player1, Player* player2);
 
 private:
 	enum zOrder{
@@ -36,7 +36,7 @@ private:
 
 	void setupBoard();
 	void setupWalls();
-	void setupPlayers(Game::Type type);
+	void setupPlayers(Player* player1, Player* player2);
 	void setupNeutrals();
     // может перенести в Game?
     void setupListeners();

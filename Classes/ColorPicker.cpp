@@ -123,8 +123,21 @@ void ColorPicker::onEnter(){
     CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, -262, true);
     CCLayer::onEnter();
 }
+
 void ColorPicker::onExit(){
     CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
     CCLayer::onExit();
+}
+
+ccColor3B ColorPicker::getSelectedColor()
+{
+    for(size_t i = 0; i < hexagons.size(); ++i){
+        Hexagon* hex = hexagons[i];
+        if(hex->isSelected()){
+            return hex->getColor();
+        }
+    }
+    
+    return hexDark;
 }
 

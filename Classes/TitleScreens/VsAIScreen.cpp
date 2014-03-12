@@ -11,6 +11,7 @@
 #include "../ButtonFactory.h"
 #include "Constants.h"
 #include "../Game.h"
+#include "../ai/ExpansionAI.h"
 
 #define FONT_SIZE 24.f
 #define PADDING -5.f
@@ -60,5 +61,10 @@ void VsAIScreen::setupButton()
 
 void VsAIScreen::startGame(CCObject* pSender)
 {
-    Game::current().starNewGame(Game::VS_AI);
+    Player* player = new Player("Player", picker->getSelectedColor());
+	Player* computer = new Player("AI", hexLightBlue);
+    computer->setAI(new ExpansionAI(computer));
+    
+    Game::current().starNewGame(player, computer);
+
 }

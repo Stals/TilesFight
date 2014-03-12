@@ -12,6 +12,7 @@ public:
     
     void pickAtIndex(size_t index);
     
+    ccColor3B getSelectedColor();
     
     virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
     virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);

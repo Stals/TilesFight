@@ -72,9 +72,9 @@ bool GameLayer::init()
 }
 
 
-void GameLayer::startGame(Game::Type type)
+void GameLayer::startGame(Player* player1, Player* player2)
 {
-    setupPlayers(type);
+    setupPlayers(player1, player2);
     setupWalls();
 	setupNeutrals();
 }
@@ -123,22 +123,12 @@ void GameLayer::setupWalls()
 {
 }
 
-void GameLayer::setupPlayers(Game::Type type)
+void GameLayer::setupPlayers(Player* player1, Player* player2)
 {
-	player = new Player("Player", hexOrange);
-	computer = new Player("AI", hexLightBlue);
-    
-    if(type == Game::VS_AI){
-        computer->setAI(new ExpansionAI(computer));
-    }
-
-    Game::current().addPlayer(player);
-    Game::current().addPlayer(computer);
-    
     const size_t playerX = 1;
     const size_t playerY = RandomGenerator::getRandom(1, Game::current().getBoard()->getHeight() - 1);
     
-    createStartingArmies(player, computer, playerX, playerY);
+    createStartingArmies(player1, player2, playerX, playerY);
 }
 
 void GameLayer::setupListeners()

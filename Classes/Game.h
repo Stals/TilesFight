@@ -20,7 +20,8 @@ public:
     
     static Game& current();
 
-    void starNewGame(Game::Type type = VS_AI);
+    void starNewGame(Player* player1, Player* player2);
+    void restartGame();
     Game::Type getCurrentGameType();
     
 	void setCurrentBoard(Board* board);

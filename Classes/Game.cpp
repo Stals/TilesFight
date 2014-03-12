@@ -24,11 +24,14 @@ Board* Game::getBoard()
 	return currentBoard;
 }
 
-void Game::starNewGame(Game::Type type)
+void Game::starNewGame(Player* player1, Player* player2)
 {
     CCScene *pScene = GameLayer::scene();
     GameLayer* gameLayer = (GameLayer*)pScene->getChildByTag(1337);
-    gameLayer->startGame(type);
+    
+    addPlayer(player1);
+    addPlayer(player2);
+    gameLayer->startGame(player1, player2);
     
     if(CCDirector::sharedDirector()->getRunningScene()){
         CCDirector::sharedDirector()->replaceScene(pScene);
@@ -37,7 +40,13 @@ void Game::starNewGame(Game::Type type)
     }
     
     setCurrentScreen(GAME_SCREEN);
-    currentGameType = type;
+    currentGameType = player2->isAI() ? VS_AI : VS_HUMAN;
+}
+
+void Game::restartGame()
+{
+    // TODO clear player
+    // gameLayer->startGame ect ect
 }
 
 Game::Type Game::getCurrentGameType()
