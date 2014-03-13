@@ -29,6 +29,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // Set the design resolution
     pEGLView->setDesignResolutionSize(1024, 768, kResolutionNoBorder);
+    //pEGLView->setDesignResolutionSize(1136, 640, kResolutionNoBorder);
 
     CCSize frameSize = pEGLView->getFrameSize();
     
