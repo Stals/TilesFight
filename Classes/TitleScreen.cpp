@@ -2,13 +2,14 @@
 #include "GameLayer.h"
 #include "Game.h"
 #include "ButtonFactory.h"
-#include "../lib/cocos/sound/Sound.h"
+#include "MusicPlayer.h"
 #include "ExpandingLayer.h"
 #include "ColorPicker.h"
 
 #include "VsAIScreen.h"
 #include "VsHumanScreen.h"
 #include "TBAScreen.h"
+
 
 TitleScreen::~TitleScreen()
 {
@@ -43,7 +44,7 @@ bool TitleScreen::init()
     setupClippingSprite();
 	setTouchEnabled(true);
     
-    Sound::playMusic(MUSIC("mainmenu.mp3"), true);
+    MusicPlayer::playMenuMusic();
 	return true;
 }
 

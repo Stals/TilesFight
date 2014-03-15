@@ -13,6 +13,7 @@
 #include "ai/NoAI.h"
 #include "ai/ExpansionAI.h"
 #include "ai/ConquerorAI.h"
+#include "MusicPlayer.h"
 
 #include "CCShake.h"
 
@@ -64,8 +65,8 @@ bool GameLayer::init()
 
 	setupBoard();
 	
-    
     setupListeners();
+    MusicPlayer::playBattleMusic();
     
     this->schedule(schedule_selector(GameLayer::checkEndGame), CHECK_ENDGAME_DELAY, kCCRepeatForever, CHECK_ENDGAME_DELAY);
 	return true;

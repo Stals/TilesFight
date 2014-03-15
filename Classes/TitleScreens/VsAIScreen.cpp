@@ -62,7 +62,7 @@ void VsAIScreen::setupButton()
 void VsAIScreen::startGame(CCObject* pSender)
 {
     Player* player = new Player("PLAYER", picker->getSelectedColor());
-	Player* computer = new Player("AI", hexLightBlue);
+	Player* computer = new Player("AI", hexLightBlue); // TODO use AI name instead of just AI
     computer->setAI(new ExpansionAI(computer));
     
     Game::current().starNewGame(player, computer);
