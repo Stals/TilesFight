@@ -28,7 +28,7 @@ public:
 	Board* getBoard();
     
     void addPlayer(Player* player);
-    std::vector<Player*> getPlayers();
+    std::vector<Player*>& getPlayers();
     void clearPlayers();
     
     void checkEndGame();

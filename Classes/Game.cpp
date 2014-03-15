@@ -61,7 +61,7 @@ void Game::addPlayer(Player* player)
     players.push_back(player);
 }
 
-std::vector<Player*> Game::getPlayers()
+std::vector<Player*>& Game::getPlayers()
 {
     return players;
 }

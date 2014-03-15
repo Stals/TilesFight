@@ -105,17 +105,20 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         if(!endHex) continue;
         
         Player* owner = startHex->getOwner();
-        if(owner && (owner == endHex->getOwner())){
-            if(endHex->isSelectable()){
-                endHex->setSelected(true);
+        if(owner){
+            if(owner == endHex->getOwner()){
+                if(endHex->isSelectable()){
+                    endHex->setSelected(true);
+                }
             }
+            setEndPoint(owner, convertTouchToNodeSpace(touch));
         }
         
     }
     
     // add lines for drawing
     
-    lines.clear();
+    clearLines();
     CCTouch* touch = ((CCTouch*)*pTouches->begin());
     std::vector<Player*> players = Game::current().getPlayers();
 
@@ -127,16 +130,16 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         
         for(size_t hexID = 0; hexID < selectedHexagons.size(); ++hexID){
             Hexagon* startHex = selectedHexagons[hexID];
+            Player* owner = startHex->getOwner();
             
-            lines.insert(std::make_pair(startHex->getOwner(), LineData(startHex->getOwner()->getColor(), startHex->getPosition(), convertTouchToNodeSpace(touch))));
-            
+            addLine(owner, startHex->getPosition());
         }
     }
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 {
-    lines.clear();
+    clearLines();
 
 	for(CCSetIterator it = pTouches->begin(); it != pTouches->end(); ++it){
 		CCTouch* touch = ((CCTouch*)*it);
@@ -211,14 +214,38 @@ void Board::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 
 
 void Board::draw(){
-    
-    
-    glLineWidth(3.0f);
     //glEnable(GL_LINE_SMOOTH);
-    for(std::multimap<Player*, LineData>::iterator it = lines.begin(); it != lines.end(); ++it){
-        cocos2d::ccDrawColor4B(it->second.color.r, it->second.color.g, it->second.color.b, 255);
-        //cocos2d::ccDrawCircle(it->second.start, 29, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
-        cocos2d::ccDrawLine(it->second.start, it->second.end);
-        cocos2d::ccDrawCircle(it->second.end, 6, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
+    glLineWidth(3.0f);
+    for(std::map<Player*, LinesData>::iterator it = lines.begin(); it != lines.end(); ++it){
+        Player* player = it->first;
+        ccColor3B playerColor = player->getColor();
+        cocos2d::ccDrawColor4B(playerColor.r, playerColor.g, playerColor.b, 255);
+        
+        LinesData& linesData = it->second;
+        for(size_t i = 0; i < linesData.starts.size(); ++i){
+            cocos2d::ccDrawLine(linesData.starts[i], linesData.end);
+            //cocos2d::ccDrawCircle(it->second.start, 29, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
+        }
+        
+        if(!linesData.starts.empty()){
+            cocos2d::ccDrawCircle(linesData.end, 6, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
+        }
     }
+}
+
+void Board::addLine(Player* player, const CCPoint &start){
+    lines[player].starts.push_back(start);
+}
+
+void Board::clearLines()
+{
+    std::multimap<Player*, LinesData>::iterator it = lines.begin();
+    for(; it != lines.end(); ++it){
+        it->second.starts.clear();
+    }
+}
+    
+void Board::setEndPoint(Player* player, const CCPoint &endPoint)
+{
+    lines[player].end = endPoint;
 }

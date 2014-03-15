@@ -38,7 +38,7 @@ void Player::setAI(AbstractAI* newAI)
 	ai = newAI;
 }
 
-ccColor3B Player::getColor()
+ccColor3B Player::getColor() const
 {
 	return color;
 }

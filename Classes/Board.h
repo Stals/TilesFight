@@ -8,12 +8,24 @@
 #include "TroopsMover.h"
 
 
-struct LineData{
-    LineData(ccColor3B color, const CCPoint& start, const CCPoint& end):color(color), start(start), end(end){}
-    ccColor3B color;
-    CCPoint start;
+struct LinesData{
+    //LinesData(){}
+    
+    std::vector<CCPoint> starts;
     CCPoint end;
 };
+
+/*
+ 
+ Для каждого игрка есть массив кнопок конца (тачи)
+ Пока для одного игрока наверное мультитач сложно сделать нужно помнить каким тачем он именно что начал собирать
+ и все выделенные хексагоны этим именно тачем будует начальными точками а сам тач конечной
+ 
+ 
+ Тогда пока мне нужно только много начальных и 1 end для всех игроков
+ 
+ */
+
 
 class Board : public CCLayer{
 public:
@@ -35,8 +47,7 @@ public:
 private:
 	int width, height;
 	HexArray2D hexArray2D;
-    
-    std::multimap<Player*, LineData> lines;
+    std::map<Player*, LinesData> lines;
 
 	void initBoard();
 
@@ -48,6 +59,10 @@ private:
     virtual void ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent);
     
     virtual void draw();
+    
+    void addLine(Player* player, const CCPoint &start);
+    void clearLines();
+    void setEndPoint(Player* player, const CCPoint& endPoint);
 };
 
 // TODO

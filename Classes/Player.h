@@ -18,7 +18,7 @@ public:
 	void setAI(AbstractAI* ai);
 
 	std::string getName();
-	ccColor3B getColor();
+	ccColor3B getColor() const;
 	bool isNeutral();
 
     // return true if player lost
