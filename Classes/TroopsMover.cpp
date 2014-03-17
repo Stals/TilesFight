@@ -11,7 +11,7 @@
 #include "Hexagon.h"
 #include "Game.h"
 #include "Army.h"
-
+#include "EffectPlayer.h"
 
 void TroopsMover::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex)
 {
@@ -79,6 +79,10 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
     if(endHex->getOwner() == startHex->getOwner()){
         endHex->addArmy(army);
     }else{
+        if(endHex->getOwner()){
+            EffectPlayer::playAttackEffect();
+        }
+        
         // ничья
         if(troops == endHex->getTroopsCount()){
             endHex->removeTroops(troops);

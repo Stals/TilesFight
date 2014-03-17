@@ -3,6 +3,8 @@
 #include "AStar.h"
 #include "Game.h"
 #include "Army.h"
+#include "Sound.h"
+#include "EffectPlayer.h"
 
 #define HEX_SIZE 64.f //80?
 
@@ -80,6 +82,7 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 				if(hex->containsTouchLocation(touch)){
 					if(hex->isSelectable()){
                         hex->setSelected(true);
+                        EffectPlayer::playSelectionEffect();
                     }
 					break;
                     
@@ -107,8 +110,9 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         Player* owner = startHex->getOwner();
         if(owner){
             if(owner == endHex->getOwner()){
-                if(endHex->isSelectable()){
+                if(endHex->isSelectable() && (!endHex->isSelected())){
                     endHex->setSelected(true);
+                    EffectPlayer::playSelectionEffect();
                 }
             }
             setEndPoint(owner, convertTouchToNodeSpace(touch));

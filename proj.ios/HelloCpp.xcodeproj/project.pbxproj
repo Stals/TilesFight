@@ -171,6 +171,10 @@
 		D446FD79161028E9000ADA7B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD78161028E9000ADA7B /* Default.png */; };
 		D446FD7B161028ED000ADA7B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7A161028ED000ADA7B /* Default@2x.png */; };
 		D446FD7D161028F4000ADA7B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D446FD7C161028F4000ADA7B /* Default-568h@2x.png */; };
+		D49744BD18D76801009C922C /* pew.wav in Resources */ = {isa = PBXBuildFile; fileRef = D49744BA18D76801009C922C /* pew.wav */; };
+		D49744BE18D76801009C922C /* select.wav in Resources */ = {isa = PBXBuildFile; fileRef = D49744BB18D76801009C922C /* select.wav */; };
+		D49744BF18D76801009C922C /* select1.wav in Resources */ = {isa = PBXBuildFile; fileRef = D49744BC18D76801009C922C /* select1.wav */; };
+		D497452B18D7724A009C922C /* EffectPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D497452918D7724A009C922C /* EffectPlayer.cpp */; };
 		D4ABB4B313B4395300552E6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ABB4B213B4395300552E6E /* main.m */; };
 		D4EF94E815BD319200D803EB /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF94E715BD319200D803EB /* Icon-57.png */; };
 		D4EF94EA15BD319500D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF94E915BD319500D803EB /* Icon-114.png */; };
@@ -463,6 +467,11 @@
 		D446FD78161028E9000ADA7B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../proj.ios/Default.png; sourceTree = "<group>"; };
 		D446FD7A161028ED000ADA7B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../proj.ios/Default@2x.png"; sourceTree = "<group>"; };
 		D446FD7C161028F4000ADA7B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../proj.ios/Default-568h@2x.png"; sourceTree = "<group>"; };
+		D49744BA18D76801009C922C /* pew.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew.wav; path = sound/pew.wav; sourceTree = "<group>"; };
+		D49744BB18D76801009C922C /* select.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = select.wav; path = sound/select.wav; sourceTree = "<group>"; };
+		D49744BC18D76801009C922C /* select1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = select1.wav; path = sound/select1.wav; sourceTree = "<group>"; };
+		D497452918D7724A009C922C /* EffectPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectPlayer.cpp; sourceTree = "<group>"; };
+		D497452A18D7724A009C922C /* EffectPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectPlayer.h; sourceTree = "<group>"; };
 		D4ABB4B213B4395300552E6E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4EF94E715BD319200D803EB /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57.png"; path = "../proj.ios/Icon-57.png"; sourceTree = "<group>"; };
 		D4EF94E915BD319500D803EB /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-114.png"; path = "../proj.ios/Icon-114.png"; sourceTree = "<group>"; };
@@ -735,6 +744,7 @@
 		784521C214EBA449009D533B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D49744B918D767F7009C922C /* sound */,
 				D42C78A718D47B2E00FE4EDB /* music */,
 				D405D0D01893E6F2000CB7E8 /* app.icf */,
 				D405D0D11893E6F2000CB7E8 /* development.icf */,
@@ -803,6 +813,8 @@
 				D42C788418CCDE8300FE4EDB /* ExpandingLayer.h */,
 				D42C78A418D4787A00FE4EDB /* MusicPlayer.cpp */,
 				D42C78A518D4787A00FE4EDB /* MusicPlayer.h */,
+				D497452918D7724A009C922C /* EffectPlayer.cpp */,
+				D497452A18D7724A009C922C /* EffectPlayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1018,6 +1030,16 @@
 			name = music;
 			sourceTree = "<group>";
 		};
+		D49744B918D767F7009C922C /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				D49744BA18D76801009C922C /* pew.wav */,
+				D49744BB18D76801009C922C /* select.wav */,
+				D49744BC18D76801009C922C /* select1.wav */,
+			);
+			name = sound;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1120,6 +1142,7 @@
 				D42C78B518D47B3C00FE4EDB /* Vilified (2012)_0.mp3 in Resources */,
 				D405D0FC1893E6F2000CB7E8 /* hex_old.png in Resources */,
 				D42C784118B10FAA00FE4EDB /* tutorial.png in Resources */,
+				D49744BE18D76801009C922C /* select.wav in Resources */,
 				D42C785218CB262A00FE4EDB /* mainmenu.mp3 in Resources */,
 				D42C783B18B10FAA00FE4EDB /* button.png in Resources */,
 				D405D0F51893E6F2000CB7E8 /* bg6.jpg in Resources */,
@@ -1147,10 +1170,12 @@
 				D42C78B018D47B3C00FE4EDB /* n-Dimensions (Main Theme)_0.mp3 in Resources */,
 				D42C78B118D47B3C00FE4EDB /* Orbital Colossus_0.mp3 in Resources */,
 				D42C779918AFD02D00FE4EDB /* loader.png in Resources */,
+				D49744BF18D76801009C922C /* select1.wav in Resources */,
 				D42C779218AFD02D00FE4EDB /* icon114.png in Resources */,
 				D446FD7B161028ED000ADA7B /* Default@2x.png in Resources */,
 				D42C779518AFD02D00FE4EDB /* icon152.png in Resources */,
 				D42C78B418D47B3C00FE4EDB /* Thrust Sequence_0.mp3 in Resources */,
+				D49744BD18D76801009C922C /* pew.wav in Resources */,
 				D446FD7D161028F4000ADA7B /* Default-568h@2x.png in Resources */,
 				D42C783A18B10FAA00FE4EDB /* ai.png in Resources */,
 			);
@@ -1210,6 +1235,7 @@
 				D42C77DD18AFD11700FE4EDB /* Game.cpp in Sources */,
 				D42C789F18CE1EED00FE4EDB /* Handler.cpp in Sources */,
 				5255A093170E458F0079C316 /* b2Timer.cpp in Sources */,
+				D497452B18D7724A009C922C /* EffectPlayer.cpp in Sources */,
 				5255A094170E458F0079C316 /* b2Body.cpp in Sources */,
 				D42C788A18CDE36C00FE4EDB /* VsAIScreen.cpp in Sources */,
 				D42C78A618D4787A00FE4EDB /* MusicPlayer.cpp in Sources */,
