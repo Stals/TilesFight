@@ -13,7 +13,8 @@ void EffectPlayer::playSelectionEffect()
 
 void EffectPlayer::playAttackEffect()
 {
-    
+    //playEffect(SOUND("pew.wav"), false, RandomGenerator::getRandomDouble(1, 2.0), 0.5f);
+
 }
 
 void EffectPlayer::playShakeEffect()
