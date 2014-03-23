@@ -7,6 +7,7 @@ public:
     static void playSelectionEffect();
     static void playAttackEffect();
     static void playShakeEffect();
+    static void playerDoorEffect();
     
     static void playEffect(const std::string&, bool loop, float pitch, float gain);
 private:

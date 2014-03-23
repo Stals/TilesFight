@@ -2,6 +2,7 @@
 
 #include "Constants.h"
 #include "TitleScreens/EmptyScreen.h"
+#include "EffectPlayer.h"
 
 #define BG_HEIGHT EmptyScreen::getHeight()
 
@@ -41,11 +42,13 @@ void ExpandingLayer::setupClippingSprite()
 void ExpandingLayer::expand()
 {
     currentState = Expanding;
+    EffectPlayer::playerDoorEffect();
 }
 
 void ExpandingLayer::collapse()
 {
     currentState = Collapsing;
+    EffectPlayer::playerDoorEffect();
 }
 
 void ExpandingLayer::update(float dt)

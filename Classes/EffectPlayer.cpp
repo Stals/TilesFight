@@ -22,6 +22,11 @@ void EffectPlayer::playShakeEffect()
     
 }
 
+void EffectPlayer::playerDoorEffect()
+{
+    playEffect(SOUND("door.wav"), false, RandomGenerator::getRandomDouble(1.0, 1.1), 0.125f);
+}
+
 void EffectPlayer::playEffect(const std::string& filename, bool loop, float pitch, float gain)
 {
     ENGINE->playEffect(filename.c_str(), loop, pitch, 0.0f, gain);

@@ -175,6 +175,7 @@
 		D49744BE18D76801009C922C /* select.wav in Resources */ = {isa = PBXBuildFile; fileRef = D49744BB18D76801009C922C /* select.wav */; };
 		D49744BF18D76801009C922C /* select1.wav in Resources */ = {isa = PBXBuildFile; fileRef = D49744BC18D76801009C922C /* select1.wav */; };
 		D497452B18D7724A009C922C /* EffectPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D497452918D7724A009C922C /* EffectPlayer.cpp */; };
+		D497452E18DED2E6009C922C /* door.wav in Resources */ = {isa = PBXBuildFile; fileRef = D497452D18DED2E6009C922C /* door.wav */; };
 		D4ABB4B313B4395300552E6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ABB4B213B4395300552E6E /* main.m */; };
 		D4EF94E815BD319200D803EB /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF94E715BD319200D803EB /* Icon-57.png */; };
 		D4EF94EA15BD319500D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF94E915BD319500D803EB /* Icon-114.png */; };
@@ -472,6 +473,7 @@
 		D49744BC18D76801009C922C /* select1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = select1.wav; path = sound/select1.wav; sourceTree = "<group>"; };
 		D497452918D7724A009C922C /* EffectPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectPlayer.cpp; sourceTree = "<group>"; };
 		D497452A18D7724A009C922C /* EffectPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectPlayer.h; sourceTree = "<group>"; };
+		D497452D18DED2E6009C922C /* door.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door.wav; path = sound/door.wav; sourceTree = "<group>"; };
 		D4ABB4B213B4395300552E6E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4EF94E715BD319200D803EB /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57.png"; path = "../proj.ios/Icon-57.png"; sourceTree = "<group>"; };
 		D4EF94E915BD319500D803EB /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-114.png"; path = "../proj.ios/Icon-114.png"; sourceTree = "<group>"; };
@@ -1033,6 +1035,7 @@
 		D49744B918D767F7009C922C /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				D497452D18DED2E6009C922C /* door.wav */,
 				D49744BA18D76801009C922C /* pew.wav */,
 				D49744BB18D76801009C922C /* select.wav */,
 				D49744BC18D76801009C922C /* select1.wav */,
@@ -1114,6 +1117,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D497452E18DED2E6009C922C /* door.wav in Resources */,
 				D42C784018B10FAA00FE4EDB /* settings.png in Resources */,
 				D405D0E91893E6F2000CB7E8 /* app.icf in Resources */,
 				D42C783E18B10FAA00FE4EDB /* human.png in Resources */,
