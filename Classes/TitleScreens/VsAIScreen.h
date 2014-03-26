@@ -12,6 +12,9 @@ private:
     void setupColorPicker();
     void setupLabels();
     void setupButton();
+    void setupEnemies();
+    
+    cocos2d::CCSprite* enemiesSprite();
     
     ColorPicker* picker;
     

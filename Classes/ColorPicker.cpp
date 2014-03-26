@@ -3,7 +3,7 @@
 #include "Hexagon.h"
 #include "Player.h"
 
-#define HEX_SIZE 90
+#define HEX_SIZE 80
 
 #define WIDTH 3
 #define HEIGHT 3

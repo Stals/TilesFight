@@ -184,6 +184,8 @@
 		D4FBA63F18E350EF0071DDBF /* pew2.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA63C18E350EF0071DDBF /* pew2.wav */; };
 		D4FBA64018E350EF0071DDBF /* pew3.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA63D18E350EF0071DDBF /* pew3.wav */; };
 		D4FBA64118E350EF0071DDBF /* pew4.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA63E18E350EF0071DDBF /* pew4.wav */; };
+		D4FBA64718E354DA0071DDBF /* AIButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA64518E354DA0071DDBF /* AIButton.cpp */; };
+		D4FBA64A18E356FA0071DDBF /* Difficulty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA64818E356FA0071DDBF /* Difficulty.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -485,6 +487,10 @@
 		D4FBA63C18E350EF0071DDBF /* pew2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew2.wav; path = sound/pew2.wav; sourceTree = "<group>"; };
 		D4FBA63D18E350EF0071DDBF /* pew3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew3.wav; path = sound/pew3.wav; sourceTree = "<group>"; };
 		D4FBA63E18E350EF0071DDBF /* pew4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew4.wav; path = sound/pew4.wav; sourceTree = "<group>"; };
+		D4FBA64518E354DA0071DDBF /* AIButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIButton.cpp; sourceTree = "<group>"; };
+		D4FBA64618E354DA0071DDBF /* AIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIButton.h; sourceTree = "<group>"; };
+		D4FBA64818E356FA0071DDBF /* Difficulty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Difficulty.cpp; sourceTree = "<group>"; };
+		D4FBA64918E356FA0071DDBF /* Difficulty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Difficulty.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -823,6 +829,10 @@
 				D42C78A518D4787A00FE4EDB /* MusicPlayer.h */,
 				D497452918D7724A009C922C /* EffectPlayer.cpp */,
 				D497452A18D7724A009C922C /* EffectPlayer.h */,
+				D4FBA64518E354DA0071DDBF /* AIButton.cpp */,
+				D4FBA64618E354DA0071DDBF /* AIButton.h */,
+				D4FBA64818E356FA0071DDBF /* Difficulty.cpp */,
+				D4FBA64918E356FA0071DDBF /* Difficulty.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1211,6 +1221,7 @@
 				D4ABB4B313B4395300552E6E /* main.m in Sources */,
 				D42C788218CCD90F00FE4EDB /* clippingSprite.cpp in Sources */,
 				D42C788518CCDE8300FE4EDB /* ExpandingLayer.cpp in Sources */,
+				D4FBA64718E354DA0071DDBF /* AIButton.cpp in Sources */,
 				52559FD5170E36500079C316 /* CDAudioManager.m in Sources */,
 				52559FD6170E36500079C316 /* CDOpenALSupport.m in Sources */,
 				52559FD7170E36500079C316 /* CocosDenshion.m in Sources */,
@@ -1221,6 +1232,7 @@
 				5255A082170E458F0079C316 /* b2BroadPhase.cpp in Sources */,
 				5255A083170E458F0079C316 /* b2CollideCircle.cpp in Sources */,
 				5255A084170E458F0079C316 /* b2CollideEdge.cpp in Sources */,
+				D4FBA64A18E356FA0071DDBF /* Difficulty.cpp in Sources */,
 				D42C787318CB338600FE4EDB /* VectorExtension.cpp in Sources */,
 				D42C77D418AFD11700FE4EDB /* ConquerorAI.cpp in Sources */,
 				5255A085170E458F0079C316 /* b2CollidePolygon.cpp in Sources */,
