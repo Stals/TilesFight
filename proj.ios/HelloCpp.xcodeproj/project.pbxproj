@@ -181,6 +181,9 @@
 		D4EF94EA15BD319500D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF94E915BD319500D803EB /* Icon-114.png */; };
 		D4EF94EC15BD319B00D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF94EB15BD319B00D803EB /* Icon-72.png */; };
 		D4EF94EE15BD319D00D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF94ED15BD319D00D803EB /* Icon-144.png */; };
+		D4FBA63F18E350EF0071DDBF /* pew2.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA63C18E350EF0071DDBF /* pew2.wav */; };
+		D4FBA64018E350EF0071DDBF /* pew3.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA63D18E350EF0071DDBF /* pew3.wav */; };
+		D4FBA64118E350EF0071DDBF /* pew4.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA63E18E350EF0071DDBF /* pew4.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -479,6 +482,9 @@
 		D4EF94E915BD319500D803EB /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-114.png"; path = "../proj.ios/Icon-114.png"; sourceTree = "<group>"; };
 		D4EF94EB15BD319B00D803EB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../proj.ios/Icon-72.png"; sourceTree = "<group>"; };
 		D4EF94ED15BD319D00D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
+		D4FBA63C18E350EF0071DDBF /* pew2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew2.wav; path = sound/pew2.wav; sourceTree = "<group>"; };
+		D4FBA63D18E350EF0071DDBF /* pew3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew3.wav; path = sound/pew3.wav; sourceTree = "<group>"; };
+		D4FBA63E18E350EF0071DDBF /* pew4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew4.wav; path = sound/pew4.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1035,6 +1041,9 @@
 		D49744B918D767F7009C922C /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA63C18E350EF0071DDBF /* pew2.wav */,
+				D4FBA63D18E350EF0071DDBF /* pew3.wav */,
+				D4FBA63E18E350EF0071DDBF /* pew4.wav */,
 				D497452D18DED2E6009C922C /* door.wav */,
 				D49744BA18D76801009C922C /* pew.wav */,
 				D49744BB18D76801009C922C /* select.wav */,
@@ -1136,6 +1145,7 @@
 				D42C779618AFD02D00FE4EDB /* icon57.png in Resources */,
 				D42C784918B8B84600FE4EDB /* pause.png in Resources */,
 				D405D0EE1893E6F2000CB7E8 /* bg1.jpg in Resources */,
+				D4FBA64018E350EF0071DDBF /* pew3.wav in Resources */,
 				D405D0F71893E6F2000CB7E8 /* bg8.jpg in Resources */,
 				D405D0EF1893E6F2000CB7E8 /* bg10.jpg in Resources */,
 				D4EF94EA15BD319500D803EB /* Icon-114.png in Resources */,
@@ -1176,7 +1186,9 @@
 				D42C779918AFD02D00FE4EDB /* loader.png in Resources */,
 				D49744BF18D76801009C922C /* select1.wav in Resources */,
 				D42C779218AFD02D00FE4EDB /* icon114.png in Resources */,
+				D4FBA64118E350EF0071DDBF /* pew4.wav in Resources */,
 				D446FD7B161028ED000ADA7B /* Default@2x.png in Resources */,
+				D4FBA63F18E350EF0071DDBF /* pew2.wav in Resources */,
 				D42C779518AFD02D00FE4EDB /* icon152.png in Resources */,
 				D42C78B418D47B3C00FE4EDB /* Thrust Sequence_0.mp3 in Resources */,
 				D49744BD18D76801009C922C /* pew.wav in Resources */,
