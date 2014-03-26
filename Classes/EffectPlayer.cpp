@@ -8,7 +8,7 @@
 
 void EffectPlayer::playSelectionEffect()
 {
-    playEffect(SOUND("select1.wav"), false, RandomGenerator::getRandomDouble(0.9, 1.1), 1.0f);
+    playEffect(SOUND("select1.wav"), false, RandomGenerator::getRandomDouble(0.9, 1.1), 0.7f);
 }
 
 void EffectPlayer::playAttackEffect()
@@ -24,7 +24,7 @@ void EffectPlayer::playShakeEffect()
 
 void EffectPlayer::playerDoorEffect()
 {
-    playEffect(SOUND("door.wav"), false, RandomGenerator::getRandomDouble(1.0, 1.1), 0.125f);
+    playEffect(SOUND("door.wav"), false, RandomGenerator::getRandomDouble(1.0, 1.1), 0.225f);
 }
 
 void EffectPlayer::playEffect(const std::string& filename, bool loop, float pitch, float gain)
