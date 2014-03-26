@@ -79,9 +79,9 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
     if(endHex->getOwner() == startHex->getOwner()){
         endHex->addArmy(army);
     }else{
-        if(endHex->getOwner()){
-            EffectPlayer::playAttackEffect();
-        }
+        //if(endHex->getOwner()){
+        //    EffectPlayer::playAttackEffect();
+        //}
         
         // ничья
         if(troops == endHex->getTroopsCount()){
@@ -96,6 +96,7 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
             
         // выиграл нападающий
         }else{ // troops > endHex->getTroopsCount()
+            if(endHex->getOwner()) EffectPlayer::playAttackEffect();
             endHex->changeOwner(startHex->getOwner());
             
             army->removeTroops(endHex->getTroopsCount());
