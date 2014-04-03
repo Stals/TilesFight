@@ -186,6 +186,8 @@
 		D4FBA64118E350EF0071DDBF /* pew4.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA63E18E350EF0071DDBF /* pew4.wav */; };
 		D4FBA64718E354DA0071DDBF /* AIButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA64518E354DA0071DDBF /* AIButton.cpp */; };
 		D4FBA64A18E356FA0071DDBF /* Difficulty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA64818E356FA0071DDBF /* Difficulty.cpp */; };
+		D4FBA8DA18EDD40F0071DDBF /* glow_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8D818EDD40F0071DDBF /* glow_dark.png */; };
+		D4FBA8DB18EDD40F0071DDBF /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8D918EDD40F0071DDBF /* glow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -491,6 +493,8 @@
 		D4FBA64618E354DA0071DDBF /* AIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIButton.h; sourceTree = "<group>"; };
 		D4FBA64818E356FA0071DDBF /* Difficulty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Difficulty.cpp; sourceTree = "<group>"; };
 		D4FBA64918E356FA0071DDBF /* Difficulty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Difficulty.h; sourceTree = "<group>"; };
+		D4FBA8D818EDD40F0071DDBF /* glow_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow_dark.png; sourceTree = "<group>"; };
+		D4FBA8D918EDD40F0071DDBF /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -862,6 +866,8 @@
 		D405D0D51893E6F2000CB7E8 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA8D818EDD40F0071DDBF /* glow_dark.png */,
+				D4FBA8D918EDD40F0071DDBF /* glow.png */,
 				D42C789118CDEEA200FE4EDB /* screensBG.jpg */,
 				D42C784818B8B84600FE4EDB /* pause.png */,
 				D42C784618B53B6800FE4EDB /* pixel.png */,
@@ -1181,6 +1187,7 @@
 				D405D0F91893E6F2000CB7E8 /* hex.png in Resources */,
 				D4EF94EE15BD319D00D803EB /* Icon-144.png in Resources */,
 				D405D0EA1893E6F2000CB7E8 /* development.icf in Resources */,
+				D4FBA8DA18EDD40F0071DDBF /* glow_dark.png in Resources */,
 				D42C789218CDEEA200FE4EDB /* screensBG.jpg in Resources */,
 				D42C779718AFD02D00FE4EDB /* icon72.png in Resources */,
 				D42C783F18B10FAA00FE4EDB /* loader.png in Resources */,
@@ -1191,6 +1198,7 @@
 				D405D0F41893E6F2000CB7E8 /* bg5.jpg in Resources */,
 				D405D0F31893E6F2000CB7E8 /* bg4.jpg in Resources */,
 				D42C779318AFD02D00FE4EDB /* icon120.png in Resources */,
+				D4FBA8DB18EDD40F0071DDBF /* glow.png in Resources */,
 				D42C78B018D47B3C00FE4EDB /* n-Dimensions (Main Theme)_0.mp3 in Resources */,
 				D42C78B118D47B3C00FE4EDB /* Orbital Colossus_0.mp3 in Resources */,
 				D42C779918AFD02D00FE4EDB /* loader.png in Resources */,
