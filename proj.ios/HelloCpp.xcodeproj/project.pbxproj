@@ -154,7 +154,6 @@
 		D42C788A18CDE36C00FE4EDB /* VsAIScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C788818CDE36C00FE4EDB /* VsAIScreen.cpp */; };
 		D42C788D18CDE37A00FE4EDB /* VsHumanScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C788B18CDE37A00FE4EDB /* VsHumanScreen.cpp */; };
 		D42C789018CDE3A200FE4EDB /* EmptyScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C788E18CDE3A200FE4EDB /* EmptyScreen.cpp */; };
-		D42C789218CDEEA200FE4EDB /* screensBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42C789118CDEEA200FE4EDB /* screensBG.jpg */; };
 		D42C789818CE148B00FE4EDB /* ProgressBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C789418CE148B00FE4EDB /* ProgressBar.cpp */; };
 		D42C789918CE148B00FE4EDB /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C789618CE148B00FE4EDB /* Timer.cpp */; };
 		D42C789C18CE14A300FE4EDB /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42C789A18CE14A300FE4EDB /* Button.cpp */; };
@@ -188,6 +187,7 @@
 		D4FBA64A18E356FA0071DDBF /* Difficulty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA64818E356FA0071DDBF /* Difficulty.cpp */; };
 		D4FBA8DA18EDD40F0071DDBF /* glow_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8D818EDD40F0071DDBF /* glow_dark.png */; };
 		D4FBA8DB18EDD40F0071DDBF /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8D918EDD40F0071DDBF /* glow.png */; };
+		D4FBA8E118F027760071DDBF /* screensBG3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8E018F027760071DDBF /* screensBG3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -452,7 +452,6 @@
 		D42C788C18CDE37A00FE4EDB /* VsHumanScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VsHumanScreen.h; sourceTree = "<group>"; };
 		D42C788E18CDE3A200FE4EDB /* EmptyScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmptyScreen.cpp; sourceTree = "<group>"; };
 		D42C788F18CDE3A200FE4EDB /* EmptyScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyScreen.h; sourceTree = "<group>"; };
-		D42C789118CDEEA200FE4EDB /* screensBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screensBG.jpg; sourceTree = "<group>"; };
 		D42C789418CE148B00FE4EDB /* ProgressBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProgressBar.cpp; sourceTree = "<group>"; };
 		D42C789518CE148B00FE4EDB /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
 		D42C789618CE148B00FE4EDB /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
@@ -495,6 +494,7 @@
 		D4FBA64918E356FA0071DDBF /* Difficulty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Difficulty.h; sourceTree = "<group>"; };
 		D4FBA8D818EDD40F0071DDBF /* glow_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow_dark.png; sourceTree = "<group>"; };
 		D4FBA8D918EDD40F0071DDBF /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
+		D4FBA8E018F027760071DDBF /* screensBG3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screensBG3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -866,9 +866,9 @@
 		D405D0D51893E6F2000CB7E8 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA8E018F027760071DDBF /* screensBG3.png */,
 				D4FBA8D818EDD40F0071DDBF /* glow_dark.png */,
 				D4FBA8D918EDD40F0071DDBF /* glow.png */,
-				D42C789118CDEEA200FE4EDB /* screensBG.jpg */,
 				D42C784818B8B84600FE4EDB /* pause.png */,
 				D42C784618B53B6800FE4EDB /* pixel.png */,
 				D42C784218B10FB000FE4EDB /* button */,
@@ -1175,6 +1175,7 @@
 				D49744BE18D76801009C922C /* select.wav in Resources */,
 				D42C785218CB262A00FE4EDB /* mainmenu.mp3 in Resources */,
 				D42C783B18B10FAA00FE4EDB /* button.png in Resources */,
+				D4FBA8E118F027760071DDBF /* screensBG3.png in Resources */,
 				D405D0F51893E6F2000CB7E8 /* bg6.jpg in Resources */,
 				D4EF94EC15BD319B00D803EB /* Icon-72.png in Resources */,
 				D405D0F21893E6F2000CB7E8 /* bg3.jpg in Resources */,
@@ -1188,7 +1189,6 @@
 				D4EF94EE15BD319D00D803EB /* Icon-144.png in Resources */,
 				D405D0EA1893E6F2000CB7E8 /* development.icf in Resources */,
 				D4FBA8DA18EDD40F0071DDBF /* glow_dark.png in Resources */,
-				D42C789218CDEEA200FE4EDB /* screensBG.jpg in Resources */,
 				D42C779718AFD02D00FE4EDB /* icon72.png in Resources */,
 				D42C783F18B10FAA00FE4EDB /* loader.png in Resources */,
 				D446FD79161028E9000ADA7B /* Default.png in Resources */,

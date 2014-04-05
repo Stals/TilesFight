@@ -22,11 +22,19 @@ EmptyScreen::EmptyScreen(){
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     this->setContentSize(CCSizeMake(winSize.width, BG_HEIGHT));
     
-    CCSprite* bg = CCSprite::create(IMG("screensBG.jpg"));
-    bg->setScale(0.8);
-    bg->setOpacity(127);
+    CCSprite* bg1 = CCSprite::create(IMG("screensBG3.png"));
+    CCSprite* bg2 = CCSprite::create(IMG("screensBG3.png"));
+    CCSprite* bg3 = CCSprite::create(IMG("screensBG3.png"));
+
+    bg1->setPositionX(-bg2->getContentSize().width);
+    bg3->setPositionX(bg2->getContentSize().width);
     
-    this->addChild(bg);
+    //bg->setScale(0.8);
+    //bg->setOpacity(127);
+    
+    this->addChild(bg1);
+    this->addChild(bg2);
+    this->addChild(bg3);
 }
 
 float EmptyScreen::getHeight()
