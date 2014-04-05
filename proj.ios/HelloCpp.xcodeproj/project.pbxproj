@@ -188,6 +188,11 @@
 		D4FBA8DA18EDD40F0071DDBF /* glow_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8D818EDD40F0071DDBF /* glow_dark.png */; };
 		D4FBA8DB18EDD40F0071DDBF /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8D918EDD40F0071DDBF /* glow.png */; };
 		D4FBA8E118F027760071DDBF /* screensBG3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8E018F027760071DDBF /* screensBG3.png */; };
+		D4FBA8E618F02CF80071DDBF /* effect_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8E218F02CF80071DDBF /* effect_off.png */; };
+		D4FBA8E718F02CF80071DDBF /* effect_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8E318F02CF80071DDBF /* effect_on.png */; };
+		D4FBA8E818F02CF80071DDBF /* music_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8E418F02CF80071DDBF /* music_off.png */; };
+		D4FBA8E918F02CF80071DDBF /* music_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA8E518F02CF80071DDBF /* music_on.png */; };
+		D4FBA8EC18F02E480071DDBF /* SettingsScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA8EA18F02E480071DDBF /* SettingsScreen.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -495,6 +500,12 @@
 		D4FBA8D818EDD40F0071DDBF /* glow_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow_dark.png; sourceTree = "<group>"; };
 		D4FBA8D918EDD40F0071DDBF /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
 		D4FBA8E018F027760071DDBF /* screensBG3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screensBG3.png; sourceTree = "<group>"; };
+		D4FBA8E218F02CF80071DDBF /* effect_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = effect_off.png; path = ../effect_off.png; sourceTree = "<group>"; };
+		D4FBA8E318F02CF80071DDBF /* effect_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = effect_on.png; path = ../effect_on.png; sourceTree = "<group>"; };
+		D4FBA8E418F02CF80071DDBF /* music_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = music_off.png; path = ../music_off.png; sourceTree = "<group>"; };
+		D4FBA8E518F02CF80071DDBF /* music_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = music_on.png; path = ../music_on.png; sourceTree = "<group>"; };
+		D4FBA8EA18F02E480071DDBF /* SettingsScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsScreen.cpp; sourceTree = "<group>"; };
+		D4FBA8EB18F02E480071DDBF /* SettingsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScreen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -901,6 +912,10 @@
 		D42C778418AFD02D00FE4EDB /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA8E218F02CF80071DDBF /* effect_off.png */,
+				D4FBA8E318F02CF80071DDBF /* effect_on.png */,
+				D4FBA8E418F02CF80071DDBF /* music_off.png */,
+				D4FBA8E518F02CF80071DDBF /* music_on.png */,
 				D42C778518AFD02D00FE4EDB /* icon1024.png */,
 				D42C778618AFD02D00FE4EDB /* icon114.png */,
 				D42C778718AFD02D00FE4EDB /* icon120.png */,
@@ -1011,6 +1026,8 @@
 		D42C788718CDE35100FE4EDB /* TitleScreens */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA8EA18F02E480071DDBF /* SettingsScreen.cpp */,
+				D4FBA8EB18F02E480071DDBF /* SettingsScreen.h */,
 				D42C78A018CF9A2400FE4EDB /* TBAScreen.cpp */,
 				D42C78A118CF9A2400FE4EDB /* TBAScreen.h */,
 				D42C788818CDE36C00FE4EDB /* VsAIScreen.cpp */,
@@ -1151,6 +1168,7 @@
 				D405D0F01893E6F2000CB7E8 /* bg11.jpg in Resources */,
 				D405D0ED1893E6F2000CB7E8 /* background.png in Resources */,
 				D42C779118AFD02D00FE4EDB /* icon1024.png in Resources */,
+				D4FBA8E718F02CF80071DDBF /* effect_on.png in Resources */,
 				D4EF94E815BD319200D803EB /* Icon-57.png in Resources */,
 				D405D0FF1893E6F2000CB7E8 /* smallGen.png in Resources */,
 				D42C78B218D47B3C00FE4EDB /* Red Doors 2.0 (GameClosure Edition)_0.mp3 in Resources */,
@@ -1189,6 +1207,7 @@
 				D4EF94EE15BD319D00D803EB /* Icon-144.png in Resources */,
 				D405D0EA1893E6F2000CB7E8 /* development.icf in Resources */,
 				D4FBA8DA18EDD40F0071DDBF /* glow_dark.png in Resources */,
+				D4FBA8E918F02CF80071DDBF /* music_on.png in Resources */,
 				D42C779718AFD02D00FE4EDB /* icon72.png in Resources */,
 				D42C783F18B10FAA00FE4EDB /* loader.png in Resources */,
 				D446FD79161028E9000ADA7B /* Default.png in Resources */,
@@ -1208,10 +1227,12 @@
 				D446FD7B161028ED000ADA7B /* Default@2x.png in Resources */,
 				D4FBA63F18E350EF0071DDBF /* pew2.wav in Resources */,
 				D42C779518AFD02D00FE4EDB /* icon152.png in Resources */,
+				D4FBA8E618F02CF80071DDBF /* effect_off.png in Resources */,
 				D42C78B418D47B3C00FE4EDB /* Thrust Sequence_0.mp3 in Resources */,
 				D49744BD18D76801009C922C /* pew.wav in Resources */,
 				D446FD7D161028F4000ADA7B /* Default-568h@2x.png in Resources */,
 				D42C783A18B10FAA00FE4EDB /* ai.png in Resources */,
+				D4FBA8E818F02CF80071DDBF /* music_off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1258,6 +1279,7 @@
 				D42C77DA18AFD11700FE4EDB /* AStar.cpp in Sources */,
 				5255A08C170E458F0079C316 /* b2EdgeShape.cpp in Sources */,
 				D42C77E118AFD11700FE4EDB /* NeutralsHelper.cpp in Sources */,
+				D4FBA8EC18F02E480071DDBF /* SettingsScreen.cpp in Sources */,
 				5255A08D170E458F0079C316 /* b2PolygonShape.cpp in Sources */,
 				D42C77D718AFD11700FE4EDB /* RandomAI.cpp in Sources */,
 				5255A08E170E458F0079C316 /* b2BlockAllocator.cpp in Sources */,

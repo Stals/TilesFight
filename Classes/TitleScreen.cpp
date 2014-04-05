@@ -9,6 +9,7 @@
 #include "VsAIScreen.h"
 #include "VsHumanScreen.h"
 #include "TBAScreen.h"
+#include "SettingsScreen.h"
 
 
 TitleScreen::~TitleScreen()
@@ -130,7 +131,7 @@ void TitleScreen::gamecenterChosen(CCObject* pSender)
 
 void TitleScreen::settingsChosen(CCObject* pSender)
 {
-    expandingLayer->setContainer(new TBAScreen);
+    expandingLayer->setContainer(new SettingsScreen);
     expandingLayer->expand();
 }
 
