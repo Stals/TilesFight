@@ -8,16 +8,16 @@
 #define WIDTH 3
 #define HEIGHT 3
 
-ColorPicker::ColorPicker()
+ColorPicker::ColorPicker(int id): id(id)
 {
     CCLayer::init();
     autorelease();
     setTouchEnabled(true);
 
+    delegate = 0;
     owner = new Player("Color_Picker", hexRed);
     
     setupColors();
-    
     
     this->setContentSize(CCSizeMake(HEX_SIZE * WIDTH, HEX_SIZE * HEIGHT));
     setupHexagons();
@@ -27,6 +27,12 @@ ColorPicker::~ColorPicker()
 {
     if(owner) delete owner;
 }
+
+void ColorPicker::setDelegate(ColorPickerDelegate* delegate)
+{
+    this->delegate = delegate;
+}
+
 
 void ColorPicker::setupColors()
 {
@@ -77,6 +83,7 @@ bool ColorPicker::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
            isSelectable(i)){
             deselectAll();
             hex->setSelected(true);
+            if(delegate) delegate->onChangedColor(this, i);
             return true;
         }
     }
@@ -113,6 +120,7 @@ void ColorPicker::pickAtIndex(size_t index)
         
         if((i == index) && isSelectable(index)){
             hex->setSelected(true);
+            if(delegate) delegate->onChangedColor(this, index);
         }else{
             hex->setSelected(false);
         }
@@ -168,5 +176,10 @@ bool ColorPicker::isSelectable(size_t index)
     }
     
     return true;
+}
+
+int ColorPicker::getID()
+{
+    return id;
 }
 

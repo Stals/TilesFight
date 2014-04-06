@@ -1,13 +1,14 @@
 #pragma once
 
 #include "EmptyScreen.h"
+#include "../ColorPicker.h"
 
-class ColorPicker;
 
-class VsHumanScreen : public EmptyScreen{
+class VsHumanScreen : public EmptyScreen, public ColorPickerDelegate{
 public:
     VsHumanScreen();
     
+    virtual void onChangedColor(ColorPicker* picker, int index);
 private:
     void setupColorPickers();
     void setupLabels();

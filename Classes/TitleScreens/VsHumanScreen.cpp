@@ -7,10 +7,10 @@
 //
 
 #include "VsHumanScreen.h"
-#include "../ColorPicker.h"
 #include "../ButtonFactory.h"
 #include "Constants.h"
 #include "../Game.h"
+#include "../User.h"
 
 #define FONT_SIZE 24.f
 #define PADDING -5.f
@@ -25,8 +25,8 @@ VsHumanScreen::VsHumanScreen()
 
 void VsHumanScreen::setupColorPickers()
 {
-    picker1 = new ColorPicker;
-    picker2 = new ColorPicker;
+    picker1 = new ColorPicker(0);
+    picker2 = new ColorPicker(1);
     
     this->addChild(picker1);
     this->addChild(picker2);
@@ -34,11 +34,14 @@ void VsHumanScreen::setupColorPickers()
     picker1->setPositionX(-this->getContentSize().width/4);
     picker2->setPositionX(this->getContentSize().width/4);
     
-    picker1->pickAtIndex(0);
-    picker2->pickAtIndex(1);
+    picker1->pickAtIndex(User::current()->getVSHumanColor1());
+    picker2->pickAtIndex(User::current()->getVSHumanColor2());
     
     picker1->addOther(picker2);
     picker2->addOther(picker1);
+    
+    picker1->setDelegate(this);
+    picker2->setDelegate(this);
 }
 
 void VsHumanScreen::setupLabels()
@@ -69,4 +72,14 @@ void VsHumanScreen::startGame(CCObject* pSender)
     Player* player1 = new Player("PLAYER 1", picker1->getSelectedColor());
 	Player* player2 = new Player("PLAYER 2", picker2->getSelectedColor());
     Game::current().starNewGame(player1, player2);
+}
+
+void VsHumanScreen::onChangedColor(ColorPicker* picker, int index)
+{
+    if(picker->getID() == 0){
+        User::current()->setVSHumanColor1(index);
+        
+    }else{
+        User::current()->setVSHumanColor2(index);
+    }
 }

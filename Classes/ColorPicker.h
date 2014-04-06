@@ -5,10 +5,19 @@
 class Hexagon;
 class Player;
 
+class ColorPicker;
+class ColorPickerDelegate{
+public:
+    virtual void onChangedColor(ColorPicker* picker, int index) = 0;
+};
+
 class ColorPicker : public CCLayer{
 public:
-    ColorPicker();
+    ColorPicker(int id = 0);
     virtual ~ColorPicker();
+    void setDelegate(ColorPickerDelegate* delegate);
+    // returns picker id
+    int getID();
     
     void pickAtIndex(size_t index);
     
@@ -33,10 +42,13 @@ private:
     
     bool isSelectable(size_t index);
     
+    int id;
+    
     std::vector<ccColor3B> colors;
     std::vector<Hexagon*> hexagons;
     
     Player* owner;
     
     std::vector<ColorPicker*> otherPickers;
+    ColorPickerDelegate* delegate;
 };
