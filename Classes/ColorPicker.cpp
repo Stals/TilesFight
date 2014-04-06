@@ -73,7 +73,8 @@ bool ColorPicker::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
 {
     for(size_t i = 0; i < hexagons.size(); ++i){
         Hexagon* hex = hexagons[i];
-        if(hex->containsTouchLocation(pTouch)){
+        if(hex->containsTouchLocation(pTouch) &&
+           isSelectable(i)){
             deselectAll();
             hex->setSelected(true);
             return true;
@@ -105,13 +106,12 @@ void ColorPicker::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *p
     
 }
 
-
 void ColorPicker::pickAtIndex(size_t index)
 {
     for(size_t i = 0; i < hexagons.size(); ++i){
         Hexagon* hex = hexagons[i];
         
-        if(i == index){
+        if((i == index) && isSelectable(index)){
             hex->setSelected(true);
         }else{
             hex->setSelected(false);
@@ -139,5 +139,34 @@ ccColor3B ColorPicker::getSelectedColor()
     }
     
     return hexDark;
+}
+
+int ColorPicker::getSelectedIndex()
+{
+    for(size_t i = 0; i < hexagons.size(); ++i){
+        Hexagon* hex = hexagons[i];
+        if(hex->isSelected()){
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
+
+void ColorPicker::addOther(ColorPicker* picker)
+{
+    otherPickers.push_back(picker);
+}
+
+bool ColorPicker::isSelectable(size_t index)
+{
+    for(size_t i = 0; i < otherPickers.size(); ++i){
+        if(otherPickers[i]->getSelectedIndex() == index){
+            return false;
+        }
+    }
+    
+    return true;
 }
 

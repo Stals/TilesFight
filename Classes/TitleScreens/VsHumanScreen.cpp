@@ -36,6 +36,9 @@ void VsHumanScreen::setupColorPickers()
     
     picker1->pickAtIndex(0);
     picker2->pickAtIndex(1);
+    
+    picker1->addOther(picker2);
+    picker2->addOther(picker1);
 }
 
 void VsHumanScreen::setupLabels()
