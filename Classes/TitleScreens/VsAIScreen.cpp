@@ -7,12 +7,12 @@
 //
 
 #include "VsAIScreen.h"
-#include "../ColorPicker.h"
 #include "../ButtonFactory.h"
 #include "Constants.h"
 #include "../Game.h"
 #include "../ai/ExpansionAI.h"
 #include "../AIButton.h"
+#include "../User.h"
 
 #define FONT_SIZE 24.f
 #define PADDING -5.f
@@ -33,7 +33,8 @@ void VsAIScreen::setupColorPicker()
 {
     picker = new ColorPicker;
     picker->setPositionX(-this->getContentSize().width/4);
-    picker->pickAtIndex(0);
+    picker->pickAtIndex(User::current()->getVSAIColor());
+    picker->setDelegate(this);
     this->addChild(picker);
 }
 
@@ -109,4 +110,9 @@ void VsAIScreen::setupEnemies()
     CCSprite* sprite = enemiesSprite();
     sprite->setPositionX(this->getContentSize().width/2);
     this->addChild(enemiesSprite());
+}
+
+void VsAIScreen::onChangedColor(ColorPicker* picker, int index)
+{
+    User::current()->setVSAIColor(index);
 }
