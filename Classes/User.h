@@ -7,6 +7,8 @@ class User{
 public:
     static User* current();
     
+    void init();
+    
     bool isMusicEnabled();
     void setMusicEnable(bool enabled);
     bool isEffectsEnabled();

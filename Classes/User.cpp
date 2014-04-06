@@ -1,5 +1,6 @@
 #include "User.h"
 #include "../lib/data/SettingsXML.h"
+#include "../lib/cocos/sound/Sound.h"
 
 #define SETTINGS_FILE "settings.xml"
 
@@ -20,6 +21,12 @@ User* User::current()
     }
     
     return instance;
+}
+
+void User::init()
+{
+    Sound::setMusicEnabled(isMusicEnabled());
+    Sound::setEffectVolume(isEffectsEnabled());
 }
 
 bool User::isMusicEnabled()

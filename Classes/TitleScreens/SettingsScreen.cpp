@@ -10,6 +10,7 @@
 #include "../ButtonFactory.h"
 
 #include "../../lib/cocos/gui/Button.h"
+#include "../../lib/cocos/sound/Sound.h"
 #include "../User.h"
 
 #define FONT_SIZE 24.f
@@ -76,11 +77,13 @@ void SettingsScreen::updateEffectsButton()
 
 void SettingsScreen::toggleMusic(cocos2d::CCObject* pSender){
     User::current()->setMusicEnable(!User::current()->isMusicEnabled());
+    Sound::setMusicEnabled(User::current()->isMusicEnabled());
     updateMusicButton();
 }
 
 void SettingsScreen::toggleEffects(cocos2d::CCObject* pSender){
     User::current()->setEffectsEnable(!User::current()->isEffectsEnabled());
+    Sound::setEffectsEnabled(User::current()->isEffectsEnabled());
     updateEffectsButton();
 }
 

@@ -3,6 +3,7 @@
 #include "SimpleAudioEngine.h"
 #include "RandomGenerator.h"
 #include "Constants.h"
+#include "../lib/cocos/sound/Sound.h"
 
 #define ENGINE CocosDenshion::SimpleAudioEngine::sharedEngine()
 
@@ -32,5 +33,7 @@ void EffectPlayer::playerDoorEffect()
 
 void EffectPlayer::playEffect(const std::string& filename, bool loop, float pitch, float gain)
 {
-    //ENGINE->playEffect(filename.c_str(), loop, pitch, 0.0f, gain);
+    if(Sound::isEffectsEnabled()){
+        ENGINE->playEffect(filename.c_str(), loop, pitch, 0.0f, gain);
+    }
 }

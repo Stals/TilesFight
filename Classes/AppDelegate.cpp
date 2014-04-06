@@ -7,6 +7,7 @@
 #include "GameLayer.h"
 #include "TitleScreen.h"
 #include "Game.h"
+#include "User.h"
 
 USING_NS_CC;
 
@@ -39,6 +40,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
 
+    User::current()->init();
     Game::current().setArtScale(0.5);
 
     CCScene *pScene = TitleScreen::scene();
