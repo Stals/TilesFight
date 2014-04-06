@@ -10,7 +10,7 @@
 #include "../ButtonFactory.h"
 
 #include "../../lib/cocos/gui/Button.h"
-
+#include "../User.h"
 
 #define FONT_SIZE 24.f
 #define BUTTON_PRIORITY -261
@@ -27,13 +27,10 @@ SettingsScreen::SettingsScreen()
 
 void SettingsScreen::setupMusic()
 {
-    CCSprite* on = soundState(IMG("music_on.png"), "MUSIC ON");
-    CCSprite* off = soundState(IMG("music_off.png"), "MUSIC OFF");
-    off->setPositionX(off->getPositionX() + 8.5f);
-
-    musicButton = new Button(on, off,
+    musicButton = new Button(0, 0,
                              new Handler(this, menu_selector(SettingsScreen::toggleMusic)),
                              BUTTON_PRIORITY);
+    updateMusicButton();
     
     musicButton->setPositionY(PADDING_Y/2);
     addChild(musicButton);
@@ -41,31 +38,50 @@ void SettingsScreen::setupMusic()
 
 void SettingsScreen::setupEffects()
 {
-    CCSprite* on = soundState(IMG("effect_on.png"), "EFFECTS ON");
-    CCSprite* off = soundState(IMG("effect_off.png"), "EFFECTS OFF");
-    off->setPositionX(off->getPositionX() + 8.5f);
-    
-    effectsButton = new Button(on, off,
+    effectsButton = new Button(0, 0,
                              new Handler(this, menu_selector(SettingsScreen::toggleEffects)),
                              BUTTON_PRIORITY);
+    
+    updateEffectsButton();
     
     effectsButton->setPositionY(-PADDING_Y/2);
     addChild(effectsButton);
 }
 
-void SettingsScreen::toggleMusic(cocos2d::CCObject* pSender){
+void SettingsScreen::updateMusicButton()
+{
     CCSprite* on = soundState(IMG("music_on.png"), "MUSIC ON");
     CCSprite* off = soundState(IMG("music_off.png"), "MUSIC OFF");
     off->setPositionX(off->getPositionX() + 8.5f);
-    musicButton->setImages(off, on);
+
+    if(User::current()->isMusicEnabled()){
+        musicButton->setImages(on, off);
+    }else{
+        musicButton->setImages(off, on);
+    }
 }
 
-void SettingsScreen::toggleEffects(cocos2d::CCObject* pSender){
+void SettingsScreen::updateEffectsButton()
+{
     CCSprite* on = soundState(IMG("effect_on.png"), "EFFECTS ON");
     CCSprite* off = soundState(IMG("effect_off.png"), "EFFECTS OFF");
     off->setPositionX(off->getPositionX() + 8.5f);
-    effectsButton->setImages(off, on);
+    
+    if(User::current()->isEffectsEnabled()){
+        effectsButton->setImages(on, off);
+    }else{
+        effectsButton->setImages(off, on);
+    }
+}
 
+void SettingsScreen::toggleMusic(cocos2d::CCObject* pSender){
+    User::current()->setMusicEnable(!User::current()->isMusicEnabled());
+    updateMusicButton();
+}
+
+void SettingsScreen::toggleEffects(cocos2d::CCObject* pSender){
+    User::current()->setEffectsEnable(!User::current()->isEffectsEnabled());
+    updateEffectsButton();
 }
 
 CCSprite* SettingsScreen::soundState(const std::string& imgPath, const std::string& text)

@@ -15,9 +15,11 @@ private:
     CCLabelTTF* musicLabel;
     CCLabelTTF* effectsLabel;
     
-    
     void setupMusic();
     void setupEffects();
+    
+    void updateMusicButton();
+    void updateEffectsButton();
     
     void toggleMusic(cocos2d::CCObject* pSender);
     void toggleEffects(cocos2d::CCObject* pSender);
