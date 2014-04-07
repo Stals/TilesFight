@@ -198,6 +198,10 @@
 		D4FBA90218F04BB30071DDBF /* FileUtils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA90018F04BB30071DDBF /* FileUtils_ios.mm */; };
 		D4FBA90418F06C230071DDBF /* FileUtils_else.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA90318F06C230071DDBF /* FileUtils_else.cpp */; };
 		D4FBA90718F181D80071DDBF /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA90518F181D80071DDBF /* User.cpp */; };
+		D4FBA90B18F31E7B0071DDBF /* WebUtils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA90918F31E7B0071DDBF /* WebUtils_ios.mm */; };
+		D4FBA90E18F321260071DDBF /* CreditsScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA90C18F321260071DDBF /* CreditsScreen.cpp */; };
+		D4FBA91118F324880071DDBF /* social_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA90F18F324880071DDBF /* social_fb.png */; };
+		D4FBA91218F324880071DDBF /* social_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA91018F324880071DDBF /* social_twitter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -521,6 +525,12 @@
 		D4FBA90318F06C230071DDBF /* FileUtils_else.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileUtils_else.cpp; sourceTree = "<group>"; };
 		D4FBA90518F181D80071DDBF /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = "<group>"; };
 		D4FBA90618F181D80071DDBF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D4FBA90918F31E7B0071DDBF /* WebUtils_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebUtils_ios.mm; sourceTree = "<group>"; };
+		D4FBA90A18F31E7B0071DDBF /* WebUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebUtils.h; sourceTree = "<group>"; };
+		D4FBA90C18F321260071DDBF /* CreditsScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CreditsScreen.cpp; sourceTree = "<group>"; };
+		D4FBA90D18F321260071DDBF /* CreditsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsScreen.h; sourceTree = "<group>"; };
+		D4FBA90F18F324880071DDBF /* social_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = social_fb.png; sourceTree = "<group>"; };
+		D4FBA91018F324880071DDBF /* social_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = social_twitter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -894,6 +904,8 @@
 		D405D0D51893E6F2000CB7E8 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA90F18F324880071DDBF /* social_fb.png */,
+				D4FBA91018F324880071DDBF /* social_twitter.png */,
 				D4FBA8E018F027760071DDBF /* screensBG3.png */,
 				D4FBA8D818EDD40F0071DDBF /* glow_dark.png */,
 				D4FBA8D918EDD40F0071DDBF /* glow.png */,
@@ -1002,6 +1014,7 @@
 		D42C786418CB311700FE4EDB /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA90818F31E500071DDBF /* web */,
 				D4FBA8F718F041B20071DDBF /* thirdparty */,
 				D4FBA8EE18F0403C0071DDBF /* data */,
 				D42C789318CE148B00FE4EDB /* gui */,
@@ -1055,6 +1068,8 @@
 				D42C788C18CDE37A00FE4EDB /* VsHumanScreen.h */,
 				D42C788E18CDE3A200FE4EDB /* EmptyScreen.cpp */,
 				D42C788F18CDE3A200FE4EDB /* EmptyScreen.h */,
+				D4FBA90C18F321260071DDBF /* CreditsScreen.cpp */,
+				D4FBA90D18F321260071DDBF /* CreditsScreen.h */,
 			);
 			path = TitleScreens;
 			sourceTree = "<group>";
@@ -1132,6 +1147,16 @@
 				D4FBA8FB18F041B20071DDBF /* pugixml.hpp */,
 			);
 			path = pugi;
+			sourceTree = "<group>";
+		};
+		D4FBA90818F31E500071DDBF /* web */ = {
+			isa = PBXGroup;
+			children = (
+				D4FBA90918F31E7B0071DDBF /* WebUtils_ios.mm */,
+				D4FBA90A18F31E7B0071DDBF /* WebUtils.h */,
+			);
+			name = web;
+			path = cocos/web;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1221,6 +1246,7 @@
 				D4EF94E815BD319200D803EB /* Icon-57.png in Resources */,
 				D405D0FF1893E6F2000CB7E8 /* smallGen.png in Resources */,
 				D42C78B218D47B3C00FE4EDB /* Red Doors 2.0 (GameClosure Edition)_0.mp3 in Resources */,
+				D4FBA91118F324880071DDBF /* social_fb.png in Resources */,
 				D42C783C18B10FAA00FE4EDB /* credits.png in Resources */,
 				D405D0F81893E6F2000CB7E8 /* bg9.jpg in Resources */,
 				D42C786C18CB311800FE4EDB /* README.md in Resources */,
@@ -1265,6 +1291,7 @@
 				D42C783D18B10FAA00FE4EDB /* gc.png in Resources */,
 				D405D0F41893E6F2000CB7E8 /* bg5.jpg in Resources */,
 				D405D0F31893E6F2000CB7E8 /* bg4.jpg in Resources */,
+				D4FBA91218F324880071DDBF /* social_twitter.png in Resources */,
 				D42C779318AFD02D00FE4EDB /* icon120.png in Resources */,
 				D4FBA8DB18EDD40F0071DDBF /* glow.png in Resources */,
 				D42C78B018D47B3C00FE4EDB /* n-Dimensions (Main Theme)_0.mp3 in Resources */,
@@ -1300,6 +1327,7 @@
 				D42C788218CCD90F00FE4EDB /* clippingSprite.cpp in Sources */,
 				D4FBA8F118F0404E0071DDBF /* SettingsXML.cpp in Sources */,
 				D42C788518CCDE8300FE4EDB /* ExpandingLayer.cpp in Sources */,
+				D4FBA90E18F321260071DDBF /* CreditsScreen.cpp in Sources */,
 				D4FBA64718E354DA0071DDBF /* AIButton.cpp in Sources */,
 				52559FD5170E36500079C316 /* CDAudioManager.m in Sources */,
 				52559FD6170E36500079C316 /* CDOpenALSupport.m in Sources */,
@@ -1318,6 +1346,7 @@
 				5255A086170E458F0079C316 /* b2Collision.cpp in Sources */,
 				D42C78A218CF9A2400FE4EDB /* TBAScreen.cpp in Sources */,
 				5255A087170E458F0079C316 /* b2Distance.cpp in Sources */,
+				D4FBA90B18F31E7B0071DDBF /* WebUtils_ios.mm in Sources */,
 				5255A088170E458F0079C316 /* b2DynamicTree.cpp in Sources */,
 				D42C784F18C656CF00FE4EDB /* ColorPicker.cpp in Sources */,
 				D42C77DE18AFD11700FE4EDB /* GameLayer.cpp in Sources */,

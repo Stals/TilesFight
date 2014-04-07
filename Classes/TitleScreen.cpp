@@ -10,6 +10,7 @@
 #include "VsHumanScreen.h"
 #include "TBAScreen.h"
 #include "SettingsScreen.h"
+#include "CreditsScreen.h"
 
 
 TitleScreen::~TitleScreen()
@@ -137,6 +138,6 @@ void TitleScreen::settingsChosen(CCObject* pSender)
 
 void TitleScreen::creditsChosen(CCObject* pSender)
 {
-    expandingLayer->setContainer(new TBAScreen);
+    expandingLayer->setContainer(new CreditsScreen);
     expandingLayer->expand();
 }

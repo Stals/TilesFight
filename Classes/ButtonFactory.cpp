@@ -86,3 +86,11 @@ Button* ButtonFactory::button(const std::string& text, Handler* handler, int tou
     return button;
 }
 
+
+Button* ButtonFactory::imageButton(const char* iconPathInactive, const char* iconPathPressed, Handler* handler, int touchPrority)
+{
+    CCSprite* inactive = CCSprite::create(iconPathInactive);
+    CCSprite* pressed = CCSprite::create(iconPathPressed);
+    Button* button = new Button(inactive, pressed, handler, touchPrority);
+    return button;
+}

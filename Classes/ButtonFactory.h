@@ -18,4 +18,6 @@ public:
     
     static Button* button(const char* iconPath, const std::string& text, IconSide side, Handler* handler, int touchPrority = -255);
     static Button* button(const std::string& text, Handler* handler, int touchPrority = -255);
+    
+    static Button* imageButton(const char* iconPathInactive, const char* iconPathPressed, Handler* handler, int touchPrority = -255);
 };
