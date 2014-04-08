@@ -73,34 +73,49 @@ CCLabelTTF* CreditsScreen::createTitle(const std::string& title)
 
 CCSprite* CreditsScreen::createPerson(const std::string& name, const std::string& twitterLink, const std::string& fbLink)
 {
+    const float iconSize = 32;
+    
+    bool useTwitter = !twitterLink.empty();
+    bool useFB = !fbLink.empty();
+    
     CCSprite* person = CCSprite::create();
     
     CCLabelTTF* nameLabel = CCLabelTTF::create(name.c_str(), default_font.c_str(), FONT_SIZE_PERSON);
-    
-    
-    urls.push_back(twitterLink);
-    Button* twitterButton = ButtonFactory::imageButton(TWITTER_ICON_INACTIVE, TWITTER_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL), (void*)(urls.size() - 1)), BUTTON_PRIORITY);
-    
-    urls.push_back(fbLink);
-    Button* fbButton = ButtonFactory::imageButton(FB_ICON_INACTIVE, FB_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL), (void*)(urls.size() - 1)), BUTTON_PRIORITY);
-    
-    const float totalWidth = nameLabel->getContentSize().width + PADDING_AFTER_NAME + PADDING_PERSON * 2 + twitterButton->getContentSize().width * 2;
-    const float totalHeight = MAX(nameLabel->getContentSize().height, twitterButton->getContentSize().height);
-    person->setContentSize(CCSizeMake(totalWidth, totalHeight));
-    
-    // x
     nameLabel->setPositionX(nameLabel->getContentSize().width / 2);
-    twitterButton->setPositionX(nameLabel->getPositionX() + nameLabel->getContentSize().width / 2 + PADDING_PERSON + PADDING_AFTER_NAME);
-    fbButton->setPositionX(twitterButton->getPositionX() + twitterButton->getContentSize().width + PADDING_PERSON);
     
-    // y
+    float totalWidth = nameLabel->getContentSize().width;
+    float totalHeight = MAX(nameLabel->getContentSize().height, iconSize);
+    
+    if(useTwitter || useFB){
+        totalWidth += PADDING_AFTER_NAME;
+    }
+    
+    if(useTwitter){
+        totalWidth += iconSize + PADDING_PERSON;
+        
+        urls.push_back(twitterLink);
+        Button* twitterButton = ButtonFactory::imageButton(TWITTER_ICON_INACTIVE, TWITTER_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL), (void*)(urls.size() - 1)), BUTTON_PRIORITY);
+        twitterButton->setPositionX(nameLabel->getPositionX() + totalWidth - iconSize - nameLabel->getContentSize().width/2);
+        twitterButton->setPositionY(totalHeight / 2);
+
+        person->addChild(twitterButton);
+    }
+    
+    if(useFB) {
+        totalWidth += iconSize + PADDING_PERSON;
+
+        urls.push_back(fbLink);
+        Button* fbButton = ButtonFactory::imageButton(FB_ICON_INACTIVE, FB_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL), (void*)(urls.size() - 1)), BUTTON_PRIORITY);
+        
+        fbButton->setPositionX(nameLabel->getPositionX() + totalWidth - iconSize - nameLabel->getContentSize().width/2);
+        fbButton->setPositionY(totalHeight / 2);
+        
+        person->addChild(fbButton);
+    }
+    
+    person->setContentSize(CCSizeMake(totalWidth, totalHeight));
     nameLabel->setPositionY(totalHeight / 2);
-    twitterButton->setPositionY(totalHeight / 2);
-    fbButton->setPositionY(totalHeight / 2);
-    
     person->addChild(nameLabel);
-    person->addChild(twitterButton);
-    person->addChild(fbButton);
     
     return person;
 }
