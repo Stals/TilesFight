@@ -26,42 +26,48 @@ CreditsScreen::CreditsScreen()
 
 void CreditsScreen::setupCredits()
 {
-    // TODO add lane guy!
-    const int personNum = 3;
+    const int personNum = 4;
+    const int titleNum = 3;
     
     CCLabelTTF* title1 = 0;
     CCLabelTTF* title2 = 0;
     CCLabelTTF* title3 = 0;
     CCSprite* person1 = 0;
-    CCSprite* person2 = 0;
+    CCSprite* person21 = 0;
+    CCSprite* person22 = 0;
     CCSprite* person3 = 0;
     
     title1 = createTitle("PROGRAMMING");
     person1 = createPerson("STANISLAV KOROTAEV", "https://twitter.com/TheBrenor", "https://www.facebook.com/stanislav.korotaev");
     
     title2 = createTitle("MUSIC");
-    person2 = createPerson("MATTHEW PABLO", "https://twitter.com/matthewpablo", "https://www.facebook.com/pages/Matthew-Pablo/33998389696");
+    person21 = createPerson("MATTHEW PABLO  ", "https://twitter.com/matthewpablo", "https://www.facebook.com/pages/Matthew-Pablo/33998389696");
+    person22 = createPerson("LANE BECKSTROM", "https://twitter.com/lanebeckstrom", "https://www.facebook.com/lane.beckstrom");
+    
     
     title3 = createTitle("BACKGROUNDS");
     person3 = createPerson("RAWDANITSU");
     
-    const float totalHeight = title1->getContentSize().height * personNum + person1->getContentSize().height * personNum + PADDING_AFTER_TITLE * (personNum - 1) + PADDING_AFTER_PERSON * (personNum - 1);
+    const float totalHeight = title1->getContentSize().height * titleNum + person1->getContentSize().height * personNum + PADDING_AFTER_TITLE * (personNum - 1) + PADDING_AFTER_PERSON * (titleNum - 1);
     
     
     title1->setPositionY(totalHeight / 2 - title1->getContentSize().height / 2);
     person1->setPositionY(title1->getPositionY() - title1->getContentSize().height - PADDING_AFTER_TITLE);
     
     title2->setPositionY(person1->getPositionY() - person1->getContentSize().height - PADDING_AFTER_PERSON);
-    person2->setPositionY(title2->getPositionY() - title2->getContentSize().height - PADDING_AFTER_TITLE);
+    person21->setPositionY(title2->getPositionY() - title2->getContentSize().height - PADDING_AFTER_TITLE);
+    person22->setPositionY(person21->getPositionY() - person21->getContentSize().height - PADDING_AFTER_TITLE);
 
-    title3->setPositionY(person2->getPositionY() - person2->getContentSize().height - PADDING_AFTER_PERSON);
+
+    title3->setPositionY(person22->getPositionY() - person22->getContentSize().height - PADDING_AFTER_PERSON);
     person3->setPositionY(title3->getPositionY() - title3->getContentSize().height - PADDING_AFTER_TITLE);
     
     addChild(title1);
     addChild(title2);
     addChild(title3);
     addChild(person1);
-    addChild(person2);
+    addChild(person21);
+    addChild(person22);
     addChild(person3);
 }
 
