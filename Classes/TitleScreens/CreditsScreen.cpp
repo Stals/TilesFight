@@ -76,8 +76,13 @@ CCSprite* CreditsScreen::createPerson(const std::string& name, const std::string
     CCSprite* person = CCSprite::create();
     
     CCLabelTTF* nameLabel = CCLabelTTF::create(name.c_str(), default_font.c_str(), FONT_SIZE_PERSON);
-    Button* twitterButton = ButtonFactory::imageButton(TWITTER_ICON_INACTIVE, TWITTER_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL)), BUTTON_PRIORITY);
-    Button* fbButton = ButtonFactory::imageButton(FB_ICON_INACTIVE, FB_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL)), BUTTON_PRIORITY);
+    
+    
+    urls.push_back(twitterLink);
+    Button* twitterButton = ButtonFactory::imageButton(TWITTER_ICON_INACTIVE, TWITTER_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL), (void*)(urls.size() - 1)), BUTTON_PRIORITY);
+    
+    urls.push_back(fbLink);
+    Button* fbButton = ButtonFactory::imageButton(FB_ICON_INACTIVE, FB_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL), (void*)(urls.size() - 1)), BUTTON_PRIORITY);
     
     const float totalWidth = nameLabel->getContentSize().width + PADDING_AFTER_NAME + PADDING_PERSON * 2 + twitterButton->getContentSize().width * 2;
     const float totalHeight = MAX(nameLabel->getContentSize().height, twitterButton->getContentSize().height);
@@ -100,7 +105,11 @@ CCSprite* CreditsScreen::createPerson(const std::string& name, const std::string
     return person;
 }
 
-void CreditsScreen::openURL(cocos2d::CCObject* pSender)
+void CreditsScreen::openURL(void* data)
 {
-    WebUtils::openURL("https://twitter.com/TheBrenor");
+    const std::string url = urls[(int)data];
+
+    if(!url.empty()){
+        WebUtils::openURL(url);
+    }
 }

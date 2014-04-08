@@ -3,6 +3,8 @@
 #include "EmptyScreen.h"
 #include "Constants.h"
 
+#include <vector>
+
 class CreditsScreen : public EmptyScreen
 {
 public:
@@ -14,5 +16,7 @@ private:
     CCLabelTTF* createTitle(const std::string& title);
     CCSprite* createPerson(const std::string& name, const std::string& twitterLink = std::string(), const std::string& fbLink = std::string());
     
-    void openURL(cocos2d::CCObject* pSender);
+    void openURL(void* data);
+    
+    std::vector<std::string> urls;
 };
