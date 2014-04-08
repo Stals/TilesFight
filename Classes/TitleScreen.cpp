@@ -68,8 +68,8 @@ void TitleScreen::setupButtons()
     Button* buttonLeft = NULL;
     Button* buttonRight = NULL;
     
-    buttonLeft = ButtonFactory::button(IMG("ai.png"), "VS AI", ICON_RIGHT, new Handler(this, menu_selector(TitleScreen::vsAIChosen)));
-    buttonRight = ButtonFactory::button(IMG("human.png"), "VS HUMAN", ICON_LEFT, new Handler(this, menu_selector(TitleScreen::vsHumanChosen)));
+    buttonLeft = ButtonFactory::button(IMG("ai.png"), "VS AI", ICON_RIGHT, new Handler(this, callfuncD_selector(TitleScreen::vsAIChosen)));
+    buttonRight = ButtonFactory::button(IMG("human.png"), "VS HUMAN", ICON_LEFT, new Handler(this, callfuncD_selector(TitleScreen::vsHumanChosen)));
     
     buttonLeft->setPosition(ccp(winSize.width/2 - 340, winSize.height/2 + 60 + 3));
     buttonRight->setPosition(ccp(winSize.width/2 + 340, winSize.height/2 + 60 + 3));
@@ -80,8 +80,8 @@ void TitleScreen::setupButtons()
         
         
     // row 2
-    buttonLeft = ButtonFactory::button(IMG("tutorial.png"), "TUTORIAL", ICON_RIGHT, new Handler(this, menu_selector(TitleScreen::tutorialChosen)));
-    buttonRight = ButtonFactory::button(IMG("gc.png"), "GAME\nCENTER", ICON_LEFT, new Handler(this, menu_selector(TitleScreen::gamecenterChosen)));
+    buttonLeft = ButtonFactory::button(IMG("tutorial.png"), "TUTORIAL", ICON_RIGHT, new Handler(this, callfuncD_selector(TitleScreen::tutorialChosen)));
+    buttonRight = ButtonFactory::button(IMG("gc.png"), "GAME\nCENTER", ICON_LEFT, new Handler(this, callfuncD_selector(TitleScreen::gamecenterChosen)));
     
     buttonLeft->setPosition(ccp(winSize.width/2 - 290, winSize.height/2 - 40 + 3));
     buttonRight->setPosition(ccp(winSize.width/2 + 290, winSize.height/2 - 40 + 3));
@@ -90,8 +90,8 @@ void TitleScreen::setupButtons()
     this->addChild(buttonRight);
         
     // row 3
-    buttonLeft = ButtonFactory::button(IMG("settings.png"), "SETTINGS", ICON_RIGHT, new Handler(this, menu_selector(TitleScreen::settingsChosen)));
-    buttonRight = ButtonFactory::button(IMG("credits.png"), "CREDITS", ICON_LEFT, new Handler(this, menu_selector(TitleScreen::creditsChosen)));
+    buttonLeft = ButtonFactory::button(IMG("settings.png"), "SETTINGS", ICON_RIGHT, new Handler(this, callfuncD_selector(TitleScreen::settingsChosen)));
+    buttonRight = ButtonFactory::button(IMG("credits.png"), "CREDITS", ICON_LEFT, new Handler(this, callfuncD_selector(TitleScreen::creditsChosen)));
 
     buttonLeft->setPosition(ccp(winSize.width/2 - 240, winSize.height/2 - 140 + 3));
     buttonRight->setPosition(ccp(winSize.width/2 + 240, winSize.height/2 - 140 + 3));

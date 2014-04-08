@@ -29,7 +29,7 @@ SettingsScreen::SettingsScreen()
 void SettingsScreen::setupMusic()
 {
     musicButton = new Button(0, 0,
-                             new Handler(this, menu_selector(SettingsScreen::toggleMusic)),
+                             new Handler(this, callfuncD_selector(SettingsScreen::toggleMusic)),
                              BUTTON_PRIORITY);
     updateMusicButton();
     
@@ -40,7 +40,7 @@ void SettingsScreen::setupMusic()
 void SettingsScreen::setupEffects()
 {
     effectsButton = new Button(0, 0,
-                             new Handler(this, menu_selector(SettingsScreen::toggleEffects)),
+                             new Handler(this, callfuncD_selector(SettingsScreen::toggleEffects)),
                              BUTTON_PRIORITY);
     
     updateEffectsButton();

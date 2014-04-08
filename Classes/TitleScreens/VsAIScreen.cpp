@@ -55,7 +55,7 @@ void VsAIScreen::setupLabels()
 
 void VsAIScreen::setupButton()
 {
-    Button* button = ButtonFactory::button(BUTTON_TEXT, new Handler(this, menu_selector(VsAIScreen::startGame)), BUTTON_PRIORITY);
+    Button* button = ButtonFactory::button(BUTTON_TEXT, new Handler(this, callfuncD_selector(VsAIScreen::startGame)), BUTTON_PRIORITY);
     
     //this->addChild(button);
 }

@@ -76,8 +76,8 @@ CCSprite* CreditsScreen::createPerson(const std::string& name, const std::string
     CCSprite* person = CCSprite::create();
     
     CCLabelTTF* nameLabel = CCLabelTTF::create(name.c_str(), default_font.c_str(), FONT_SIZE_PERSON);
-    Button* twitterButton = ButtonFactory::imageButton(TWITTER_ICON_INACTIVE, TWITTER_ICON_PRESSED, new Handler(this, menu_selector(CreditsScreen::openURL)), BUTTON_PRIORITY);
-    Button* fbButton = ButtonFactory::imageButton(FB_ICON_INACTIVE, FB_ICON_PRESSED, new Handler(this, menu_selector(CreditsScreen::openURL)), BUTTON_PRIORITY);
+    Button* twitterButton = ButtonFactory::imageButton(TWITTER_ICON_INACTIVE, TWITTER_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL)), BUTTON_PRIORITY);
+    Button* fbButton = ButtonFactory::imageButton(FB_ICON_INACTIVE, FB_ICON_PRESSED, new Handler(this, callfuncD_selector(CreditsScreen::openURL)), BUTTON_PRIORITY);
     
     const float totalWidth = nameLabel->getContentSize().width + PADDING_AFTER_NAME + PADDING_PERSON * 2 + twitterButton->getContentSize().width * 2;
     const float totalHeight = MAX(nameLabel->getContentSize().height, twitterButton->getContentSize().height);

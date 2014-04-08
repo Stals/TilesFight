@@ -62,7 +62,7 @@ void VsHumanScreen::setupLabels()
 
 void VsHumanScreen::setupButton()
 {
-    Button* button = ButtonFactory::button(BUTTON_TEXT, new Handler(this, menu_selector(VsHumanScreen::startGame)), -261);
+    Button* button = ButtonFactory::button(BUTTON_TEXT, new Handler(this, callfuncD_selector(VsHumanScreen::startGame)), -261);
     
     this->addChild(button);
 }
