@@ -206,6 +206,9 @@
 		D4FBA91E18F5CA820071DDBF /* hex4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA91D18F5CA820071DDBF /* hex4.png */; };
 		D4FBA92618F995650071DDBF /* GameCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA92318F995650071DDBF /* GameCenter.mm */; };
 		D4FBA92718F995650071DDBF /* GameCenterIos.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA92518F995650071DDBF /* GameCenterIos.m */; };
+		D4FBA92918F99C420071DDBF /* achievements.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA92818F99C420071DDBF /* achievements.xml */; };
+		D4FBA92C18F9C89B0071DDBF /* AchievementChecker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA92A18F9C89B0071DDBF /* AchievementChecker.cpp */; };
+		D4FBA92F18F9C8B90071DDBF /* AchievementCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA92D18F9C8B90071DDBF /* AchievementCounter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -541,6 +544,11 @@
 		D4FBA92318F995650071DDBF /* GameCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameCenter.mm; sourceTree = "<group>"; };
 		D4FBA92418F995650071DDBF /* GameCenterIos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterIos.h; sourceTree = "<group>"; };
 		D4FBA92518F995650071DDBF /* GameCenterIos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterIos.m; sourceTree = "<group>"; };
+		D4FBA92818F99C420071DDBF /* achievements.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = achievements.xml; sourceTree = "<group>"; };
+		D4FBA92A18F9C89B0071DDBF /* AchievementChecker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AchievementChecker.cpp; sourceTree = "<group>"; };
+		D4FBA92B18F9C89B0071DDBF /* AchievementChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementChecker.h; sourceTree = "<group>"; };
+		D4FBA92D18F9C8B90071DDBF /* AchievementCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AchievementCounter.cpp; sourceTree = "<group>"; };
+		D4FBA92E18F9C8B90071DDBF /* AchievementCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementCounter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -810,6 +818,7 @@
 		784521C214EBA449009D533B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA92818F99C420071DDBF /* achievements.xml */,
 				D49744B918D767F7009C922C /* sound */,
 				D42C78A718D47B2E00FE4EDB /* music */,
 				D405D0D01893E6F2000CB7E8 /* app.icf */,
@@ -831,11 +840,11 @@
 		BF23D4E2143315EB00657E08 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D42C786418CB311700FE4EDB /* lib */,
 				D4FBA91F18F995650071DDBF /* achievements */,
 				D42C788018CCD90F00FE4EDB /* clippingSprite.cpp */,
 				D42C788118CCD90F00FE4EDB /* clippingSprite.h */,
 				D42C788718CDE35100FE4EDB /* TitleScreens */,
-				D42C786418CB311700FE4EDB /* lib */,
 				D42C782C18B10F9000FE4EDB /* ButtonFactory.cpp */,
 				D42C782D18B10F9000FE4EDB /* ButtonFactory.h */,
 				D42C782E18B10F9000FE4EDB /* TitleScreen.cpp */,
@@ -1136,9 +1145,9 @@
 		D4FBA8EE18F0403C0071DDBF /* data */ = {
 			isa = PBXGroup;
 			children = (
-				D4FBA90318F06C230071DDBF /* FileUtils_else.cpp */,
 				D4FBA8EF18F0404E0071DDBF /* SettingsXML.cpp */,
 				D4FBA8F018F0404E0071DDBF /* SettingsXML.h */,
+				D4FBA90318F06C230071DDBF /* FileUtils_else.cpp */,
 				D4FBA90018F04BB30071DDBF /* FileUtils_ios.mm */,
 				D4FBA90118F04BB30071DDBF /* FileUtils.h */,
 			);
@@ -1176,6 +1185,10 @@
 		D4FBA91F18F995650071DDBF /* achievements */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA92D18F9C8B90071DDBF /* AchievementCounter.cpp */,
+				D4FBA92E18F9C8B90071DDBF /* AchievementCounter.h */,
+				D4FBA92A18F9C89B0071DDBF /* AchievementChecker.cpp */,
+				D4FBA92B18F9C89B0071DDBF /* AchievementChecker.h */,
 				D4FBA92018F995650071DDBF /* GameCenter */,
 			);
 			path = achievements;
@@ -1316,6 +1329,7 @@
 				D42C785218CB262A00FE4EDB /* mainmenu.mp3 in Resources */,
 				D42C783B18B10FAA00FE4EDB /* button.png in Resources */,
 				D4FBA8E118F027760071DDBF /* screensBG3.png in Resources */,
+				D4FBA92918F99C420071DDBF /* achievements.xml in Resources */,
 				D405D0F51893E6F2000CB7E8 /* bg6.jpg in Resources */,
 				D4EF94EC15BD319B00D803EB /* Icon-72.png in Resources */,
 				D405D0F21893E6F2000CB7E8 /* bg3.jpg in Resources */,
@@ -1430,6 +1444,7 @@
 				5255A097170E458F0079C316 /* b2Island.cpp in Sources */,
 				5255A098170E458F0079C316 /* b2World.cpp in Sources */,
 				D42C77DB18AFD11700FE4EDB /* Board.cpp in Sources */,
+				D4FBA92F18F9C8B90071DDBF /* AchievementCounter.cpp in Sources */,
 				D42C783118B10F9000FE4EDB /* TitleScreen.cpp in Sources */,
 				5255A099170E458F0079C316 /* b2WorldCallbacks.cpp in Sources */,
 				5255A09A170E458F0079C316 /* b2ChainAndCircleContact.cpp in Sources */,
@@ -1465,6 +1480,7 @@
 				D42C789C18CE14A300FE4EDB /* Button.cpp in Sources */,
 				D42C77E418AFD11700FE4EDB /* TroopsMover.cpp in Sources */,
 				5255A0AA170E458F0079C316 /* b2RevoluteJoint.cpp in Sources */,
+				D4FBA92C18F9C89B0071DDBF /* AchievementChecker.cpp in Sources */,
 				D42C77DC18AFD11700FE4EDB /* CCShake.cpp in Sources */,
 				D42C77D318AFD11700FE4EDB /* AbstractAI.cpp in Sources */,
 				D42C786D18CB311800FE4EDB /* MathUtils.cpp in Sources */,

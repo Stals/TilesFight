@@ -9,6 +9,7 @@
 #include "Game.h"
 #include "User.h"
 #include "achievements/GameCenter/GameCenter.h"
+#include "achievements/AchievementChecker.h"
 
 USING_NS_CC;
 
@@ -45,6 +46,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     Game::current().setArtScale(0.5);
 
     GameCenter::login();
+    AchievementChecker::current();
     
     CCScene *pScene = TitleScreen::scene();
     CCDirector::sharedDirector()->runWithScene(pScene);

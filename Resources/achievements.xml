@@ -1,0 +1,46 @@
+<Achievements>
+	<!-- on gameover screen -->
+	<Achievement Counter="victory_vs_ai" Value="1" id="com.stals.admiral.first_victory" />
+	<Achievement Counter="victory_vs_ai" Value="5" id="com.stals.admiral.5_victory" />
+	<Achievement Counter="victory_vs_ai" Value="10" id="com.stals.admiral.10_victory" />
+	<Achievement Counter="victory_vs_ai" Value="20" id="com.stals.admiral.20_victory" />
+
+	<Achievement Counter="loss_vs_ai" Value="1" id="com.stals.first_loss" />
+
+	<Achievement Counter="played_vs_human" Value="1" id="com.stals.admiral.first_vs" />
+	<Achievement Counter="played_vs_human" Value="5" id="com.stals.admiral.5_vs" />
+	<Achievement Counter="played_vs_human" Value="10" id="com.stals.admiral.10_vs" />
+	<Achievement Counter="played_vs_human" Value="20" id="com.stals.admiral.20_vs" />
+
+	<Achievement Counter="played_games" Value="10" id="com.stals.played_games10" />
+	<Achievement Counter="played_games" Value="50" id="com.stals.played_games50" />
+
+	<!-- in game -->
+	<Achievement Counter="capture_sector" Value="100" id="com.stals.admiral.capture_sector100" />
+	<Achievement Counter="capture_sector" Value="1000" id="com.stals.admiral.capture_sector1000" />
+
+	<Achievement Counter="capture_neutral" Value="50" id="com.stals.admiral.capture_neutral50" />
+	<Achievement Counter="capture_neutral" Value="250" id="com.stals.admiral.capture_neutral250" />
+
+	<Achievement Counter="capture_generator" Value="10" id="com.stals.admiral.capture_generator10" />
+	<Achievement Counter="capture_generator" Value="100" id="com.stals.admiral.capture_generator100" />
+
+
+	<!-- one time achievements -->
+	<Achievement Counter="500_on_500" Value="1" id="com.stals.admiral.clash_of_titans" /> 
+	<Achievement Counter="total_control" Value="1" id="com.stals.admiral.total_control" /> <!-- controll all sectors in game-->
+	<Achievement Counter="control_neutrals" Value="1" id="com.stals.admiral.control_neutrals" /> <!-- controll every generator in game -->
+	<Achievement Counter="small_tie" Value="1" id="com.stals.admiral.small_tie" /> <!-- tie with army of opponent 5 on 5 for example -->
+
+	<!-- for beting AIs -->
+	<Achievement Counter="lieutenant" Value="1" id="com.stals.admiral.lieutenant" />
+	<Achievement Counter="commander" Value="1" id="com.stals.admiral.commander" />
+	<Achievement Counter="captain" Value="1" id="com.stals.admiral.captain" />
+	<Achievement Counter="admiral" Value="1" id="com.stals.admiral.admiral" />
+	<Achievement Counter="fleet_admiral" Value="1" id="com.stals.admiral.fleet_admiral" />
+	<Achievement Counter="beat_all_ai" Value="1" id="com.stals.admiral.king_of_the_hill" />
+
+	<!--<Achievement Counter="max_troops" Value="300" id="com.stals.admiral.three_hundred" />-->
+	<Achievement Counter="max_troops" Value="9000" id="com.stals.admiral.nine_thousand" />
+
+</Achievements>
