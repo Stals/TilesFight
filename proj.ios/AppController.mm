@@ -72,7 +72,8 @@ static AppDelegate s_sharedApplication;
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden: YES];
-    
+    NSLog(@"%@",[[NSBundle mainBundle] bundlePath]);
+
     cocos2d::CCApplication::sharedApplication()->run();
     return YES;
 }
@@ -130,6 +131,11 @@ static AppDelegate s_sharedApplication;
     [super dealloc];
 }
 
+
+- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
+{
+    [viewController dismissModalViewControllerAnimated:YES];
+}
 
 @end
 

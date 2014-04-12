@@ -22,12 +22,17 @@
  THE SOFTWARE.
  ****************************************************************************/
 
+#import <GameKit/GameKit.h>
+
 @class RootViewController;
 
-@interface AppController : NSObject <UIAccelerometerDelegate, UIAlertViewDelegate, UITextFieldDelegate,UIApplicationDelegate> {
+@interface AppController : NSObject <UIAccelerometerDelegate, UIAlertViewDelegate, UITextFieldDelegate,UIApplicationDelegate, GKAchievementViewControllerDelegate> {
     UIWindow *window;
-    RootViewController    *viewController;
+@public    RootViewController    *viewController;
 }
+
+- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController;
+
 
 @end
 

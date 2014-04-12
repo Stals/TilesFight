@@ -67,7 +67,7 @@ static GameCenterIos* instance = nil;
     AppController* appController = (AppController*) [UIApplication sharedApplication].delegate;
     
     GKAchievementViewController* gkController = [[[GKAchievementViewController alloc] init] autorelease];
-    gkController.achievementDelegate = appController->viewController;
+    gkController.achievementDelegate = appController;
     
     [appController->viewController presentModalViewController:gkController animated:YES];
     return YES;

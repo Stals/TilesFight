@@ -8,6 +8,7 @@
 #include "TitleScreen.h"
 #include "Game.h"
 #include "User.h"
+#include "GameCenter/GameCenter.h"
 
 USING_NS_CC;
 
@@ -43,6 +44,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     User::current()->init();
     Game::current().setArtScale(0.5);
 
+    GameCenter::login();
+    
     CCScene *pScene = TitleScreen::scene();
     CCDirector::sharedDirector()->runWithScene(pScene);
     

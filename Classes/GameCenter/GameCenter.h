@@ -3,15 +3,15 @@
 class GameCenter
 {
 public:
-    void login();
+    static void login();
     
-    bool showAchievements();
-    void postAchievement(const char* idName, int percentComplete);
-    void clearAllAchievements();
+    static bool showAchievements();
+    static void postAchievement(const char* idName, int percentComplete);
+    static void clearAllAchievements();
     
-    bool showScores();
-    void postScore(const char* idName, int score);
-    void clearAllScores();
+    static bool showScores();
+    static void postScore(const char* idName, int score);
+    static void clearAllScores();
 
 /*
 #if AVALON_PLATFORM_IS_ANDROID_GOOGLE

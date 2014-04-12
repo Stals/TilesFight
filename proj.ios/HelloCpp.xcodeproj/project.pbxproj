@@ -205,6 +205,7 @@
 		D4FBA91418F479F10071DDBF /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FBA91318F479F10071DDBF /* GameKit.framework */; };
 		D4FBA91918F47AFC0071DDBF /* GameCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA91818F47AFC0071DDBF /* GameCenter.mm */; };
 		D4FBA91C18F47B540071DDBF /* GameCenterIos.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA91B18F47B540071DDBF /* GameCenterIos.m */; };
+		D4FBA91E18F5CA820071DDBF /* hex4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA91D18F5CA820071DDBF /* hex4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -539,6 +540,7 @@
 		D4FBA91818F47AFC0071DDBF /* GameCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameCenter.mm; sourceTree = "<group>"; };
 		D4FBA91A18F47B3D0071DDBF /* GameCenterIos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameCenterIos.h; sourceTree = "<group>"; };
 		D4FBA91B18F47B540071DDBF /* GameCenterIos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterIos.m; sourceTree = "<group>"; };
+		D4FBA91D18F5CA820071DDBF /* hex4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hex4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -915,6 +917,7 @@
 		D405D0D51893E6F2000CB7E8 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA91D18F5CA820071DDBF /* hex4.png */,
 				D4FBA90F18F324880071DDBF /* social_fb.png */,
 				D4FBA91018F324880071DDBF /* social_twitter.png */,
 				D4FBA8E018F027760071DDBF /* screensBG3.png */,
@@ -1281,6 +1284,7 @@
 				D4EF94E815BD319200D803EB /* Icon-57.png in Resources */,
 				D405D0FF1893E6F2000CB7E8 /* smallGen.png in Resources */,
 				D42C78B218D47B3C00FE4EDB /* Red Doors 2.0 (GameClosure Edition)_0.mp3 in Resources */,
+				D4FBA91E18F5CA820071DDBF /* hex4.png in Resources */,
 				D4FBA91118F324880071DDBF /* social_fb.png in Resources */,
 				D42C783C18B10FAA00FE4EDB /* credits.png in Resources */,
 				D405D0F81893E6F2000CB7E8 /* bg9.jpg in Resources */,

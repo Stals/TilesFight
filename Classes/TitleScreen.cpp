@@ -11,6 +11,7 @@
 #include "TBAScreen.h"
 #include "SettingsScreen.h"
 #include "CreditsScreen.h"
+#include "GameCenter.h"
 
 
 TitleScreen::~TitleScreen()
@@ -126,8 +127,11 @@ void TitleScreen::tutorialChosen(CCObject* pSender)
 
 void TitleScreen::gamecenterChosen(CCObject* pSender)
 {
-    expandingLayer->setContainer(new TBAScreen);
-    expandingLayer->expand();
+    //expandingLayer->setContainer(new TBAScreen);
+    //expandingLayer->expand();
+    
+    //GameCenter::postAchievement("com.stals.admiral.first_game", 100);
+    GameCenter::showAchievements();
 }
 
 void TitleScreen::settingsChosen(CCObject* pSender)
