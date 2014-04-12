@@ -8,7 +8,7 @@
 #include "TitleScreen.h"
 #include "Game.h"
 #include "User.h"
-#include "GameCenter/GameCenter.h"
+#include "achievements/GameCenter/GameCenter.h"
 
 USING_NS_CC;
 
