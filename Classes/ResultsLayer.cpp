@@ -10,12 +10,12 @@
 #include "Game.h"
 #include "achievements/AchievementCounter.h"
 
-ResultsLayer::ResultsLayer(Player* winner)
+ResultsLayer::ResultsLayer(Player* winner, Player* looser)
 {
     button1->setVisible(false);
     
     setupLabel(winner);
-    updateAchievements(winner);
+    updateAchievements(winner, looser);
 }
 
 void ResultsLayer::setupLabel(Player* winner)
@@ -34,7 +34,7 @@ std::string ResultsLayer::getText(Player* winner)
     return winner->getName().append(" WINS!");
 }
 
-void ResultsLayer::updateAchievements(Player* winner)
+void ResultsLayer::updateAchievements(Player* winner, Player* looser)
 {
     CounterContainer::current()->incrementCounter("played_games");
     
