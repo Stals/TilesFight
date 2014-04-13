@@ -13,4 +13,5 @@ private:
     std::string getText(Player* winner);
     
     void updateAchievements(Player* winner, Player* looser);
+    void increaseAiCounter(Player* looser);
 };

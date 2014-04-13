@@ -47,6 +47,7 @@ void ResultsLayer::updateAchievements(Player* winner, Player* looser)
             // TODO check for enemies
             // TODO check if all beat give achievement for all ai's
             // скорее всего нужно хранить в игроке если я хочу последенго открывать хитрым способом
+            increaseAiCounter(looser);
             
         }else{
             CounterContainer::current()->incrementCounter("loss_vs_ai");
@@ -56,3 +57,32 @@ void ResultsLayer::updateAchievements(Player* winner, Player* looser)
         CounterContainer::current()->incrementCounter("played_vs_human");
     }
 }
+
+void ResultsLayer::increaseAiCounter(Player* looser)
+{
+    if(looser->getName() == "LIEUTENANT"){
+    	CounterContainer::current()->incrementCounter("lieutenant");
+    }
+    else if(looser->getName() == "COMMANDER"){
+    	CounterContainer::current()->incrementCounter("commander");
+    }
+    else if(looser->getName() == "CAPTAIN"){
+    	CounterContainer::current()->incrementCounter("captain");
+    }
+    else if(looser->getName() == "ADMIRAL"){
+    	CounterContainer::current()->incrementCounter("admiral");
+    }
+    else if(looser->getName() == "FLEET ADMIRAL"){
+    	CounterContainer::current()->incrementCounter("fleet_admiral");
+    }
+    
+    if(CounterContainer::current()->getCounterAmount("lieutenant") &&
+       CounterContainer::current()->getCounterAmount("commander") &&
+       CounterContainer::current()->getCounterAmount("captain") &&
+       CounterContainer::current()->getCounterAmount("admiral") &&
+       CounterContainer::current()->getCounterAmount("fleet_admiral")){
+        
+        CounterContainer::current()->incrementCounter("beat_all_ai");
+    }
+}
+
