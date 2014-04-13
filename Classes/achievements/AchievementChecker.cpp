@@ -41,8 +41,6 @@ void AchievementChecker::parseAchievements()
         Achievement* achievement = new Achievement(*it);
         achievements.insert(std::make_pair(achievement->counterName, achievement));
     }
-    
-    checkCounterAcievements("victory_vs_ai", 3);
 }
 
 void AchievementChecker::checkCounterAcievements(const std::string& counterName, int amount)

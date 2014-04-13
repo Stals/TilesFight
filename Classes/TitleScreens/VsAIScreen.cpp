@@ -57,7 +57,7 @@ void VsAIScreen::setupButton()
 {
     Button* button = ButtonFactory::button(BUTTON_TEXT, new Handler(this, callfuncD_selector(VsAIScreen::startGame)), BUTTON_PRIORITY);
     
-    //this->addChild(button);
+    this->addChild(button);
 }
 
 void VsAIScreen::startGame(CCObject* pSender)

@@ -11,4 +11,6 @@ private:
     void setupLabel(Player* winner);
     
     std::string getText(Player* winner);
+    
+    void updateAchievements(Player* winner);
 };

@@ -5,15 +5,17 @@
 	<Achievement Counter="victory_vs_ai" Value="10" id="com.stals.admiral.10_victory" />
 	<Achievement Counter="victory_vs_ai" Value="20" id="com.stals.admiral.20_victory" />
 
-	<Achievement Counter="loss_vs_ai" Value="1" id="com.stals.first_loss" />
+	<Achievement Counter="loss_vs_ai" Value="1" id="com.stals.admiral.first_loss" />
 
 	<Achievement Counter="played_vs_human" Value="1" id="com.stals.admiral.first_vs" />
 	<Achievement Counter="played_vs_human" Value="5" id="com.stals.admiral.5_vs" />
 	<Achievement Counter="played_vs_human" Value="10" id="com.stals.admiral.10_vs" />
 	<Achievement Counter="played_vs_human" Value="20" id="com.stals.admiral.20_vs" />
 
-	<Achievement Counter="played_games" Value="10" id="com.stals.played_games10" />
-	<Achievement Counter="played_games" Value="50" id="com.stals.played_games50" />
+	<Achievement Counter="played_games" Value="1" id="com.stals.admiral.first_game" />
+	<Achievement Counter="played_games" Value="5" id="com.stals.admiral.played_games5" />
+	<Achievement Counter="played_games" Value="15" id="com.stals.admiral.played_games15" />
+	<Achievement Counter="played_games" Value="25" id="com.stals.admiral.played_games25" />
 
 	<!-- in game -->
 	<Achievement Counter="capture_sector" Value="100" id="com.stals.admiral.capture_sector100" />
