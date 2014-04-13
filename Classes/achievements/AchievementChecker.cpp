@@ -52,6 +52,8 @@ void AchievementChecker::checkCounterAcievements(const std::string& counterName,
     for(AchievementsContainer::iterator it = p.first; it != p.second; ++it)
     {
         Achievement* achievement = it->second;
+        // TODO post if was not posted?
+        // check if it will be showing same achievement
         postAchievement(achievement->id, (amount / (float)achievement->value) * 100);
     }
 }

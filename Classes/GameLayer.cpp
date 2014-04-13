@@ -192,10 +192,10 @@ void GameLayer::onPlayerLost(CCObject* obj)
     Game::current().pauseGame(false);
     
     if((Player*)obj == player){
-        addChild(new ResultsLayer(computer), zPause);
+        addChild(new ResultsLayer(computer, player), zPause);
 
     }else{
-        addChild(new ResultsLayer(player), zPause);
+        addChild(new ResultsLayer(player, computer), zPause);
     }
     
     Game::current().clearPlayers();

@@ -5,12 +5,12 @@
 
 class ResultsLayer : public PauseLayer{
 public:
-    ResultsLayer(Player* winner);
+    ResultsLayer(Player* winner, Player* looser);
     
 private:
     void setupLabel(Player* winner);
     
     std::string getText(Player* winner);
     
-    void updateAchievements(Player* winner);
+    void updateAchievements(Player* winner, Player* looser);
 };
