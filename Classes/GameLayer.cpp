@@ -58,6 +58,7 @@ bool GameLayer::init()
     //CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     //CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
+    autorelease();
 	setTouchEnabled(true);
 	
 	setupBackgroud();
