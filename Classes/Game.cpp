@@ -47,18 +47,6 @@ void Game::starNewGame(Player* player1, Player* player2, bool restart)
 
 void Game::restartGame()
 {
-    // ! TOOD ! убрать clearPlayers из onPlayerLost
-        // запизнуть в нажатие to menu если только
-    
-    // TODO clear player
-    // gameLayer->startGame ect ect
-    
-    // игорка достаточно очистить а AI нужно пересоздавать - внутреннее состояние и тд
-    // метод clear должен пересоздать AI по типу
-    //
-    
-    size_t size = players.size();
-    
     players[0]->reset();
     players[1]->reset();
     starNewGame(players[0], players[1], true);

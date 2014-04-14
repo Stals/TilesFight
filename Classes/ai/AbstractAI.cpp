@@ -33,13 +33,6 @@ AbstractAI::Type AbstractAI::getType()
 
 AbstractAI* AbstractAI::create(Type type, Player* player)
 {
-    /*
-     NoAI,
-     Conqueror,
-     Expansion,
-     Random,
-     */
-    
     switch (type) {
         case AbstractAI::Conqueror:
             return new ConquerorAI(player);
