@@ -20,6 +20,8 @@ public:
 	AbstractAI(Type aiType, Player* player, float turnDelay = defaultDelay);
     virtual ~AbstractAI();
     
+    static AbstractAI* create(Type type, Player* player);
+    
     void unscheduleSelector();
     
     Type getType();
@@ -33,3 +35,5 @@ private:
 	float turnDelay;
     Type aiType;
 };
+
+

@@ -20,8 +20,11 @@ public:
     
     static Game& current();
 
-    void starNewGame(Player* player1, Player* player2);
+    void starNewGame(Player* player1, Player* player2, bool restart = false);
     void restartGame();
+    // call this when need to end game without actual letting one player win/loose
+    void endGame();
+    
     Game::Type getCurrentGameType();
     
 	void setCurrentBoard(Board* board);

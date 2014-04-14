@@ -16,6 +16,7 @@ public:
     static cocos2d::CCScene* scene();
     
     void startGame(Player* player1, Player* player2);
+    void endGame();
 
 private:
 	enum zOrder{

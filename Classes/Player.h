@@ -4,8 +4,8 @@
 #include <set>
 
 #include "Constants.h"
+#include "ai/AbstractAI.h"
 
-class AbstractAI;
 class Hexagon;
 
 class Player : public CCObject{
@@ -15,6 +15,7 @@ public:
 	~Player();
 
 	bool isAI();
+    void setAI(AbstractAI::Type type);
 	void setAI(AbstractAI* ai);
 
 	std::string getName();
@@ -38,6 +39,9 @@ public:
     bool isHexagonsSelectable();
 
     bool hasLost();
+    
+    // Очищает информацию о текущийх хексагонах и пересоздает AI / если был
+    void reset();
     
 private:
 	std::string name;

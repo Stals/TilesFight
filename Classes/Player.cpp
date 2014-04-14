@@ -33,6 +33,11 @@ bool Player::isAI()
 	return ai;
 }
 
+void Player::setAI(AbstractAI::Type type)
+{
+    ai = AbstractAI::create(type, this);
+}
+
 void Player::setAI(AbstractAI* newAI)
 {
 	ai = newAI;
@@ -148,6 +153,19 @@ int Player::getTroopsPerTick()
 bool Player::isHexagonsSelectable()
 {
     return !ai;
+}
+
+void Player::reset()
+{
+    troopsPerTick = TROOPS_PER_TICK;
+    controlledHexagons.clear();
+    
+    // recreate ai
+    if(ai){
+        AbstractAI::Type type = ai->getType();
+        delete ai;
+        setAI(type);
+    }
 }
 
 

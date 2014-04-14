@@ -24,13 +24,15 @@ Board* Game::getBoard()
 	return currentBoard;
 }
 
-void Game::starNewGame(Player* player1, Player* player2)
+void Game::starNewGame(Player* player1, Player* player2, bool restart)
 {
     CCScene *pScene = GameLayer::scene();
     GameLayer* gameLayer = (GameLayer*)pScene->getChildByTag(1337);
     
-    addPlayer(player1);
-    addPlayer(player2);
+    if(!restart) {
+        addPlayer(player1);
+        addPlayer(player2);
+    }
     gameLayer->startGame(player1, player2);
     
     if(CCDirector::sharedDirector()->getRunningScene()){
@@ -46,9 +48,27 @@ void Game::starNewGame(Player* player1, Player* player2)
 void Game::restartGame()
 {
     // ! TOOD ! убрать clearPlayers из onPlayerLost
+        // запизнуть в нажатие to menu если только
     
     // TODO clear player
     // gameLayer->startGame ect ect
+    
+    // игорка достаточно очистить а AI нужно пересоздавать - внутреннее состояние и тд
+    // метод clear должен пересоздать AI по типу
+    //
+    
+    size_t size = players.size();
+    
+    players[0]->reset();
+    players[1]->reset();
+    starNewGame(players[0], players[1], true);
+}
+
+void Game::endGame()
+{
+    CCScene * pScene = CCDirector::sharedDirector()->getRunningScene();
+    GameLayer* gameLayer = (GameLayer*)pScene->getChildByTag(1337);
+    gameLayer->endGame();
 }
 
 Game::Type Game::getCurrentGameType()

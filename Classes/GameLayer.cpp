@@ -183,6 +183,18 @@ void GameLayer::setupNeutrals()
 
 void GameLayer::onPlayerLost(CCObject* obj)
 {
+    if((Player*)obj == player){
+        addChild(new ResultsLayer(computer, player), zPause);
+        
+    }else{
+        addChild(new ResultsLayer(player, computer), zPause);
+    }
+    Game::current().pauseGame(false);
+    //endGame();
+}
+
+void GameLayer::endGame()
+{
     //Remove event listener.
     CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
     
@@ -190,14 +202,6 @@ void GameLayer::onPlayerLost(CCObject* obj)
     this->unschedule(schedule_selector(GameLayer::checkEndGame));
     
     board->setTouchEnabled(false);
-    Game::current().pauseGame(false);
-    
-    if((Player*)obj == player){
-        addChild(new ResultsLayer(computer, player), zPause);
-
-    }else{
-        addChild(new ResultsLayer(player, computer), zPause);
-    }
     
     Game::current().clearPlayers();
 }
