@@ -3,9 +3,11 @@
 #include "Addons/TroopsGenerator.h"
 #include "Army.h"
 
+#define DOUBLE_TAP_MAX_TIME 400000 // 0.4 sec
+
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
-	selected(false), selection(0), addon(0), scaleAction1(0), scaleAction2(0)
+	selected(false), selection(0), addon(0), scaleAction1(0), scaleAction2(0), lastTapTime(0)
 {
 	initWithFile(IMG("hex3.png"));
 	setColor(hexDefault);
@@ -329,4 +331,16 @@ bool Hexagon::containsPoint(cocos2d::CCPoint pos)
     const double q2y = fabs(pos.y - getPosition().y);         // transform the test point locally and to quadrant 2
     if (q2x > _hori || q2y > _vert*2) return false;           // bounding test (since q2 is in quadrant 2 only 2 tests are needed)
     return 2 * _vert * _hori - _vert * q2x - _hori * q2y >= 0;   // finally the dot product can be reduced to this due to the hexagon symmetry
+}
+
+void Hexagon::tapped()
+{
+    time_t currentTime = clock();
+    
+    CCLog("cur: %ld  diff: %d", currentTime - lastTapTime, DOUBLE_TAP_MAX_TIME);
+    if( (currentTime - lastTapTime) < DOUBLE_TAP_MAX_TIME ){
+        owner->selectAllHexagons();
+    }
+    
+    lastTapTime = currentTime;
 }

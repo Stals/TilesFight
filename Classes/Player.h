@@ -31,6 +31,7 @@ public:
     std::vector<Hexagon*> getHaxagonsWithGenerators();
     std::vector<Hexagon*> getSelectedHexagons();
     
+    void selectAllHexagons();
     void deselectAllHexagons();
     
     int getTroopsPerTick();
@@ -42,7 +43,7 @@ public:
     
     // Очищает информацию о текущийх хексагонах и пересоздает AI / если был
     void reset();
-    
+
 private:
 	std::string name;
 	ccColor3B color;
@@ -52,5 +53,7 @@ private:
     int troopsPerTick;
 
 	std::set<Hexagon*> controlledHexagons;
+    
+    void setHexagonsSelected(bool selected);
 };
 

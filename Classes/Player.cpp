@@ -121,12 +121,27 @@ std::vector<Hexagon*> Player::getSelectedHexagons()
     return result;
 }
 
-void Player::deselectAllHexagons()
+void Player::setHexagonsSelected(bool selected)
 {
     for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
     {
-        (*it)->setSelected(false);
+        (*it)->setSelected(selected);
     }
+}
+
+void Player::selectAllHexagons()
+{
+    for(std::set<Hexagon*>::iterator it = controlledHexagons.begin(); it != controlledHexagons.end(); ++ it)
+    {
+        if((*it)->isSelectable()){
+            (*it)->setSelected(true);
+        }
+    }
+}
+
+void Player::deselectAllHexagons()
+{
+    setHexagonsSelected(false);
 }
 
 

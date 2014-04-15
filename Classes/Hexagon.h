@@ -54,6 +54,9 @@ public:
     Army* createArmy(Hexagon* destination);
     void removeArmy(Army* army);
     void addArmy(Army *army);
+    
+    // вызывается Board чтобы определить когда произешел double tap по одному hexagon'у
+    void tapped();
 
 private:
 	enum zOrder{
@@ -80,6 +83,8 @@ private:
     CCEaseInOut* scaleAction2;
     
     std::list<Army*> armies;
+    
+    time_t lastTapTime;
 
 	void setupTroopsLabel();
     void updateTroopsLabel();

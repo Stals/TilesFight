@@ -83,6 +83,7 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 					if(hex->isSelectable()){
                         hex->setSelected(true);
                         EffectPlayer::playSelectionEffect();
+                        hex->tapped();
                     }
 					break;
                     
