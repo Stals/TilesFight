@@ -3,7 +3,7 @@
 #include "Addons/TroopsGenerator.h"
 #include "Army.h"
 
-#define DOUBLE_TAP_MAX_TIME 400000 // 0.4 sec
+#define DOUBLE_TAP_MAX_TIME 350000 // 0.35 sec
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
