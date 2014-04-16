@@ -16,5 +16,5 @@ public:
 
 private:
     static void shakeAround(const Hexagon* hex, int strength);
-
+    static void checkAndShake(int armySize1, int armySize2, const Hexagon* hex);
 };

@@ -49,6 +49,7 @@ public:
 	// ‡ÌËÏ‡ˆËˇ Û‚ÂÎË˜ÂÌËˇ / ÛÏÂÌ¸¯ÂÌËˇ
 	void runScaleAction();
 	void runScaleLabelAction(float maxScale);
+    void runShakeAction(float dt, float strength);
     
     // Armies
     Army* createArmy(Hexagon* destination);
@@ -85,6 +86,8 @@ private:
     std::list<Army*> armies;
     
     time_t lastTapTime;
+    // true if is currently running shake action
+    bool shaking;
 
 	void setupTroopsLabel();
     void updateTroopsLabel();
@@ -96,5 +99,8 @@ private:
     // переводит все армии находящиеся на этом секторе в стационарные troops
     void allArmiesToTroops();
     void removeAllArmies();
+    
+    // called after shake action has ended - set shaking to false
+    void endShake();
     
 };

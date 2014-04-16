@@ -65,6 +65,10 @@ void TroopsMover::moveTroops(std::vector<Army*> armies, Hexagon* endHex)
 
 void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
 {
+    // used for achievements and shake
+    const int armySize = army->getTroopsCount();
+    const int endHexArmySize = endHex->getTroopsCount();
+    
     Hexagon* startHex = army->getCurrentHex();
     //if(!hexArray2D.areConnected(startHex, endHex)) return;
     
@@ -108,7 +112,9 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
                 delete army;
             }
         }
-        //shakeAround(endHex, 2);
+        
+        checkAndShake(armySize, endHexArmySize, endHex);
+        
     }
     if((endHex->getTroopsCount() > 0) && (startHex != endHex)){
         endHex->runScaleAction();
@@ -116,22 +122,32 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
 
 }
 
+void TroopsMover::checkAndShake(int armySize1, int armySize2, const Hexagon* hex)
+{
+    if(armySize1 >= 500 && armySize2 >= 250){
+        shakeAround(hex, 4);
+    }
+    else if(armySize1 >= 250 && armySize2 >= 125){
+        shakeAround(hex, 3);
+    }
+    else if(armySize1 >= 100 && armySize2 >= 50){
+        shakeAround(hex, 2);
+    }
+}
 
 
 void TroopsMover::shakeAround(const Hexagon *hex, int strength)
 {
-    
-    //const float dt = 0.5f;
-    
+    const float dt = 0.75f;
+   
     // Shake around
-    /*for(int side = 0; side < HexSidesCount; ++side)
-     {
-     Hexagon* h = sideHexAt((HexSide)side, hex->getXCoord(), hex->getYCoord());
-     if(h){
-     h->runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
+    for(int side = 0; side < HexSidesCount; ++side){
+         Hexagon* h = Game::current().getBoard()->sideHexAt((HexSide)side, hex->getXCoord(), hex->getYCoord());
+         if(h){
+             h->runShakeAction(dt, strength);
+         }
      }
-     }*/
     
     // shake all
-    //runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
+    //Game::current().getBoard()->runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
 }
