@@ -85,3 +85,18 @@ void PauseLayer::menuChosen(CCObject* pSender)
     CCDirector::sharedDirector()->replaceScene(pScene);
     this->removeFromParentAndCleanup(true);
 }
+
+bool PauseLayer::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
+{
+    return true;
+}
+
+void PauseLayer::onEnter(){
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, kCCMenuHandlerPriority + 1, true);
+    CCLayer::onEnter();
+}
+
+void PauseLayer::onExit(){
+    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
+    CCLayer::onExit();
+}

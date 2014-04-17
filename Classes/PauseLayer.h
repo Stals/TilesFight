@@ -6,6 +6,11 @@ class PauseLayer : public CCLayer{
 public:
 	PauseLayer();
     
+    virtual void onEnter();
+    virtual void onExit();
+    
+    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+    
 protected:
     CCMenu* menu = NULL;
     
