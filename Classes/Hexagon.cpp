@@ -339,7 +339,7 @@ void Hexagon::tapped()
 {
     time_t currentTime = clock();
     
-    CCLog("cur: %f  diff: %f", (float)(currentTime - lastTapTime) / CLOCKS_PER_SEC, DOUBLE_TAP_MAX_TIME);
+    //CCLog("cur: %f  diff: %f", (float)(currentTime - lastTapTime) / CLOCKS_PER_SEC, DOUBLE_TAP_MAX_TIME);
     if( ((float)(currentTime - lastTapTime) / CLOCKS_PER_SEC) < DOUBLE_TAP_MAX_TIME ){
         owner->selectAllHexagons();
     }
