@@ -3,7 +3,7 @@
 #include "Addons/TroopsGenerator.h"
 #include "Army.h"
 
-#define DOUBLE_TAP_MAX_TIME 350000 // 0.35 sec
+#define DOUBLE_TAP_MAX_TIME 0.35f // sec
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
@@ -339,8 +339,8 @@ void Hexagon::tapped()
 {
     time_t currentTime = clock();
     
-    //CCLog("cur: %ld  diff: %d", currentTime - lastTapTime, DOUBLE_TAP_MAX_TIME);
-    if( (currentTime - lastTapTime) < DOUBLE_TAP_MAX_TIME ){
+    CCLog("cur: %f  diff: %f", (float)(currentTime - lastTapTime) / CLOCKS_PER_SEC, DOUBLE_TAP_MAX_TIME);
+    if( ((float)(currentTime - lastTapTime) / CLOCKS_PER_SEC) < DOUBLE_TAP_MAX_TIME ){
         owner->selectAllHexagons();
     }
     
