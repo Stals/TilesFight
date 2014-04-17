@@ -144,7 +144,7 @@ void TroopsMover::shakeAround(const Hexagon *hex, int strength)
     for(int side = 0; side < HexSidesCount; ++side){
          Hexagon* h = Game::current().getBoard()->sideHexAt((HexSide)side, hex->getXCoord(), hex->getYCoord());
          if(h){
-             h->runShakeAction(dt, strength);
+             h->shake(dt, strength);
          }
      }
     

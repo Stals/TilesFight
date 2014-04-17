@@ -2,14 +2,13 @@
 #include "../lib/utils/StringExtension.h"
 #include "Addons/TroopsGenerator.h"
 #include "Army.h"
-#include "CCShake.h"
 
 #define DOUBLE_TAP_MAX_TIME 350000 // 0.35 sec
 
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
 	selected(false), selection(0), addon(0), scaleAction1(0), scaleAction2(0),
-    lastTapTime(0), shaking(false)
+    lastTapTime(0)
 {
 	initWithFile(IMG("hex3.png"));
 	setColor(hexDefault);
@@ -227,22 +226,6 @@ void Hexagon::runScaleLabelAction(float maxScale)
 	troopsLabel->runAction(seq);
 }
 
-void Hexagon::runShakeAction(float dt, float strength)
-{
-    if(shaking) return;
-    
-    CCEaseIn* shakeAction = CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt);
-	CCFiniteTimeAction* endShakeFunc = CCCallFunc::create(this,callfunc_selector(Hexagon::endShake));
-	CCSequence* seq = CCSequence::create(shakeAction, endShakeFunc, NULL);
-    
-    this->runAction(seq);
-    shaking = true;
-}
-
-void Hexagon::endShake()
-{
-    shaking = false;
-}
 
 void Hexagon::updateTroopsLabel()
 {

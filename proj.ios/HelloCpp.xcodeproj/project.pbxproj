@@ -219,6 +219,7 @@
 		D4FBA95718FDBCC50071DDBF /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA95318FDBCC50071DDBF /* Default-Landscape@2x.png */; };
 		D4FBA95818FDBCC50071DDBF /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA95418FDBCC50071DDBF /* Default-Portrait@2x.png */; };
 		D4FBA95B18FDBD010071DDBF /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA95A18FDBD010071DDBF /* Default-Portrait.png */; };
+		D4FBA95E190055C60071DDBF /* Shakable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA95D190055C60071DDBF /* Shakable.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -569,6 +570,8 @@
 		D4FBA95318FDBCC50071DDBF /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
 		D4FBA95418FDBCC50071DDBF /* Default-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x.png"; sourceTree = "<group>"; };
 		D4FBA95A18FDBD010071DDBF /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		D4FBA95C190054F20071DDBF /* Shakable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shakable.h; sourceTree = "<group>"; };
+		D4FBA95D190055C60071DDBF /* Shakable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shakable.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -918,6 +921,8 @@
 				D4FBA64918E356FA0071DDBF /* Difficulty.h */,
 				D4FBA90518F181D80071DDBF /* User.cpp */,
 				D4FBA90618F181D80071DDBF /* User.h */,
+				D4FBA95C190054F20071DDBF /* Shakable.h */,
+				D4FBA95D190055C60071DDBF /* Shakable.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1432,6 +1437,7 @@
 				D4FBA64718E354DA0071DDBF /* AIButton.cpp in Sources */,
 				52559FD5170E36500079C316 /* CDAudioManager.m in Sources */,
 				52559FD6170E36500079C316 /* CDOpenALSupport.m in Sources */,
+				D4FBA95E190055C60071DDBF /* Shakable.cpp in Sources */,
 				52559FD7170E36500079C316 /* CocosDenshion.m in Sources */,
 				52559FDD170E36500079C316 /* SimpleAudioEngine.mm in Sources */,
 				52559FDE170E36500079C316 /* SimpleAudioEngine_objc.m in Sources */,
