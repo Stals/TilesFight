@@ -12,6 +12,8 @@
 
 ResultsLayer::ResultsLayer(Player* winner, Player* looser)
 {
+    CounterContainer::current()->setAutoSaveEnabled(true);
+    
     button1->setVisible(false);
     
     setupLabel(winner);

@@ -14,9 +14,13 @@ public:
     
     int getCounterAmount(const std::string& name);
     
+    // if enabled = true, automaticaty saves after function call
+    void setAutoSaveEnabled(bool enabled);
+    
 private:
     CounterContainer();
     SettingsXML* counters;
+    bool autosaveEnabled;
     
     // method with autosave
     void setValue(const std::string& counterName, int amount);

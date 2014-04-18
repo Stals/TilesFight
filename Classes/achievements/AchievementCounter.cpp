@@ -3,7 +3,7 @@
 
 #define COUNTERS_XML "counters.xml"
 
-CounterContainer::CounterContainer()
+CounterContainer::CounterContainer(): autosaveEnabled(true)
 {
     counters = new SettingsXML(COUNTERS_XML);
 }
@@ -32,7 +32,10 @@ void CounterContainer::setIfBigger(const std::string& name, int amount)
 void CounterContainer::setValue(const std::string& counterName, int amount)
 {
     counters->setValue(counterName, amount);
-    counters->save();
+    
+    if(autosaveEnabled){
+        counters->save();
+    }
     
     AchievementChecker::current()->checkCounterAcievements(counterName, amount);
 }
@@ -41,4 +44,12 @@ void CounterContainer::setValue(const std::string& counterName, int amount)
 int CounterContainer::getCounterAmount(const std::string& name)
 {
     return counters->getInt(name, 0);
+}
+
+void CounterContainer::setAutoSaveEnabled(bool enabled)
+{
+    this->autosaveEnabled = enabled;
+    if(enabled){
+        counters->save();
+    }
 }

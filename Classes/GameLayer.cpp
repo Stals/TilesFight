@@ -14,6 +14,7 @@
 #include "ai/ExpansionAI.h"
 #include "ai/ConquerorAI.h"
 #include "MusicPlayer.h"
+#include "achievements/AchievementCounter.h"
 
 #include "CCShake.h"
 
@@ -70,6 +71,8 @@ bool GameLayer::init()
     MusicPlayer::playBattleMusic();
     
     this->schedule(schedule_selector(GameLayer::checkEndGame), CHECK_ENDGAME_DELAY, kCCRepeatForever, CHECK_ENDGAME_DELAY);
+    
+    CounterContainer::current()->setAutoSaveEnabled(false);
 	return true;
 }
 
@@ -195,6 +198,8 @@ void GameLayer::onPlayerLost(CCObject* obj)
 
 void GameLayer::endGame()
 {
+    CounterContainer::current()->setAutoSaveEnabled(true);
+    
     //Remove event listener.
     CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
     
