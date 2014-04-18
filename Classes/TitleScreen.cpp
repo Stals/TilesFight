@@ -127,11 +127,10 @@ void TitleScreen::tutorialChosen(CCObject* pSender)
 
 void TitleScreen::gamecenterChosen(CCObject* pSender)
 {
-    //expandingLayer->setContainer(new TBAScreen);
-    //expandingLayer->expand();
-    
-    //GameCenter::postAchievement("com.stals.admiral.first_game", 100);
-    GameCenter::showAchievements();
+    if(!GameCenter::showAchievements()){
+        // this should not login if already loged in
+        GameCenter::login();
+    }
 }
 
 void TitleScreen::settingsChosen(CCObject* pSender)
