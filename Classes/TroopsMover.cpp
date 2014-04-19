@@ -15,45 +15,6 @@
 #include "achievements/AchievementCounter.h"
 #include "Addons/Addon.h"
 
-void TroopsMover::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex)
-{
-    endHex->setSelected(false);
-    for(size_t hexID = 0; hexID < selectedHexagons.size(); ++hexID){
-        Hexagon* startHex = selectedHexagons[hexID];
-        if(startHex->getTroopsCount() <= 1) continue;
-        moveTroops(startHex, endHex);
-    }
-}
-
-void TroopsMover::moveTroops(Hexagon* startHex, Hexagon* endHex)
-{
-    //if(!hexArray2D.areConnected(startHex, endHex)) return;
-    
-    if(startHex != endHex){
-        const int troops = startHex->getTroopsCount() - 1;
-        startHex->removeTroops(troops);
-        
-        if(endHex->getOwner() == startHex->getOwner()){
-            endHex->addTroops(troops);
-        }else{
-            if(troops == endHex->getTroopsCount()){
-                endHex->removeTroops(troops);
-                endHex->changeOwner(0); // TODO NoPlayer вместо 0?
-            }else if(troops < endHex->getTroopsCount()){
-                endHex->removeTroops(troops);
-            }else{ // troops > endHex->getTroopsCount()
-                const int firstPlayerTroopsLeft = troops - endHex->getTroopsCount();
-                endHex->removeTroops(endHex->getTroopsCount());
-                endHex->addTroops(firstPlayerTroopsLeft);
-                endHex->changeOwner(startHex->getOwner());
-            }
-            //shakeAround(endHex, 2);
-        }
-        if(endHex->getTroopsCount() > 0){
-            endHex->runScaleAction();
-        }
-    }
-}
 
 void TroopsMover::moveTroops(std::vector<Army*> armies, Hexagon* endHex)
 {
