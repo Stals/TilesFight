@@ -42,6 +42,10 @@ void ResultsLayer::updateAchievements(Player* winner, Player* looser)
     
     bool playerWon = !winner->isAI();
     
+    if(playerWon){
+        checkOneTimeAchievements(winner);
+    }
+    
     if(Game::current().getCurrentGameType() == Game::VS_AI){
         if(playerWon){
             CounterContainer::current()->incrementCounter("victory_vs_ai");
@@ -58,6 +62,62 @@ void ResultsLayer::updateAchievements(Player* winner, Player* looser)
     }else{
         CounterContainer::current()->incrementCounter("played_vs_human");
     }
+}
+
+void ResultsLayer::checkOneTimeAchievements(Player* winner){
+    if(checkTotalControl(winner)){
+        CounterContainer::current()->incrementCounter("total_control");
+    }
+    if(checkNeutralsControl(winner)){
+        CounterContainer::current()->incrementCounter("control_neutrals");
+    }
+}
+
+bool ResultsLayer::checkTotalControl(Player* winner)
+{
+    Board* board = Game::current().getBoard();
+    
+    const int height = board->getHeight();
+    
+    for(int row = 0; row < height; ++row){
+        const int width = board->getWidth(row);
+        
+        for(int col = 0; col < width; ++col){
+        
+            Hexagon* hex = board->at(col, row);
+            if(hex && hex->getOwner() && (hex->getOwner() == winner)){
+                ;
+            }else{
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+
+bool ResultsLayer::checkNeutralsControl(Player* winner)
+{
+    Board* board = Game::current().getBoard();
+    
+    const int height = board->getHeight();
+    
+    for(int row = 0; row < height; ++row){
+        const int width = board->getWidth(row);
+        
+        for(int col = 0; col < width; ++col){
+            
+            Hexagon* hex = board->at(col, row);
+            if(hex && hex->hasAddon()){
+                
+                if(hex->getOwner() != winner){
+                    return false;
+                }
+            }
+        }
+    }
+    
+    return true;
 }
 
 void ResultsLayer::increaseAiCounter(Player* looser)
