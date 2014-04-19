@@ -178,6 +178,10 @@ void TroopsMover::handleAttackResult(AttackResult result, Army* army, Hexagon* s
 
 void TroopsMover::updateAchievements(Player* attacker, AttackResult attackResult, int armySize, int endHexArmySize, const Hexagon* endHex)
 {
+    if(armySize == endHexArmySize){
+        CounterContainer::current()->incrementCounter("small_tie");
+    }
+    
     if((armySize >= 500) && (endHexArmySize >= 500)){
         CounterContainer::current()->incrementCounter("500_on_500");
     }
