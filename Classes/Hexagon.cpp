@@ -117,6 +117,11 @@ Player* Hexagon::getOwner()
 	return owner;
 }
 
+const Player* Hexagon::getOwner() const
+{
+    return owner;
+}
+
 void Hexagon::setOwner(Player* owner)
 {
 	this->owner = owner;
@@ -191,12 +196,12 @@ void Hexagon::setAddon(Addon* addon)
 	this->addChild(addon);
 }
 
-bool Hexagon::hasAddon()
+bool Hexagon::hasAddon() const
 {
     return addon;
 }
 
-const Addon* Hexagon::getAddon()
+const Addon* Hexagon::getAddon() const
 {
     return addon;
 }

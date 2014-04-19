@@ -14,7 +14,8 @@ public:
         Conqueror,
         Expansion,
         Random,
-        AI_COUNT
+        AI_COUNT,
+        ErrorAI // if ai was null for example
     };
     
 	AbstractAI(Type aiType, Player* player, float turnDelay = defaultDelay);

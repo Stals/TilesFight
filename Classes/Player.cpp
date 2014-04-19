@@ -33,6 +33,13 @@ bool Player::isAI()
 	return ai;
 }
 
+AbstractAI::Type Player::getAiType() const{
+    if(ai){
+        return ai->getType();
+    }
+    return AbstractAI::ErrorAI;
+}
+
 void Player::setAI(AbstractAI::Type type)
 {
     ai = AbstractAI::create(type, this);

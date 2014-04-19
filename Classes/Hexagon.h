@@ -35,6 +35,7 @@ public:
 	void addTroops(int troops);
 
 	Player* getOwner();
+    const Player* getOwner() const;
 	
 	void changeOwner(Player* player);
 
@@ -44,8 +45,8 @@ public:
     bool isSelectable();
 
 	void setAddon(Addon* addon);
-    bool hasAddon();
-    const Addon* getAddon();
+    bool hasAddon() const;
+    const Addon* getAddon() const;
     
 	// ‡ÌËÏ‡ˆËˇ Û‚ÂÎË˜ÂÌËˇ / ÛÏÂÌ¸¯ÂÌËˇ
 	void runScaleAction();

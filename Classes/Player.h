@@ -15,6 +15,7 @@ public:
 	~Player();
 
 	bool isAI();
+    AbstractAI::Type getAiType() const;
     void setAI(AbstractAI::Type type);
 	void setAI(AbstractAI* ai);
 
