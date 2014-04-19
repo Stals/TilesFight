@@ -73,6 +73,7 @@ void ResultsLayer::checkOneTimeAchievements(Player* winner){
     }
 }
 
+// You already need to capture all enemy generators - so if you just own all generators - that means you control all neutral generators as well
 bool ResultsLayer::checkTotalControl(Player* winner)
 {
     Board* board = Game::current().getBoard();
