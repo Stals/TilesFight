@@ -12,6 +12,8 @@
 #include "Game.h"
 #include "Army.h"
 #include "EffectPlayer.h"
+#include "achievements/AchievementCounter.h"
+#include "Addons/Addon.h"
 
 void TroopsMover::moveTroops(std::vector<Hexagon*> &selectedHexagons, Hexagon* endHex)
 {
@@ -68,9 +70,7 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
     // used for achievements and shake
     const int armySize = army->getTroopsCount();
     const int endHexArmySize = endHex->getTroopsCount();
-    
     Hexagon* startHex = army->getCurrentHex();
-    //if(!hexArray2D.areConnected(startHex, endHex)) return;
     
     const int troops = army->getTroopsCount();
     startHex->removeArmy(army);
@@ -83,39 +83,19 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
     if(endHex->getOwner() == startHex->getOwner()){
         endHex->addArmy(army);
     }else{
-        //if(endHex->getOwner()){
-        //    EffectPlayer::playAttackEffect();
-        //}
         
-        // ничья
-        if(troops == endHex->getTroopsCount()){
-            endHex->removeTroops(troops);
-            //endHex->changeOwner(0); // TODO NoPlayer вместо 0?
-            delete army;
-            
-        // выиграл защищающийся
-        }else if(troops < endHex->getTroopsCount()){
-            endHex->removeTroops(troops);
-            delete army;
-            
-        // выиграл нападающий
-        }else{ // troops > endHex->getTroopsCount()
+        AttackResult attackResult = getAttackResult(army, endHex);
+        updateAchievements(army->getCurrentHex()->getOwner(), attackResult, armySize, endHexArmySize, endHex);
+        handleAttackResult(attackResult, army, startHex, endHex);
+        
+        if(attackResult == DefenderWins){
             if(endHex->getOwner()) EffectPlayer::playAttackEffect();
-            endHex->changeOwner(startHex->getOwner());
-            
-            army->removeTroops(endHex->getTroopsCount());
-            endHex->removeTroops(endHex->getTroopsCount());
-            
-            if(army->getTroopsCount() > 0){
-                endHex->addArmy(army);
-            }else{
-                delete army;
-            }
         }
         
         checkAndShake(armySize, endHexArmySize, endHex);
         
     }
+    
     if((endHex->getTroopsCount() > 0) && (startHex != endHex)){
         endHex->runScaleAction();
     }
@@ -150,4 +130,72 @@ void TroopsMover::shakeAround(const Hexagon *hex, int strength)
     
     // shake all
     //Game::current().getBoard()->runAction(CCEaseIn::create(CCShake::actionWithDuration(dt, strength), dt));
+}
+
+TroopsMover::AttackResult TroopsMover::getAttackResult(Army* army, Hexagon* endHex)
+{
+    const int troops = army->getTroopsCount();
+    
+    if(troops == endHex->getTroopsCount()){
+        return Draw;
+        
+    }else if(troops < endHex->getTroopsCount()){
+        return DefenderWins;
+        
+    }else{ // troops > endHex->getTroopsCount()
+        return AttackerWins;
+    }
+}
+
+void TroopsMover::handleAttackResult(AttackResult result, Army* army, Hexagon* startHex, Hexagon* endHex)
+{
+    const int troops = army->getTroopsCount();
+    //if(!hexArray2D.areConnected(startHex, endHex)) return;
+    
+    if(result == Draw){
+        endHex->removeTroops(troops);
+        //endHex->changeOwner(0); // TODO NoPlayer вместо 0?
+        delete army;
+        
+    }else if(result == DefenderWins){
+        endHex->removeTroops(troops);
+        delete army;
+        
+    }else if(result == AttackerWins){
+        
+        endHex->changeOwner(startHex->getOwner());
+        
+        army->removeTroops(endHex->getTroopsCount());
+        endHex->removeTroops(endHex->getTroopsCount());
+        
+        if(army->getTroopsCount() > 0){
+            endHex->addArmy(army);
+        }else{
+            delete army;
+        }
+    }
+}
+
+void TroopsMover::updateAchievements(Player* attacker, AttackResult attackResult, int armySize, int endHexArmySize, const Hexagon* endHex)
+{
+    if((armySize >= 500) && (endHexArmySize >= 500)){
+        CounterContainer::current()->incrementCounter("500_on_500");
+    }
+    
+    // only for real players
+    if(attacker && attacker->isAI()) return;
+    
+    if(attackResult == AttackerWins){
+        CounterContainer::current()->incrementCounter("capture_sector");
+   
+        if(endHex->getOwner() && (endHex->getOwner()->getAiType() == AbstractAI::NoAI)){
+            CounterContainer::current()->incrementCounter("capture_neutral");
+        }
+        
+        if(endHex->hasAddon()){
+            if(endHex->getAddon()->getType() == Addon::Generator){
+                CounterContainer::current()->incrementCounter("capture_generator");
+            }
+        }
+    }
 }
