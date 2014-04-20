@@ -15,6 +15,8 @@ public:
     
 	static void addNeutrals(Player* player, TroopsGenerator::Type type, size_t x, size_t y);
 	static void addNeutrals(Player* player, Player* player2, TroopsGenerator::Type type, size_t x, size_t y);
+    
+    static void addNeutrals(Player* player, Player* player2, TroopsGenerator::Type type, int troopsCount, size_t x, size_t y);
 
 	static void addNeutrals(Player* player, AmoutIncreaser::Type type, size_t x, size_t y);
 	static void addNeutrals(Player* player, Player* player2, AmoutIncreaser::Type type, size_t x, size_t y);

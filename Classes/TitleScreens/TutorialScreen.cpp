@@ -16,6 +16,7 @@
 #include "../ai/NoAI.h"
 #include "../NeutralsHelper.h"
 #include "../NeutralsSpawner.h"
+#include "../ai/RandomAI.h"
 
 #define FONT_SIZE 16.f
 #define PADDING -5.f
@@ -30,7 +31,13 @@ TutorialScreen::TutorialScreen()
 {
     setTouchEnabled(true);
     setupLabels();
-    setupStep(0);
+    
+    // for fast presintation
+    static int step = -1;
+    if(step < 2){
+        ++step;
+    }
+    setupStep(step);
 }
 
 void TutorialScreen::setupBoard()
@@ -69,14 +76,14 @@ void TutorialScreen::setupLabels()
 
 void TutorialScreen::setupStep(int stepNum)
 {
-    setupBoard();
-    
     switch (stepNum) {
         case 0:
+            setupBoard();
             setupTutorialMove();
             break;
             
         case 1:
+            setupBoard();
             setupTutorialGenerator();
             break;
             
@@ -85,36 +92,25 @@ void TutorialScreen::setupStep(int stepNum)
             break;
             
         default:
+            setupBoard();
             setupTutorialMove();
     }
-    
-    if(stepNum == 0){
-        setupTutorialMove();
-    }
-    else if(stepNum == 1){
-        setupTutorialGenerator();
-    }
 }
-
-// 1)  сделать 2 лейбла который можно менять // причем с автопереносом там вроде было
-// 2) сделать первый этап тупо руками
-// 3) для второго этапа сделать функцию позволяющую задать кастомное число арсии
-        // его же начать использовать внутри
-// 4) сделать второй этап
-    // где у каждого генератор - но без захвата еще одного ничего не получится
-// 5) сделать третий этап
-// 6) сделать транизоны
-// 7) сделать проверку того что человек сделал что нужно было
-    //1
-    //2
+// 1) сделать проверку того что человек сделал что нужно было
+//1
+//2
+// 2) сделать транизоны
 
 
 // 99) добавить картинки во второй этап на право
 
+
+// TOOD запихнуть куда-то
+// Note: You can select multiple sectors at a time if you move over it or double tap any your hexagon
 void TutorialScreen::setupTutorialMove()
 {
-    labelLeft->setString("you control the green sector.\nto start\njust move your armies to the highlighted one");
-    labelRight->setString("to move\ntap on the green sector and without releasing\nmove it to the destination");
+    labelLeft->setString("you control the GREEN sector.\nto start\njust move your armies to the highlighted one");
+    labelRight->setString("TO MOVE\ntap on the green sector and without releasing\nmove it to the destination");
     
     Player* player = new Player("PLAYER", hexGreen);
     Player* computer = new Player("AI", hexRed);
@@ -145,6 +141,18 @@ void TutorialScreen::setupTutorialMove()
 
 void TutorialScreen::setupTutorialGenerator()
 {
+    // !!! ПОСМОТРЕТЬ ЧТО В ГАЛКОНЕ ТОЖЕ
+    labelLeft->setString("WELL DONE!\nnow you will need to capture gray generators to have more armies and capture opponents sector.");
+    labelRight->setString("GENERATORS are sectors with a star, or  ,or   they generate armies with different speed");
+    
+    Player* player = new Player("PLAYER", hexGreen);
+    Player* computer = new Player("AI", hexRed);
+    computer->setAI(new NoAI(computer));
+    NeutralsHelper::addNeutrals(player, computer, TroopsGenerator::Small, 2, 2);
+    
+    Player* neutral = Player::createNeutral();
+    NeutralsHelper::addNeutrals(neutral, neutral, TroopsGenerator::Large, 0, 4, 1);
+    
     /*
      Well done!
         Red one - is your enemy. Захвати generators (маленькие картинки разных) - они приносят войска чтобы победить
@@ -160,19 +168,17 @@ void TutorialScreen::setupTutorialGenerator()
         // capture gray generators to have more armies and capture opponents sector.
     // С правой пояснения
         // Generators are sectors with star, or ,or - they generate armies with different speed
-    
-    
-    
-     Player* player = new Player("PLAYER", hexGreen);
-     Player* computer = new Player("AI", hexRed);
-     computer->setAI(new NoAI(computer));
-     
-     NeutralsHelper::addNeutrals(player, computer, TroopsGenerator::Small, 2, 2);
-     
 }
 
 void TutorialScreen::setupTutorialEnd()
 {
+    labelLeft->setString("NICE!\nyou are ready to challange the REAL opponent.");
+    labelRight->setString("press \"GO\" to start a game against \"LIEUTENANT GAIUS\"");
+    
+    Button* button = ButtonFactory::button(BUTTON_TEXT, new Handler(this, callfuncD_selector(TutorialScreen::startGame)), -261);
+    
+    this->addChild(button);
+    
     //кнопку пойти играть против самое слабого бота
     // и текст мол ты ready
     
@@ -180,4 +186,13 @@ void TutorialScreen::setupTutorialEnd()
     
     // c права
         //Press "GO" to start a game against "Leutnant Gauis"
+}
+
+void TutorialScreen::startGame(CCObject* pSender)
+{
+    Player* player = new Player("PLAYER", hexGreen);
+	Player* computer = new Player("LIEUTENANT", hexRed);
+    computer->setAI(new RandomAI(computer));
+    
+    Game::current().starNewGame(player, computer);
 }

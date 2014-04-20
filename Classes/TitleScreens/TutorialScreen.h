@@ -22,4 +22,6 @@ private:
     void setupTutorialMove();
     void setupTutorialGenerator();
     void setupTutorialEnd();
+    
+    void startGame(cocos2d::CCObject* pSender);
 };

@@ -11,19 +11,25 @@ void NeutralsHelper::addNeutrals(Player* player, TroopsGenerator::Type type, siz
 
 void NeutralsHelper::addNeutrals(Player* player, Player* player2, TroopsGenerator::Type type, size_t x, size_t y)
 {
-	Hexagon* hex = Game::current().getBoard()->at(x, y);
+    const int troopsCount = TroopsGenerator::getTroopsForType(type) * NEURALS_FACTOR;
+    addNeutrals(player, player2, type, troopsCount, x, y);
+}
+
+void NeutralsHelper::addNeutrals(Player* player, Player* player2, TroopsGenerator::Type type, int troopsCount, size_t x, size_t y)
+{
+    Hexagon* hex = Game::current().getBoard()->at(x, y);
 	if((!hex) || hex->getOwner()) return;
-
+    
 	Hexagon* sym_hex = getSymmetricHexagon(hex);
-
+    
 	hex->changeOwner(player);
 	sym_hex->changeOwner(player2);
-
+    
 	hex->setAddon(new TroopsGenerator(hex, type));
 	sym_hex->setAddon(new TroopsGenerator(sym_hex, type));
-
-	hex->addTroops(TroopsGenerator::getTroopsForType(type) * NEURALS_FACTOR);
-	sym_hex->addTroops(TroopsGenerator::getTroopsForType(type) * NEURALS_FACTOR);
+    
+	hex->addTroops(troopsCount);
+	sym_hex->addTroops(troopsCount);
 }
 
 void NeutralsHelper::addNeutrals(Player* player, AmoutIncreaser::Type type, size_t x, size_t y)
