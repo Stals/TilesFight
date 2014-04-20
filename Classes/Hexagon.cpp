@@ -209,14 +209,8 @@ const Addon* Hexagon::getAddon() const
 
 void Hexagon::runScaleAction()
 {
-    if(!scaleAction1){
-    
-        scaleAction1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 0.30f, 0.30f), 2.f);
-        scaleAction2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 0.25f, 0.25f), 2.f);
-        
-        scaleAction1->retain();
-        scaleAction2->retain();
-    }
+    scaleAction1 = CCEaseInOut::create(CCScaleTo::create(0.1f, 0.30f, 0.30f), 2.f);
+    scaleAction2 = CCEaseInOut::create(CCScaleTo::create(0.5f, 0.25f, 0.25f), 2.f);
     
 	CCSequence* seq = CCSequence::create(scaleAction1, scaleAction2, NULL);
 	this->runAction(seq);
