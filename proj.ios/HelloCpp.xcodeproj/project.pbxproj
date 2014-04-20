@@ -220,6 +220,7 @@
 		D4FBA95818FDBCC50071DDBF /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA95418FDBCC50071DDBF /* Default-Portrait@2x.png */; };
 		D4FBA95B18FDBD010071DDBF /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA95A18FDBD010071DDBF /* Default-Portrait.png */; };
 		D4FBA95E190055C60071DDBF /* Shakable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA95D190055C60071DDBF /* Shakable.cpp */; };
+		D4FBA96319041BB90071DDBF /* TutorialScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA96119041BB90071DDBF /* TutorialScreen.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -572,6 +573,8 @@
 		D4FBA95A18FDBD010071DDBF /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
 		D4FBA95C190054F20071DDBF /* Shakable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shakable.h; sourceTree = "<group>"; };
 		D4FBA95D190055C60071DDBF /* Shakable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shakable.cpp; sourceTree = "<group>"; };
+		D4FBA96119041BB90071DDBF /* TutorialScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TutorialScreen.cpp; sourceTree = "<group>"; };
+		D4FBA96219041BB90071DDBF /* TutorialScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialScreen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1116,6 +1119,8 @@
 		D42C788718CDE35100FE4EDB /* TitleScreens */ = {
 			isa = PBXGroup;
 			children = (
+				D4FBA96119041BB90071DDBF /* TutorialScreen.cpp */,
+				D4FBA96219041BB90071DDBF /* TutorialScreen.h */,
 				D4FBA8EA18F02E480071DDBF /* SettingsScreen.cpp */,
 				D4FBA8EB18F02E480071DDBF /* SettingsScreen.h */,
 				D42C78A018CF9A2400FE4EDB /* TBAScreen.cpp */,
@@ -1506,6 +1511,7 @@
 				D4FBA92618F995650071DDBF /* GameCenter.mm in Sources */,
 				5255A0A0170E458F0079C316 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				D42C784518B5365F00FE4EDB /* PauseLayer.cpp in Sources */,
+				D4FBA96319041BB90071DDBF /* TutorialScreen.cpp in Sources */,
 				D42C77E018AFD11700FE4EDB /* HexArray.cpp in Sources */,
 				5255A0A1170E458F0079C316 /* b2PolygonAndCircleContact.cpp in Sources */,
 				5255A0A2170E458F0079C316 /* b2PolygonContact.cpp in Sources */,

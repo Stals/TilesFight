@@ -11,8 +11,8 @@
 #include "TBAScreen.h"
 #include "SettingsScreen.h"
 #include "CreditsScreen.h"
+#include "TutorialScreen.h"
 #include "GameCenter.h"
-
 
 TitleScreen::~TitleScreen()
 {
@@ -104,6 +104,7 @@ void TitleScreen::setupButtons()
 void TitleScreen::setupClippingSprite()
 {
     expandingLayer = new ExpandingLayer;
+    expandingLayer->setToggleHandler(new Handler(this, callfuncD_selector(TitleScreen::onCollapsed)));
     this->addChild(expandingLayer, zCippingSprite);
 }
 
@@ -111,18 +112,21 @@ void TitleScreen::vsAIChosen(CCObject* pSender)
 {
     expandingLayer->setContainer(new VsAIScreen);
     expandingLayer->expand();
+    setButtonsEnabled(false);
 }
 
 void TitleScreen::vsHumanChosen(CCObject* pSender)
 {
     expandingLayer->setContainer(new VsHumanScreen);
     expandingLayer->expand();
+    setButtonsEnabled(false);
 }
 
 void TitleScreen::tutorialChosen(CCObject* pSender)
 {
-    expandingLayer->setContainer(new TBAScreen);
+    expandingLayer->setContainer(new TutorialScreen);
     expandingLayer->expand();
+    setButtonsEnabled(false);
 }
 
 void TitleScreen::gamecenterChosen(CCObject* pSender)
@@ -137,10 +141,31 @@ void TitleScreen::settingsChosen(CCObject* pSender)
 {
     expandingLayer->setContainer(new SettingsScreen);
     expandingLayer->expand();
+    setButtonsEnabled(false);
 }
 
 void TitleScreen::creditsChosen(CCObject* pSender)
 {
     expandingLayer->setContainer(new CreditsScreen);
     expandingLayer->expand();
+    setButtonsEnabled(false);
+}
+
+void TitleScreen::setButtonsEnabled(bool enabled)
+{
+    CCArray* childred = this->getChildren();
+    
+    for(int i = 0; i < childred->count(); i++)
+    {
+        cocos2d::CCObject *child = childred->objectAtIndex(i);
+        Button* b = dynamic_cast<Button*>(child);
+        if(b != 0) {
+            b->setEnabled(enabled);
+        }
+    }
+}
+
+void TitleScreen::onCollapsed(void* data)
+{
+    setButtonsEnabled(true);
 }

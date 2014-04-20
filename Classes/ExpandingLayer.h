@@ -2,10 +2,12 @@
 
 #include "cocos2d.h"
 #include "clippingSprite.h"
+#include "../lib/cocos/gui/Handler.h"
 
 class ExpandingLayer : public cocos2d::CCLayer{
 public:
     ExpandingLayer();
+    virtual ~ExpandingLayer();
     
     void expand();
     void collapse();
@@ -18,6 +20,8 @@ public:
     virtual void onEnter();
 	virtual void onExit();
     
+    void setToggleHandler(Handler* handler);
+    
 private:
     enum State{
         Expanding,
@@ -29,6 +33,8 @@ private:
     cocos2d::CCSprite* bg;
     
     cocos2d::CCNode* container;
+    
+    Handler* handler;
     
     void setupClippingSprite();
     

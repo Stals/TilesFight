@@ -32,5 +32,7 @@ private:
 	void settingsChosen(CCObject* pSender);
 	void creditsChosen(CCObject* pSender);
 
-
+    void setButtonsEnabled(bool enabled);
+    
+    void onCollapsed(void* data);
 };

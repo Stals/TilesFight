@@ -12,7 +12,7 @@
 #define PXL_PER_TICK 14.f
 #define LINE_WIDTH 6.f
 
-ExpandingLayer::ExpandingLayer(): currentState(Idle), container(NULL)
+ExpandingLayer::ExpandingLayer(): currentState(Idle), container(NULL), handler(0)
 {
     CCLayer::init();
     this->autorelease();
@@ -22,6 +22,10 @@ ExpandingLayer::ExpandingLayer(): currentState(Idle), container(NULL)
     setupClippingSprite();
 }
 
+ExpandingLayer::~ExpandingLayer()
+{
+    if(handler) delete handler;
+}
 
 void ExpandingLayer::setupClippingSprite()
 {
@@ -77,6 +81,8 @@ void ExpandingLayer::update(float dt)
         clippingSprite->setClippingRegion(CCRectMake(-winSize.width/2, -rect.height/2, winSize.width, rect.height));
         
         if(rect.height == 0){
+            // call that its collapsed
+            if(handler) handler->call();
             currentState = Idle;
             
             if(container){
@@ -134,10 +140,10 @@ bool ExpandingLayer::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
 
     if(!rect.containsPoint( this->convertTouchToNodeSpace(pTouch))){
         collapse();
+        return true;
     }
     
-    return true;
-//   return false;
+    return false;
 }
 
 void ExpandingLayer::onEnter(){
@@ -149,3 +155,7 @@ void ExpandingLayer::onExit(){
     CCLayer::onExit();
 }
 
+void ExpandingLayer::setToggleHandler(Handler* handler)
+{
+    this->handler = handler;
+}
