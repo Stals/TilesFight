@@ -7,4 +7,5 @@ public:
     EmptyScreen();
 
     static float getHeight();
+    static float getWidth();
 };

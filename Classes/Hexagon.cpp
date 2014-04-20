@@ -157,9 +157,7 @@ void Hexagon::setSelected(bool selected)
 	if(!getOwner()) return;
 
 	if(!selection){
-		selection = CCSprite::create(IMG("hex_glow3.png"));
-		selection->setPosition(ccp((getTextureRect().size.width / 2)  , (getTextureRect().size.height / 2)  ));
-		this->addChild(selection, zSelectionGlow);
+        setupSelection();
 	}
 
 	this->selected = selected;
@@ -168,7 +166,13 @@ void Hexagon::setSelected(bool selected)
     for(std::list<Army*>::iterator it = armies.begin(); it != armies.end(); ++it){
         (*it)->setSelected(selected);
     }
-    
+}
+
+void Hexagon::setupSelection()
+{
+    selection = CCSprite::create(IMG("hex_glow3.png"));
+    selection->setPosition(ccp((getTextureRect().size.width / 2)  , (getTextureRect().size.height / 2)  ));
+    this->addChild(selection, zSelectionGlow);
 }
 
 void Hexagon::toggleSelected()

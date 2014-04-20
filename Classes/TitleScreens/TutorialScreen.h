@@ -11,6 +11,11 @@ public:
 private:
     Board* board;
     
+    cocos2d::CCLabelTTF* labelLeft;
+    cocos2d::CCLabelTTF* labelRight;
+    
+    void setupLabels();
+    
     void setupBoard();
     void setupStep(int stepNum);
 

@@ -90,6 +90,8 @@ private:
 
 	void setupTroopsLabel();
     void updateTroopsLabel();
+    
+    void setupSelection();
 
 	bool containsPoint(cocos2d::CCPoint point);
 
@@ -99,5 +101,4 @@ private:
     void allArmiesToTroops();
     void removeAllArmies();
 
-    
 };

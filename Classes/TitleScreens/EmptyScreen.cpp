@@ -41,3 +41,8 @@ float EmptyScreen::getHeight()
 {
     return BG_HEIGHT;
 }
+
+float EmptyScreen::getWidth()
+{
+    return CCDirector::sharedDirector()->getWinSize().width;
+}
