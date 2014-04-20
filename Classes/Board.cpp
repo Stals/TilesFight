@@ -223,6 +223,9 @@ void Board::draw(){
     glLineWidth(3.0f);
     for(std::map<Player*, LinesData>::iterator it = lines.begin(); it != lines.end(); ++it){
         Player* player = it->first;
+        if(player->isAI()) {
+            continue;
+        }
         ccColor3B playerColor = player->getColor();
         cocos2d::ccDrawColor4B(playerColor.r, playerColor.g, playerColor.b, 255);
         
