@@ -3,13 +3,18 @@
 #include "EmptyScreen.h"
 
 class Board;
+class Player;
 
 class TutorialScreen : public EmptyScreen{
 public:
     TutorialScreen();
-
+    virtual ~TutorialScreen();
 private:
     Board* board;
+    int currentStep;
+    
+    Player* player;
+    Player* computer;
     
     cocos2d::CCLabelTTF* labelLeft;
     cocos2d::CCLabelTTF* labelRight;
@@ -24,4 +29,7 @@ private:
     void setupTutorialEnd();
     
     void startGame(cocos2d::CCObject* pSender);
+    
+    void checkStepComplete(float dt);
+    void onPlayerLost(CCObject* obj);
 };

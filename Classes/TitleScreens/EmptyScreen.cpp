@@ -37,6 +37,11 @@ EmptyScreen::EmptyScreen(){
     this->addChild(bg3);
 }
 
+EmptyScreen::~EmptyScreen()
+{
+    
+}
+
 float EmptyScreen::getHeight()
 {
     return BG_HEIGHT;

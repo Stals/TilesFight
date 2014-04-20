@@ -25,19 +25,23 @@
 #define BUTTON_PRIORITY -261
 
 #define HEX_SIZE 64.f //80?
+#define CHECK_DELAY 0.3f
 
-
-TutorialScreen::TutorialScreen()
+TutorialScreen::TutorialScreen(): board(0), currentStep(0)
 {
     setTouchEnabled(true);
     setupLabels();
     
-    // for fast presintation
-    static int step = -1;
-    if(step < 2){
-        ++step;
-    }
-    setupStep(step);
+    setupStep(0);
+    
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(TutorialScreen::onPlayerLost), PLAYER_LOOSE_MGS.c_str(), NULL);
+
+    this->schedule(schedule_selector(TutorialScreen::checkStepComplete), CHECK_DELAY, kCCRepeatForever, CHECK_DELAY);
+}
+
+TutorialScreen::~TutorialScreen()
+{
+    CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, PLAYER_LOOSE_MGS.c_str());
 }
 
 void TutorialScreen::setupBoard()
@@ -76,6 +80,11 @@ void TutorialScreen::setupLabels()
 
 void TutorialScreen::setupStep(int stepNum)
 {
+    if(board){
+        board->removeFromParentAndCleanup(true);
+    }
+    
+    currentStep = stepNum;
     switch (stepNum) {
         case 0:
             setupBoard();
@@ -112,9 +121,12 @@ void TutorialScreen::setupTutorialMove()
     labelLeft->setString("you control the GREEN sector.\nto start\njust move your armies to the highlighted one");
     labelRight->setString("TO MOVE\ntap on the green sector and without releasing\nmove it to the destination");
     
-    Player* player = new Player("PLAYER", hexGreen);
-    Player* computer = new Player("AI", hexRed);
+    player = new Player("PLAYER", hexGreen);
+    computer = new Player("AI", hexRed);
     computer->setAI(new NoAI(computer));
+    
+    Game::current().addPlayer(player);
+    Game::current().addPlayer(computer);
     
     Hexagon* hex = board->at(3, 2);
     hex->changeOwner(player);
@@ -145,9 +157,12 @@ void TutorialScreen::setupTutorialGenerator()
     labelLeft->setString("WELL DONE!\nnow you will need to capture gray generators to have more armies and capture opponents sector.");
     labelRight->setString("GENERATORS are sectors with a star, or  ,or   they generate armies with different speed");
     
-    Player* player = new Player("PLAYER", hexGreen);
-    Player* computer = new Player("AI", hexRed);
+    player = new Player("PLAYER", hexGreen);
+    computer = new Player("AI", hexRed);
     computer->setAI(new NoAI(computer));
+    Game::current().addPlayer(player);
+    Game::current().addPlayer(computer);
+    
     NeutralsHelper::addNeutrals(player, computer, TroopsGenerator::Small, 2, 2);
     
     Player* neutral = Player::createNeutral();
@@ -190,9 +205,28 @@ void TutorialScreen::setupTutorialEnd()
 
 void TutorialScreen::startGame(CCObject* pSender)
 {
-    Player* player = new Player("PLAYER", hexGreen);
-	Player* computer = new Player("LIEUTENANT", hexRed);
+    player = new Player("PLAYER", hexGreen);
+	computer = new Player("LIEUTENANT", hexRed);
     computer->setAI(new RandomAI(computer));
     
     Game::current().starNewGame(player, computer);
+}
+
+
+void TutorialScreen::checkStepComplete(float dt){
+    if(currentStep == 0){
+        if(computer->getControlledHexagons().empty()){
+            cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(PLAYER_LOOSE_MGS.c_str(), computer);
+        }
+    }
+    
+    if(currentStep == 1){
+        Game::current().checkEndGame();
+    }
+}
+
+void TutorialScreen::onPlayerLost(CCObject* obj)
+{
+    Game::current().clearPlayers();
+    setupStep(++currentStep);
 }
