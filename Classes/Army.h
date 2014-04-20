@@ -28,7 +28,4 @@ private:
     int troopsCount;
     Hexagon* destination;
     bool selected;
-    
-    
-    int timesFreedDebug;
 };

@@ -16,9 +16,7 @@ currentHex(hex), troopsCount(troopsCount), destination(destination), selected(se
 {
     CCSprite::init();
     autorelease();
-    
-    timesFreedDebug = 0;
-    
+        
     this->schedule(schedule_selector(Army::move), MOVE_DELAY);
 }
 
