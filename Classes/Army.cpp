@@ -14,13 +14,16 @@
 Army::Army(Hexagon* hex, int troopsCount, Hexagon* destination, bool selected):
 currentHex(hex), troopsCount(troopsCount), destination(destination), selected(selected)
 {
-	CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(Army::move), this, MOVE_DELAY,false);
-    retain();
+    CCSprite::init();
+    autorelease();
+    
+    timesFreedDebug = 0;
+    
+    this->schedule(schedule_selector(Army::move), MOVE_DELAY);
 }
 
 Army::~Army()
 {
-    CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(Army::move), this);
 }
 
 Hexagon* Army::getCurrentHex()
@@ -72,4 +75,9 @@ void Army::move(float dt)
     if(nextHex)
         TroopsMover::moveTroops(this, nextHex);
     
+}
+
+void Army::free()
+{
+    removeFromParentAndCleanup(true);
 }

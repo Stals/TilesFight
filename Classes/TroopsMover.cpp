@@ -37,7 +37,7 @@ void TroopsMover::moveTroops(Army* army, Hexagon* endHex)
     startHex->removeArmy(army);
     
     if(troops == 0){
-        delete army;
+        army->free();
         return;
     }
     
@@ -116,11 +116,12 @@ void TroopsMover::handleAttackResult(AttackResult result, Army* army, Hexagon* s
     if(result == Draw){
         endHex->removeTroops(troops);
         //endHex->changeOwner(0); // TODO NoPlayer вместо 0?
-        delete army;
+        army->free();//delete army;
+        
         
     }else if(result == DefenderWins){
         endHex->removeTroops(troops);
-        delete army;
+        army->free();//delete army;
         
     }else if(result == AttackerWins){
         
@@ -132,7 +133,7 @@ void TroopsMover::handleAttackResult(AttackResult result, Army* army, Hexagon* s
         if(army->getTroopsCount() > 0){
             endHex->addArmy(army);
         }else{
-            delete army;
+            army->free();//delete army;
         }
     }
 }

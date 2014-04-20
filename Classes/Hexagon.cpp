@@ -2,6 +2,7 @@
 #include "../lib/utils/StringExtension.h"
 #include "Addons/TroopsGenerator.h"
 #include "Army.h"
+#include "Game.h"
 
 #define DOUBLE_TAP_MAX_TIME 0.35f // sec
 
@@ -258,6 +259,7 @@ Army* Hexagon::createArmy(Hexagon* destination)
     removeTroops(troops);
 
     Army *newArmy = new Army(this, troops, destination, selected);
+    Game::current().getBoard()->addChild(newArmy);
     armies.push_back(newArmy);
 
     return newArmy;
@@ -280,7 +282,7 @@ void Hexagon::addArmy(Army *army)
     
     if(this == army->getDestination()){
         addTroops(army->getTroopsCount());
-        delete army;
+        army->free();
         
     }else{
         army->setCurrentHex(this);
@@ -293,7 +295,7 @@ void Hexagon::allArmiesToTroops()
 {
     while(!armies.empty()){
         troopsCount += armies.back()->getTroopsCount();
-        delete armies.back();
+        armies.back()->free();
         armies.pop_back();
     }
 }
@@ -302,7 +304,7 @@ void Hexagon::allArmiesToTroops()
 void Hexagon::removeAllArmies()
 {
     while(!armies.empty()){
-        delete armies.back();
+        armies.back()->free();
         armies.pop_back();
     }
 }

@@ -3,7 +3,7 @@
 #include "Point.h"
 #include "Hexagon.h"
 
-class Army : public cocos2d::CCObject{
+class Army : public cocos2d::CCSprite{
 public:
     Army(Hexagon* hex, int troopsCount, Hexagon* destination, bool selected = false);
     ~Army();
@@ -21,9 +21,14 @@ public:
     void setSelected(bool selected);
     bool isSelected();
     
+    void free();
+    
 private:
     Hexagon* currentHex;
     int troopsCount;
     Hexagon* destination;
     bool selected;
+    
+    
+    int timesFreedDebug;
 };
