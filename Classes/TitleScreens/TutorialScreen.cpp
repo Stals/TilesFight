@@ -71,8 +71,28 @@ void TutorialScreen::setupStep(int stepNum)
 {
     setupBoard();
     
+    switch (stepNum) {
+        case 0:
+            setupTutorialMove();
+            break;
+            
+        case 1:
+            setupTutorialGenerator();
+            break;
+            
+        case 2:
+            setupTutorialEnd();
+            break;
+            
+        default:
+            setupTutorialMove();
+    }
+    
     if(stepNum == 0){
         setupTutorialMove();
+    }
+    else if(stepNum == 1){
+        setupTutorialGenerator();
     }
 }
 
@@ -93,18 +113,18 @@ void TutorialScreen::setupStep(int stepNum)
 
 void TutorialScreen::setupTutorialMove()
 {
-    labelLeft->setString("you control the green sector. to start just move your armies to the highlighted sector");
-    labelRight->setString("to move\ntap on the green sector and without releasing\nmove it onto the highlited sector");
+    labelLeft->setString("you control the green sector.\nto start\njust move your armies to the highlighted one");
+    labelRight->setString("to move\ntap on the green sector and without releasing\nmove it to the destination");
     
     Player* player = new Player("PLAYER", hexGreen);
     Player* computer = new Player("AI", hexRed);
     computer->setAI(new NoAI(computer));
     
-    Hexagon* hex = board->at(2, 2);
+    Hexagon* hex = board->at(3, 2);
     hex->changeOwner(player);
     hex->addTroops(10);
     
-    Hexagon* selected = board->at(board->getWidth(1) - 2, 2);
+    Hexagon* selected = board->at(board->getWidth(1) - 3, 2);
     selected->changeOwner(computer);
     selected->setColor(hexDefault);
     selected->setOpacity(127);
