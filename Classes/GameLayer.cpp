@@ -104,14 +104,18 @@ void GameLayer::setupPause()
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
     CCSprite* buttonImage = CCSprite::create(IMG("pause.png"));
-    CCMenuItemSprite* button = CCMenuItemSprite::create(buttonImage, buttonImage, buttonImage,
+    CCSprite* buttonImagePressed = CCSprite::create(IMG("pause.png"));
+    buttonImagePressed->setOpacity(127);
+    
+    CCMenuItemSprite* button = CCMenuItemSprite::create(buttonImage, buttonImagePressed, buttonImage,
                                                         this, menu_selector(GameLayer::onPauseButtonPressed));
 
     CCMenu* menu = CCMenu::create(button, NULL);
     this->addChild(menu, zPause);
     
     const float padding = 3;
-    menu->setPosition(ccp(button->getContentSize().width + padding, winSize.height - button->getContentSize().height - padding));
+    const float yPadding = 64;
+    menu->setPosition(ccp(button->getContentSize().width + padding, winSize.height - button->getContentSize().height - padding - yPadding));
     
 }
 
