@@ -3,6 +3,7 @@
 #include "cocos2d.h"
 #include "clippingSprite.h"
 #include "../lib/cocos/gui/Handler.h"
+#include "TitleScreens/EmptyScreen.h"
 
 class ExpandingLayer : public cocos2d::CCLayer{
 public:
@@ -13,7 +14,7 @@ public:
     void collapse();
     
     // добавляется на background
-    void setContainer(cocos2d::CCNode* container);
+    void setContainer(EmptyScreen* container);
     
     virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
     
@@ -32,7 +33,7 @@ private:
     ClippingSprite* clippingSprite;
     cocos2d::CCSprite* bg;
     
-    cocos2d::CCNode* container;
+    EmptyScreen* container;
     
     Handler* handler;
     

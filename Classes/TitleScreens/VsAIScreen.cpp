@@ -116,3 +116,8 @@ void VsAIScreen::onChangedColor(ColorPicker* picker, int index)
 {
     User::current()->setVSAIColor(index);
 }
+
+float VsAIScreen::getHeight()
+{
+    return EmptyScreen::getHeight() + 100;
+}

@@ -7,6 +7,6 @@ public:
     EmptyScreen();
     virtual ~EmptyScreen();
 
-    static float getHeight();
-    static float getWidth();
+    virtual float getHeight();
+    virtual float getWidth();
 };

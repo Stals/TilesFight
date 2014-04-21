@@ -9,6 +9,9 @@ public:
     VsAIScreen();
 
     virtual void onChangedColor(ColorPicker* picker, int index);
+    
+    virtual float getHeight();
+    
 private:
     void setupColorPicker();
     void setupLabels();

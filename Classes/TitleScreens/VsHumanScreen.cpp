@@ -83,3 +83,8 @@ void VsHumanScreen::onChangedColor(ColorPicker* picker, int index)
         User::current()->setVSHumanColor2(index);
     }
 }
+
+float VsHumanScreen::getHeight()
+{
+    return EmptyScreen::getHeight() + 100;
+}

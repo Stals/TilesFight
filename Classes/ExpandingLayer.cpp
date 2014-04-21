@@ -1,16 +1,17 @@
 #include "ExpandingLayer.h"
 
 #include "Constants.h"
-#include "TitleScreens/EmptyScreen.h"
+
 #include "EffectPlayer.h"
 
-#define BG_HEIGHT EmptyScreen::getHeight()
+//#define BG_HEIGHT EmptyScreen::getHeight()
 
 #define EXPAND_TIME 2.f
 #define COLLAPSE_TIME EXPAND_TIME
 
-#define PXL_PER_TICK 14.f
+#define PXL_PER_TICK (int)((container->getHeight() / 21.428f) + 0.5f);
 #define LINE_WIDTH 6.f
+
 
 ExpandingLayer::ExpandingLayer(): currentState(Idle), container(NULL), handler(0)
 {
@@ -34,7 +35,7 @@ void ExpandingLayer::setupClippingSprite()
     bg = CCSprite::create(IMG("pixel.png"));
     bg->setColor(ccc3(0, 0, 0));
     bg->setScaleX(winSize.width);
-    bg->setScaleY(BG_HEIGHT);
+    bg->setScaleY(300 + 100);
     
     clippingSprite = new ClippingSprite;
     clippingSprite->setClippingRegion(CCRectMake(-winSize.width/2, 0, winSize.width, 0));
@@ -65,11 +66,11 @@ void ExpandingLayer::update(float dt)
     
     if(currentState == Expanding){
         rect.height += PXL_PER_TICK;
-        if(rect.height > BG_HEIGHT) rect.height = BG_HEIGHT;
+        if(rect.height > container->getHeight()) rect.height = container->getHeight();
         
         clippingSprite->setClippingRegion(CCRectMake(-winSize.width/2, -rect.height/2, winSize.width, rect.height));
         
-        if(rect.height == BG_HEIGHT){
+        if(rect.height == container->getHeight()){
             currentState = Idle;
         }
         
@@ -93,7 +94,7 @@ void ExpandingLayer::update(float dt)
     }
 }
 
-void ExpandingLayer::setContainer(CCNode* cont)
+void ExpandingLayer::setContainer(EmptyScreen* cont)
 {
     if(container){
         container->removeFromParentAndCleanup(true);
