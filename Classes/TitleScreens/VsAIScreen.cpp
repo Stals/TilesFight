@@ -119,5 +119,5 @@ void VsAIScreen::onChangedColor(ColorPicker* picker, int index)
 
 float VsAIScreen::getHeight()
 {
-    return EmptyScreen::getHeight() + 50;
+    return EmptyScreen::getHeight();
 }

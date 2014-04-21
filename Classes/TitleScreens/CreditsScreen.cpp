@@ -134,3 +134,8 @@ void CreditsScreen::openURL(void* data)
         WebUtils::openURL(url);
     }
 }
+
+float CreditsScreen::getHeight()
+{
+    return EmptyScreen::getHeight();
+}

@@ -10,6 +10,8 @@ class CreditsScreen : public EmptyScreen
 public:
     CreditsScreen();
     
+    virtual float getHeight();
+    
 private:
     void setupCredits();
     

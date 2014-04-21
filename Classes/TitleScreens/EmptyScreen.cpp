@@ -9,7 +9,7 @@
 #include "EmptyScreen.h"
 #include "Constants.h"
 
-#define BG_HEIGHT 300
+#define BG_HEIGHT 350
 
 using namespace cocos2d;
 

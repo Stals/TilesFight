@@ -99,5 +99,5 @@ void VsHumanScreen::onChangedColor(ColorPicker* picker, int index)
 
 float VsHumanScreen::getHeight()
 {
-    return EmptyScreen::getHeight() + 50;
+    return EmptyScreen::getHeight();
 }
