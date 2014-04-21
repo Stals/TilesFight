@@ -13,7 +13,7 @@
 #include "../User.h"
 
 #define FONT_SIZE 24.f
-#define PADDING -5.f
+#define PADDING 10.f
 #define BUTTON_TEXT "GO!"
 
 VsHumanScreen::VsHumanScreen()
@@ -46,18 +46,31 @@ void VsHumanScreen::setupColorPickers()
 
 void VsHumanScreen::setupLabels()
 {
+    setupPlayerLabels();
+    setupChooseColorsLabel();
+}
+
+void VsHumanScreen::setupPlayerLabels()
+{
     CCLabelTTF* label1 = CCLabelTTF::create("PLAYER 1", default_font.c_str(), FONT_SIZE);
     CCLabelTTF* label2 = CCLabelTTF::create("PLAYER 2", default_font.c_str(), FONT_SIZE);
-   
+    
     this->addChild(label1);
     this->addChild(label2);
     
     label1->setPosition(ccp(picker1->getPositionX(),
-                            picker1->getPositionY() + picker1->getContentSize().height/2 + PADDING));
+                            picker1->getPositionY() - picker1->getContentSize().height/2 - PADDING));
     
     label2->setPosition(ccp(picker2->getPositionX(),
-                            picker2->getPositionY() + picker2->getContentSize().height/2 + PADDING));
+                            picker2->getPositionY() - picker2->getContentSize().height/2 - PADDING));
+}
+
+void VsHumanScreen::setupChooseColorsLabel()
+{
+    CCLabelTTF* label = CCLabelTTF::create("CHOOSE YOUR COLORS", default_font.c_str(), FONT_SIZE);
     
+    this->addChild(label);
+    label->setPositionY(picker1->getPositionY() + picker1->getContentSize().height/2 + PADDING);
 }
 
 void VsHumanScreen::setupButton()
@@ -86,5 +99,5 @@ void VsHumanScreen::onChangedColor(ColorPicker* picker, int index)
 
 float VsHumanScreen::getHeight()
 {
-    return EmptyScreen::getHeight() + 100;
+    return EmptyScreen::getHeight() + 50;
 }

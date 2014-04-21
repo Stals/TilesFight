@@ -15,7 +15,7 @@
 #include "../User.h"
 
 #define FONT_SIZE 24.f
-#define PADDING -5.f
+#define PADDING 10.f
 #define BUTTON_TEXT "GO!"
 
 #define BUTTON_PRIORITY -261
@@ -40,8 +40,8 @@ void VsAIScreen::setupColorPicker()
 
 void VsAIScreen::setupLabels()
 {
-    CCLabelTTF* label1 = CCLabelTTF::create("PLAYER", default_font.c_str(), FONT_SIZE);
-    CCLabelTTF* label2 = CCLabelTTF::create("AI", default_font.c_str(), FONT_SIZE);
+    CCLabelTTF* label1 = CCLabelTTF::create("CHOOSE COLOR", default_font.c_str(), FONT_SIZE);
+    CCLabelTTF* label2 = CCLabelTTF::create("CHOOSE OPPONENT", default_font.c_str(), FONT_SIZE);
     
     this->addChild(label1);
     this->addChild(label2);
@@ -119,5 +119,5 @@ void VsAIScreen::onChangedColor(ColorPicker* picker, int index)
 
 float VsAIScreen::getHeight()
 {
-    return EmptyScreen::getHeight() + 100;
+    return EmptyScreen::getHeight() + 50;
 }

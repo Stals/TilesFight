@@ -17,6 +17,9 @@ private:
     void setupLabels();
     void setupButton();
     
+    void setupPlayerLabels();
+    void setupChooseColorsLabel();
+    
     ColorPicker* picker1;
     ColorPicker* picker2;
     
