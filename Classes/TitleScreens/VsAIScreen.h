@@ -2,8 +2,9 @@
 
 #include "EmptyScreen.h"
 #include "../ColorPicker.h"
+#include "../Difficulty.h"
 
-
+class AbstractAI;
 class VsAIScreen : public EmptyScreen, public ColorPickerDelegate{
 public:
     VsAIScreen();
@@ -23,4 +24,8 @@ private:
     ColorPicker* picker;
     
     void startGame(cocos2d::CCObject* pSender);
+    void onEnemySelected(void* data);
+    
+    AbstractAI* getAIForDifficulty(Difficulty::Type difficulty, Player* computer);
+    ccColor3B getAIColor(Difficulty::Type difficulty, ccColor3B playerColor);
 };

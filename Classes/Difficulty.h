@@ -3,7 +3,7 @@
 
 struct Difficulty{
     enum Type{
-        Easy,
+        Easy = 0,
         Normal,
         Hard,
         VeryHard,

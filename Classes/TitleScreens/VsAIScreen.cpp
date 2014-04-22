@@ -20,6 +20,15 @@
 
 #define BUTTON_PRIORITY -261
 
+const char* titles[] = {"LIEUTENANT", "COMMANDER", "CAPTAIN", "ADMIRAL", "FLEET ADMIRAL"};
+const char* names[] = {"GAIUS", "SHEPARD", "ALEXANDER", "HEX", "ENDER"};
+
+
+bool operator==(const ccColor3B& color1, const ccColor3B& color2){
+    return (color1.r == color2.r) &&
+    (color1.g == color2.g) &&
+    (color1.b == color2.b);
+}
 
 VsAIScreen::VsAIScreen()
 {
@@ -62,11 +71,11 @@ void VsAIScreen::setupButton()
 
 void VsAIScreen::startGame(CCObject* pSender)
 {
-    Player* player = new Player("PLAYER", picker->getSelectedColor());
+   /* Player* player = new Player("PLAYER", picker->getSelectedColor());
 	Player* computer = new Player("COMMANDER", hexLightBlue); // TODO use AI name instead of just AI
     computer->setAI(new ExpansionAI(computer));
     
-    Game::current().starNewGame(player, computer);
+    Game::current().starNewGame(player, computer);*/
 }
 
 cocos2d::CCSprite* VsAIScreen::enemiesSprite()
@@ -75,11 +84,11 @@ cocos2d::CCSprite* VsAIScreen::enemiesSprite()
     
     // create array here because else it crashes om compiling shaders for some odd reason
     AIButton* enemies[] = {
-        new AIButton("LIEUTENANT", "GAIUS", Difficulty::Easy, 0, BUTTON_PRIORITY),
-        new AIButton("COMMANDER", "SHEPARD", Difficulty::Normal, 0, BUTTON_PRIORITY),
-        new AIButton("CAPTAIN", "ALEXANDER", Difficulty::Hard, 0, BUTTON_PRIORITY),
-        new AIButton("ADMIRAL", "HEX", Difficulty::VeryHard, 0, BUTTON_PRIORITY),
-        new AIButton("FLEET ADMIRAL", "ENDER", Difficulty::Impossible, 0, BUTTON_PRIORITY)
+        new AIButton(titles[0], names[0], Difficulty::Easy, new Handler(this, callfuncD_selector(VsAIScreen::onEnemySelected), (void*)Difficulty::Easy), BUTTON_PRIORITY),
+        new AIButton(titles[1], names[1], Difficulty::Normal, new Handler(this, callfuncD_selector(VsAIScreen::onEnemySelected), (void*)Difficulty::Normal), BUTTON_PRIORITY),
+        new AIButton(titles[2], names[2], Difficulty::Hard, new Handler(this, callfuncD_selector(VsAIScreen::onEnemySelected), (void*)Difficulty::Hard), BUTTON_PRIORITY),
+        new AIButton(titles[3], names[3], Difficulty::VeryHard, new Handler(this, callfuncD_selector(VsAIScreen::onEnemySelected), (void*)Difficulty::VeryHard), BUTTON_PRIORITY),
+        new AIButton(titles[4], names[4], Difficulty::Impossible, new Handler(this, callfuncD_selector(VsAIScreen::onEnemySelected), (void*)Difficulty::Impossible), BUTTON_PRIORITY)
     };
     
     sprite->addChild(enemies[0]);
@@ -125,3 +134,36 @@ float VsAIScreen::getHeight()
 {
     return EmptyScreen::getHeight();
 }
+
+void VsAIScreen::onEnemySelected(void *data)
+{
+    Difficulty::Type selectedDifficulty = (Difficulty::Type)((int)data);
+
+    Player* player = new Player("PLAYER", picker->getSelectedColor());
+	Player* computer = new Player(titles[selectedDifficulty], getAIColor(selectedDifficulty, player->getColor()));
+    computer->setAI(getAIForDifficulty(selectedDifficulty, computer));
+    
+    Game::current().starNewGame(player, computer);
+}
+
+AbstractAI* VsAIScreen::getAIForDifficulty(Difficulty::Type difficulty, Player* computer)
+{
+    return new ExpansionAI(computer);
+}
+
+ccColor3B VsAIScreen::getAIColor(Difficulty::Type difficulty, ccColor3B playerColor)
+{
+    ccColor3B enemyColor = Difficulty::getDifficultyColor(difficulty);
+    
+    if(enemyColor == playerColor){
+        
+        if(!(playerColor == hexOrange)){
+            enemyColor = hexOrange;
+        }else{
+            enemyColor = hexLightBlue;
+        }
+    }
+    
+    return enemyColor;
+}
+
