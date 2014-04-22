@@ -25,7 +25,7 @@ VsAIScreen::VsAIScreen()
 {
     setupColorPicker();
     setupLabels();
-    setupButton();
+    //setupButton();
     setupEnemies();
 }
 
@@ -41,7 +41,7 @@ void VsAIScreen::setupColorPicker()
 void VsAIScreen::setupLabels()
 {
     CCLabelTTF* label1 = CCLabelTTF::create("CHOOSE COLOR", default_font.c_str(), FONT_SIZE);
-    CCLabelTTF* label2 = CCLabelTTF::create("CHOOSE OPPONENT", default_font.c_str(), FONT_SIZE);
+    CCLabelTTF* label2 = CCLabelTTF::create("CHOOSE DIFFICULTY", default_font.c_str(), FONT_SIZE);
     
     this->addChild(label1);
     this->addChild(label2);
@@ -86,20 +86,24 @@ cocos2d::CCSprite* VsAIScreen::enemiesSprite()
     sprite->addChild(enemies[1]);
     sprite->addChild(enemies[2]);
     sprite->addChild(enemies[3]);
+    sprite->addChild(enemies[4]);
     
     enemies[0]->setPositionY(50);
-    enemies[2]->setPositionY(-50);
-    
     enemies[1]->setPositionY(50);
-    enemies[3]->setPositionY(-50);
+    
+    enemies[2]->setPositionY(-30);
+    enemies[3]->setPositionY(-30);
+
+    enemies[4]->setPositionY(-110);
     
     
-    enemies[0]->setPositionX(170);
-    enemies[2]->setPositionX(170);
+    enemies[0]->setPositionX(180);
+    enemies[2]->setPositionX(180);
     
-    enemies[1]->setPositionX(370);
-    enemies[3]->setPositionX(370);
+    enemies[1]->setPositionX(360);
+    enemies[3]->setPositionX(360);
     
+    enemies[4]->setPositionX(this->getContentSize().width/4);
     
     return sprite;
 }

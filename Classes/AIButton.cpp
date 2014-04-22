@@ -3,7 +3,11 @@
 #include "Constants.h"
 using namespace cocos2d;
 
-#define PADDING 25
+#define PADDING 16
+
+#define FONT_DIFFICULTY 14
+#define FONT_NAME 14
+#define FONT_RANK 14
 
 AIButton::AIButton(const std::string& rank, const std::string& name, Difficulty::Type difficulty, Handler* handler, int priority)
 {
@@ -19,6 +23,7 @@ CCSprite* AIButton::getInactive()
     CCSprite* sprite = CCSprite::create();
     
     CCSprite* glow = CCSprite::create(IMG("glow_dark.png"));
+    glow->setVisible(false);
     
     sprite->addChild(glow);
     CCSize contentSize = glow->getContentSize();
@@ -50,7 +55,8 @@ CCSprite* AIButton::getActive()
 {
     CCSprite* sprite = CCSprite::create();
     
-    CCSprite* glow = CCSprite::create(IMG("glow.png"));
+    CCSprite* glow = CCSprite::create(IMG("glow_dark.png"));
+    //glow->setVisible(false);
     
     sprite->addChild(glow);
     CCSize contentSize = glow->getContentSize();
@@ -81,17 +87,17 @@ CCSprite* AIButton::getActive()
 
 cocos2d::CCLabelTTF* AIButton::createRank(const std::string& rank)
 {
-    return CCLabelTTF::create(rank.c_str(), default_font.c_str(), 16);
+    return CCLabelTTF::create(rank.c_str(), default_font.c_str(), FONT_RANK);
 }
 
 cocos2d::CCLabelTTF* AIButton::createName(const std::string& name)
 {
-    return CCLabelTTF::create(name.c_str(), default_font.c_str(), 16);
+    return CCLabelTTF::create(name.c_str(), default_font.c_str(), FONT_NAME);
 }
 
 cocos2d::CCLabelTTF* AIButton::createDifficulty(Difficulty::Type difficulty)
 {
-    CCLabelTTF* label = CCLabelTTF::create(Difficulty::getDifficultyText(difficulty).c_str() , default_font.c_str(), 16);
+    CCLabelTTF* label = CCLabelTTF::create(Difficulty::getDifficultyText(difficulty).c_str() , default_font.c_str(), FONT_DIFFICULTY);
     label->setColor(Difficulty::getDifficultyColor(difficulty));
     return label;
 }

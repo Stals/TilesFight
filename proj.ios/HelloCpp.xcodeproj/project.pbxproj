@@ -510,8 +510,8 @@
 		D4FBA63C18E350EF0071DDBF /* pew2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew2.wav; path = sound/pew2.wav; sourceTree = "<group>"; };
 		D4FBA63D18E350EF0071DDBF /* pew3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew3.wav; path = sound/pew3.wav; sourceTree = "<group>"; };
 		D4FBA63E18E350EF0071DDBF /* pew4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pew4.wav; path = sound/pew4.wav; sourceTree = "<group>"; };
-		D4FBA64518E354DA0071DDBF /* AIButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIButton.cpp; sourceTree = "<group>"; };
-		D4FBA64618E354DA0071DDBF /* AIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIButton.h; sourceTree = "<group>"; };
+		D4FBA64518E354DA0071DDBF /* AIButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIButton.cpp; path = ../AIButton.cpp; sourceTree = "<group>"; };
+		D4FBA64618E354DA0071DDBF /* AIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIButton.h; path = ../AIButton.h; sourceTree = "<group>"; };
 		D4FBA64818E356FA0071DDBF /* Difficulty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Difficulty.cpp; sourceTree = "<group>"; };
 		D4FBA64918E356FA0071DDBF /* Difficulty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Difficulty.h; sourceTree = "<group>"; };
 		D4FBA8D818EDD40F0071DDBF /* glow_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow_dark.png; sourceTree = "<group>"; };
@@ -918,8 +918,6 @@
 				D42C78A518D4787A00FE4EDB /* MusicPlayer.h */,
 				D497452918D7724A009C922C /* EffectPlayer.cpp */,
 				D497452A18D7724A009C922C /* EffectPlayer.h */,
-				D4FBA64518E354DA0071DDBF /* AIButton.cpp */,
-				D4FBA64618E354DA0071DDBF /* AIButton.h */,
 				D4FBA64818E356FA0071DDBF /* Difficulty.cpp */,
 				D4FBA64918E356FA0071DDBF /* Difficulty.h */,
 				D4FBA90518F181D80071DDBF /* User.cpp */,
@@ -1127,6 +1125,8 @@
 				D42C78A118CF9A2400FE4EDB /* TBAScreen.h */,
 				D42C788818CDE36C00FE4EDB /* VsAIScreen.cpp */,
 				D42C788918CDE36C00FE4EDB /* VsAIScreen.h */,
+				D4FBA64518E354DA0071DDBF /* AIButton.cpp */,
+				D4FBA64618E354DA0071DDBF /* AIButton.h */,
 				D42C788B18CDE37A00FE4EDB /* VsHumanScreen.cpp */,
 				D42C788C18CDE37A00FE4EDB /* VsHumanScreen.h */,
 				D42C788E18CDE3A200FE4EDB /* EmptyScreen.cpp */,
