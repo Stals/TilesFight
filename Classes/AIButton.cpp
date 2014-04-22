@@ -26,13 +26,14 @@ CCSprite* AIButton::getInactive()
     glow->setVisible(false);
     
     sprite->addChild(glow);
-    CCSize contentSize = glow->getContentSize();
-    sprite->setContentSize(contentSize);
-
     
     cocos2d::CCLabelTTF* rankLabel = createRank(rank);
     cocos2d::CCLabelTTF* nameLabel = createName(name);
     cocos2d::CCLabelTTF* difficultyLabel = createDifficulty(difficulty);
+    
+    float maxWidth = std::max(std::max(rankLabel->getContentSize().width, nameLabel->getContentSize().width), difficultyLabel->getContentSize().width);
+    CCSize contentSize = CCSizeMake(maxWidth, FONT_DIFFICULTY + FONT_NAME + FONT_RANK);
+    sprite->setContentSize(contentSize);
     
     glow->setPositionY(contentSize.height/2 + 10);
     rankLabel->setPositionY(contentSize.height/2 + PADDING);
@@ -59,13 +60,15 @@ CCSprite* AIButton::getActive()
     //glow->setVisible(false);
     
     sprite->addChild(glow);
-    CCSize contentSize = glow->getContentSize();
-    sprite->setContentSize(contentSize);
-    
+
     
     cocos2d::CCLabelTTF* rankLabel = createRank(rank);
     cocos2d::CCLabelTTF* nameLabel = createName(name);
     cocos2d::CCLabelTTF* difficultyLabel = createDifficulty(difficulty);
+    
+    float maxWidth = std::max(std::max(rankLabel->getContentSize().width, nameLabel->getContentSize().width), difficultyLabel->getContentSize().width);
+    CCSize contentSize = CCSizeMake(maxWidth, FONT_DIFFICULTY + FONT_NAME + FONT_RANK);
+    sprite->setContentSize(contentSize);
     
     glow->setPositionY(contentSize.height/2 + 10);
     rankLabel->setPositionY(contentSize.height/2 + PADDING);
