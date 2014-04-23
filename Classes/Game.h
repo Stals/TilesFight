@@ -45,6 +45,10 @@ public:
     
     Screen getCurrentScreen();
     void setCurrentScreen(Screen screen);
+    
+    void addArmy(Army* army);
+    void removeArmy(Army* army);
+    const std::list<Army*>& getArmies();
 
 private:
 	Game();
@@ -61,4 +65,6 @@ private:
     
     Screen currentScreen;
     Game::Type currentGameType;
+    
+    std::list<Army*> armies;
 };

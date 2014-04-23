@@ -136,4 +136,19 @@ void Game::setCurrentScreen(Screen screen)
     currentScreen = screen;
 }
 
+void Game::addArmy(Army* army)
+{
+    armies.push_back(army);
+}
+
+void Game::removeArmy(Army* army)
+{
+    armies.remove(army);
+}
+
+const std::list<Army*>& Game::getArmies()
+{
+    return armies;
+}
+
 

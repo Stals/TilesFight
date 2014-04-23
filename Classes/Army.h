@@ -23,9 +23,13 @@ public:
     
     void free();
     
+    const std::list<Hexagon*>& getCurrentPath();
+    
 private:
     Hexagon* currentHex;
     int troopsCount;
     Hexagon* destination;
     bool selected;
+    
+    std::list<Hexagon*> currentPath;
 };

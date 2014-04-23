@@ -123,7 +123,7 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
     
     // add lines for drawing
     
-    clearLines();
+    /*clearLines();
     CCTouch* touch = ((CCTouch*)*pTouches->begin());
     std::vector<Player*> players = Game::current().getPlayers();
 
@@ -139,7 +139,7 @@ void Board::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
             
             addLine(owner, startHex->getPosition());
         }
-    }
+    }*/
 }
 
 void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
@@ -220,7 +220,7 @@ void Board::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 
 void Board::draw(){
     //glEnable(GL_LINE_SMOOTH);
-    glLineWidth(3.0f);
+    /*glLineWidth(3.0f);
     for(std::map<Player*, LinesData>::iterator it = lines.begin(); it != lines.end(); ++it){
         Player* player = it->first;
         if(player->isAI()) {
@@ -237,6 +237,34 @@ void Board::draw(){
         
         if(!linesData.starts.empty()){
             cocos2d::ccDrawCircle(linesData.end, 6, CC_DEGREES_TO_RADIANS(360), 60, false, 1, 1);
+        }
+    }*/
+    
+    glLineWidth(5.0f);
+    
+    const std::list<Army*>& armies = Game::current().getArmies();
+    
+    std::list<Army*>::const_iterator armyEnd = armies.end();
+    std::list<Army*>::const_iterator armyIt = armies.begin();
+    for(; armyIt != armyEnd; ++armyIt){
+    
+        const std::list<Hexagon*>& path = (*armyIt)->getCurrentPath();
+        
+        if(!path.empty()){
+            ccColor3B playerColor = path.front()->getOwner()->getColor();
+            cocos2d::ccDrawColor4B(playerColor.r, playerColor.g, playerColor.b, 255);
+            
+        }else{
+            continue;
+        }
+    
+        std::list<Hexagon*>::const_iterator hexEnd = path.end();
+        std::list<Hexagon*>::const_iterator hexPrev = path.begin();
+        std::list<Hexagon*>::const_iterator hexIt = ++path.begin();
+    
+        for(; hexIt != hexEnd; ++hexIt){
+            cocos2d::ccDrawLine((*hexPrev)->getPosition(), (*hexIt)->getPosition());
+            hexPrev = hexIt;
         }
     }
 }

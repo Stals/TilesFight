@@ -18,6 +18,8 @@ currentHex(hex), troopsCount(troopsCount), destination(destination), selected(se
     autorelease();
         
     this->schedule(schedule_selector(Army::move), MOVE_DELAY);
+    
+    Game::current().addArmy(this);
 }
 
 Army::~Army()
@@ -65,9 +67,9 @@ void Army::move(float dt)
     if(currentHex == destination){
         nextHex = currentHex;
     }else{
-        std::list<Hexagon*> path = Game::current().getBoard()->getPath(currentHex, destination);
-        if(!path.empty())
-            nextHex = path.front();
+        currentPath = Game::current().getBoard()->getPath(currentHex, destination);
+        if(!currentPath.empty())
+            nextHex = currentPath.front();
     }
     
     if(nextHex)
@@ -77,5 +79,11 @@ void Army::move(float dt)
 
 void Army::free()
 {
+    Game::current().removeArmy(this);
     removeFromParentAndCleanup(true);
+}
+
+const std::list<Hexagon*>& Army::getCurrentPath()
+{
+    return currentPath;
 }
