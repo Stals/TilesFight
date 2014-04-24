@@ -17,6 +17,7 @@
 #include "../NeutralsHelper.h"
 #include "../NeutralsSpawner.h"
 #include "../ai/RandomAI.h"
+#include "../achievements/AchievementCounter.h"
 
 #define FONT_SIZE 16.f
 #define PADDING -5.f
