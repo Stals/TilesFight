@@ -33,6 +33,7 @@
 	<Achievement Counter="total_control" Value="1" id="com.stals.admiral.total_control" /> <!-- controll all sectors in game-->
 	<Achievement Counter="control_neutrals" Value="1" id="com.stals.admiral.control_neutrals" /> <!-- controll every generator in game -->
 	<Achievement Counter="small_tie" Value="1" id="com.stals.admiral.small_tie" /> <!-- tie with army of opponent 5 on 5 for example -->
+	<Achievement Counter="complete_tutorial" Value="1" id="com.stals.admiral.complete_tutorial" />
 
 	<!-- for beting AIs -->
 	<Achievement Counter="lieutenant" Value="1" id="com.stals.admiral.lieutenant" />

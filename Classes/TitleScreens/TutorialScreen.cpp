@@ -187,6 +187,8 @@ void TutorialScreen::setupTutorialGenerator()
 
 void TutorialScreen::setupTutorialEnd()
 {
+    CounterContainer::current()->incrementCounter("complete_tutorial");
+    
     labelLeft->setString("NICE!\nyou are ready to challange the REAL opponent.");
     labelRight->setString("press \"GO\" to start a game against \"LIEUTENANT GAIUS\"");
     
