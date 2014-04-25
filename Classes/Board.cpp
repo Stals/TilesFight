@@ -90,6 +90,7 @@ void Board::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                         hex->setSelected(true);
                         EffectPlayer::playSelectionEffect();
                         hex->tapped();
+                        
                     }
 					break;
                     
@@ -163,6 +164,7 @@ void Board::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		if(startHex && startHex->getOwner() && (startHex->getOwner()->isHexagonsSelectable())){
             selectedHexagons = startHex->getOwner()->getSelectedHexagons();
             startHex->getOwner()->deselectAllHexagons();
+            
         }else{
             continue;
         }

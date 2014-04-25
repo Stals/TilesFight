@@ -39,12 +39,11 @@ public:
     
     std::list<Hexagon*> getPath(Hexagon* start, Hexagon* end);
 
-
-
 	int getWidth(size_t row);
 	int getHeight();
     
-    
+    void getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex);
+
 private:
     enum zOrder{
         zPath,
@@ -58,8 +57,6 @@ private:
 
 	void initBoard();
     void setupPaths();
-
-	void getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex);	
 	
     virtual void ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent);
