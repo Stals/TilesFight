@@ -7,6 +7,7 @@
 #include "HexArray.h"
 #include "TroopsMover.h"
 
+class PathsLayer;
 
 struct LinesData{
     //LinesData(){}
@@ -45,11 +46,18 @@ public:
     
     
 private:
+    enum zOrder{
+        zPath,
+        zHexagon
+    };
+    
 	int width, height;
 	HexArray2D hexArray2D;
     std::map<Player*, LinesData> lines;
+    PathsLayer* pathsLayer;
 
 	void initBoard();
+    void setupPaths();
 
 	void getStartEndHex(CCTouch* touch, Hexagon*& startHex, Hexagon*& endHex);	
 	
@@ -57,9 +65,7 @@ private:
     virtual void ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);
     virtual void ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent);
-    
-    virtual void draw();
-    
+        
     void addLine(Player* player, const CCPoint &start);
     void clearLines();
     void setEndPoint(Player* player, const CCPoint& endPoint);

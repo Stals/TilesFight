@@ -221,6 +221,7 @@
 		D4FBA95B18FDBD010071DDBF /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FBA95A18FDBD010071DDBF /* Default-Portrait.png */; };
 		D4FBA95E190055C60071DDBF /* Shakable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA95D190055C60071DDBF /* Shakable.cpp */; };
 		D4FBA96319041BB90071DDBF /* TutorialScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA96119041BB90071DDBF /* TutorialScreen.cpp */; };
+		D4FBA966190ADC4C0071DDBF /* PathsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA964190ADC4C0071DDBF /* PathsLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -575,6 +576,8 @@
 		D4FBA95D190055C60071DDBF /* Shakable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shakable.cpp; sourceTree = "<group>"; };
 		D4FBA96119041BB90071DDBF /* TutorialScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TutorialScreen.cpp; sourceTree = "<group>"; };
 		D4FBA96219041BB90071DDBF /* TutorialScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialScreen.h; sourceTree = "<group>"; };
+		D4FBA964190ADC4C0071DDBF /* PathsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathsLayer.cpp; sourceTree = "<group>"; };
+		D4FBA965190ADC4C0071DDBF /* PathsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathsLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -924,6 +927,8 @@
 				D4FBA90618F181D80071DDBF /* User.h */,
 				D4FBA95C190054F20071DDBF /* Shakable.h */,
 				D4FBA95D190055C60071DDBF /* Shakable.cpp */,
+				D4FBA964190ADC4C0071DDBF /* PathsLayer.cpp */,
+				D4FBA965190ADC4C0071DDBF /* PathsLayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1430,6 +1435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4FBA966190ADC4C0071DDBF /* PathsLayer.cpp in Sources */,
 				BF365AA812A103F70050DCF4 /* AppController.mm in Sources */,
 				BF4DE6AD138BB89600CF907D /* RootViewController.mm in Sources */,
 				D42C77E218AFD11700FE4EDB /* NeutralsSpawner.cpp in Sources */,
