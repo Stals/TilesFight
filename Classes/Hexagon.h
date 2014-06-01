@@ -60,6 +60,8 @@ public:
     // вызывается Board чтобы определить когда произешел double tap по одному hexagon'у
     void tapped();
 
+    CCSprite* getAddonIcon();
+    
 private:
 	enum zOrder{
 		zSelectionGlow,

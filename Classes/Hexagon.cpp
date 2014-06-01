@@ -380,3 +380,10 @@ void Hexagon::tapped()
     
     lastTapTime = currentTime;
 }
+
+CCSprite* Hexagon::getAddonIcon()
+{
+    return addonIcon;
+}
+
+

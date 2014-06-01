@@ -1,7 +1,7 @@
 #include "TroopsGenerator.h"
 
 #include "Hexagon.h"
-
+#include "AnimationUtils.h"
 
 TroopsGenerator::TroopsGenerator(Hexagon* hex, TroopsGenerator::Type type):Addon(hex, Addon::Generator), generatorIcon(0), troopsPerTick(0)
 {
@@ -60,5 +60,7 @@ void TroopsGenerator::tick(float dt)
         
         const float maxScale = 1.1;//1 + 3 * (( 1 / dt ) / 10);
 		hex->runScaleLabelAction(maxScale);
+        
+        AnimationUtils::playBlinkAnimation(hex->getAddonIcon());
 	}
 }
