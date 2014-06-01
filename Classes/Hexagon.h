@@ -78,7 +78,7 @@ private:
 	CCSprite *selection;
 
 	CCLabelTTF* troopsLabel;
-    CCNode* addonIcon;
+    CCSprite* addonIcon;
 	Addon* addon;
     
     CCEaseInOut* scaleAction1;
@@ -100,5 +100,7 @@ private:
     // переводит все армии находящиеся на этом секторе в стационарные troops
     void allArmiesToTroops();
     void removeAllArmies();
+    
+    void updateAddonColor();
 
 };

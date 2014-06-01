@@ -21,7 +21,7 @@ int AmoutIncreaser::getAdditionalAmout()
     return additionalAmount;
 }
 
-CCNode* AmoutIncreaser::getIcon()
+CCSprite* AmoutIncreaser::getIcon()
 {
     return CCLabelTTF::create(std::string("+").append(StringExtension::toString(additionalAmount)).c_str(), "Arial", 55);
 }

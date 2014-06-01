@@ -15,7 +15,7 @@ public:
     
     Addon(Hexagon* hex, Addon::Type type);
     
-    virtual CCNode* getIcon() = 0;
+    virtual CCSprite* getIcon() = 0;
     
     Addon::Type getType() const;
     

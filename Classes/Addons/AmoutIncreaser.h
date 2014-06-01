@@ -16,7 +16,7 @@ public:
     AmoutIncreaser(Hexagon* hex, AmoutIncreaser::Type type);
     
     int getAdditionalAmout();
-    virtual CCNode* getIcon();
+    virtual CCSprite* getIcon();
 
 private:
     int additionalAmount;

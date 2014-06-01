@@ -17,7 +17,7 @@ public:
 	TroopsGenerator(Hexagon* hex, TroopsGenerator::Type type);
 	~TroopsGenerator(void);
 	
-	virtual CCNode* getIcon();
+	virtual CCSprite* getIcon();
 
 	int getTroopsPerTick();
 	// ‚ÓÁ‚‡˘‡ÂÚ ÒÍÓÎ¸ÍÓ ‰‡ÂÚÒˇ Á‡ ÚËÍ ‰Îˇ ÓÔÂ‰ÂÎÂÌÌÓ„Ó ÚËÔ‡ „ÂÌÂ‡ÚÓ‡

@@ -9,7 +9,7 @@
 Hexagon::Hexagon(size_t x_coord, size_t y_coord): 
 	x_coord(x_coord), y_coord(y_coord), owner(0), troopsCount(0), 
 	selected(false), selection(0), addon(0), scaleAction1(0), scaleAction2(0),
-    lastTapTime(0)
+    lastTapTime(0), addonIcon(0)
 {
 	initWithFile(IMG("hex3.png"));
 	setColor(hexDefault);
@@ -135,6 +135,7 @@ void Hexagon::setOwner(Player* owner)
 		setColor(hexDefault);
 		setOpacity(50);
 	}
+    updateAddonColor();
 }
 
 
@@ -189,6 +190,30 @@ bool Hexagon::isSelectable()
     return false;
 }
 
+ccColor3B lighten(ccColor3B inColor, double inAmount)
+{
+    return ccc3(std::min(255.0, inColor.r + 255 * inAmount),
+                std::min(255.0, inColor.g + 255 * inAmount),
+                std::min(255.0, inColor.b + 255 * inAmount));
+    
+}
+
+void Hexagon::updateAddonColor()
+{
+    if(!addonIcon) return;
+    
+    ccColor3B color;
+    
+    if(getOwner()){
+        color = getOwner()->getColor();
+    }else{
+        color = hexGray;
+    }
+    
+    const float change = 0.5;
+    addonIcon->setColor(lighten(color, change));
+}
+
 void Hexagon::setAddon(Addon* addon)
 {
 	this->addon = addon;
@@ -199,7 +224,11 @@ void Hexagon::setAddon(Addon* addon)
 	addonIcon->setPosition(ccp((getTextureRect().size.width)  / 2, (getTextureRect().size.height) / 1.35f));
 	this->addChild(addonIcon, zGenIcon);
 	this->addChild(addon);
+    updateAddonColor();
 }
+
+
+
 
 bool Hexagon::hasAddon() const
 {
